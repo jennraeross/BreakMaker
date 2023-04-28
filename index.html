@@ -19,7 +19,21 @@
 
         <main class="container">
             <article id="bioForm">
-                <header>Basic Info</header>
+                <header>
+                    <nav>
+                        <ul>
+                            <li>
+                                <i class="fa-solid fa-address-card fa-xl"></i>
+                            </li>
+                            <li>
+                                <hgroup>
+                                    <h4>Basic Info</h4>
+                                    <h5>Tell us about yourself</h5>
+                                </hgroup>
+                            </li>
+                        </ul>
+                    </nav>
+                </header>
                 <form>
                     <label>
                         Name
@@ -94,7 +108,19 @@
 
             <article id="equipment">
                 <header>
-                    Equipment
+                    <nav>
+                        <ul>
+                            <li>
+                                <i class="fa-solid fa-toolbox fa-xl"></i>
+                            </li>
+                            <li>
+                                <hgroup>
+                                    <h4>Equipment</h4>
+                                    <h5>What gear does your character use?</h5>
+                                </hgroup>
+                            </li>
+                        </ul>
+                    </nav>
                 </header>
                 <form>
                     <label>
@@ -113,7 +139,21 @@
             </article>
 
             <article id="traitsForm">
-                <header>Stat Traits</header>
+                <header>
+                    <nav>
+                        <ul>
+                            <li>
+                                <i class="fa-solid fa-guage fa-xl"></i>
+                            </li>
+                            <li>
+                                <hgroup>
+                                    <h4>Stat Traits</h4>
+                                    <h5>What are your strengths and weaknesses?</h5>
+                                </hgroup>
+                            </li>
+                        </ul>
+                    </nav>
+                </header>
                 <form>
                     <div class="grid">
                         <label>
@@ -154,7 +194,19 @@
 
             
             <article v-if="getLevel >= 2" id="electivesForm">
-                <header>Elective Abilities</header>
+                <header>
+                    <nav>
+                        <ul>
+                            <li><i class="fa-solid fa-check-to-slot fa-xl"></i></li>
+                            <li>
+                                <hgroup>
+                                    <h4>Elective Abilities</h4>
+                                    <h5>You'll gain more of these as you level up</h5>
+                                </hgroup>
+                            </li>
+                        </ul>
+                    </nav>
+                </header>
                 <label>
                     Level 2
                     <select v-model="elective2">
@@ -192,12 +244,22 @@
 
             <article>
                 <header>Character Sheet</header>
-
+                
+                
                 <div id="bio">
-                    <hgroup>
-                        <h4>{{characterName}}</h4>
-                        <h5>{{callingSelected}} {{getLevel}}</h5>
-                    </hgroup>
+                    <nav>
+                        <ul>
+                            <li>
+                                <i class="fa-solid fa-address-card fa-xl"></i>
+                            </li>
+                            <li>
+                                <hgroup>
+                                    <h4>{{characterName}}</h4>
+                                    <h5>{{callingSelected}} {{getLevel}}</h5>
+                                </hgroup>
+                            </li>
+                        </ul>
+                    </nav>
                     <div class="grid">
                         <hgroup>
                             <h6>{{speciesSelected}}</h6>
@@ -217,7 +279,17 @@
                         </hgroup>
                     </div>
                     <hr>
-                    <h6>Languages</h6>
+                    <nav>
+                        <ul>
+                            <li><i class="fa-solid fa-language fa-xl"></i></li>
+                            <li>
+                                <hgroup>
+                                    <h6>Languages</h6>
+                                    <span>Determines who you can communicate with</span>
+                                </hgroup>
+                            </li>
+                        </ul>
+                    </nav>
                     <ul>
                         <template v-for="language in languages">
                             <li v-if="language.known">{{language.name}}</li>
@@ -225,14 +297,29 @@
                     </ul>
                     <hr>
                     <div class="grid">
-                        <hgroup>
-                            <h6>{{weaponSelected}}</h6>
-                            <span>Weapon</span>
-                        </hgroup>
-                        <hgroup>
-                            <h6>{{armorSelected}}</h6>
-                            <span>Armor</span>
-                        </hgroup>
+                        <nav>
+                            <ul>
+                                <li><i class="fa-solid fa-gun fa-xl"></i></li>
+                                <li>
+                                    <hgroup>
+                                        <h6>{{weaponSelected}}</h6>
+                                        <span>Weapon</span>
+                                    </hgroup>
+                                </li>
+                            </ul>
+                        </nav>
+                        
+                        <nav>
+                            <ul>
+                                <li><i class="fa-solid fa-shield fa-xl"></i></li>
+                                <li>
+                                    <hgroup>
+                                        <h6>{{armorSelected}}</h6>
+                                        <span>Armor</span>
+                                    </hgroup>
+                                </li>
+                            </ul>
+                        </nav>
                     </div>
                 </div>
 
@@ -300,7 +387,7 @@
                     <nav>
                         <ul>
                             <li>
-                                <i class="fa-solid fa-hand-fist fa-xl"></i>
+                                <i class="fa-solid fa-shield-halved fa-xl"></i>
                             </li>
                             <li>
                                 <hgroup>
@@ -324,7 +411,7 @@
                     <nav>
                         <ul>
                             <li>
-                                <i class="fa-solid fa-hand-fist fa-xl"></i>
+                                <i class="fa-solid fa-person-running fa-xl"></i>
                             </li>
                             <li>
                                 <hgroup>
@@ -497,10 +584,18 @@
                 <hr>
                 <hr>
                 <div id="callingFeatures" v-if="callingSelected">
-                    <hgroup>
-                        <h4>Class Abilities</h4>
-                        <h5>{{callingSelected}}</h5>
-                    </hgroup>
+                    <nav>
+                        <ul>
+                            <li><i class="fa-solid fa-check-to-slot fa-xl"></i></li>
+                            <li>
+                                <hgroup>
+                                    <h4>Class Abilities</h4>
+                                    <h5>{{callingSelected}}</h5>
+                                </hgroup>
+                            </li>
+                        </ul>
+                    </nav>
+                    
 
                     <details open>
                         <summary>Heart's Blade</summary>
@@ -538,10 +633,20 @@
                 </div>
                 <hr>
                 <div id="allegiance">
-                    <hgroup>
-                        <h4>Allegiance</h4>
-                        <h5>How closely associated you are with the Dark or the Light</h5>
-                    </hgroup>
+                    <nav>
+                        <ul>
+                            <li>
+                                <i class="fa-solid fa-circle-half-stroke fa-xl"></i>
+                            </li>
+                            <li>
+                                <hgroup>
+                                    <h4>Allegiance</h4>
+                                    <h5>How closely associated you are with the Dark or the Light</h5>
+                                </hgroup>
+                            </li>
+                        </ul>
+                    </nav>
+                    
                     <div class="grid">
                         <label>
                             Bright Points
@@ -581,7 +686,7 @@
                         weaponSelected: null,
                         armorSelected: null,
                         xp: 0,
-                        characterName: null,
+                        characterName: "Choose a Name",
                         speciesSelected: null,
                         homelandSelected: null,
                         historySelected: null,

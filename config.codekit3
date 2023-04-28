@@ -9,6 +9,14 @@
   ],
   "creatorBuild" : "34484",
   "files" : {
+    "\/build\/.gitignore" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/build\/.gitignore",
+      "oF" : 0
+    },
     "\/css\/main.css" : {
       "aP" : 1,
       "bl" : 0,
@@ -51,6 +59,18 @@
       "oO" : 1,
       "oS" : 1
     },
+    "\/scss\/main-min.css" : {
+      "aP" : 1,
+      "bl" : 0,
+      "ci" : 0,
+      "co" : 0,
+      "ft" : 16,
+      "ma" : 0,
+      "oA" : 0,
+      "oAP" : "\/scss\/main-min-min.css",
+      "oF" : 0,
+      "pg" : 0
+    },
     "\/scss\/main.css" : {
       "aP" : 1,
       "bl" : 0,
@@ -64,8 +84,8 @@
       "pg" : 0
     },
     "\/scss\/main.scss" : {
-      "aP" : 0,
-      "bl" : 0,
+      "aP" : 1,
+      "bl" : 1,
       "co" : 0,
       "dP" : 10,
       "ec" : 1,

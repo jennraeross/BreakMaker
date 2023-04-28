@@ -582,56 +582,6 @@
                     </div>
                 </div>
                 <hr>
-                <hr>
-                <div id="callingFeatures" v-if="callingSelected">
-                    <nav>
-                        <ul>
-                            <li><i class="fa-solid fa-check-to-slot fa-xl"></i></li>
-                            <li>
-                                <hgroup>
-                                    <h4>Class Abilities</h4>
-                                    <h5>{{callingSelected}}</h5>
-                                </hgroup>
-                            </li>
-                        </ul>
-                    </nav>
-                    
-
-                    <details open>
-                        <summary>Heart's Blade</summary>
-                        <p>You can call forth a weapon forged from the wishes in your heart. These magically manifested weapons are of the finest quality and grow in power and possibility as you do.</p>
-                    </details>
-                    <details open>
-                        <summary>Shield of Love</summary>
-                        <p>Your compassion can manifest itself as a protective force for your allies. This might take the form of an iridescent aura or a heart-shaped crystal shield.</p>
-                    </details>
-                    <details open>
-                        <summary>Soul Companion</summary>
-                        <p>Just as your heart has the power to summon mighty weapons, so it can muster a loyal companion. This devoted sidekick never leaves your side and will even return, in due time, if struck down.</p>
-                    </details>
-                    <details v-if="getLevel >= 2">
-                        <summary>{{elective2}}</summary>
-                        <p>Coming Soon...</p>
-                    </details>
-                    <details v-if="getLevel >= 4">
-                        <summary>{{elective4}}</summary>
-                        <p>Coming Soon...</p>
-                    </details>
-                    <details v-if="getLevel >= 6">
-                        <summary>{{elective6}}</summary>
-                        <p>Coming Soon...</p>
-                    </details>
-                    <details v-if="getLevel >= 8">
-                        <summary>{{elective8}}</summary>
-                        <p>Coming Soon...</p>
-                    </details>
-                    <details v-if="getLevel >= 10">
-                        <summary>{{elective10}}</summary>
-                        <p>Coming Soon...</p>
-                    </details>
-
-                </div>
-                <hr>
                 <div id="allegiance">
                     <nav>
                         <ul>
@@ -664,6 +614,111 @@
                     <p v-if="brightPoints >= 3">Bright Gifts: {{Math.floor(brightPoints/3)}}</p>
                     <p v-if="darkPoints >= 3">Dark Gifts: {{Math.floor(darkPoints/3)}}</p>
                 </div>
+                <hr>
+                <hr>
+                <div id="callingFeaturesBattlePrincess" v-if="callingSelected == 'Battle Princess'">
+                    <nav>
+                        <ul>
+                            <li><i class="fa-solid fa-check-to-slot fa-xl"></i></li>
+                            <li>
+                                <hgroup>
+                                    <h4>Class Abilities</h4>
+                                    <h5>{{callingSelected}}</h5>
+                                </hgroup>
+                            </li>
+                        </ul>
+                    </nav>
+
+                    <template v-for="ability in callings.battlePrincess.classAbilities">
+                        <details open>
+                            <summary>{{ability.name}}</summary>
+                            <p>{{ability.description}}</p>
+                            <ul>
+                                <li v-for="mechanic in ability.mechanics">{{mechanic}}</li>
+                            </ul>
+                        </details>
+                    </template>
+                    <details open v-if="getLevel >= 2">
+                        <summary>{{elective2}}</summary>
+                        <template v-for="ability in callings.battlePrincess.standardAbilities">
+                            <p v-if="ability.name == elective2">{{ability.description}}</p>
+                            <ul>
+                                <li v-if="ability.name == elective2" v-for="mechanic in ability.mechanics">
+                                    {{mechanic}}
+                                </li>
+                            </ul>
+                        </template>
+                    </details>
+                    <details open v-if="getLevel >= 4">
+                        <summary>{{elective4}}</summary>
+                        <template v-for="ability in callings.battlePrincess.standardAbilities">
+                            <p v-if="ability.name == elective4">{{ability.description}}</p>
+                            <ul>
+                                <li v-if="ability.name == elective4" v-for="mechanic in ability.mechanics">
+                                    {{mechanic}}
+                                </li>
+                            </ul>
+                        </template>
+                    </details>
+                    <details open v-if="getLevel >= 6">
+                        <summary>{{elective6}}</summary>
+                        <template v-for="ability in callings.battlePrincess.standardAbilities">
+                            <p v-if="ability.name == elective6">{{ability.description}}</p>
+                            <ul>
+                                <li v-if="ability.name == elective6" v-for="mechanic in ability.mechanics">
+                                    {{mechanic}}
+                                </li>
+                            </ul>
+                        </template>
+                        <template v-for="ability in callings.battlePrincess.advancedAbilities">
+                            <p v-if="ability.name == elective6">{{ability.description}}</p>
+                            <ul>
+                                <li v-if="ability.name == elective6" v-for="mechanic in ability.mechanics">
+                                    {{mechanic}}
+                                </li>
+                            </ul>
+                        </template>
+                    </details>
+                    <details open v-if="getLevel >= 8">
+                        <summary>{{elective8}}</summary>
+                        <template v-for="ability in callings.battlePrincess.standardAbilities">
+                            <p v-if="ability.name == elective8">{{ability.description}}</p>
+                            <ul>
+                                <li v-if="ability.name == elective8" v-for="mechanic in ability.mechanics">
+                                    {{mechanic}}
+                                </li>
+                            </ul>
+                        </template>
+                        <template v-for="ability in callings.battlePrincess.advancedAbilities">
+                            <p v-if="ability.name == elective8">{{ability.description}}</p>
+                            <ul>
+                                <li v-if="ability.name == elective8" v-for="mechanic in ability.mechanics">
+                                    {{mechanic}}
+                                </li>
+                            </ul>
+                        </template>
+                    </details>
+                    <details open v-if="getLevel >= 10">
+                        <summary>{{elective10}}</summary>
+                        <template v-for="ability in callings.battlePrincess.standardAbilities">
+                            <p v-if="ability.name == elective10">{{ability.description}}</p>
+                            <ul>
+                                <li v-if="ability.name == elective10" v-for="mechanic in ability.mechanics">
+                                    {{mechanic}}
+                                </li>
+                            </ul>
+                        </template>
+                        <template v-for="ability in callings.battlePrincess.advancedAbilities">
+                            <p v-if="ability.name == elective10">{{ability.description}}</p>
+                            <ul>
+                                <li v-if="ability.name == elective10" v-for="mechanic in ability.mechanics">
+                                    {{mechanic}}
+                                </li>
+                            </ul>
+                        </template>
+                    </details>
+                </div>
+                
 
             </article>
         </main>
@@ -716,56 +771,242 @@
                                     [6, 7, 12, 12, 13, 11, 14],
                                     [7, 7, 12, 12, 13, 11, 14]
                                 ],
+                                classAbilities: {
+                                    heartsBlade: {
+                                        name: "Heart's Blade",
+                                        description: "You can call forth a weapon forged from the wishes in your heart. These magically manifested weapons are of the finest quality and grow in power and possibility as you do.",
+                                        mechanics: [
+                                            "Creating your Heart's Blade",
+                                            "Your Heart’s Blade grows in power as you rise in Rank. Add the new properties to your Heart’s Blade when you reach the required Rank.",
+                                            "Rank 1: Select your weapon’s primary form and what it is made of.",
+                                            "Choose a Weapon Type: Quick, Master, Mighty, Arc, Lash, Drawn or Mechanical Missile (􏰀 p152).",
+                                            "Choose a Magical Material: Sun Gold, Ash Bronze, or Sky Steel (􏰀 p289).",
+                                            "Rank 3: Your Heart’s Blade gains one of the following properties:",
+                                            "Glittering: +1 on Attack rolls.",
+                                            "Righteous: The weapon’s Extra Damage Threshold is reduced by 2 (􏰀 p152).",
+                                            "Sheltering: The weapon can Parry once per combat in the same manner as a Standard Shield (􏰀 169).",
+                                            "Rank 6: Your Heart’s Blade can now transform into a secondary form, pick from the Weapon Types listed above.",
+                                            "Your Heart’s Blade gains the Combination Weapon Ability allowing a hybrid weapon form (􏰀 p160).",
+                                            "----",
+                                            "Using your Heart's Blade",
+                                            "You can call this weapon into existence through force of will.",
+                                            "Melee Weapons are formed instantly and can be used on the same Turn they are called.",
+                                            "Drawn and Mechanical Missile weapons take a Turn to fully form and appear with 4 Units of ammunition included.",
+                                            "Your your Heart’s Blade (and any ammunition) will vanish instantly on command.",
+                                            "Only a single form of the Heart’s Blade may be summoned at any one time. Either the primary, secondary, or combination form.",
+                                            "If the weapon is Sundered or lost during combat, you can will it away and summon a new Blade."
+                                        ]
+                                    },
+                                    shieldOfLove: {
+                                        name: "Shield of Love",
+                                        description: "Your compassion can manifest itself as a protective force for your allies. This might take the form of an iridescent aura or a heart-shaped crystal shield.",
+                                        mechanics: [
+                                            "Once per Fight you bestow an ally, within your sight, a force field that can absorb 1 Heart of Damage; after which it is disappears.",
+                                            "You can perform this Ability in addition to any other Actions permitted on your Turn.",
+                                            "Rank 1: You can Shield 1 person.",
+                                            "Rank 4: You can Shield 2 people.",
+                                            "Rank 8: You can Shield 3 people.",
+                                            "If you can protect more that one person, you can allocate your Shields in one go, or as required."
+                                        ]
+                                    },
+                                    soulCompanion: {
+                                        name: "Soul Companion",
+                                        description: "Just as your heart has the power to summon mighty weapons, so it can muster a loyal companion. This devoted sidekick never leaves your side and will even return, in due time, if struck down.",
+                                        mechanics: [
+                                            "You begin your adventures with a magical Companion.",
+                                            "This Companion does not count against your normal allowance of Companions (􏰀 p183).",
+                                            "Create your Soul Companion following the steps listed at the end of this Calling. (􏰀 p47)."
+                                        ]
+                                    }
+                                },
                                 standardAbilities: {
                                     gemlight: {
-                                        name: "Gemlight"
+                                        name: "Gemlight",
+                                        description: "A glowing crystal, of your favorite color, forms on the back of your hand.",
+                                        mechanics: [
+                                            "You can make your hand gem glow at will. It provides light equivalent to a Torch (􏰀 p175).",
+                                            "You can use the gem to transfer a single Injury from a victim to yourself with a gentle touch."
+                                        ]
                                     },
                                     glitteringMachine: {
-                                        name: "Glittering Machine"
+                                        name: "Glittering Machine",
+                                        description: "When not in battle, you are able to channel your powers to summon a helpful tool or device, instead of your mighty Heart’s Blade.",
+                                        mechanics: [
+                                            "You can summon a tool made of the same Magical Material chosen for your Heart’s Blade.",
+                                            "Rank 1: You can summon any simple tool, such as a grappling hook or lock pick.",
+                                            "Rank 5: You can summon a simple Techno-Relic or Gadget you are familiar with. Unlike the real things, your glittering version does not require fuel or an additional power source to work.",
+                                            "The summoned tool remains, until:",
+                                            "You swap it for another tool. OR",
+                                            "You call for your Heart’s Blade. OR",
+                                            "You invoke Spirit Wings (􏰀 p45).",
+                                            "----",
+                                            "GAIN: 1 Bright Allegiance Point"
+                                        ]
                                     },
                                     loveLoveChef: {
-                                        name: "Love-Love Chef"
+                                        name: "Love-Love Chef",
+                                        description: "You’re a passionate cook, you pour your heart and soul into the food you make.",
+                                        mechanics: [
+                                            "You gain the Crafting Discipline Cooking (􏰀 p283).",
+                                            "For specific rules on creating items refer to Craft (􏰀 280).",
+                                            "You use Aura for Crafting rolls."
+                                        ]
                                     },
                                     compassionCure: {
-                                        name: "Compassion Cure"
+                                        name: "Compassion Cure",
+                                        description: "Your kind attention is so sincere that it can dispel ill effects: your hug can lift a dispirited companion, your tears can thaw a petrified ally.",
+                                        mechanics: [
+                                            "With a touch, you can attempt to remove a psychological, physical, or magical Ailment (􏰀 p268) from someone you care about.",
+                                            "Attempting this Ability during a Fight requires you to spend your Action.",
+                                            "Note: This Ability cannot be used for situational Ailments: Toppled, Restrained and Overburdened.",
+                                            "----",
+                                            "REQUIRES: An Aura Check",
+                                            "SUCCESS: The Ailment is removed",
+                                            "FAILURE: The Ailment remains, you cannot make any further attempts to cure it"
+                                        ]
                                     },
                                     passionsFire: {
-                                        name: "Passion's Fire"
+                                        name: "Passion's Fire",
+                                        description: "When you so desire, a brilliant flame flickers around your Heart’s Blade, making it all the more deadly.",
+                                        mechanics: [
+                                            "Blazing Desire: Your Heart’s Blade is ablaze and now does Flame Damage (􏰀 p259) instead of Normal Damage.",
+                                            "Yearning Embrace: After a successful Attack, the fire can be discharged to engulf your target to cause an additional Heart of Damage. This exhausts the Ability.",
+                                            "NOTE: Passion’s Fire can only be used once per Fight.",
+                                            "----",
+                                            "GAIN: 1 Bright Allegiance Point"
+                                        ]
                                     },
                                     cryOfTheHeart: {
-                                        name: "Cry of the Heart"
+                                        name: "Cry of the Heart",
+                                        description: "A strange sort of empathic magic allows you to understand what lies in the hearts of all those you speak to.",
+                                        mechanics: [
+                                            "You can target this Ability on anyone you have spoken to for a few moments.",
+                                            "After this time you are able to discern the primary emotional motivation that is driving their current actions and discourse (love, greed, fear, etc.)",
+                                            "If applicable, information gleaned from this Ability can used as an Influencing Factor (􏰀 p241) when Negotiating with the individual in the future.",
+                                            "This Ability is mostly inconspicuous, although you may appear to be staring uncomfortably deep into your target’s eyes.",
+                                            "----",
+                                            "GAIN: 1 Bright Allegiance Point"
+                                        ]
                                     },
                                     battleDance: {
-                                        name: "Battle Dance"
+                                        name: "Battle Dance",
+                                        description: "Your animated and tuneful battle commands grant those listening a coordinated, rhythmic, combat flare.",
+                                        mechanics: [
+                                            "You can attempt to coordinate your allies during a Fight, granting all participants a Minor Bonus (+2) to a single roll on their Turn.",
+                                            "This Ability can be used in conjunction with your other permitted Actions, but you must declare the use of this Ability at the beginning of your Turn.",
+                                            "----",
+                                            "REQUIRES: An Aura Check",
+                                            "SUCCESS: 3 - 2 - 1 - Go! Your Battle Dance begins...",
+                                            "You can apply a Minor Bonus (+2) to a single roll made on your Turn.",
+                                            "Once you have started a Dance, allies in the same Battlefield Area can choose to join in. To do so they must make an Aura Check at the start of your team’s Turn.",
+                                            "ALLY SUCCESS: Your ally jumps into the groove gaining a Minor Bonus (+2) for a roll made on their Turn.",
+                                            "ALLY FAILURE: Your ally makes a misstep, disrupting the Dance. All Dancers, lose their bonus this Turn. An ally can attempt to re-join the dance on the next Turn.",
+                                            "Each Turn Dancers must make a successful Aura Check for the Dance to continue.",
+                                            "FAILURE: You stumble or stutter, and must apply a Minor Penalty (-2) to a roll of your choice made this Turn.",
+                                            "----",
+                                            "After staring a Dance, you can not use this Ability again for 24 hours.",
+                                            "With your GM’s approval, you can use Ability in Linked Contests, like a chase sequence (􏰀 p220)."
+                                        ]
                                     },
                                     battleBonds: {
-                                        name: "Battle Bonds"
+                                        name: "Battle Bonds",
+                                        description: "You have a merciful nature that can be felt in even your fiercest attacks. Your clemency does not go unnoticed and, in the midst of battle, you can make friends out of enemies.",
+                                        mechanics: [
+                                            "Whenever you reduce a foe to 0 Hearts or less, and choose to spare their lives, you can attempt to soften their resolve.",
+                                            "----",
+                                            "REQUIRES: An Aura Check",
+                                            "SUCCESS: You form a Social Bond (􏰀 p279) with the beaten opponent. Discuss and agree with your GM an appropriate Bond. For example, ‘a begrudging admiration’.",
+                                            "A Bonded opponent is less inclined to target you for attack in the future, and will avoid dealing you a finishing blow unless absolutely necessary."
+                                        ]
                                     }
                                 },
                                 advancedAbilities: {
                                     atYourSide: {
-                                        name: "At Your Side"
+                                        name: "At Your Side",
+                                        description: "Your strikes can create opportunities for your comrades-at-arms to exploit.",
+                                        mechanics: [
+                                            "If one of your Attacks is successful it also counts as an Attack Assist (􏰀 p256) for the next ally attacking the same opponent."
+                                        ]
                                     },
                                     spiritWings: {
-                                        name: "Spirit Wings"
+                                        name: "Spirit Wings",
+                                        description: "The wishes in your heart allow you to soar... literally!",
+                                        mechanics: [
+                                            "You sprout glowing wings, and now you can fly at your normal Speed Rating.",
+                                            "Your wings remain until:",
+                                            "You call for you Heart’s Blade. OR",
+                                            "You invoke the Glittering Machine Ability.",
+                                            "----",
+                                            "GAIN: 1 Brightness Allegiance Point"
+                                        ]
                                     },
                                     shiningResolve: {
-                                        name: "Shining Resolve"
+                                        name: "Shining Resolve",
+                                        description: "Your spirit is indomitable and will always remain so.",
+                                        mechanics: [
+                                            "You gain Supernatural Will (􏰀 p107)."
+                                        ]
                                     },
                                     openedHearts: {
-                                        name: "Opened Hearts"
+                                        name: "Opened Hearts",
+                                        description: "Powerful Bright Magic lies within you, it can wash away all falsehoods leaving nothing but the naked truth, dark secrets, and honest wishes.",
+                                        mechanics: [
+                                            "You can activate this Ability whenever you are speaking to another individual, or at the start of a Negotiation.",
+                                            "----",
+                                            "CONTEST: Your Aura vs. the Grit of anyone in earshot.",
+                                            "Anyone who loses the Contest is unable to lie, deceive, or mislead you for a 24 hour period. Although they can still refuse to answer your questions.",
+                                            "Unfortunately, you are also subject to the effects of this Ability for the same 24 hour period.",
+                                            "----",
+                                            "GAIN: 1 Bright Allegiance Point"
+                                        ]
                                     },
                                     radiantBlade: {
-                                        name: "Radiant Blade"
+                                        name: "Radiant Blade",
+                                        description: "You soul burns so brightly that your Heart’s Blade transcends its material form to become a shard of devastating light.",
+                                        mechanics: [
+                                            "You can activate this Ability at will upon summoning your Heart’s Blade.",
+                                            "Slice of light: Your Heart’s Blade is now a glowing shaft of light that does an extra Heart of Bright Damage (􏰀 p259), in addition to the weapon’s Normal Damage.",
+                                            "Purifying Flare: After a successful strike with the Heart’s Blade, the light can be discharged to irradiate your target causing an additional Heart of Bright Damage; which dispels the Ability.",
+                                            "NOTE: Using Purifying Flare prevents you from using this Ability again for another 24 hours.",
+                                            "----",
+                                            "GAIN: 1 Bright Allegiance Point"
+                                        ]
                                     },
                                     legendInYourOwnTime: {
-                                        name: "Legend in Your Own Time"
+                                        name: "Legend in Your Own Time",
+                                        description: "Whether it’s your heroic deeds or your legendary tenderness, you have become a source of inspiration for public works of art and epic tavern tales. Your reputation proceeds you... sometimes.",
+                                        mechanics: [
+                                            "Whenever you enter a new Settlement you can attempt Reputation Management (􏰀 p275).",
+                                            "----",
+                                            "REQUIRES: An Aura Check",
+                                            "SUCCESS: You’ve already established a positive Reputation in this locale. If possible, the Reputation should be based on heroic efforts made in a previous Session. For example, ‘Savior of Homble Village’ or ‘Slayer of the Ooze Beast’.",
+                                            "FAILURE: The locals have never heard of you, or your ‘daring’ exploits."
+                                        ]
                                     },
                                     neverStandAlone: {
-                                        name: "Never Stand Alone"
+                                        name: "Never Stand Alone",
+                                        description: "Those touched by your kindness often come to help you in your darkest hour.",
+                                        mechanics: [
+                                            "If you’re in mortal peril, maybe your alone and outnumbered or stranded without hope, you can use this Ability to summon help.",
+                                            "Once activated, your GM will choose a character you have a Social Bond (􏰀 p279) with to come to your assistance. This could even be a spared foe you’ve formed a Battle Bond (􏰀 p44) with.",
+                                            "The chosen character will miraculously appear just in time to offer you required assistance. For example, they might arrive with reinforcements or a convenient escape craft.",
+                                            "NOTE: This Ability cannot be used again until you have had the time to participate in a Downtime Activity (􏰀p273)."
+                                        ]
                                     },
                                     heartsAegis: {
-                                        name: "Heart's Aegis"
+                                        name: "Heart's Aegis",
+                                        description: "Your Soul Companion is able to transmute into a magical suit of Armor that wraps around you in battle. This armor retains traces of your Companion’s aesthetics.",
+                                        mechanics: [
+                                            "Your can turn your Companion into armor for a specific task or Fight.",
+                                            "The magic armor has the following specifications: Superheavy Armor, Anti-Hazard Abilities, Mechanical Motion",
+                                            "No one other than you can wear the armor.",
+                                            "The armor lasts until:",
+                                            "The task it was activated for is completed OR",
+                                            "You have been reduced to 0 Hearts or less.",
+                                            "NOTE: You cannot use this Ability again for 24 hours.",
+                                            "----",
+                                            "GAIN: 1 Bright Allegiance Point"
+                                        ]
                                     }
                                 }
                             },

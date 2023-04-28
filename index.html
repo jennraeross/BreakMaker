@@ -1,0 +1,1068 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body id="app">
+        <nav class="container-fluid">
+            <ul>
+                <li>
+                    <strong>BreakMaker</strong>
+                </li>
+            </ul>
+            <ul>
+                <li><button class="secondary">Download</button></li>
+                <li><button>Create</button></li>
+            </ul>
+        </nav>
+
+        <main class="container">
+            <article id="bioForm">
+                <header>Basic Info</header>
+                <form>
+                    <label>
+                        Name
+                        <input type="text" placeholder="Name" v-model="characterName">
+                    </label>
+                    <div class="grid">
+                        <label>
+                            Calling
+                            <select v-model="callingSelected">
+                                <option v-for="calling in callings" :value="calling.name">{{calling.name}}</option>
+                            </select>
+                        </label>
+                        <label>
+                            Experience
+                            <input type="text" v-model="xp">
+                        </label>
+                    </div>
+                    <div class="grid">
+                        <label>
+                            Species
+                            <select v-model="speciesSelected">
+                                <option v-for="specie in species" :value="specie.name">{{specie.name}}</option>
+                            </select>
+                        </label>
+                        <label>
+                            Homeland
+                            <select v-model="homelandSelected">
+                                <option v-for="homeland in homelands" :value="homeland.name">{{homeland.name}}</option>
+                            </select>
+                        </label>
+                    </div>
+                    <div class="grid">
+                        <label>
+                            History
+                            <select v-model="historySelected">
+                                <option v-for="history in histories" :value="history.name">{{history.name}}</option>
+                            </select>
+                        </label>
+                        <label>
+                            Quirk
+                            <select v-model="quirkSelected">
+                                <option v-for="quirk in quirks" :value="quirk.name">{{quirk.name}}</option>
+                            </select>
+                        </label>
+                    </div>
+                    <label>
+                        Languages
+                        <details role="list">
+                            <summary aria-haspopup="listbox">Languages</summary>
+                            <ul role="listbox">
+                                <li v-for="language in languages">
+                                    <label>
+                                        <input type="checkbox" v-model="language.known">
+                                        {{language.name}}
+                                    </label>
+                                </li>
+                            </ul>
+                        </details>
+                    </label>
+                    <div class="grid">
+                        <label>
+                            Bright Allegiance Points
+                            <input type="text" v-model="brightPoints">
+                        </label>
+                        <label>
+                            Dark Allegiance Points
+                            <input type="text" v-model="darkPoints">
+                        </label>
+                    </div>
+                </form>
+            </article>
+
+            <article id="equipment">
+                <header>
+                    Equipment
+                </header>
+                <form>
+                    <label>
+                        Armor
+                        <select v-model="armorSelected">
+                            <option v-for="armor in armors">{{armor.name}}</option>
+                        </select>
+                    </label>
+                    <label>
+                        Weapon
+                        <select v-model="weaponSelected">
+                            <option v-for="weapon in weapons">{{weapon.name}}</option>
+                        </select>
+                    </label>
+                </form>
+            </article>
+
+            <article id="traitsForm">
+                <header>Stat Traits</header>
+                <form>
+                    <div class="grid">
+                        <label>
+                            Might
+                            <select v-model="mightTrait">
+                                <option v-for="trait in traits">{{trait}}</option>
+                            </select>
+                        </label>
+                        <label>
+                            Deftness
+                            <select v-model="deftTrait">
+                                <option v-for="trait in traits">{{trait}}</option>
+                            </select>
+                        </label>
+                        <label>
+                            Grit
+                            <select v-model="gritTrait">
+                                <option v-for="trait in traits">{{trait}}</option>
+                            </select>
+                        </label>
+                    </div>
+                    <div class="grid">
+                        <label>
+                            Insight
+                            <select v-model="insightTrait">
+                                <option v-for="trait in traits">{{trait}}</option>
+                            </select>
+                        </label>
+                        <label>
+                            Aura
+                            <select v-model="auraTrait">
+                                <option v-for="trait in traits">{{trait}}</option>
+                            </select>
+                        </label>
+                    </div>
+                </form>
+            </article>
+
+            
+            <article v-if="getLevel >= 2" id="electivesForm">
+                <header>Elective Abilities</header>
+                <label>
+                    Level 2
+                    <select v-model="elective2">
+                        <option v-if="callingSelected == 'Battle Princess'" v-for="ability in callings.battlePrincess.standardAbilities" :value="ability.name">{{ability.name}}</option>
+                    </select>
+                </label>
+                <label v-if="getLevel >= 4">
+                    Level 4
+                    <select v-model="elective4">
+                        <option v-if="callingSelected == 'Battle Princess'" v-for="ability in callings.battlePrincess.standardAbilities" :value="ability.name">{{ability.name}}</option>
+                    </select>
+                </label>
+                <label v-if="getLevel >= 6">
+                    Level 6
+                    <select v-model="elective6">
+                        <option v-if="callingSelected == 'Battle Princess'" v-for="ability in callings.battlePrincess.standardAbilities" :value="ability.name">{{ability.name}}</option>
+                        <option v-if="callingSelected == 'Battle Princess'" v-for="ability in callings.battlePrincess.advancedAbilities" :value="ability.name">{{ability.name}}</option>
+                    </select>
+                </label>
+                <label v-if="getLevel >= 8">
+                    Level 8
+                    <select v-model="elective8">
+                        <option v-if="callingSelected == 'Battle Princess'" v-for="ability in callings.battlePrincess.standardAbilities" :value="ability.name">{{ability.name}}</option>
+                        <option v-if="callingSelected == 'Battle Princess'" v-for="ability in callings.battlePrincess.advancedAbilities" :value="ability.name">{{ability.name}}</option>
+                    </select>
+                </label>
+                <label v-if="getLevel == 10">
+                    Level 10
+                    <select v-model="elective10">
+                        <option v-if="callingSelected == 'Battle Princess'" v-for="ability in callings.battlePrincess.standardAbilities" :value="ability.name">{{ability.name}}</option>
+                        <option v-if="callingSelected == 'Battle Princess'" v-for="ability in callings.battlePrincess.advancedAbilities" :value="ability.name">{{ability.name}}</option>
+                    </select>
+                </label>
+            </article>
+
+            <article>
+                <header>Character Sheet</header>
+
+                <div id="bio">
+                    <hgroup>
+                        <h4>{{characterName}}</h4>
+                        <h5>{{callingSelected}} {{getLevel}}</h5>
+                    </hgroup>
+                    <div class="grid">
+                        <hgroup>
+                            <h6>{{speciesSelected}}</h6>
+                            <span>Species</span>
+                        </hgroup>
+                        <hgroup>
+                            <h6>{{homelandSelected}}</h6>
+                            <span>Homeland</span>
+                        </hgroup>
+                        <hgroup>
+                            <h6>{{historySelected}}</h6>
+                            <span>History</span>
+                        </hgroup>
+                        <hgroup>
+                            <h6>{{quirkSelected}}</h6>
+                            <span>Quirk</span>
+                        </hgroup>
+                    </div>
+                    <hr>
+                    <h6>Languages</h6>
+                    <ul>
+                        <template v-for="language in languages">
+                            <li v-if="language.known">{{language.name}}</li>
+                        </template>
+                    </ul>
+                    <hr>
+                    <div class="grid">
+                        <hgroup>
+                            <h6>{{weaponSelected}}</h6>
+                            <span>Weapon</span>
+                        </hgroup>
+                        <hgroup>
+                            <h6>{{armorSelected}}</h6>
+                            <span>Armor</span>
+                        </hgroup>
+                    </div>
+                </div>
+
+                <hr>
+
+                <div id="attack">
+                    <nav>
+                        <ul>
+                            <li>
+                                <i class="fa-solid fa-hand-fist fa-xl"></i>
+                            </li>
+                            <li>
+                                <hgroup>
+                                    <h6>Attack Bonus</h6>
+                                    <span>Add to my Attack rolls</span>
+                                </hgroup>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>Base</li>
+                            <li><button class="outline contrast">{{getAttack}}</button></li>
+                        </ul>
+                    </nav>
+                    <div class="flex justify-center align-center justify-center">
+                        <button class="outline" style="flex: 1">+{{parseFloat(getAttack) + parseFloat(getAttackBonus)}}</button>
+                        <!--<div class="flex flex-col" style="flex: 5; padding: 1em">
+                            <span>Trait:</span>
+                            <progress value="10" max="20"></progress>
+                            <span>Bon./Pen.</span>
+                        </div>-->
+                        <div style="flex: 5"></div>
+                    </div>
+                </div>
+                <hr>
+                <div id="hearts">
+                    <nav>
+                        <ul>
+                            <li>
+                                <i class="fa-solid fa-heart fa-xl"></i>
+                            </li>
+                            <li>
+                                <hgroup>
+                                    <h6>Hearts Total</h6>
+                                    <span>Protecting me from Injury</span>
+                                </hgroup>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>Base</li>
+                            <li><button class="outline contrast">{{getHearts}}</button></li>
+                        </ul>
+                    </nav>
+                    <div class="flex justify-center align-center justify-center">
+                        <button class="outline" style="flex: 1">{{getHearts}}</button>
+                        <!--<div class="flex flex-col" style="flex: 5; padding: 1em">
+                            <span>Trait:</span>
+                            <progress value="10" max="20"></progress>
+                            <span>Bon./Pen.</span>
+                        </div>-->
+                        <div style="flex: 5"></div>
+                    </div>
+                </div>
+                <hr>
+                <div id="defense">
+                    <nav>
+                        <ul>
+                            <li>
+                                <i class="fa-solid fa-hand-fist fa-xl"></i>
+                            </li>
+                            <li>
+                                <hgroup>
+                                    <h6>Defense Rating</h6>
+                                    <span>Best this to strike me</span>
+                                </hgroup>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>Base</li>
+                            <li><button class="outline contrast">10</button></li>
+                        </ul>
+                    </nav>
+                    <div class="flex justify-center align-center justify-center">
+                        <button class="outline" style="flex: 1">{{getDefense}}</button>
+                        <progress :value="getDefense" max="20" style="flex: 5; border-radius: 0;"></progress>
+                    </div>
+                </div>
+                <hr>
+                <div id="speed">
+                    <nav>
+                        <ul>
+                            <li>
+                                <i class="fa-solid fa-hand-fist fa-xl"></i>
+                            </li>
+                            <li>
+                                <hgroup>
+                                    <h6>Speed Rating</h6>
+                                    <span>Decides how many Areas I can move</span>
+                                </hgroup>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>Base</li>
+                            <li><button class="outline contrast">1</button></li>
+                        </ul>
+                    </nav>
+                    <div class="flex justify-center align-center justify-center">
+                        <button class="outline" style="flex: 1">Average</button>
+                        <!--<div class="flex flex-col" style="flex: 5; padding: 1em">
+                            <span>Trait:</span>
+                            <progress value="10" max="20"></progress>
+                            <span>Bon./Pen.</span>
+                        </div>-->
+                        <div style="flex: 5; padding: 5px">
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div id="might">
+                    <nav>
+                        <ul>
+                            <li>
+                                <i class="fa-solid fa-dumbbell fa-xl"></i>
+                            </li>
+                            <li>
+                                <hgroup>
+                                    <h6>Might</h6>
+                                    <span>Smash, Crush, Lift</span>
+                                </hgroup>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>Base</li>
+                            <li><button class="outline contrast">{{getMight}}</button></li>
+                        </ul>
+                    </nav>
+                    <div class="flex justify-center align-center">
+                        <button class="outline" style="flex: 1">{{parseFloat(getMight) + parseFloat(mightTrait)}}</button>
+                        <!--<div class="flex flex-col" style="flex: 5; padding: 1em">
+                            <span>Trait:</span>
+                            <progress value="10" max="20"></progress>
+                            <span>Bon./Pen.</span>
+                        </div>-->
+                        <progress :value="parseFloat(getMight) + parseFloat(mightTrait)" max="20" style="flex: 5; border-radius: 0;"></progress>
+                    </div>
+                </div>
+                <hr>
+                <div id="deftness">
+                    <nav>
+                        <ul>
+                            <li>
+                                <i class="fa-solid fa-bolt fa-xl"></i>
+                            </li>
+                            <li>
+                                <hgroup>
+                                    <h6>Deftness</h6>
+                                    <span>Dodge, Sneak, Leap</span>
+                                </hgroup>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>Base</li>
+                            <li><button class="outline contrast">{{getDeft}}</button></li>
+                        </ul>
+                    </nav>
+                    <div class="flex justify-center align-center">
+                        <button class="outline" style="flex: 1">{{parseFloat(getDeft) + parseFloat(deftTrait)}}</button>
+                        <!--<div class="flex flex-col" style="flex: 5; padding: 1em">
+                            <span>Trait:</span>
+                            <progress value="10" max="20"></progress>
+                            <span>Bon./Pen.</span>
+                        </div>-->
+                        <progress :value="parseFloat(getDeft) + parseFloat(deftTrait)" max="20" style="flex: 5; border-radius: 0;"></progress>
+                    </div>
+                </div>
+                <hr>
+                <div id="grit">
+                    <nav>
+                        <ul>
+                            <li>
+                                <i class="fa-solid fa-heart-pulse fa-xl"></i>
+                            </li>
+                            <li>
+                                <hgroup>
+                                    <h6>Grit</h6>
+                                    <span>Cling, Persist, Press On</span>
+                                </hgroup>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>Base</li>
+                            <li><button class="outline contrast">{{getGrit}}</button></li>
+                        </ul>
+                    </nav>
+                    <div class="flex justify-center align-center">
+                        <button class="outline" style="flex: 1">{{parseFloat(getGrit) + parseFloat(gritTrait)}}</button>
+                        <!--<div class="flex flex-col" style="flex: 5; padding: 1em">
+                            <span>Trait:</span>
+                            <progress value="10" max="20"></progress>
+                            <span>Bon./Pen.</span>
+                        </div>-->
+                        <progress :value="parseFloat(getGrit) + parseFloat(gritTrait)" max="20" style="flex: 5; border-radius: 0;"></progress>
+                    </div>
+                </div>
+                <hr>
+                <div id="insight">
+                    <nav>
+                        <ul>
+                            <li>
+                                <i class="fa-solid fa-eye fa-xl"></i>
+                            </li>
+                            <li>
+                                <hgroup>
+                                    <h6>Insight</h6>
+                                    <span>Notice, Know, Remember</span>
+                                </hgroup>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>Base</li>
+                            <li><button class="outline contrast">{{getInsight}}</button></li>
+                        </ul>
+                    </nav>
+                    <div class="flex justify-center align-center">
+                        <button class="outline" style="flex: 1">{{parseFloat(getInsight) + parseFloat(insightTrait)}}</button>
+                        <!--<div class="flex flex-col" style="flex: 5; padding: 1em">
+                            <span>Trait:</span>
+                            <progress value="10" max="20"></progress>
+                            <span>Bon./Pen.</span>
+                        </div>-->
+                        <progress :value="parseFloat(getInsight) + parseFloat(insightTrait)" max="20" style="flex: 5; border-radius: 0;"></progress>
+                    </div>
+                </div>
+                <hr>
+                <div id="aura">
+                    <nav>
+                        <ul>
+                            <li>
+                                <i class="fa-solid fa-music fa-xl"></i>
+                            </li>
+                            <li>
+                                <hgroup>
+                                    <h6>Aura</h6>
+                                    <span>Persuade, Inspire, Terrify</span>
+                                </hgroup>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>Base</li>
+                            <li><button class="outline contrast">{{getAura}}</button></li>
+                        </ul>
+                    </nav>
+                    <div class="flex justify-center align-center">
+                        <button class="outline" style="flex: 1">{{parseFloat(getAura) + parseFloat(auraTrait)}}</button>
+                        <!--<div class="flex flex-col" style="flex: 5; padding: 1em">
+                            <span>Trait:</span>
+                            <progress value="10" max="20"></progress>
+                            <span>Bon./Pen.</span>
+                        </div>-->
+                        <progress :value="parseFloat(getAura) + parseFloat(auraTrait)" max="20" style="flex: 5; border-radius: 0;"></progress>
+                    </div>
+                </div>
+                <hr>
+                <hr>
+                <div id="callingFeatures" v-if="callingSelected">
+                    <hgroup>
+                        <h4>Class Abilities</h4>
+                        <h5>{{callingSelected}}</h5>
+                    </hgroup>
+
+                    <details open>
+                        <summary>Heart's Blade</summary>
+                        <p>You can call forth a weapon forged from the wishes in your heart. These magically manifested weapons are of the finest quality and grow in power and possibility as you do.</p>
+                    </details>
+                    <details open>
+                        <summary>Shield of Love</summary>
+                        <p>Your compassion can manifest itself as a protective force for your allies. This might take the form of an iridescent aura or a heart-shaped crystal shield.</p>
+                    </details>
+                    <details open>
+                        <summary>Soul Companion</summary>
+                        <p>Just as your heart has the power to summon mighty weapons, so it can muster a loyal companion. This devoted sidekick never leaves your side and will even return, in due time, if struck down.</p>
+                    </details>
+                    <details v-if="getLevel >= 2">
+                        <summary>{{elective2}}</summary>
+                        <p>Coming Soon...</p>
+                    </details>
+                    <details v-if="getLevel >= 4">
+                        <summary>{{elective4}}</summary>
+                        <p>Coming Soon...</p>
+                    </details>
+                    <details v-if="getLevel >= 6">
+                        <summary>{{elective6}}</summary>
+                        <p>Coming Soon...</p>
+                    </details>
+                    <details v-if="getLevel >= 8">
+                        <summary>{{elective8}}</summary>
+                        <p>Coming Soon...</p>
+                    </details>
+                    <details v-if="getLevel >= 10">
+                        <summary>{{elective10}}</summary>
+                        <p>Coming Soon...</p>
+                    </details>
+
+                </div>
+                <hr>
+                <div id="allegiance">
+                    <hgroup>
+                        <h4>Allegiance</h4>
+                        <h5>How closely associated you are with the Dark or the Light</h5>
+                    </hgroup>
+                    <div class="grid">
+                        <label>
+                            Bright Points
+                            <button class="outline">{{brightPoints}}</button>
+                        </label>
+                        <label>
+                            Dark Points
+                            <button class="outline">{{darkPoints}}</button>
+                        </label>
+                    </div>
+                    <p v-if="brightPoints > (darkPoints + 1)">Bright Aligned</p>
+                    <p v-if="darkPoints > (brightPoints + 1)">Dark Aligned</p>
+                    <p v-if="brightPoints <= (darkPoints + 1) && darkpoints <= (brightPoints + 1) && (brightPoints != 0 || darkPoints != 0)">Twilight Aligned</p>
+                    <p v-if="brightPoints == 0 && darkPoints == 0">Unaligned</p>
+                    <p v-if="brightPoints >= 3">Bright Gifts: {{Math.floor(brightPoints/3)}}</p>
+                    <p v-if="darkPoints >= 3">Dark Gifts: {{Math.floor(darkPoints/3)}}</p>
+                </div>
+
+            </article>
+        </main>
+        
+
+        <script type="module">
+            import { createApp } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js';
+
+            createApp({
+                data() {
+                    return {
+                        show: false,
+                        traits: [0, -2, -1, "+1", "+2"],
+                        mightTrait: 0,
+                        deftTrait: 0,
+                        gritTrait: 0,
+                        insightTrait: 0,
+                        auraTrait: 0,
+                        callingSelected: null,
+                        weaponSelected: null,
+                        armorSelected: null,
+                        xp: 0,
+                        characterName: null,
+                        speciesSelected: null,
+                        homelandSelected: null,
+                        historySelected: null,
+                        languagesSelected: null,
+                        quirkSelected: null,
+                        currentHearts: null,
+                        brightPoints: 0,
+                        darkPoints: 0,
+                        elective1: null, 
+                        elective2: null, 
+                        elective4: null, 
+                        elective6: null, 
+                        elective8: null, 
+                        elective10: null, 
+                        callings: {
+                            battlePrincess: {
+                                name: "Battle Princess",
+                                stats: [
+                                    [1, 3, 8, 8, 9, 7, 10],
+                                    [2, 3, 8, 8, 9, 7, 10],
+                                    [3, 4, 9, 9, 10, 8, 11],
+                                    [3, 4, 9, 9, 10, 8, 11],
+                                    [4, 5, 10, 10, 11, 9, 12],
+                                    [4, 5, 10, 10, 11, 9, 12],
+                                    [5, 6, 11, 11, 12, 10, 13],
+                                    [5, 6, 11, 11, 12, 10, 13],
+                                    [6, 7, 12, 12, 13, 11, 14],
+                                    [7, 7, 12, 12, 13, 11, 14]
+                                ],
+                                standardAbilities: {
+                                    gemlight: {
+                                        name: "Gemlight"
+                                    },
+                                    glitteringMachine: {
+                                        name: "Glittering Machine"
+                                    },
+                                    loveLoveChef: {
+                                        name: "Love-Love Chef"
+                                    },
+                                    compassionCure: {
+                                        name: "Compassion Cure"
+                                    },
+                                    passionsFire: {
+                                        name: "Passion's Fire"
+                                    },
+                                    cryOfTheHeart: {
+                                        name: "Cry of the Heart"
+                                    },
+                                    battleDance: {
+                                        name: "Battle Dance"
+                                    },
+                                    battleBonds: {
+                                        name: "Battle Bonds"
+                                    }
+                                },
+                                advancedAbilities: {
+                                    atYourSide: {
+                                        name: "At Your Side"
+                                    },
+                                    spiritWings: {
+                                        name: "Spirit Wings"
+                                    },
+                                    shiningResolve: {
+                                        name: "Shining Resolve"
+                                    },
+                                    openedHearts: {
+                                        name: "Opened Hearts"
+                                    },
+                                    radiantBlade: {
+                                        name: "Radiant Blade"
+                                    },
+                                    legendInYourOwnTime: {
+                                        name: "Legend in Your Own Time"
+                                    },
+                                    neverStandAlone: {
+                                        name: "Never Stand Alone"
+                                    },
+                                    heartsAegis: {
+                                        name: "Heart's Aegis"
+                                    }
+                                }
+                            },
+                            champion: {
+                                name: "Champion"
+                            },
+                            factotum: {
+                                name: "Factotum"
+                            },
+                            heretic: {
+                                name: "Heretic"
+                            },
+                            murderPrincess: {
+                                name: "Murder Princess"
+                            },
+                            raider: {
+                                name: "Raider"
+                            },
+                            sage: {
+                                name: "Sage"
+                            },
+                            sneak: {
+                                name: "Sneak"
+                            }
+
+                        },
+                        species: {
+                            native: {
+                                name: "Human (Native)"
+                            },
+                            stray: {
+                                name: "Human (Dimensional Stray)"
+                            },
+                            chib: {
+                                name: "Chib"
+                            },
+                            tenebrate: {
+                                name: "Tenebrate"
+                            },
+                            neko: {
+                                name: "Rai-Neko"
+                            },
+                            promethean: {
+                                name: "Promethean"
+                            },
+                            gruun: {
+                                name: "Gruun"
+                            },
+                            goblin: {
+                                name: "Goblin"
+                            },
+                            dwarf: {
+                                name: "Dwarf"
+                            },
+                            elf: {
+                                name: "Elf"
+                            },
+                            mechanoid: {
+                                name: "Bio-Mechanoid"
+                            },
+                        },
+                        homelands: {
+                            blazingGarden: {
+                                name: "Blazing Garden"
+                            },
+                            buriedKingdom: {
+                                name: "Buried Kingdom"
+                            },
+                            twilightMeridian: {
+                                name: "Twilight Meridian"
+                            },
+                            wistfulDark: {
+                                name: "Wistful Dark"
+                            },
+                            other: {
+                                name: "Other World"
+                            },
+                        },
+                        histories: {
+                            forsakenWanderer: {
+                                name: "Forsaken Wanderer"
+                            },
+                            blightRaider: {
+                                name: "Blight Raider"
+                            },
+                            shadowLandsNomad: {
+                                name: "Shadow Lands Nomad"
+                            },
+                            murkDweller: {
+                                name: "Murk Dweller"
+                            },
+                            nightwallYeoman: {
+                                name: "Nightwall Yeoman"
+                            },
+                            starlightFarmer: {
+                                name: "Starlight Farmer"
+                            },
+                            guildAgent: {
+                                name: "Guild Agent"
+                            },
+                            townGuard: {
+                                name: "Town Guard"
+                            },
+                            celebratedArtist: {
+                                name: "Celebrated Artist"
+                            },
+                            magiaUniversityGraduate: {
+                                name: "Magia University Graduate"
+                            },
+                            knightErrant: {
+                                name: "Knight Errant"
+                            },
+                            shardStatePatrician: {
+                                name: "Shard State Patrician"
+                            }
+                        },
+                        languages: {
+                            lowSpeech: {
+                                name: "Low Speech",
+                                known: true
+                            },
+                            highAkenian: {
+                                name: "High Akenian",
+                                known: false
+                            },
+                            darkTongue: {
+                                name: "Dark Tongue",
+                                known: false
+                            },
+                            dreamCall: {
+                                name: "Dream Call",
+                                known: false
+                            },
+                            fadeSong: {
+                                name: "Fade Song",
+                                known: false
+                            },
+                            gleysianCode: {
+                                name: "Gleysian Code",
+                                known: false
+                            },
+                            brightSpeech: {
+                                name: "Bright Speech",
+                                known: false
+                            },
+                            hoshiBan: {
+                                name: "Hoshi-Ban",
+                                known: false
+                            },
+                            underWarble: {
+                                name: "Under Warble",
+                                known: false
+                            },
+                            creatorsScript: {
+                                name: "Creator's Script",
+                                known: false
+                            },
+                            otherWording: {
+                                name: "Other Wording",
+                                known: false
+                            }
+                        },
+                        weapons: {
+                            unarmed: {
+                                name: "Unarmed"
+                            },
+                            standard: {
+                                name: "Standard"
+                            },
+                            concealed: {
+                                name: "Concealed"
+                            },
+                            quick: {
+                                name: "Quick"
+                            },
+                            master: {
+                                name: "Master"
+                            },
+                            mighty: {
+                                name: "Mighty"
+                            },
+                            arc: {
+                                name: "Arc"
+                            },
+                            lash: {
+                                name: "Lash"
+                            },
+                            thrown: {
+                                name: "Thrown"
+                            },
+                            drawn: {
+                                name: "Drawn"
+                            },
+                            smallMissile: {
+                                name: "Small Mechanical Missile"
+                            },
+                            largeMissile: {
+                                name: "Large Mechanical Missile"
+                            }
+                        },
+                        armors: {
+                            naked: {
+                                name: "Naked",
+                                bonus: 0
+                            },
+                            light: {
+                                name: "Light Armor",
+                                bonus: 2
+                            },
+                            medium: {
+                                name: "Medium Armor",
+                                bonus: 4
+                            },
+                            heavy: {
+                                name: "Heavy Armor",
+                                bonus: 6
+                            },
+                            superHeavy: {
+                                name: "Super Heavy Armor",
+                                bonus: 8
+                            }
+                        },
+                        quirks: {
+                            unhinged: {
+                                name: "Unhinged"
+                            },
+                            jumpy: {
+                                name: "Jumpy"
+                            },
+                            pedantic: {
+                                name: "Pedantic"
+                            },
+                            clearIntent: {
+                                name: "Clear Intent"
+                            },
+                            boring: {
+                                name: "Boring"
+                            },
+                            curious: {
+                                name: "Curious"
+                            },
+                            alwaysPrepared: {
+                                name: "Always Prepared"
+                            },
+                            stylish: {
+                                name: "Stylish"
+                            },
+                            miser: {
+                                name: "Miser"
+                            },
+                            soulLink: {
+                                name: "Soul Link"
+                            },
+                            girthsome: {
+                                name: "Girthsome"
+                            },
+                            nearsighted: {
+                                name: "Nearsighted"
+                            },
+                            adorable: {
+                                name: "Adorable"
+                            },
+                            darkDemeanor: {
+                                name: "Dark Demeanor"
+                            },
+                            angelicCountenance: {
+                                name: "Angelic Countenance"
+                            },
+                            bigEater: {
+                                name: "Big Eater"
+                            },
+                            waifish: {
+                                name: "Waifish"
+                            },
+                            magitechGraft: {
+                                name: "Magitech Graft"
+                            },
+                            winged: {
+                                name: "Winged"
+                            },
+                            graspingTresses: {
+                                name: "Grasping Tresses"
+                            },
+                            survivor: {
+                                name: "Survivor"
+                            },
+                            mageBreaker: {
+                                name: "Mage Breaker"
+                            },
+                            young: {
+                                name: "Young"
+                            },
+                        },
+                    }
+                },
+                computed: {
+                    getLevel() {
+                        switch(true) {
+                            case this.xp < 6:
+                                return 1;
+                            case this.xp < 12:
+                                return 2;
+                            case this.xp < 24:
+                                return 3;
+                            case this.xp < 36:
+                                return 4;
+                            case this.xp < 48:
+                                return 5;
+                            case this.xp < 72:
+                                return 6;
+                            case this.xp < 96:
+                                return 7;
+                            case this.xp < 132:
+                                return 8;
+                            case this.xp < 168:
+                                return 9;
+                            default:
+                                return 10;
+                        }
+                    },
+                    getMight() {
+                        switch(this.callingSelected) {
+                            case "Battle Princess":
+                                return this.callings.battlePrincess.stats[(this.getLevel - 1)][2];
+                            default:
+                                return 10;
+                        }
+                    },
+                    getDeft() {
+                        switch(this.callingSelected) {
+                            case "Battle Princess":
+                                return this.callings.battlePrincess.stats[(this.getLevel - 1)][3];
+                            default:
+                                return 10;
+                        }
+                    },
+                    getGrit() {
+                        switch(this.callingSelected) {
+                            case "Battle Princess":
+                                return this.callings.battlePrincess.stats[(this.getLevel - 1)][4];
+                            default:
+                                return 10;
+                        }
+                    },
+                    getInsight() {
+                        switch(this.callingSelected) {
+                            case "Battle Princess":
+                                return this.callings.battlePrincess.stats[(this.getLevel - 1)][5];
+                            default:
+                                return 10;
+                        }
+                    },
+                    getAura() {
+                        switch(this.callingSelected) {
+                            case "Battle Princess":
+                                return this.callings.battlePrincess.stats[(this.getLevel - 1)][6];
+                            default:
+                                return 10;
+                        }
+                    },
+                    getHearts() {
+                        switch(this.callingSelected) {
+                            case "Battle Princess":
+                                return this.callings.battlePrincess.stats[(this.getLevel - 1)][1];
+                            default:
+                                return 2;
+                        }
+                    },
+                    getAttack() {
+                        switch(this.callingSelected) {
+                            case "Battle Princess":
+                                return this.callings.battlePrincess.stats[(this.getLevel - 1)][0];
+                            default:
+                                return 0;
+                        }
+                    },
+                    getAttackBonus() {
+                        switch(this.weaponSelected) {
+                            case "Master":
+                                return 1;
+                            default: 
+                                return 0;
+                        }
+                    },
+                    getDefense() {
+                        switch(this.armorSelected) {
+                            case "Naked":
+                                return 10;
+                            case "Light Armor":
+                                return 12;
+                            case "Medium Armor":
+                                return 14;
+                            case "Heavy Armor":
+                                return 16;
+                            case "Super Heavy Armor":
+                                return 18;
+                            default:
+                                return 10;              
+                        }
+                    }
+                }
+            }).mount('#app')
+        </script>
+    </body>
+</html>

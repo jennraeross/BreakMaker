@@ -192,6 +192,53 @@
                 </form>
             </article>
 
+            <article id="giftsForm" v-if="brightPoints >=3 || darkPoints >= 3 || speciesSelected == 'Tenebrate'">
+                <header>
+                    <nav>
+                        <ul>
+                            <li><i class="fa-solid fa-circle-half-stroke fa-xl"></i></li>
+                            <li>
+                                <hgroup>
+                                    <h4>Gifts</h4>
+                                    <h5>Signs of your allegiance to the Bright or the Dark</h5>
+                                </hgroup>
+                            </li>
+                        </ul>
+                    </nav>
+                </header>
+                <form>
+                    <label v-if="brightPoints >= 3">
+                        Bright Gifts
+                        <select v-model="brightGifts[0]">
+                            <option v-for="gift in gifts.bright" :value="gift.name">{{gift.name}}</option>
+                        </select>
+                        <select v-model="brightGifts[1]" v-if="brightPoints >= 6">
+                            <option v-for="gift in gifts.bright" :value="gift.name">{{gift.name}}</option>
+                        </select>
+                        <select v-model="brightGifts[2]" v-if="brightpoints >= 9">
+                            <option v-for="gift in gifts.bright" :value="gift.name">{{gift.name}}</option>
+                        </select>
+                    </label>
+                    <label v-if="darkPoints >= 3">
+                        Dark Gifts
+                        <select v-model="darkGifts[0]">
+                            <option v-for="gift in gifts.dark" :value="gift.name">{{gift.name}}</option>
+                        </select>
+                        <select v-model="darkGifts[1]" v-if="darkPoints >= 6">
+                            <option v-for="gift in gifts.dark" :value="gift.name">{{gift.name}}</option>
+                        </select>
+                        <select v-model="darkGifts[2]" v-if="darkPoints >= 9">
+                            <option v-for="gift in gifts.dark" :value="gift.name">{{gift.name}}</option>
+                        </select>
+                    </label>
+                    <label v-if="speciesSelected == 'Tenebrate'">
+                        Tenebrate Gift
+                        <select v-model="tenebrateGift">
+                            <option v-for="gift in gifts.dark" :value="gift.name">{{gift.name}}</option>
+                        </select>
+                    </label>
+                </form>
+            </article>
             
             <article v-if="getLevel >= 2" id="electivesForm">
                 <header>
@@ -607,12 +654,34 @@
                             <button class="outline">{{darkPoints}}</button>
                         </label>
                     </div>
-                    <p v-if="brightPoints > (darkPoints + 1)">Bright Aligned</p>
-                    <p v-if="darkPoints > (brightPoints + 1)">Dark Aligned</p>
-                    <p v-if="brightPoints <= (darkPoints + 1) && darkpoints <= (brightPoints + 1) && (brightPoints != 0 || darkPoints != 0)">Twilight Aligned</p>
-                    <p v-if="brightPoints == 0 && darkPoints == 0">Unaligned</p>
-                    <p v-if="brightPoints >= 3">Bright Gifts: {{Math.floor(brightPoints/3)}}</p>
-                    <p v-if="darkPoints >= 3">Dark Gifts: {{Math.floor(darkPoints/3)}}</p>
+                    <h5 v-if="brightPoints > (darkPoints + 1)">Bright Aligned</h5>
+                    <h5 v-if="darkPoints > (brightPoints + 1)">Dark Aligned</h5>
+                    <h5 v-if="brightPoints <= (darkPoints + 1) && darkpoints <= (brightPoints + 1) && (brightPoints != 0 || darkPoints != 0)">Twilight Aligned</h5>
+                    <h5 v-if="brightPoints == 0 && darkPoints == 0">Unaligned</h5>
+                    <h5 v-if="brightPoints >= 3">Bright Gifts:</h5>
+                    <template v-for="gift in brightGifts">
+                        <details open>
+                            <summary>{{gift}}</summary>
+                            <template v-for="entry in gifts.bright">
+                                <p v-if="gift == entry.name">{{entry.description}}</p>
+                            </template>
+                        </details>
+                    </template>
+                    <h5 v-if="darkPoints >= 3 || speciesSelected == 'Tenebrate'">Dark Gifts:</h5>
+                    <template v-for="gift in darkGifts">
+                        <details open>
+                            <summary>{{gift}}</summary>
+                            <template v-for="entry in gifts.dark">
+                                <p v-if="gift == entry.name">{{entry.description}}</p>
+                            </template>
+                        </details>
+                    </template>
+                    <details open v-if="speciesSelected == 'Tenebrate'">
+                        <summary>{{tenebrateGift}}</summary>
+                        <template v-for="entry in gifts.dark">
+                            <p v-if="tenebrateGift == entry.name">{{entry.description}}</p>
+                        </template>
+                    </details>
                 </div>
                 <hr>
                 <hr>
@@ -755,7 +824,96 @@
                         elective4: null, 
                         elective6: null, 
                         elective8: null, 
-                        elective10: null, 
+                        elective10: null,
+                        brightGifts: [],
+                        darkGifts: [],
+                        tenebrateGift: null,
+                        gifts: {
+                            bright: {
+                                luminescentTattoos: {
+                                    name: "Luminescent Tattoos",
+                                    description: "Faintly glowing lines have appeared across your body, forming patterns."
+                                },
+                                serpentEyes: {
+                                    name: "Serpent Eyes",
+                                    description: "Your eyes never shut, you don't blink, you even stare in your sleep."
+                                },
+                                halo: {
+                                    name: "Halo",
+                                    description: "An arc of softly glowing light crowns your head, but can be covered by a hood."
+                                },
+                                resonantVoice: {
+                                    name: "Resonant Voice",
+                                    description: "Your voice has developed an authoritative, ethereal echo."
+                                },
+                                feathers: {
+                                    name: "Feathers",
+                                    description: "You've sprouted long, radiant feathers across your shoulders."
+                                },
+                                aestheticConsistency: {
+                                    name: "Aesthetic Consistency",
+                                    description: "Your appearance has become unsettlingly symmetrical."
+                                },
+                                scaledJoints: {
+                                    name: "Scaled Joints",
+                                    description: "Patches of glistening scales have replaced the skin around your joints."
+                                },
+                                prismaticHair: {
+                                    name: "Prismatic Hair",
+                                    description: "Your hair has become extremely long and shimmers different colors."
+                                },
+                                elongation: {
+                                    name: "Elongation",
+                                    description: "Your fingers, limbs, face, and torso are lengthened just enough to be noticed."
+                                },
+                                thirdEyeGem: {
+                                    name: "Third Eye Gem",
+                                    description: "A jewel, of your favorite color, has emerged in the center of your forehead."
+                                }
+                            },
+                            dark: {
+                                horns: {
+                                    name: "Horns",
+                                    description: "Horns, or antlers, protrude from your temples or forehead."
+                                },
+                                opaqueEyes: {
+                                    name: "Opaque Eyes",
+                                    description: "Your eyes have clouded over and become a single flat color."
+                                },
+                                devilsTail: {
+                                    name: "Devil's Tail",
+                                    description: "You've grown a small, non-useful tail that whips back and forth."
+                                },
+                                fangs: {
+                                    name: "Fangs",
+                                    description: "Some of your teeth have sharpened and have grown more prominent."
+                                },
+                                melodiousVoice: {
+                                    name: "Melodious Voice",
+                                    description: "Your voice can now make even harsh words sound soothing." 
+                                },
+                                wintersEmbrace: {
+                                    name: "Winter's Embrace",
+                                    description: "Your body has become cool to the touch, and the air around you is chilled."
+                                },
+                                boneSpikes: {
+                                    name: "Bone Spikes",
+                                    description: "Small, bony protrusions have broken through your skin in small patches."
+                                },
+                                bestialMane: {
+                                    name: "Bestial Mane",
+                                    description: "Your hair has become long, thick, and magnificently unruly."
+                                },
+                                raptorsTalons: {
+                                    name: "Raptor's Talons",
+                                    description: "The nails on your hands and feet have hardened into sharp curved points."
+                                },
+                                shadowMark: {
+                                    name: "Shadow Mark",
+                                    description: "A symbolic inky scar appears on your cheek or forehead."
+                                }
+                            }
+                        }, 
                         callings: {
                             battlePrincess: {
                                 name: "Battle Princess",

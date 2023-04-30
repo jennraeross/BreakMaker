@@ -12,7 +12,7 @@
                 </li>
             </ul>
             <ul>
-                <li><button class="secondary">Download</button></li>
+                <li><button id="print" class="secondary" @click="printDiv('charSheet')">Download</button></li>
                 <li><button>Create</button></li>
             </ul>
         </nav>
@@ -258,6 +258,13 @@
                     Level 2
                     <select v-model="elective2">
                         <option v-if="callingSelected == 'Battle Princess'" v-for="ability in callings.battlePrincess.standardAbilities" :value="ability.name">{{ability.name}}</option>
+                        <!--<option v-if="callingSelected == 'Champion'" v-for="ability in callings.champion.standardAbilities" :value="ability.name">{{ability.name}}</option>
+                        <option v-if="callingSelected == 'Factotum'" v-for="ability in callings.factotum.standardAbilities" :value="ability.name">{{ability.name}}</option>
+                        <option v-if="callingSelected == 'Heretic'" v-for="ability in callings.heretic.standardAbilities" :value="ability.name">{{ability.name}}</option>
+                        <option v-if="callingSelected == 'Murder Princess'" v-for="ability in callings.murderPrincess.standardAbilities" :value="ability.name">{{ability.name}}</option>
+                        <option v-if="callingSelected == 'Raider'" v-for="ability in callings.raider.standardAbilities" :value="ability.name">{{ability.name}}</option>
+                        <option v-if="callingSelected == 'Sage'" v-for="ability in callings.sage.standardAbilities" :value="ability.name">{{ability.name}}</option>
+                        <option v-if="callingSelected == 'Sneak'" v-for="ability in callings.sneak.standardAbilities" :value="ability.name">{{ability.name}}</option>-->
                     </select>
                 </label>
                 <label v-if="getLevel >= 4">
@@ -289,7 +296,7 @@
                 </label>
             </article>
 
-            <article>
+            <article id="charSheet">
                 <header>Character Sheet</header>
                 
                 
@@ -684,6 +691,9 @@
                 </div>
                 <hr>
                 <hr>
+
+
+
                 <div id="callingFeaturesBattlePrincess" v-if="callingSelected == 'Battle Princess'">
                     <nav>
                         <ul>
@@ -786,7 +796,724 @@
                         </template>
                     </details>
                 </div>
-                
+                <div id="callingFeaturesChampion" v-if="callingSelected == 'Champion'">
+                    <nav>
+                        <ul>
+                            <li><i class="fa-solid fa-check-to-slot fa-xl"></i></li>
+                            <li>
+                                <hgroup>
+                                    <h4>Class Abilities</h4>
+                                    <h5>{{callingSelected}}</h5>
+                                </hgroup>
+                            </li>
+                        </ul>
+                    </nav>
+
+                    <template v-for="ability in callings.champion.classAbilities">
+                        <details open>
+                            <summary>{{ability.name}}</summary>
+                            <p>{{ability.description}}</p>
+                            <ul>
+                                <li v-for="mechanic in ability.mechanics">{{mechanic}}</li>
+                            </ul>
+                        </details>
+                    </template>
+                    <details open v-if="getLevel >= 2">
+                        <summary>{{elective2}}</summary>
+                        <template v-for="ability in callings.champion.standardAbilities">
+                            <p v-if="ability.name == elective2">{{ability.description}}</p>
+                            <ul>
+                                <li v-if="ability.name == elective2" v-for="mechanic in ability.mechanics">
+                                    {{mechanic}}
+                                </li>
+                            </ul>
+                        </template>
+                    </details>
+                    <details open v-if="getLevel >= 4">
+                        <summary>{{elective4}}</summary>
+                        <template v-for="ability in callings.champion.standardAbilities">
+                            <p v-if="ability.name == elective4">{{ability.description}}</p>
+                            <ul>
+                                <li v-if="ability.name == elective4" v-for="mechanic in ability.mechanics">
+                                    {{mechanic}}
+                                </li>
+                            </ul>
+                        </template>
+                    </details>
+                    <details open v-if="getLevel >= 6">
+                        <summary>{{elective6}}</summary>
+                        <template v-for="ability in callings.champion.standardAbilities">
+                            <p v-if="ability.name == elective6">{{ability.description}}</p>
+                            <ul>
+                                <li v-if="ability.name == elective6" v-for="mechanic in ability.mechanics">
+                                    {{mechanic}}
+                                </li>
+                            </ul>
+                        </template>
+                        <template v-for="ability in callings.champion.advancedAbilities">
+                            <p v-if="ability.name == elective6">{{ability.description}}</p>
+                            <ul>
+                                <li v-if="ability.name == elective6" v-for="mechanic in ability.mechanics">
+                                    {{mechanic}}
+                                </li>
+                            </ul>
+                        </template>
+                    </details>
+                    <details open v-if="getLevel >= 8">
+                        <summary>{{elective8}}</summary>
+                        <template v-for="ability in callings.champion.standardAbilities">
+                            <p v-if="ability.name == elective8">{{ability.description}}</p>
+                            <ul>
+                                <li v-if="ability.name == elective8" v-for="mechanic in ability.mechanics">
+                                    {{mechanic}}
+                                </li>
+                            </ul>
+                        </template>
+                        <template v-for="ability in callings.champion.advancedAbilities">
+                            <p v-if="ability.name == elective8">{{ability.description}}</p>
+                            <ul>
+                                <li v-if="ability.name == elective8" v-for="mechanic in ability.mechanics">
+                                    {{mechanic}}
+                                </li>
+                            </ul>
+                        </template>
+                    </details>
+                    <details open v-if="getLevel >= 10">
+                        <summary>{{elective10}}</summary>
+                        <template v-for="ability in callings.champion.standardAbilities">
+                            <p v-if="ability.name == elective10">{{ability.description}}</p>
+                            <ul>
+                                <li v-if="ability.name == elective10" v-for="mechanic in ability.mechanics">
+                                    {{mechanic}}
+                                </li>
+                            </ul>
+                        </template>
+                        <template v-for="ability in callings.champion.advancedAbilities">
+                            <p v-if="ability.name == elective10">{{ability.description}}</p>
+                            <ul>
+                                <li v-if="ability.name == elective10" v-for="mechanic in ability.mechanics">
+                                    {{mechanic}}
+                                </li>
+                            </ul>
+                        </template>
+                    </details>
+                </div>
+                <div id="callingFeaturesFactotum" v-if="callingSelected == 'Factotum'">
+                    <nav>
+                        <ul>
+                            <li><i class="fa-solid fa-check-to-slot fa-xl"></i></li>
+                            <li>
+                                <hgroup>
+                                    <h4>Class Abilities</h4>
+                                    <h5>{{callingSelected}}</h5>
+                                </hgroup>
+                            </li>
+                        </ul>
+                    </nav>
+
+                    <template v-for="ability in callings.factotum.classAbilities">
+                        <details open>
+                            <summary>{{ability.name}}</summary>
+                            <p>{{ability.description}}</p>
+                            <ul>
+                                <li v-for="mechanic in ability.mechanics">{{mechanic}}</li>
+                            </ul>
+                        </details>
+                    </template>
+                    <details open v-if="getLevel >= 2">
+                        <summary>{{elective2}}</summary>
+                        <template v-for="ability in callings.factotum.standardAbilities">
+                            <p v-if="ability.name == elective2">{{ability.description}}</p>
+                            <ul>
+                                <li v-if="ability.name == elective2" v-for="mechanic in ability.mechanics">
+                                    {{mechanic}}
+                                </li>
+                            </ul>
+                        </template>
+                    </details>
+                    <details open v-if="getLevel >= 4">
+                        <summary>{{elective4}}</summary>
+                        <template v-for="ability in callings.factotum.standardAbilities">
+                            <p v-if="ability.name == elective4">{{ability.description}}</p>
+                            <ul>
+                                <li v-if="ability.name == elective4" v-for="mechanic in ability.mechanics">
+                                    {{mechanic}}
+                                </li>
+                            </ul>
+                        </template>
+                    </details>
+                    <details open v-if="getLevel >= 6">
+                        <summary>{{elective6}}</summary>
+                        <template v-for="ability in callings.factotum.standardAbilities">
+                            <p v-if="ability.name == elective6">{{ability.description}}</p>
+                            <ul>
+                                <li v-if="ability.name == elective6" v-for="mechanic in ability.mechanics">
+                                    {{mechanic}}
+                                </li>
+                            </ul>
+                        </template>
+                        <template v-for="ability in callings.factotum.advancedAbilities">
+                            <p v-if="ability.name == elective6">{{ability.description}}</p>
+                            <ul>
+                                <li v-if="ability.name == elective6" v-for="mechanic in ability.mechanics">
+                                    {{mechanic}}
+                                </li>
+                            </ul>
+                        </template>
+                    </details>
+                    <details open v-if="getLevel >= 8">
+                        <summary>{{elective8}}</summary>
+                        <template v-for="ability in callings.factotum.standardAbilities">
+                            <p v-if="ability.name == elective8">{{ability.description}}</p>
+                            <ul>
+                                <li v-if="ability.name == elective8" v-for="mechanic in ability.mechanics">
+                                    {{mechanic}}
+                                </li>
+                            </ul>
+                        </template>
+                        <template v-for="ability in callings.factotum.advancedAbilities">
+                            <p v-if="ability.name == elective8">{{ability.description}}</p>
+                            <ul>
+                                <li v-if="ability.name == elective8" v-for="mechanic in ability.mechanics">
+                                    {{mechanic}}
+                                </li>
+                            </ul>
+                        </template>
+                    </details>
+                    <details open v-if="getLevel >= 10">
+                        <summary>{{elective10}}</summary>
+                        <template v-for="ability in callings.factotum.standardAbilities">
+                            <p v-if="ability.name == elective10">{{ability.description}}</p>
+                            <ul>
+                                <li v-if="ability.name == elective10" v-for="mechanic in ability.mechanics">
+                                    {{mechanic}}
+                                </li>
+                            </ul>
+                        </template>
+                        <template v-for="ability in callings.factotum.advancedAbilities">
+                            <p v-if="ability.name == elective10">{{ability.description}}</p>
+                            <ul>
+                                <li v-if="ability.name == elective10" v-for="mechanic in ability.mechanics">
+                                    {{mechanic}}
+                                </li>
+                            </ul>
+                        </template>
+                    </details>
+                </div>
+                <div id="callingFeaturesHeretic" v-if="callingSelected == 'Heretic'">
+                    <nav>
+                        <ul>
+                            <li><i class="fa-solid fa-check-to-slot fa-xl"></i></li>
+                            <li>
+                                <hgroup>
+                                    <h4>Class Abilities</h4>
+                                    <h5>{{callingSelected}}</h5>
+                                </hgroup>
+                            </li>
+                        </ul>
+                    </nav>
+
+                    <template v-for="ability in callings.heretic.classAbilities">
+                        <details open>
+                            <summary>{{ability.name}}</summary>
+                            <p>{{ability.description}}</p>
+                            <ul>
+                                <li v-for="mechanic in ability.mechanics">{{mechanic}}</li>
+                            </ul>
+                        </details>
+                    </template>
+                    <details open v-if="getLevel >= 2">
+                        <summary>{{elective2}}</summary>
+                        <template v-for="ability in callings.heretic.standardAbilities">
+                            <p v-if="ability.name == elective2">{{ability.description}}</p>
+                            <ul>
+                                <li v-if="ability.name == elective2" v-for="mechanic in ability.mechanics">
+                                    {{mechanic}}
+                                </li>
+                            </ul>
+                        </template>
+                    </details>
+                    <details open v-if="getLevel >= 4">
+                        <summary>{{elective4}}</summary>
+                        <template v-for="ability in callings.heretic.standardAbilities">
+                            <p v-if="ability.name == elective4">{{ability.description}}</p>
+                            <ul>
+                                <li v-if="ability.name == elective4" v-for="mechanic in ability.mechanics">
+                                    {{mechanic}}
+                                </li>
+                            </ul>
+                        </template>
+                    </details>
+                    <details open v-if="getLevel >= 6">
+                        <summary>{{elective6}}</summary>
+                        <template v-for="ability in callings.heretic.standardAbilities">
+                            <p v-if="ability.name == elective6">{{ability.description}}</p>
+                            <ul>
+                                <li v-if="ability.name == elective6" v-for="mechanic in ability.mechanics">
+                                    {{mechanic}}
+                                </li>
+                            </ul>
+                        </template>
+                        <template v-for="ability in callings.heretic.advancedAbilities">
+                            <p v-if="ability.name == elective6">{{ability.description}}</p>
+                            <ul>
+                                <li v-if="ability.name == elective6" v-for="mechanic in ability.mechanics">
+                                    {{mechanic}}
+                                </li>
+                            </ul>
+                        </template>
+                    </details>
+                    <details open v-if="getLevel >= 8">
+                        <summary>{{elective8}}</summary>
+                        <template v-for="ability in callings.heretic.standardAbilities">
+                            <p v-if="ability.name == elective8">{{ability.description}}</p>
+                            <ul>
+                                <li v-if="ability.name == elective8" v-for="mechanic in ability.mechanics">
+                                    {{mechanic}}
+                                </li>
+                            </ul>
+                        </template>
+                        <template v-for="ability in callings.heretic.advancedAbilities">
+                            <p v-if="ability.name == elective8">{{ability.description}}</p>
+                            <ul>
+                                <li v-if="ability.name == elective8" v-for="mechanic in ability.mechanics">
+                                    {{mechanic}}
+                                </li>
+                            </ul>
+                        </template>
+                    </details>
+                    <details open v-if="getLevel >= 10">
+                        <summary>{{elective10}}</summary>
+                        <template v-for="ability in callings.heretic.standardAbilities">
+                            <p v-if="ability.name == elective10">{{ability.description}}</p>
+                            <ul>
+                                <li v-if="ability.name == elective10" v-for="mechanic in ability.mechanics">
+                                    {{mechanic}}
+                                </li>
+                            </ul>
+                        </template>
+                        <template v-for="ability in callings.heretic.advancedAbilities">
+                            <p v-if="ability.name == elective10">{{ability.description}}</p>
+                            <ul>
+                                <li v-if="ability.name == elective10" v-for="mechanic in ability.mechanics">
+                                    {{mechanic}}
+                                </li>
+                            </ul>
+                        </template>
+                    </details>
+                </div>
+                <div id="callingFeaturesMurderPrincess" v-if="callingSelected == 'Murder Princess'">
+                    <nav>
+                        <ul>
+                            <li><i class="fa-solid fa-check-to-slot fa-xl"></i></li>
+                            <li>
+                                <hgroup>
+                                    <h4>Class Abilities</h4>
+                                    <h5>{{callingSelected}}</h5>
+                                </hgroup>
+                            </li>
+                        </ul>
+                    </nav>
+
+                    <template v-for="ability in callings.murderPrincess.classAbilities">
+                        <details open>
+                            <summary>{{ability.name}}</summary>
+                            <p>{{ability.description}}</p>
+                            <ul>
+                                <li v-for="mechanic in ability.mechanics">{{mechanic}}</li>
+                            </ul>
+                        </details>
+                    </template>
+                    <details open v-if="getLevel >= 2">
+                        <summary>{{elective2}}</summary>
+                        <template v-for="ability in callings.murderPrincess.standardAbilities">
+                            <p v-if="ability.name == elective2">{{ability.description}}</p>
+                            <ul>
+                                <li v-if="ability.name == elective2" v-for="mechanic in ability.mechanics">
+                                    {{mechanic}}
+                                </li>
+                            </ul>
+                        </template>
+                    </details>
+                    <details open v-if="getLevel >= 4">
+                        <summary>{{elective4}}</summary>
+                        <template v-for="ability in callings.murderPrincess.standardAbilities">
+                            <p v-if="ability.name == elective4">{{ability.description}}</p>
+                            <ul>
+                                <li v-if="ability.name == elective4" v-for="mechanic in ability.mechanics">
+                                    {{mechanic}}
+                                </li>
+                            </ul>
+                        </template>
+                    </details>
+                    <details open v-if="getLevel >= 6">
+                        <summary>{{elective6}}</summary>
+                        <template v-for="ability in callings.murderPrincess.standardAbilities">
+                            <p v-if="ability.name == elective6">{{ability.description}}</p>
+                            <ul>
+                                <li v-if="ability.name == elective6" v-for="mechanic in ability.mechanics">
+                                    {{mechanic}}
+                                </li>
+                            </ul>
+                        </template>
+                        <template v-for="ability in callings.murderPrincess.advancedAbilities">
+                            <p v-if="ability.name == elective6">{{ability.description}}</p>
+                            <ul>
+                                <li v-if="ability.name == elective6" v-for="mechanic in ability.mechanics">
+                                    {{mechanic}}
+                                </li>
+                            </ul>
+                        </template>
+                    </details>
+                    <details open v-if="getLevel >= 8">
+                        <summary>{{elective8}}</summary>
+                        <template v-for="ability in callings.murderPrincess.standardAbilities">
+                            <p v-if="ability.name == elective8">{{ability.description}}</p>
+                            <ul>
+                                <li v-if="ability.name == elective8" v-for="mechanic in ability.mechanics">
+                                    {{mechanic}}
+                                </li>
+                            </ul>
+                        </template>
+                        <template v-for="ability in callings.murderPrincess.advancedAbilities">
+                            <p v-if="ability.name == elective8">{{ability.description}}</p>
+                            <ul>
+                                <li v-if="ability.name == elective8" v-for="mechanic in ability.mechanics">
+                                    {{mechanic}}
+                                </li>
+                            </ul>
+                        </template>
+                    </details>
+                    <details open v-if="getLevel >= 10">
+                        <summary>{{elective10}}</summary>
+                        <template v-for="ability in callings.murderPrincess.standardAbilities">
+                            <p v-if="ability.name == elective10">{{ability.description}}</p>
+                            <ul>
+                                <li v-if="ability.name == elective10" v-for="mechanic in ability.mechanics">
+                                    {{mechanic}}
+                                </li>
+                            </ul>
+                        </template>
+                        <template v-for="ability in callings.murderPrincess.advancedAbilities">
+                            <p v-if="ability.name == elective10">{{ability.description}}</p>
+                            <ul>
+                                <li v-if="ability.name == elective10" v-for="mechanic in ability.mechanics">
+                                    {{mechanic}}
+                                </li>
+                            </ul>
+                        </template>
+                    </details>
+                </div>
+                <div id="callingFeaturesRaider" v-if="callingSelected == 'Raider'">
+                    <nav>
+                        <ul>
+                            <li><i class="fa-solid fa-check-to-slot fa-xl"></i></li>
+                            <li>
+                                <hgroup>
+                                    <h4>Class Abilities</h4>
+                                    <h5>{{callingSelected}}</h5>
+                                </hgroup>
+                            </li>
+                        </ul>
+                    </nav>
+
+                    <template v-for="ability in callings.raider.classAbilities">
+                        <details open>
+                            <summary>{{ability.name}}</summary>
+                            <p>{{ability.description}}</p>
+                            <ul>
+                                <li v-for="mechanic in ability.mechanics">{{mechanic}}</li>
+                            </ul>
+                        </details>
+                    </template>
+                    <details open v-if="getLevel >= 2">
+                        <summary>{{elective2}}</summary>
+                        <template v-for="ability in callings.raider.standardAbilities">
+                            <p v-if="ability.name == elective2">{{ability.description}}</p>
+                            <ul>
+                                <li v-if="ability.name == elective2" v-for="mechanic in ability.mechanics">
+                                    {{mechanic}}
+                                </li>
+                            </ul>
+                        </template>
+                    </details>
+                    <details open v-if="getLevel >= 4">
+                        <summary>{{elective4}}</summary>
+                        <template v-for="ability in callings.raider.standardAbilities">
+                            <p v-if="ability.name == elective4">{{ability.description}}</p>
+                            <ul>
+                                <li v-if="ability.name == elective4" v-for="mechanic in ability.mechanics">
+                                    {{mechanic}}
+                                </li>
+                            </ul>
+                        </template>
+                    </details>
+                    <details open v-if="getLevel >= 6">
+                        <summary>{{elective6}}</summary>
+                        <template v-for="ability in callings.raider.standardAbilities">
+                            <p v-if="ability.name == elective6">{{ability.description}}</p>
+                            <ul>
+                                <li v-if="ability.name == elective6" v-for="mechanic in ability.mechanics">
+                                    {{mechanic}}
+                                </li>
+                            </ul>
+                        </template>
+                        <template v-for="ability in callings.raider.advancedAbilities">
+                            <p v-if="ability.name == elective6">{{ability.description}}</p>
+                            <ul>
+                                <li v-if="ability.name == elective6" v-for="mechanic in ability.mechanics">
+                                    {{mechanic}}
+                                </li>
+                            </ul>
+                        </template>
+                    </details>
+                    <details open v-if="getLevel >= 8">
+                        <summary>{{elective8}}</summary>
+                        <template v-for="ability in callings.raider.standardAbilities">
+                            <p v-if="ability.name == elective8">{{ability.description}}</p>
+                            <ul>
+                                <li v-if="ability.name == elective8" v-for="mechanic in ability.mechanics">
+                                    {{mechanic}}
+                                </li>
+                            </ul>
+                        </template>
+                        <template v-for="ability in callings.raider.advancedAbilities">
+                            <p v-if="ability.name == elective8">{{ability.description}}</p>
+                            <ul>
+                                <li v-if="ability.name == elective8" v-for="mechanic in ability.mechanics">
+                                    {{mechanic}}
+                                </li>
+                            </ul>
+                        </template>
+                    </details>
+                    <details open v-if="getLevel >= 10">
+                        <summary>{{elective10}}</summary>
+                        <template v-for="ability in callings.raider.standardAbilities">
+                            <p v-if="ability.name == elective10">{{ability.description}}</p>
+                            <ul>
+                                <li v-if="ability.name == elective10" v-for="mechanic in ability.mechanics">
+                                    {{mechanic}}
+                                </li>
+                            </ul>
+                        </template>
+                        <template v-for="ability in callings.raider.advancedAbilities">
+                            <p v-if="ability.name == elective10">{{ability.description}}</p>
+                            <ul>
+                                <li v-if="ability.name == elective10" v-for="mechanic in ability.mechanics">
+                                    {{mechanic}}
+                                </li>
+                            </ul>
+                        </template>
+                    </details>
+                </div>
+                <div id="callingFeaturesSage" v-if="callingSelected == 'Sage'">
+                    <nav>
+                        <ul>
+                            <li><i class="fa-solid fa-check-to-slot fa-xl"></i></li>
+                            <li>
+                                <hgroup>
+                                    <h4>Class Abilities</h4>
+                                    <h5>{{callingSelected}}</h5>
+                                </hgroup>
+                            </li>
+                        </ul>
+                    </nav>
+
+                    <template v-for="ability in callings.sage.classAbilities">
+                        <details open>
+                            <summary>{{ability.name}}</summary>
+                            <p>{{ability.description}}</p>
+                            <ul>
+                                <li v-for="mechanic in ability.mechanics">{{mechanic}}</li>
+                            </ul>
+                        </details>
+                    </template>
+                    <details open v-if="getLevel >= 2">
+                        <summary>{{elective2}}</summary>
+                        <template v-for="ability in callings.sage.standardAbilities">
+                            <p v-if="ability.name == elective2">{{ability.description}}</p>
+                            <ul>
+                                <li v-if="ability.name == elective2" v-for="mechanic in ability.mechanics">
+                                    {{mechanic}}
+                                </li>
+                            </ul>
+                        </template>
+                    </details>
+                    <details open v-if="getLevel >= 4">
+                        <summary>{{elective4}}</summary>
+                        <template v-for="ability in callings.sage.standardAbilities">
+                            <p v-if="ability.name == elective4">{{ability.description}}</p>
+                            <ul>
+                                <li v-if="ability.name == elective4" v-for="mechanic in ability.mechanics">
+                                    {{mechanic}}
+                                </li>
+                            </ul>
+                        </template>
+                    </details>
+                    <details open v-if="getLevel >= 6">
+                        <summary>{{elective6}}</summary>
+                        <template v-for="ability in callings.sage.standardAbilities">
+                            <p v-if="ability.name == elective6">{{ability.description}}</p>
+                            <ul>
+                                <li v-if="ability.name == elective6" v-for="mechanic in ability.mechanics">
+                                    {{mechanic}}
+                                </li>
+                            </ul>
+                        </template>
+                        <template v-for="ability in callings.sage.advancedAbilities">
+                            <p v-if="ability.name == elective6">{{ability.description}}</p>
+                            <ul>
+                                <li v-if="ability.name == elective6" v-for="mechanic in ability.mechanics">
+                                    {{mechanic}}
+                                </li>
+                            </ul>
+                        </template>
+                    </details>
+                    <details open v-if="getLevel >= 8">
+                        <summary>{{elective8}}</summary>
+                        <template v-for="ability in callings.sage.standardAbilities">
+                            <p v-if="ability.name == elective8">{{ability.description}}</p>
+                            <ul>
+                                <li v-if="ability.name == elective8" v-for="mechanic in ability.mechanics">
+                                    {{mechanic}}
+                                </li>
+                            </ul>
+                        </template>
+                        <template v-for="ability in callings.sage.advancedAbilities">
+                            <p v-if="ability.name == elective8">{{ability.description}}</p>
+                            <ul>
+                                <li v-if="ability.name == elective8" v-for="mechanic in ability.mechanics">
+                                    {{mechanic}}
+                                </li>
+                            </ul>
+                        </template>
+                    </details>
+                    <details open v-if="getLevel >= 10">
+                        <summary>{{elective10}}</summary>
+                        <template v-for="ability in callings.sage.standardAbilities">
+                            <p v-if="ability.name == elective10">{{ability.description}}</p>
+                            <ul>
+                                <li v-if="ability.name == elective10" v-for="mechanic in ability.mechanics">
+                                    {{mechanic}}
+                                </li>
+                            </ul>
+                        </template>
+                        <template v-for="ability in callings.sage.advancedAbilities">
+                            <p v-if="ability.name == elective10">{{ability.description}}</p>
+                            <ul>
+                                <li v-if="ability.name == elective10" v-for="mechanic in ability.mechanics">
+                                    {{mechanic}}
+                                </li>
+                            </ul>
+                        </template>
+                    </details>
+                </div>
+                <div id="callingFeaturesSneak" v-if="callingSelected == 'Sneak'">
+                    <nav>
+                        <ul>
+                            <li><i class="fa-solid fa-check-to-slot fa-xl"></i></li>
+                            <li>
+                                <hgroup>
+                                    <h4>Class Abilities</h4>
+                                    <h5>{{callingSelected}}</h5>
+                                </hgroup>
+                            </li>
+                        </ul>
+                    </nav>
+
+                    <template v-for="ability in callings.sneak.classAbilities">
+                        <details open>
+                            <summary>{{ability.name}}</summary>
+                            <p>{{ability.description}}</p>
+                            <ul>
+                                <li v-for="mechanic in ability.mechanics">{{mechanic}}</li>
+                            </ul>
+                        </details>
+                    </template>
+                    <details open v-if="getLevel >= 2">
+                        <summary>{{elective2}}</summary>
+                        <template v-for="ability in callings.sneak.standardAbilities">
+                            <p v-if="ability.name == elective2">{{ability.description}}</p>
+                            <ul>
+                                <li v-if="ability.name == elective2" v-for="mechanic in ability.mechanics">
+                                    {{mechanic}}
+                                </li>
+                            </ul>
+                        </template>
+                    </details>
+                    <details open v-if="getLevel >= 4">
+                        <summary>{{elective4}}</summary>
+                        <template v-for="ability in callings.sneak.standardAbilities">
+                            <p v-if="ability.name == elective4">{{ability.description}}</p>
+                            <ul>
+                                <li v-if="ability.name == elective4" v-for="mechanic in ability.mechanics">
+                                    {{mechanic}}
+                                </li>
+                            </ul>
+                        </template>
+                    </details>
+                    <details open v-if="getLevel >= 6">
+                        <summary>{{elective6}}</summary>
+                        <template v-for="ability in callings.sneak.standardAbilities">
+                            <p v-if="ability.name == elective6">{{ability.description}}</p>
+                            <ul>
+                                <li v-if="ability.name == elective6" v-for="mechanic in ability.mechanics">
+                                    {{mechanic}}
+                                </li>
+                            </ul>
+                        </template>
+                        <template v-for="ability in callings.sneak.advancedAbilities">
+                            <p v-if="ability.name == elective6">{{ability.description}}</p>
+                            <ul>
+                                <li v-if="ability.name == elective6" v-for="mechanic in ability.mechanics">
+                                    {{mechanic}}
+                                </li>
+                            </ul>
+                        </template>
+                    </details>
+                    <details open v-if="getLevel >= 8">
+                        <summary>{{elective8}}</summary>
+                        <template v-for="ability in callings.sneak.standardAbilities">
+                            <p v-if="ability.name == elective8">{{ability.description}}</p>
+                            <ul>
+                                <li v-if="ability.name == elective8" v-for="mechanic in ability.mechanics">
+                                    {{mechanic}}
+                                </li>
+                            </ul>
+                        </template>
+                        <template v-for="ability in callings.sneak.advancedAbilities">
+                            <p v-if="ability.name == elective8">{{ability.description}}</p>
+                            <ul>
+                                <li v-if="ability.name == elective8" v-for="mechanic in ability.mechanics">
+                                    {{mechanic}}
+                                </li>
+                            </ul>
+                        </template>
+                    </details>
+                    <details open v-if="getLevel >= 10">
+                        <summary>{{elective10}}</summary>
+                        <template v-for="ability in callings.sneak.standardAbilities">
+                            <p v-if="ability.name == elective10">{{ability.description}}</p>
+                            <ul>
+                                <li v-if="ability.name == elective10" v-for="mechanic in ability.mechanics">
+                                    {{mechanic}}
+                                </li>
+                            </ul>
+                        </template>
+                        <template v-for="ability in callings.sneak.advancedAbilities">
+                            <p v-if="ability.name == elective10">{{ability.description}}</p>
+                            <ul>
+                                <li v-if="ability.name == elective10" v-for="mechanic in ability.mechanics">
+                                    {{mechanic}}
+                                </li>
+                            </ul>
+                        </template>
+                    </details>
+                </div>
+
+
+
+
 
             </article>
         </main>
@@ -2376,7 +3103,7 @@
                                     [3, 4, 10, 13, 10, 13, 11],
                                     [4, 4, 10, 13, 10, 13, 11],
                                     [4, 5, 11, 14, 11, 14, 12],
-                                    [5, 5, 11, 14, 11, 14, 12]
+                                    [5, 5, 11, 14, 11, 15, 12]
                                 ],
                                 classAbilities: {
                                     lightFooted: {
@@ -3021,6 +3748,26 @@
                             return true;
                         } else {return false;}
                     },
+                    printDiv(divId) {
+                        let mywindow = window.open('', 'PRINT', 'height=650,width=900,top=100,left=150');
+
+                        mywindow.document.write(`<html><head><title>Character Sheet</title>`);
+                        mywindow.document.write('<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico/css/pico.min.css">');
+                        mywindow.document.write('<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />');
+                        mywindow.document.write('</head><body><main class="container">');
+                        mywindow.document.write(document.getElementById(divId).innerHTML);
+                        mywindow.document.write('</main></body></html>');
+
+                        mywindow.document.close(); // necessary for IE >= 10
+                        mywindow.focus(); // necessary for IE >= 10*/
+                        mywindow.addEventListener('load', function() {
+                            mywindow.print();
+                            mywindow.close();
+                        })
+                        
+
+                        return true;
+                    }
                 }
             }).mount('#app')
         </script>

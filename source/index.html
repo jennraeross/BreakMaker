@@ -124,17 +124,28 @@
                 </header>
                 <form>
                     <label>
-                        Armor
-                        <select v-model="armorSelected">
-                            <option v-for="armor in armors">{{armor.name}}</option>
-                        </select>
-                    </label>
-                    <label>
                         Weapon
                         <select v-model="weaponSelected">
                             <option v-for="weapon in weapons">{{weapon.name}}</option>
                         </select>
                     </label>
+                    <div class="grid">
+                        <label>
+                            Armor
+                            <select v-model="armorSelected">
+                                <option v-for="armor in armors">{{armor.name}}</option>
+                            </select>
+                        </label>
+                        <label>
+                            Shield
+                            <select v-model="shieldSelected">
+                                <option value="null">None</option>
+                                <option v-for="shield in shields">{{shield.name}}</option>
+                            </select>
+                        </label>
+                    </div>
+                    
+                    
                 </form>
             </article>
 
@@ -1535,6 +1546,7 @@
                         callingSelected: null,
                         weaponSelected: null,
                         armorSelected: null,
+                        shieldSelected: null,
                         xp: 0,
                         characterName: null,
                         speciesSelected: null,
@@ -3334,6 +3346,20 @@
                                 bonus: 8
                             }
                         },
+                        shields: {
+                            small: {
+                                name: "Small Shield",
+                                bonus: 0
+                            },
+                            medium: {
+                                name: "Medium Shield",
+                                bonus: 1
+                            },
+                            large: {
+                                name: "Large Shield",
+                                bonus: 2
+                            }
+                        },
                         quirks: {
                             unhinged: {
                                 name: "Unhinged"
@@ -3682,6 +3708,14 @@
                             case "Super Heavy Armor":
                                 calcDefense == 18;   
                                 break;        
+                        }
+                        switch(this.shieldSelected) {
+                            case "Medium Shield": 
+                                calcDefense++;
+                                break;
+                            case "Large Shield": 
+                                calcDefense += 2;
+                                break;
                         }
                         switch(this.speciesSelected) {
                             case "Chib": 

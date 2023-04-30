@@ -3763,6 +3763,9 @@
                         mywindow.focus(); // necessary for IE >= 10*/
                         mywindow.addEventListener('load', function() {
                             mywindow.print();
+                            //mywindow.close();
+                        })
+                        mywindow.addEventListener('afterprint', function() {
                             mywindow.close();
                         })
                         

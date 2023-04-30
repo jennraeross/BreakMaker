@@ -445,7 +445,7 @@
                         </ul>
                         <ul>
                             <li>Base</li>
-                            <li><button class="outline contrast">10</button></li>
+                            <li><button class="outline contrast">{{getDefense}}</button></li>
                         </ul>
                     </nav>
                     <div class="flex justify-center align-center justify-center">
@@ -469,18 +469,17 @@
                         </ul>
                         <ul>
                             <li>Base</li>
-                            <li><button class="outline contrast">1</button></li>
+                            <li><button class="outline contrast">{{getSpeed}}</button></li>
                         </ul>
                     </nav>
                     <div class="flex justify-center align-center justify-center">
-                        <button class="outline" style="flex: 1">Average</button>
+                        <button class="outline" style="flex: 1">{{getSpeedRating}}</button>
                         <!--<div class="flex flex-col" style="flex: 5; padding: 1em">
                             <span>Trait:</span>
                             <progress value="10" max="20"></progress>
                             <span>Bon./Pen.</span>
                         </div>-->
-                        <div style="flex: 5; padding: 5px">
-                        </div>
+                        <progress :value="getSpeed" max="4" style="flex: 5; border-radius: 0;"></progress>
                     </div>
                 </div>
                 <hr>
@@ -656,7 +655,7 @@
                     </div>
                     <h5 v-if="brightPoints > (darkPoints + 1)">Bright Aligned</h5>
                     <h5 v-if="darkPoints > (brightPoints + 1)">Dark Aligned</h5>
-                    <h5 v-if="brightPoints <= (darkPoints + 1) && darkpoints <= (brightPoints + 1) && (brightPoints != 0 || darkPoints != 0)">Twilight Aligned</h5>
+                    <h5 v-if="brightPoints <= (darkPoints + 1) && darkPoints <= (brightPoints + 1) && (brightPoints != 0 || darkPoints != 0)">Twilight Aligned</h5>
                     <h5 v-if="brightPoints == 0 && darkPoints == 0">Unaligned</h5>
                     <h5 v-if="brightPoints >= 3">Bright Gifts:</h5>
                     <template v-for="gift in brightGifts">
@@ -2403,37 +2402,48 @@
                         },
                         species: {
                             native: {
-                                name: "Human (Native)"
+                                name: "Human (Native)",
+                                size: "Medium"
                             },
                             stray: {
-                                name: "Human (Dimensional Stray)"
+                                name: "Human (Dimensional Stray)",
+                                size: "Medium"
                             },
                             chib: {
-                                name: "Chib"
+                                name: "Chib",
+                                size: "Small"
                             },
                             tenebrate: {
-                                name: "Tenebrate"
+                                name: "Tenebrate",
+                                size: "Medium"
                             },
                             neko: {
-                                name: "Rai-Neko"
+                                name: "Rai-Neko",
+                                size: "Medium"
                             },
                             promethean: {
-                                name: "Promethean"
+                                name: "Promethean",
+                                size: "Large"
                             },
                             gruun: {
-                                name: "Gruun"
+                                name: "Gruun",
+                                size: "Large"
                             },
                             goblin: {
-                                name: "Goblin"
+                                name: "Goblin",
+                                size: "Small"
                             },
                             dwarf: {
-                                name: "Dwarf"
+                                name: "Dwarf",
+                                size: "Medium"
                             },
                             elf: {
-                                name: "Elf"
+                                name: "Elf",
+                                size: "Medium"
                             },
                             mechanoid: {
-                                name: "Bio-Mechanoid"
+                                name: "Bio-Mechanoid",
+                                size: "Medium"
                             },
                         },
                         homelands: {
@@ -2696,25 +2706,108 @@
                         }
                     },
                     getMight() {
+                        let calcMight = 10;
                         switch(this.callingSelected) {
                             case "Battle Princess":
-                                return this.callings.battlePrincess.stats[(this.getLevel - 1)][2];
-                            default:
-                                return 10;
+                                calcMight = this.callings.battlePrincess.stats[(this.getLevel - 1)][2];
+                                break;
+                            case "Champion":
+                                calcMight = this.callings.champion.stats[(this.getLevel - 1)][2];
+                                break;
+                            case "Factotum":
+                                calcMight = this.callings.factotum.stats[(this.getLevel - 1)][2];
+                                break;
+                            case "Heretic":
+                                calcMight = this.callings.heretic.stats[(this.getLevel - 1)][2];
+                                break;
+                            case "Murder Princess":
+                                calcMight = this.callings.murderPrincess.stats[(this.getLevel - 1)][2];
+                                break;
+                            case "Raider":
+                                calcMight = this.callings.raider.stats[(this.getLevel - 1)][2];
+                                break;
+                            case "Sage":
+                                calcMight = this.callings.sage.stats[(this.getLevel - 1)][2];
+                                break;
+                            case "Sneak":
+                                calcMight = this.callings.sneak.stats[(this.getLevel - 1)][2];
+                                break;
                         }
+                        switch(this.speciesSelected) {
+                            case "Chib": 
+                            case "Goblin": 
+                                calcMight--;
+                                break;
+                            case "Gruun":
+                            case "Promethean":
+                                calcMight++;
+                                break;
+                        }
+                        return calcMight;
+
                     },
                     getDeft() {
+                        let calcDeft = 10;
                         switch(this.callingSelected) {
                             case "Battle Princess":
-                                return this.callings.battlePrincess.stats[(this.getLevel - 1)][3];
-                            default:
-                                return 10;
+                                calcDeft = this.callings.battlePrincess.stats[(this.getLevel - 1)][3];
+                                break;
+                            case "Champion":
+                                calcDeft = this.callings.champion.stats[(this.getLevel - 1)][3];
+                                break;
+                            case "Factotum":
+                                calcDeft = this.callings.factotum.stats[(this.getLevel - 1)][3];
+                                break;
+                            case "Heretic":
+                                calcDeft = this.callings.heretic.stats[(this.getLevel - 1)][3];
+                                break;
+                            case "Murder Princess":
+                                calcDeft = this.callings.murderPrincess.stats[(this.getLevel - 1)][3];
+                                break;
+                            case "Raider":
+                                calcDeft = this.callings.raider.stats[(this.getLevel - 1)][3];
+                                break;
+                            case "Sage":
+                                calcDeft = this.callings.sage.stats[(this.getLevel - 1)][3];
+                                break;
+                            case "Sneak":
+                                calcDeft = this.callings.sneak.stats[(this.getLevel - 1)][3];
+                                break;
                         }
+                        switch(this.speciesSelected) {
+                            case "Chib":
+                            case "Goblin":
+                                calcDeft++;
+                                break;
+                        }
+                        return calcDeft;
                     },
                     getGrit() {
                         switch(this.callingSelected) {
                             case "Battle Princess":
                                 return this.callings.battlePrincess.stats[(this.getLevel - 1)][4];
+                                break;
+                            case "Champion":
+                                return this.callings.champion.stats[(this.getLevel - 1)][4];
+                                break;
+                            case "Factotum":
+                                return this.callings.factotum.stats[(this.getLevel - 1)][4];
+                                break;
+                            case "Heretic":
+                                return this.callings.heretic.stats[(this.getLevel - 1)][4];
+                                break;
+                            case "Murder Princess":
+                                return this.callings.murderPrincess.stats[(this.getLevel - 1)][4];
+                                break;
+                            case "Raider":
+                                return this.callings.raider.stats[(this.getLevel - 1)][4];
+                                break;
+                            case "Sage":
+                                return this.callings.sage.stats[(this.getLevel - 1)][4];
+                                break;
+                            case "Sneak":
+                                return this.callings.sneak.stats[(this.getLevel - 1)][4];
+                                break;
                             default:
                                 return 10;
                         }
@@ -2723,6 +2816,28 @@
                         switch(this.callingSelected) {
                             case "Battle Princess":
                                 return this.callings.battlePrincess.stats[(this.getLevel - 1)][5];
+                                break;
+                            case "Champion":
+                                return this.callings.champion.stats[(this.getLevel - 1)][5];
+                                break;
+                            case "Factotum":
+                                return this.callings.factotum.stats[(this.getLevel - 1)][5];
+                                break;
+                            case "Heretic":
+                                return this.callings.heretic.stats[(this.getLevel - 1)][5];
+                                break;
+                            case "Murder Princess":
+                                return this.callings.murderPrincess.stats[(this.getLevel - 1)][5];
+                                break;
+                            case "Raider":
+                                return this.callings.raider.stats[(this.getLevel - 1)][5];
+                                break;
+                            case "Sage":
+                                return this.callings.sage.stats[(this.getLevel - 1)][5];
+                                break;
+                            case "Sneak":
+                                return this.callings.sneak.stats[(this.getLevel - 1)][5];
+                                break;
                             default:
                                 return 10;
                         }
@@ -2731,6 +2846,28 @@
                         switch(this.callingSelected) {
                             case "Battle Princess":
                                 return this.callings.battlePrincess.stats[(this.getLevel - 1)][6];
+                                break;
+                            case "Champion":
+                                return this.callings.champion.stats[(this.getLevel - 1)][6];
+                                break;
+                            case "Factotum":
+                                return this.callings.factotum.stats[(this.getLevel - 1)][6];
+                                break;
+                            case "Heretic":
+                                return this.callings.heretic.stats[(this.getLevel - 1)][6];
+                                break;
+                            case "Murder Princess":
+                                return this.callings.murderPrincess.stats[(this.getLevel - 1)][6];
+                                break;
+                            case "Raider":
+                                return this.callings.raider.stats[(this.getLevel - 1)][6];
+                                break;
+                            case "Sage":
+                                return this.callings.sage.stats[(this.getLevel - 1)][6];
+                                break;
+                            case "Sneak":
+                                return this.callings.sneak.stats[(this.getLevel - 1)][6];
+                                break;
                             default:
                                 return 10;
                         }
@@ -2739,6 +2876,28 @@
                         switch(this.callingSelected) {
                             case "Battle Princess":
                                 return this.callings.battlePrincess.stats[(this.getLevel - 1)][1];
+                                break;
+                            case "Champion":
+                                return this.callings.champion.stats[(this.getLevel - 1)][1];
+                                break;
+                            case "Factotum":
+                                return this.callings.factotum.stats[(this.getLevel - 1)][1];
+                                break;
+                            case "Heretic":
+                                return this.callings.heretic.stats[(this.getLevel - 1)][1];
+                                break;
+                            case "Murder Princess":
+                                return this.callings.murderPrincess.stats[(this.getLevel - 1)][1];
+                                break;
+                            case "Raider":
+                                return this.callings.raider.stats[(this.getLevel - 1)][1];
+                                break;
+                            case "Sage":
+                                return this.callings.sage.stats[(this.getLevel - 1)][1];
+                                break;
+                            case "Sneak":
+                                return this.callings.sneak.stats[(this.getLevel - 1)][1];
+                                break;
                             default:
                                 return 2;
                         }
@@ -2747,6 +2906,28 @@
                         switch(this.callingSelected) {
                             case "Battle Princess":
                                 return this.callings.battlePrincess.stats[(this.getLevel - 1)][0];
+                                break;
+                            case "Champion":
+                                return this.callings.champion.stats[(this.getLevel - 1)][0];
+                                break;
+                            case "Factotum":
+                                return this.callings.factotum.stats[(this.getLevel - 1)][0];
+                                break;
+                            case "Heretic":
+                                return this.callings.heretic.stats[(this.getLevel - 1)][0];
+                                break;
+                            case "Murder Princess":
+                                return this.callings.murderPrincess.stats[(this.getLevel - 1)][0];
+                                break;
+                            case "Raider":
+                                return this.callings.raider.stats[(this.getLevel - 1)][0];
+                                break;
+                            case "Sage":
+                                return this.callings.sage.stats[(this.getLevel - 1)][0];
+                                break;
+                            case "Sneak":
+                                return this.callings.sneak.stats[(this.getLevel - 1)][0];
+                                break;
                             default:
                                 return 0;
                         }
@@ -2760,21 +2941,86 @@
                         }
                     },
                     getDefense() {
+                        let calcDefense = 10;
                         switch(this.armorSelected) {
-                            case "Naked":
-                                return 10;
                             case "Light Armor":
-                                return 12;
+                                calcDefense = 12;
+                                break;
                             case "Medium Armor":
-                                return 14;
+                                calcDefense == 14;
+                                break;
                             case "Heavy Armor":
-                                return 16;
+                                calcDefense == 16;
+                                break;
                             case "Super Heavy Armor":
-                                return 18;
-                            default:
-                                return 10;              
+                                calcDefense == 18;   
+                                break;        
+                        }
+                        switch(this.speciesSelected) {
+                            case "Chib": 
+                            case "Goblin": 
+                                calcDefense++;
+                                break;
+                            case "Gruun": 
+                            case "Promethean": 
+                                calcDefense--;
+                                break;
+                        }
+                        return calcDefense;
+                    },
+                    getSpeed() {
+                        let speed = 1;
+                        switch(true){
+                            case this.callingSelected == 'Raider': 
+                            case (this.hasAbility("The Better Part of Valor")): 
+                            case (this.hasAbility("Relentless Pursuer")): 
+                            case (this.hasAbility("Blistering Pace")): 
+                                speed++;
+                        }
+                        switch(this.armorSelected){
+                            case "Medium Armor":
+                                speed = ((speed > 2) ? 2 : speed);
+                                break;
+                            case "Heavy Armor": 
+                                speed = ((speed > 1) ? 1 : speed);
+                                break;
+                            case "Super Heavy Armor": 
+                                speed = 0;
+                        }
+                        return speed;
+                    },
+                    getSpeedRating() {
+                        switch(this.getSpeed) {
+                            case 1: 
+                                return "Average";
+                                break;
+                            case 2: 
+                                return "Fast";
+                                break;
+                            case 3:
+                            case 4:
+                                return "Very Fast";
+                                break;
+                            case 0: 
+                                return "Slow";
+                                break;
+                            default: 
+                                return "Average";
                         }
                     }
+                },
+                methods: {
+                    hasAbility(ability) {
+                        if (
+                            this.elective1 == ability ||
+                            this.elective2 == ability ||
+                            this.elective4 == ability ||
+                            this.elective6 == ability ||
+                            this.elective10 == ability
+                        ) {
+                            return true;
+                        } else {return false;}
+                    },
                 }
             }).mount('#app')
         </script>

@@ -9,44 +9,22 @@
   ],
   "creatorBuild" : "34484",
   "files" : {
-    "\/build\/.gitignore" : {
-      "cB" : 0,
-      "ft" : 8192,
-      "hM" : 0,
-      "oA" : 0,
-      "oAP" : "\/build\/.gitignore",
-      "oF" : 0
-    },
-    "\/css\/main.css" : {
-      "aP" : 1,
-      "bl" : 0,
-      "ci" : 0,
-      "co" : 0,
-      "ft" : 16,
-      "ma" : 0,
-      "oA" : 0,
-      "oAP" : "\/css\/main-min.css",
-      "oF" : 0,
-      "pg" : 0
-    },
-    "\/index.html" : {
-      "cB" : 0,
-      "ft" : 8192,
-      "hM" : 0,
-      "oA" : 0,
-      "oAP" : "\/index.html",
+    "\/build" : {
+      "ft" : 65536,
+      "oA" : 1,
+      "oAP" : "\/build\/build",
       "oF" : 0
     },
     "\/node_modules" : {
       "ft" : 65536,
       "oA" : 2,
-      "oAP" : "\/node_modules",
+      "oAP" : "\/build\/node_modules",
       "oF" : 0
     },
     "\/package-lock.json" : {
       "ft" : 524288,
       "oA" : 1,
-      "oAP" : "\/package-lock-min.json",
+      "oAP" : "\/build\/package-lock-min.json",
       "oF" : 0,
       "oO" : 1,
       "oS" : 1
@@ -54,51 +32,35 @@
     "\/package.json" : {
       "ft" : 524288,
       "oA" : 1,
-      "oAP" : "\/package-min.json",
+      "oAP" : "\/build\/package-min.json",
       "oF" : 0,
       "oO" : 1,
       "oS" : 1
     },
-    "\/scss\/main-min.css" : {
-      "aP" : 1,
-      "bl" : 0,
-      "ci" : 0,
-      "co" : 0,
-      "ft" : 16,
-      "ma" : 0,
+    "\/source\/index.html" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 1,
       "oA" : 0,
-      "oAP" : "\/scss\/main-min-min.css",
-      "oF" : 0,
-      "pg" : 0
+      "oAP" : "\/build\/index.html",
+      "oF" : 2
     },
-    "\/scss\/main.css" : {
-      "aP" : 1,
-      "bl" : 0,
-      "ci" : 0,
-      "co" : 0,
-      "ft" : 16,
-      "ma" : 0,
-      "oA" : 0,
-      "oAP" : "\/scss\/main-min.css",
-      "oF" : 0,
-      "pg" : 0
-    },
-    "\/scss\/main.scss" : {
+    "\/source\/scss\/main.scss" : {
       "aP" : 1,
       "bl" : 1,
-      "co" : 0,
+      "co" : 1,
       "dP" : 10,
       "ec" : 1,
       "ft" : 4,
       "ma" : 0,
       "oA" : 0,
-      "oAP" : "\/css\/main.css",
+      "oAP" : "\/build\/css\/main.css",
       "oF" : 2,
       "oS" : 0,
       "pg" : 0,
       "sct" : 0
     },
-    "\/scss\/print.scss" : {
+    "\/source\/scss\/print.scss" : {
       "aP" : 0,
       "bl" : 0,
       "co" : 1,
@@ -107,7 +69,7 @@
       "ft" : 4,
       "ma" : 0,
       "oA" : 0,
-      "oAP" : "\/scss\/print.css",
+      "oAP" : "\/build\/scss\/print.css",
       "oF" : 0,
       "oS" : 0,
       "pg" : 0,
@@ -421,7 +383,7 @@
     "browserRefreshDelay" : 0,
     "browserslistString" : ">0.2%, last 2 versions, Firefox ESR, not dead",
     "buildEnvironment" : 0,
-    "buildFolderActive" : 0,
+    "buildFolderActive" : 1,
     "buildFolderName" : "build",
     "cleanBuild" : 1,
     "cssoForceMediaMerge" : 0,
@@ -1392,7 +1354,7 @@
     },
     "esLintSourceType" : 0,
     "externalServerAddress" : "http:\/\/localhost:8888",
-    "gitIgnoreBuildFolder" : 1,
+    "gitIgnoreBuildFolder" : 0,
     "hideConfigFile" : 0,
     "jsCheckerReservedNamesString" : "",
     "languageDefaultsCOFFEE" : {
@@ -2022,7 +1984,7 @@
     "webpPresets" : {
 
     },
-    "websiteRelativeRoot" : ""
+    "websiteRelativeRoot" : "build"
   },
   "settingsFileVersion" : "3"
 }

@@ -1,0 +1,48 @@
+.flex {
+    display: flex;
+}
+
+.flex-col {
+    flex-direction: column;
+}
+
+.flex-row {
+    flex-direction: row;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.flex-1 {
+    flex-grow: 1;
+}
+
+.flex-2 {
+    flex-grow: 2;
+}
+
+.printColumn {
+    columns: 2;
+}
+
+@media print {
+    /* All your print styles go here */
+    .progress{
+      background-color: #f5f5f5 !important;
+      border-radius: 4px !important;
+      -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1) !important;
+    }
+    .progress-bar{
+      background-color: #428bca !important;
+      box-shadow: inset 0 -1px 0 rgba(0,0,0,0.15) !important;
+    }
+ }

@@ -3749,11 +3749,12 @@
                         } else {return false;}
                     },
                     printDiv(divId) {
-                        let mywindow = window.open('', 'PRINT', 'height=650,width=900,top=100,left=150');
+                        let mywindow = window.open('', 'PRINT');
 
                         mywindow.document.write(`<html><head><title>Character Sheet</title>`);
                         mywindow.document.write('<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico/css/pico.min.css">');
                         mywindow.document.write('<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />');
+                        mywindow.document.write('<style>.flex{display:flex}.flex-col{flex-direction:column}.flex-row{flex-direction:row}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.align-center{align-items:center}.flex-1{flex-grow:1}.flex-2{flex-grow:2}.printColumn{columns:2}</style>')
                         mywindow.document.write('</head><body><main class="container">');
                         mywindow.document.write(document.getElementById(divId).innerHTML);
                         mywindow.document.write('</main></body></html>');

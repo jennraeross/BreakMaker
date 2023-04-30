@@ -97,6 +97,21 @@
       "oS" : 0,
       "pg" : 0,
       "sct" : 0
+    },
+    "\/scss\/print.scss" : {
+      "aP" : 0,
+      "bl" : 0,
+      "co" : 1,
+      "dP" : 10,
+      "ec" : 1,
+      "ft" : 4,
+      "ma" : 0,
+      "oA" : 0,
+      "oAP" : "\/scss\/print.css",
+      "oF" : 0,
+      "oS" : 0,
+      "pg" : 0,
+      "sct" : 0
     }
   },
   "hooks" : [

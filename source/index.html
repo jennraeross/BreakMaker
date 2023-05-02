@@ -268,7 +268,9 @@
                 <label>
                     Level 2
                     <select v-model="elective2">
-                        <option v-if="callingSelected == 'Battle Princess'" v-for="ability in callings.battlePrincess.standardAbilities" :value="ability.name">{{ability.name}}</option>
+                        <optgroup label="Battle Princess Basic Abilities" v-if="callingSelected == 'Battle Princess'">
+                            <option v-for="ability in callings.battlePrincess.standardAbilities" :value="ability.name">{{ability.name}}</option>
+                        </optgroup>
                         <!--<option v-if="callingSelected == 'Champion'" v-for="ability in callings.champion.standardAbilities" :value="ability.name">{{ability.name}}</option>
                         <option v-if="callingSelected == 'Factotum'" v-for="ability in callings.factotum.standardAbilities" :value="ability.name">{{ability.name}}</option>
                         <option v-if="callingSelected == 'Heretic'" v-for="ability in callings.heretic.standardAbilities" :value="ability.name">{{ability.name}}</option>
@@ -281,28 +283,141 @@
                 <label v-if="getLevel >= 4">
                     Level 4
                     <select v-model="elective4">
-                        <option v-if="callingSelected == 'Battle Princess'" v-for="ability in callings.battlePrincess.standardAbilities" :value="ability.name">{{ability.name}}</option>
+                        <optgroup label="Battle Princess Basic Abilities" v-if="callingSelected == 'Battle Princess'">
+                            <option v-for="ability in callings.battlePrincess.standardAbilities" :value="ability.name">{{ability.name}}</option>
+                        </optgroup>
                     </select>
                 </label>
                 <label v-if="getLevel >= 6">
                     Level 6
                     <select v-model="elective6">
-                        <option v-if="callingSelected == 'Battle Princess'" v-for="ability in callings.battlePrincess.standardAbilities" :value="ability.name">{{ability.name}}</option>
-                        <option v-if="callingSelected == 'Battle Princess'" v-for="ability in callings.battlePrincess.advancedAbilities" :value="ability.name">{{ability.name}}</option>
+                        <optgroup label="Battle Princess Basic Abilities" v-if="callingSelected == 'Battle Princess'">
+                            <option v-for="ability in callings.battlePrincess.standardAbilities" :value="ability.name">{{ability.name}}</option>
+                        </optgroup>
+                        <optgroup label="Battle Princess Advanced Abilities" v-if="callingSelected == 'Battle Princess'">
+                            <option v-for="ability in callings.battlePrincess.advancedAbilities" :value="ability.name">{{ability.name}}</option>
+                        </optgroup>
+                        <optgroup label="Human (Native) Maturative Abilities" v-if="speciesSelected =='Human (Native)'">
+                            <option v-for="ability in species.native.maturativeAbilities" :value="ability.name">{{ability.name}}</option>
+                        </optgroup>
+                        <optgroup label="Human (Dimensional Stray) Maturative Abilities" v-if="speciesSelected =='Human (Dimensional Stray)'">
+                            <option v-for="ability in species.stray.maturativeAbilities" :value="ability.name">{{ability.name}}</option>
+                        </optgroup>
+                        <optgroup label="Chib Maturative Abilities" v-if="speciesSelected =='Chib'">
+                            <option v-for="ability in species.chib.maturativeAbilities" :value="ability.name">{{ability.name}}</option>
+                        </optgroup>
+                        <optgroup label="Tenebrate Maturative Abilities" v-if="speciesSelected =='Tenebrate'">
+                            <option v-for="ability in species.tenebrate.maturativeAbilities" :value="ability.name">{{ability.name}}</option>
+                        </optgroup>
+                        <optgroup label="Rai-Neko Maturative Abilities" v-if="speciesSelected =='Rai-Neko'">
+                            <option v-for="ability in species.neko.maturativeAbilities" :value="ability.name">{{ability.name}}</option>
+                        </optgroup>
+                        <optgroup label="Promethean Maturative Abilities" v-if="speciesSelected =='Promethean'">
+                            <option v-for="ability in species.promethean.maturativeAbilities" :value="ability.name">{{ability.name}}</option>
+                        </optgroup>
+                        <optgroup label="Gruun Maturative Abilities" v-if="speciesSelected =='Gruun'">
+                            <option v-for="ability in species.gruun.maturativeAbilities" :value="ability.name">{{ability.name}}</option>
+                        </optgroup>
+                        <optgroup label="Goblin Maturative Abilities" v-if="speciesSelected =='Goblin'">
+                            <option v-for="ability in species.goblin.maturativeAbilities" :value="ability.name">{{ability.name}}</option>
+                        </optgroup>
+                        <optgroup label="Dwarf Maturative Abilities" v-if="speciesSelected =='Dwarf'">
+                            <option v-for="ability in species.dwarf.maturativeAbilities" :value="ability.name">{{ability.name}}</option>
+                        </optgroup>
+                        <optgroup label="Elf Maturative Abilities" v-if="speciesSelected =='Elf'">
+                            <option v-for="ability in species.elf.maturativeAbilities" :value="ability.name">{{ability.name}}</option>
+                        </optgroup>
+                        <optgroup label="Bio-Mechanoid Maturative Abilities" v-if="speciesSelected =='Bio-Mechanoid'">
+                            <option v-for="ability in species.mechanoid.maturativeAbilities" :value="ability.name">{{ability.name}}</option>
+                        </optgroup>
                     </select>
                 </label>
                 <label v-if="getLevel >= 8">
                     Level 8
                     <select v-model="elective8">
-                        <option v-if="callingSelected == 'Battle Princess'" v-for="ability in callings.battlePrincess.standardAbilities" :value="ability.name">{{ability.name}}</option>
-                        <option v-if="callingSelected == 'Battle Princess'" v-for="ability in callings.battlePrincess.advancedAbilities" :value="ability.name">{{ability.name}}</option>
+                        <optgroup label="Battle Princess Basic Abilities" v-if="callingSelected == 'Battle Princess'">
+                            <option v-for="ability in callings.battlePrincess.standardAbilities" :value="ability.name">{{ability.name}}</option>
+                        </optgroup>
+                        <optgroup label="Battle Princess Advanced Abilities" v-if="callingSelected == 'Battle Princess'">
+                            <option v-for="ability in callings.battlePrincess.advancedAbilities" :value="ability.name">{{ability.name}}</option>
+                        </optgroup>
+                        <optgroup label="Human (Native) Maturative Abilities" v-if="speciesSelected =='Human (Native)'">
+                            <option v-for="ability in species.native.maturativeAbilities" :value="ability.name">{{ability.name}}</option>
+                        </optgroup>
+                        <optgroup label="Human (Dimensional Stray) Maturative Abilities" v-if="speciesSelected =='Human (Dimensional Stray)'">
+                            <option v-for="ability in species.stray.maturativeAbilities" :value="ability.name">{{ability.name}}</option>
+                        </optgroup>
+                        <optgroup label="Chib Maturative Abilities" v-if="speciesSelected =='Chib'">
+                            <option v-for="ability in species.chib.maturativeAbilities" :value="ability.name">{{ability.name}}</option>
+                        </optgroup>
+                        <optgroup label="Tenebrate Maturative Abilities" v-if="speciesSelected =='Tenebrate'">
+                            <option v-for="ability in species.tenebrate.maturativeAbilities" :value="ability.name">{{ability.name}}</option>
+                        </optgroup>
+                        <optgroup label="Rai-Neko Maturative Abilities" v-if="speciesSelected =='Rai-Neko'">
+                            <option v-for="ability in species.neko.maturativeAbilities" :value="ability.name">{{ability.name}}</option>
+                        </optgroup>
+                        <optgroup label="Promethean Maturative Abilities" v-if="speciesSelected =='Promethean'">
+                            <option v-for="ability in species.promethean.maturativeAbilities" :value="ability.name">{{ability.name}}</option>
+                        </optgroup>
+                        <optgroup label="Gruun Maturative Abilities" v-if="speciesSelected =='Gruun'">
+                            <option v-for="ability in species.gruun.maturativeAbilities" :value="ability.name">{{ability.name}}</option>
+                        </optgroup>
+                        <optgroup label="Goblin Maturative Abilities" v-if="speciesSelected =='Goblin'">
+                            <option v-for="ability in species.goblin.maturativeAbilities" :value="ability.name">{{ability.name}}</option>
+                        </optgroup>
+                        <optgroup label="Dwarf Maturative Abilities" v-if="speciesSelected =='Dwarf'">
+                            <option v-for="ability in species.dwarf.maturativeAbilities" :value="ability.name">{{ability.name}}</option>
+                        </optgroup>
+                        <optgroup label="Elf Maturative Abilities" v-if="speciesSelected =='Elf'">
+                            <option v-for="ability in species.elf.maturativeAbilities" :value="ability.name">{{ability.name}}</option>
+                        </optgroup>
+                        <optgroup label="Bio-Mechanoid Maturative Abilities" v-if="speciesSelected =='Bio-Mechanoid'">
+                            <option v-for="ability in species.mechanoid.maturativeAbilities" :value="ability.name">{{ability.name}}</option>
+                        </optgroup>
                     </select>
                 </label>
                 <label v-if="getLevel == 10">
                     Level 10
                     <select v-model="elective10">
-                        <option v-if="callingSelected == 'Battle Princess'" v-for="ability in callings.battlePrincess.standardAbilities" :value="ability.name">{{ability.name}}</option>
-                        <option v-if="callingSelected == 'Battle Princess'" v-for="ability in callings.battlePrincess.advancedAbilities" :value="ability.name">{{ability.name}}</option>
+                        <optgroup label="Battle Princess Basic Abilities" v-if="callingSelected == 'Battle Princess'">
+                            <option v-for="ability in callings.battlePrincess.standardAbilities" :value="ability.name">{{ability.name}}</option>
+                        </optgroup>
+                        <optgroup label="Battle Princess Advanced Abilities" v-if="callingSelected == 'Battle Princess'">
+                            <option v-for="ability in callings.battlePrincess.advancedAbilities" :value="ability.name">{{ability.name}}</option>
+                        </optgroup>
+                        <optgroup label="Human (Native) Maturative Abilities" v-if="speciesSelected =='Human (Native)'">
+                            <option v-for="ability in species.native.maturativeAbilities" :value="ability.name">{{ability.name}}</option>
+                        </optgroup>
+                        <optgroup label="Human (Dimensional Stray) Maturative Abilities" v-if="speciesSelected =='Human (Dimensional Stray)'">
+                            <option v-for="ability in species.stray.maturativeAbilities" :value="ability.name">{{ability.name}}</option>
+                        </optgroup>
+                        <optgroup label="Chib Maturative Abilities" v-if="speciesSelected =='Chib'">
+                            <option v-for="ability in species.chib.maturativeAbilities" :value="ability.name">{{ability.name}}</option>
+                        </optgroup>
+                        <optgroup label="Tenebrate Maturative Abilities" v-if="speciesSelected =='Tenebrate'">
+                            <option v-for="ability in species.tenebrate.maturativeAbilities" :value="ability.name">{{ability.name}}</option>
+                        </optgroup>
+                        <optgroup label="Rai-Neko Maturative Abilities" v-if="speciesSelected =='Rai-Neko'">
+                            <option v-for="ability in species.neko.maturativeAbilities" :value="ability.name">{{ability.name}}</option>
+                        </optgroup>
+                        <optgroup label="Promethean Maturative Abilities" v-if="speciesSelected =='Promethean'">
+                            <option v-for="ability in species.promethean.maturativeAbilities" :value="ability.name">{{ability.name}}</option>
+                        </optgroup>
+                        <optgroup label="Gruun Maturative Abilities" v-if="speciesSelected =='Gruun'">
+                            <option v-for="ability in species.gruun.maturativeAbilities" :value="ability.name">{{ability.name}}</option>
+                        </optgroup>
+                        <optgroup label="Goblin Maturative Abilities" v-if="speciesSelected =='Goblin'">
+                            <option v-for="ability in species.goblin.maturativeAbilities" :value="ability.name">{{ability.name}}</option>
+                        </optgroup>
+                        <optgroup label="Dwarf Maturative Abilities" v-if="speciesSelected =='Dwarf'">
+                            <option v-for="ability in species.dwarf.maturativeAbilities" :value="ability.name">{{ability.name}}</option>
+                        </optgroup>
+                        <optgroup label="Elf Maturative Abilities" v-if="speciesSelected =='Elf'">
+                            <option v-for="ability in species.elf.maturativeAbilities" :value="ability.name">{{ability.name}}</option>
+                        </optgroup>
+                        <optgroup label="Bio-Mechanoid Maturative Abilities" v-if="speciesSelected =='Bio-Mechanoid'">
+                            <option v-for="ability in species.mechanoid.maturativeAbilities" :value="ability.name">{{ability.name}}</option>
+                        </optgroup>
                     </select>
                 </label>
             </article>
@@ -702,8 +817,6 @@
                 </div>
                 <hr>
                 <hr>
-
-
 
                 <div id="callingFeaturesBattlePrincess" v-if="callingSelected == 'Battle Princess'">
                     <nav>
@@ -1520,6 +1633,361 @@
                             </ul>
                         </template>
                     </details>
+                </div>
+
+                <hr>
+                <hr>
+                <div id="speciesFeaturesNative" v-if="speciesSelected == 'Human (Native)'">
+                    <nav>
+                        <ul>
+                            <li><i class="fa-solid fa-person-rays fa-xl"></i></li>
+                            <li>
+                                <hgroup>
+                                    <h4>Species Abilities</h4>
+                                    <h5>{{speciesSelected}}</h5>
+                                </hgroup>
+                            </li>
+                        </ul>
+                    </nav>
+
+                    <template v-for="ability in species.native.innateAbilities">
+                        <details open>
+                            <summary>{{ability.name}}</summary>
+                            <p>{{ability.description}}</p>
+                            <ul>
+                                <li v-for="mechanic in ability.mechanics">{{mechanic}}</li>
+                            </ul>
+                        </details>
+                    </template>
+                    <template v-for="ability in species.native.maturativeAbilities">
+                        <details open v-if="hasAbility(ability.name)">
+                            <summary>{{ability.name}}</summary>
+                            <p>{{ability.description}}</p>
+                            <ul>
+                                <li v-for="mechanic in ability.mechanics">{{mechanic}}</li>
+                            </ul>
+                        </details>
+                    </template>
+                </div>
+                <div id="speciesFeaturesStray" v-if="speciesSelected == 'Human (Dimensional Stray)'">
+                    <nav>
+                        <ul>
+                            <li><i class="fa-solid fa-person-rays fa-xl"></i></li>
+                            <li>
+                                <hgroup>
+                                    <h4>Species Abilities</h4>
+                                    <h5>{{speciesSelected}}</h5>
+                                </hgroup>
+                            </li>
+                        </ul>
+                    </nav>
+
+                    <template v-for="ability in species.stray.innateAbilities">
+                        <details open>
+                            <summary>{{ability.name}}</summary>
+                            <p>{{ability.description}}</p>
+                            <ul>
+                                <li v-for="mechanic in ability.mechanics">{{mechanic}}</li>
+                            </ul>
+                        </details>
+                    </template>
+                    <template v-for="ability in species.stray.maturativeAbilities">
+                        <details open v-if="hasAbility(ability.name)">
+                            <summary>{{ability.name}}</summary>
+                            <p>{{ability.description}}</p>
+                            <ul>
+                                <li v-for="mechanic in ability.mechanics">{{mechanic}}</li>
+                            </ul>
+                        </details>
+                    </template>
+                </div>
+                <div id="speciesFeaturesChib" v-if="speciesSelected == 'Chib'">
+                    <nav>
+                        <ul>
+                            <li><i class="fa-solid fa-person-rays fa-xl"></i></li>
+                            <li>
+                                <hgroup>
+                                    <h4>Species Abilities</h4>
+                                    <h5>{{speciesSelected}}</h5>
+                                </hgroup>
+                            </li>
+                        </ul>
+                    </nav>
+
+                    <template v-for="ability in species.chib.innateAbilities">
+                        <details open>
+                            <summary>{{ability.name}}</summary>
+                            <p>{{ability.description}}</p>
+                            <ul>
+                                <li v-for="mechanic in ability.mechanics">{{mechanic}}</li>
+                            </ul>
+                        </details>
+                    </template>
+                    <template v-for="ability in species.chib.maturativeAbilities">
+                        <details open v-if="hasAbility(ability.name)">
+                            <summary>{{ability.name}}</summary>
+                            <p>{{ability.description}}</p>
+                            <ul>
+                                <li v-for="mechanic in ability.mechanics">{{mechanic}}</li>
+                            </ul>
+                        </details>
+                    </template>
+                </div>
+                <div id="speciesFeaturesTenebrate" v-if="speciesSelected == 'Tenebrate'">
+                    <nav>
+                        <ul>
+                            <li><i class="fa-solid fa-person-rays fa-xl"></i></li>
+                            <li>
+                                <hgroup>
+                                    <h4>Species Abilities</h4>
+                                    <h5>{{speciesSelected}}</h5>
+                                </hgroup>
+                            </li>
+                        </ul>
+                    </nav>
+
+                    <template v-for="ability in species.tenebrate.innateAbilities">
+                        <details open>
+                            <summary>{{ability.name}}</summary>
+                            <p>{{ability.description}}</p>
+                            <ul>
+                                <li v-for="mechanic in ability.mechanics">{{mechanic}}</li>
+                            </ul>
+                        </details>
+                    </template>
+                    <template v-for="ability in species.tenebrate.maturativeAbilities">
+                        <details open v-if="hasAbility(ability.name)">
+                            <summary>{{ability.name}}</summary>
+                            <p>{{ability.description}}</p>
+                            <ul>
+                                <li v-for="mechanic in ability.mechanics">{{mechanic}}</li>
+                            </ul>
+                        </details>
+                    </template>
+                </div>
+                <div id="speciesFeaturesNeko" v-if="speciesSelected == 'Rai-Neko'">
+                    <nav>
+                        <ul>
+                            <li><i class="fa-solid fa-person-rays fa-xl"></i></li>
+                            <li>
+                                <hgroup>
+                                    <h4>Species Abilities</h4>
+                                    <h5>{{speciesSelected}}</h5>
+                                </hgroup>
+                            </li>
+                        </ul>
+                    </nav>
+
+                    <template v-for="ability in species.neko.innateAbilities">
+                        <details open>
+                            <summary>{{ability.name}}</summary>
+                            <p>{{ability.description}}</p>
+                            <ul>
+                                <li v-for="mechanic in ability.mechanics">{{mechanic}}</li>
+                            </ul>
+                        </details>
+                    </template>
+                    <template v-for="ability in species.neko.maturativeAbilities">
+                        <details open v-if="hasAbility(ability.name)">
+                            <summary>{{ability.name}}</summary>
+                            <p>{{ability.description}}</p>
+                            <ul>
+                                <li v-for="mechanic in ability.mechanics">{{mechanic}}</li>
+                            </ul>
+                        </details>
+                    </template>
+                </div>
+                <div id="speciesFeaturesPromethean" v-if="speciesSelected == 'Promethean'">
+                    <nav>
+                        <ul>
+                            <li><i class="fa-solid fa-person-rays fa-xl"></i></li>
+                            <li>
+                                <hgroup>
+                                    <h4>Species Abilities</h4>
+                                    <h5>{{speciesSelected}}</h5>
+                                </hgroup>
+                            </li>
+                        </ul>
+                    </nav>
+
+                    <template v-for="ability in species.promethean.innateAbilities">
+                        <details open>
+                            <summary>{{ability.name}}</summary>
+                            <p>{{ability.description}}</p>
+                            <ul>
+                                <li v-for="mechanic in ability.mechanics">{{mechanic}}</li>
+                            </ul>
+                        </details>
+                    </template>
+                    <template v-for="ability in species.promethean.maturativeAbilities">
+                        <details open v-if="hasAbility(ability.name)">
+                            <summary>{{ability.name}}</summary>
+                            <p>{{ability.description}}</p>
+                            <ul>
+                                <li v-for="mechanic in ability.mechanics">{{mechanic}}</li>
+                            </ul>
+                        </details>
+                    </template>
+                </div>
+                <div id="speciesFeaturesGruun" v-if="speciesSelected == 'Gruun'">
+                    <nav>
+                        <ul>
+                            <li><i class="fa-solid fa-person-rays fa-xl"></i></li>
+                            <li>
+                                <hgroup>
+                                    <h4>Species Abilities</h4>
+                                    <h5>{{speciesSelected}}</h5>
+                                </hgroup>
+                            </li>
+                        </ul>
+                    </nav>
+
+                    <template v-for="ability in species.gruun.innateAbilities">
+                        <details open>
+                            <summary>{{ability.name}}</summary>
+                            <p>{{ability.description}}</p>
+                            <ul>
+                                <li v-for="mechanic in ability.mechanics">{{mechanic}}</li>
+                            </ul>
+                        </details>
+                    </template>
+                    <template v-for="ability in species.gruun.maturativeAbilities">
+                        <details open v-if="hasAbility(ability.name)">
+                            <summary>{{ability.name}}</summary>
+                            <p>{{ability.description}}</p>
+                            <ul>
+                                <li v-for="mechanic in ability.mechanics">{{mechanic}}</li>
+                            </ul>
+                        </details>
+                    </template>
+                </div>
+                <div id="speciesFeaturesGoblin" v-if="speciesSelected == 'Goblin'">
+                    <nav>
+                        <ul>
+                            <li><i class="fa-solid fa-person-rays fa-xl"></i></li>
+                            <li>
+                                <hgroup>
+                                    <h4>Species Abilities</h4>
+                                    <h5>{{speciesSelected}}</h5>
+                                </hgroup>
+                            </li>
+                        </ul>
+                    </nav>
+
+                    <template v-for="ability in species.goblin.innateAbilities">
+                        <details open>
+                            <summary>{{ability.name}}</summary>
+                            <p>{{ability.description}}</p>
+                            <ul>
+                                <li v-for="mechanic in ability.mechanics">{{mechanic}}</li>
+                            </ul>
+                        </details>
+                    </template>
+                    <template v-for="ability in species.goblin.maturativeAbilities">
+                        <details open v-if="hasAbility(ability.name)">
+                            <summary>{{ability.name}}</summary>
+                            <p>{{ability.description}}</p>
+                            <ul>
+                                <li v-for="mechanic in ability.mechanics">{{mechanic}}</li>
+                            </ul>
+                        </details>
+                    </template>
+                </div>
+                <div id="speciesFeaturesDwarf" v-if="speciesSelected == 'Dwarf'">
+                    <nav>
+                        <ul>
+                            <li><i class="fa-solid fa-person-rays fa-xl"></i></li>
+                            <li>
+                                <hgroup>
+                                    <h4>Species Abilities</h4>
+                                    <h5>{{speciesSelected}}</h5>
+                                </hgroup>
+                            </li>
+                        </ul>
+                    </nav>
+
+                    <template v-for="ability in species.dwarf.innateAbilities">
+                        <details open>
+                            <summary>{{ability.name}}</summary>
+                            <p>{{ability.description}}</p>
+                            <ul>
+                                <li v-for="mechanic in ability.mechanics">{{mechanic}}</li>
+                            </ul>
+                        </details>
+                    </template>
+                    <template v-for="ability in species.dwarf.maturativeAbilities">
+                        <details open v-if="hasAbility(ability.name)">
+                            <summary>{{ability.name}}</summary>
+                            <p>{{ability.description}}</p>
+                            <ul>
+                                <li v-for="mechanic in ability.mechanics">{{mechanic}}</li>
+                            </ul>
+                        </details>
+                    </template>
+                </div>
+                <div id="speciesFeaturesElf" v-if="speciesSelected == 'Elf'">
+                    <nav>
+                        <ul>
+                            <li><i class="fa-solid fa-person-rays fa-xl"></i></li>
+                            <li>
+                                <hgroup>
+                                    <h4>Species Abilities</h4>
+                                    <h5>{{speciesSelected}}</h5>
+                                </hgroup>
+                            </li>
+                        </ul>
+                    </nav>
+
+                    <template v-for="ability in species.elf.innateAbilities">
+                        <details open>
+                            <summary>{{ability.name}}</summary>
+                            <p>{{ability.description}}</p>
+                            <ul>
+                                <li v-for="mechanic in ability.mechanics">{{mechanic}}</li>
+                            </ul>
+                        </details>
+                    </template>
+                    <template v-for="ability in species.elf.maturativeAbilities">
+                        <details open v-if="hasAbility(ability.name)">
+                            <summary>{{ability.name}}</summary>
+                            <p>{{ability.description}}</p>
+                            <ul>
+                                <li v-for="mechanic in ability.mechanics">{{mechanic}}</li>
+                            </ul>
+                        </details>
+                    </template>
+                </div>
+                <div id="speciesFeaturesMechanoid" v-if="speciesSelected == 'Bio-Mechanoid'">
+                    <nav>
+                        <ul>
+                            <li><i class="fa-solid fa-person-rays fa-xl"></i></li>
+                            <li>
+                                <hgroup>
+                                    <h4>Species Abilities</h4>
+                                    <h5>{{speciesSelected}}</h5>
+                                </hgroup>
+                            </li>
+                        </ul>
+                    </nav>
+
+                    <template v-for="ability in species.mechanoid.innateAbilities">
+                        <details open>
+                            <summary>{{ability.name}}</summary>
+                            <p>{{ability.description}}</p>
+                            <ul>
+                                <li v-for="mechanic in ability.mechanics">{{mechanic}}</li>
+                            </ul>
+                        </details>
+                    </template>
+                    <template v-for="ability in species.mechanoid.maturativeAbilities">
+                        <details open v-if="hasAbility(ability.name)">
+                            <summary>{{ability.name}}</summary>
+                            <p>{{ability.description}}</p>
+                            <ul>
+                                <li v-for="mechanic in ability.mechanics">{{mechanic}}</li>
+                            </ul>
+                        </details>
+                    </template>
                 </div>
             </article>
         </main>
@@ -3165,47 +3633,335 @@
                         species: {
                             native: {
                                 name: "Human (Native)",
-                                size: "Medium"
+                                size: "Medium",
+                                innateAbilities: {
+                                    prodigy: {
+                                        name: "Prodigy",
+                                        description: "You define yourself through your craft, and seek to master your Calling as quickly as you can.",
+                                        mechanics: [
+                                            "You start play with an additional Elective Ability chosen from your Calling's Standard Ability list."
+                                        ]
+                                    }
+                                },
+                                maturativeAbilities: {
+                                    unyielding: {
+                                        name: "Unyielding",
+                                        description: "Even the immortal and cosmically mighty will buckle in the face of your resolve.",
+                                        mechanics: [
+                                            "You are gifted with Supernatural Will."
+                                        ]
+                                    }
+                                }
                             },
                             stray: {
                                 name: "Human (Dimensional Stray)",
-                                size: "Medium"
+                                size: "Medium",
+                                innateAbilities: {
+                                    leisurelyFocus: {
+                                        name: "Leisurely Focus",
+                                        description: "Back in Otehr World, time was abundant. You could spend your evenings and luch breaks doing whatever you pleased: working out, studying, or socializing.",
+                                        mechanics: [
+                                            "You have a +1 bonus to an Aptitude of your choice.",
+                                            "The bonus can only be applied to an Aptitude that has not been modified by your Traits."
+                                        ]
+                                    }
+                                },
+                                maturativeAbilities: {
+                                    obstinate: {
+                                        name: "Obstinate",
+                                        description: "You can be very rude! You won't show the proper respect to the divine, obey magical commands, and even insist that fate is silly.",
+                                        mechanics: [
+                                            "You are gifted with Supernatural Will."
+                                        ]
+                                    }
+                                }
                             },
                             chib: {
                                 name: "Chib",
-                                size: "Small"
+                                size: "Small",
+                                innateAbilities: {
+                                    easilyOverlooked: {
+                                        name: "Easily Overlooked",
+                                        description: "Small and innocuous, you often go unnoticed.",
+                                        mechanics: [
+                                            "Unless making a conscious effort to be seen, a would-be observer is required to make an Insight Check to notice you."
+                                        ]
+                                    }
+                                },
+                                maturativeAbilities: {
+                                    alwaysBet: {
+                                        name: "Always Bet on the Little Ones",
+                                        description: "While it seems like the world is out to get you wee ones, fortune often seems to favor you.",
+                                        mechanics: [
+                                            "Your wondrous luck allows you to add a Special Bonus to the result of one of your die rolls.",
+                                            "You can choose to add this bonus after you roll enabling you to turn failure into success. When this happens, the previous outcome comedically unravels by some absurd fortune.",
+                                            "This bonus can be stacke on top of other bonuses, and is exempt from the 1 bonus per roll restriction.",
+                                            "NOTE: This Ability cannot be used again until you have been able to engage in a Downtime Activity."
+                                        ]
+                                    }
+                                }
                             },
                             tenebrate: {
                                 name: "Tenebrate",
-                                size: "Medium"
+                                size: "Medium",
+                                innateAbilities: {
+                                    nightBorn: {
+                                        name: "Night Born",
+                                        description: "You are marked by darkness from birth.",
+                                        mechanics: [
+                                            "You begin play with 1 Dark Allegiance Point and must roll on the Dark Gifts Table."
+                                        ]
+                                    },
+                                    shadowSight: {
+                                        name: "Shadow Sight",
+                                        description: "The shadows hold no secrets from you.",
+                                        mechanics: [
+                                            "You can see in the dark, and do not need to rely on a Torch.",
+                                            "You are immune to the Obscured Battlefield Condition if caused by darkness.",
+                                            "NOTE: Unlike Underdwellers, you don't suffer a penalty in daylight."
+                                        ]
+                                    }
+                                },
+                                maturativeAbilities: {
+                                    monarchHomunculi: {
+                                        name: "Monarch Homunculi",
+                                        description: "You are able to reach into your blood and claim an authority long forgotten to exert your will on others.",
+                                        mechanics: [
+                                            "You can attempt to command a creature that has at least 1 Dark Allegiance Point.",
+                                            "During a Fight, issuing a command requires the use of your Action.",
+                                            "----",
+                                            "CONTEST: Your Aura vs. your target's Grit",
+                                            "SUCCESS: Your command is obeyed.",
+                                            "Your command must be something the target can easily perform in the next minute, or 1 Turn during a Fight. For example ‘Drop your sword’, ‘Attack the person next to you’, or ‘Kneel before me’.",
+                                            "The target must obey to the best of their ability, albeit reluctantly.",
+                                            "Once the command is obeyed, the target regains self-control, unless re-targeted on the next Turn.",
+                                            "FAILURE: Your target is forever immune to your commands."
+                                        ]
+                                    }
+                                }
+
                             },
                             neko: {
                                 name: "Rai-Neko",
-                                size: "Medium"
+                                size: "Medium",
+                                innateAbilities: {
+                                    oldtechProficiency: {
+                                        name: "Oldtech Proficiency",
+                                        description: "Unlike most folk living on the Outer World, Rai-Neko are educated from a young age in advanced technology.",
+                                        mechanics: [
+                                            "You get a bonus Purview: Understanding the function of gadgets, magitech, and other curious technology."
+                                        ]
+                                    },
+                                    huntersBlood: {
+                                        name: "Hunter's Blood",
+                                        description: "While civilized now, your kind were feral predators. Your heightened senses hark back to that more primal time.",
+                                        mechanics: [
+                                            "You get an Edge on all Insight rolls related to the five physical senses: sight sound, touch, taste, smell."
+                                        ]
+                                    }
+                                },
+                                maturativeAbilities: {
+                                    pantherCondidtioning: {
+                                        name: "Panther Conditioning",
+                                        description: "You embrace your animal qualities through rigorous training and meditation. Your hair is wilder, your fur unkempt.",
+                                        mechanics: [
+                                            "You have an Edge on all Deftness Checks and Contests.",
+                                            "You make Unarmed attacks as if wielding a Concealed Weapon."
+                                        ]
+                                    }
+                                }
                             },
                             promethean: {
                                 name: "Promethean",
-                                size: "Large"
+                                size: "Large",
+                                innateAbilities: {
+                                    crypticHeritage: {
+                                        name: "Cryptic Heritage",
+                                        description: "An odd truth is revealed about your origins when you recover from grievous injury or trauma.",
+                                        mechanics: [
+                                            "You can grow back body parts that have been severed in battle, or otherwise lost or removed.",
+                                            "To regenerate a limb you must use a session of Downtime to Heal an Injury.",
+                                            "NOTE: Regenerated body parts look Reptilian, skin is scaled and brightly colored."
+                                        ]
+                                    },
+                                    bornOfTheSun: {
+                                        name: "Born of the Sun",
+                                        description: "You take the title 'Chosen of the Sun' seriously, embracing The Bright without question or pause.",
+                                        mechanics: [
+                                            "You begin play with 1 Bright Allegiance Point."
+                                        ]
+                                    }
+                                },
+                                maturativeAbilities: {
+                                    solInvictus: {
+                                        name: "Sol Invictus",
+                                        description: "Thanks to intense training and dedication, your strength is unparalleled.",
+                                        mechanics: [
+                                            "You have attained Supernatural Might."
+                                        ]
+                                    }
+                                }
                             },
                             gruun: {
                                 name: "Gruun",
-                                size: "Large"
+                                size: "Large",
+                                innateAbilities: {
+                                    asToughAsYouLook: {
+                                        name: "As Tough As You Look",
+                                        description: "You were created to endure physical hardship and easily shrug off trauma that would leave others broken.",
+                                        mechanics: [
+                                            "You always have 1 Heart more the the Hearts Total stated for your Calling and Rank."
+                                        ]
+                                    }
+                                },
+                                maturativeAbilities: {
+                                    chainBreaker: {
+                                        name: "Chain Breaker",
+                                        description: "It is said that the first Gruun were so strong that they could shatter bindings with their bare hands.",
+                                        mechanics: [
+                                            "You have attained Supernatural Might."
+                                        ]
+                                    }
+                                }
                             },
                             goblin: {
                                 name: "Goblin",
-                                size: "Small"
+                                size: "Small",
+                                innateAbilities: {
+                                    underDweller: {
+                                        name: "Under Dweller",
+                                        description: "You thrive in the dark, but struggle to cope with the sunlight.",
+                                        mechanics: [
+                                            "You can see in the dark, and do not need to rely on a Torch.",
+                                            "You are immune to the Obscured Battlefield Condition if caused by Darkness.",
+                                            "You have a Snag while doing anything in bright light, unless your eyes are shaded in some way."
+                                        ]
+                                    },
+                                    gobboWerks: {
+                                        name: "Gobbo Werks",
+                                        description: "You tell people you are a master inventor with a deep understanding of ancient technology. This is a lie. You are able to invent and hastily make tools and machines that only sound plausible to another goblin. For example, a grappling hook utilizing a monster's sticky tongue or glue made from jam and spit.",
+                                        mechanics: [
+                                            "Your Gobbo Werks are:",
+                                            "Limited to mechanical devices that move, propel, or contain.",
+                                            "Made from scraps scavenged from the immediate surroundings.",
+                                            "Assembled in under an hour without need for specialist tools.",
+                                            "Can produce fire, or even explosions, if a suitable fuel or combustible is available.",
+                                            "Ugly and noisy.",
+                                            "----",
+                                            "CHECK: Aura",
+                                            "SUCCESS: Imagination and will have triumphed over physics.",
+                                            "The exact time taken to construct your Werk is decided by your (???)",
+                                            "Your creation will work as intended save for one critical flaw... it falls apart as soon as you start paying attention to anything else. Your neglect allows reality to re-establish it's uncaring hold.",
+                                            "A Werk cannot be repaired.",
+                                            "NOTE: If you later learn a 'proper' Crafting Discipline, you cannot combine it with your Goblin know-how. They are two separate arts."
+                                        ]
+                                    }
+                                },
+                                maturativeAbilities: {
+                                    spore: {
+                                        name: "Spore",
+                                        description: "At some unpredictable moment during your life, you will sprout another Goblin.",
+                                        mechanics: [
+                                            "You release a spore which rapidly evolves into a new Goblin in under an hour.",
+                                            "The new Goblin has no memories and is your Follower.",
+                                            "They function like a Goblin Scamp.",
+                                            "NOTE: This Goblin does not count towards the two Companions per PC restriction."
+                                        ]
+                                    }
+                                }
                             },
                             dwarf: {
                                 name: "Dwarf",
-                                size: "Medium"
+                                size: "Medium",
+                                innateAbilities: {
+                                    underDweller: {
+                                        name: "Under Dweller",
+                                        description: "You thrive in the dark, but struggle to cope with the sunlight.",
+                                        mechanics: [
+                                            "You can see in the dark, and do not need to rely on a Torch.",
+                                            "You are immune to the Obscured Battlefield Condition if caused by Darkness.",
+                                            "You have a Snag while doing anything in bright light, unless your eyes are shaded in some way."
+                                        ]
+                                    },
+                                    sturdy: {
+                                        name: "Sturdy",
+                                        description: "",
+                                        mechanics: [
+                                            "You gain 2 Base Inventory Slots.",
+                                            "You are immune to the Overburdened Ailment."
+                                        ]
+                                    }
+                                },
+                                maturativeAbilities: {
+                                    stoneSong: {
+                                        name: "Stone Song",
+                                        description: "",
+                                        mechanics: []
+                                    }
+                                }
                             },
                             elf: {
                                 name: "Elf",
-                                size: "Medium"
+                                size: "Medium",
+                                innateAbilities: {
+                                    ageless: {
+                                        name: "Ageless",
+                                        description: "While no longer truly immortal, you are not subject to the ravages of time.",
+                                        mechanics: [
+                                            "You never age beyond your physical prime, and are immune to effects that force aging."
+                                        ]
+                                    },
+                                    immortalEgo: {
+                                        name: "Immortal Ego",
+                                        description: "While your dreams can no longer affect the reality of others, your disillusions can prevent certain physical of psychological conditions from affecting you, simply because you don't think they should.",
+                                        mechanics: [
+                                            "You are immune to an ailment of your choice, with the exception of Overburdened."
+                                        ]
+                                    }
+                                },
+                                maturativeAbilities: {
+                                    twilightFlux: {
+                                        name: "Twilight Flux",
+                                        description: "Those elves that recall being Unshaped are able to restore a small part of the balance between the Invincible Brightness and Profound Darkness.",
+                                        mechanics: [
+                                            "You can shift your Allegiance Points between Bright and Dark at will, which affects your creatures and relics interact with you.",
+                                            "During a Fight, you need to use your Action to use this Ability.",
+                                            "NOTE: Gifts are awarded based on your underlying Allegiance, accrued through Ability selections, not by any shifts of Allegiance."
+                                        ]
+                                    }
+                                }
                             },
                             mechanoid: {
                                 name: "Bio-Mechanoid",
-                                size: "Medium"
+                                size: "Medium",
+                                innateAbilities: {
+                                    notFleshAndBlood: {
+                                        name: "Not of Flesh and Blood",
+                                        description: "You have a synthetic body. You do not eat or breathe and need maintenance rather than rest to heal.",
+                                        mechanics: [
+                                            "You can suffer different effects when you roll on the Injury Table, and must be healed with Bio-Mechanical Treatment.",
+                                            "For better or worse, you are immune to things that target organic life. For example, neither healing potions or poisons affect you.",
+                                            "You do not need to eat, and are immune to Starvation.",
+                                            "You must go offline periodically to recharge. This is the mechanical equivalent of sleep, if missed or skipped you suffer Fatigue."
+                                        ]
+                                    },
+                                    personalAnalytics: {
+                                        name: "Personal Analytics",
+                                        description: "Your heads-up-display affords greater perceptive range than organic beings.",
+                                        mechanics: [
+                                            "If you focus, you can detect the general distance and direction of any living creatures, and Sources of great energy, such as imbued items, powerful undead, or other mechanoid.",
+                                            "Your scan has a 50 ft. range.",
+                                            "During a Fight, this Ability requires the use of your Action."
+                                        ]
+                                    }
+                                },
+                                maturativeAbilities: {
+                                    bitStream: {
+                                        name: "Bit Stream",
+                                        description: "",
+                                        mechanics: []
+                                    }
+                                }
                             },
                         },
                         homelands: {

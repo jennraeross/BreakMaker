@@ -2093,7 +2093,7 @@
                                         name: "Second to None",
                                         description: "While now leading a life of high adventure, you rely on the little skills that have always served you well in the past.",
                                         mechanics: [
-                                            "You have an Edge whenever you roll for a Check or Contest convered by one of your Perviews.",
+                                            "You have an Edge whenever you roll for a Check or Contest convered by one of your Purviews.",
                                             "NOTE: This replaces the Minor Bonus you normally receive on rolls related to your Purview."
                                         ]
                                     },
@@ -2127,8 +2127,8 @@
                                             "You can select this Ability more than once, to gain a new Craft."
                                         ]
                                     },
-                                    florist: {
-                                        name: "Florist",
+                                    folklorist: {
+                                        name: "Folklorist",
                                         description: "",
                                         mechanics: []
                                     },
@@ -2151,7 +2151,18 @@
                                     combatCoordinated: {
                                         name: "Combat Coordinated",
                                         description: "You can organize a team offensive.",
-                                        mechanics: []
+                                        mechanics: [
+                                            "When you perform an Attack Assist, you target an enemy instead of an ally.",
+                                            "Rank 1: Any Attack rolls made on the chosen enemy during that Turn recieve a Minor Bonus (+2)",
+                                            "Rank 5: Any Attack rolls on your target now recieve an Edge, instead of the Minor Bonus."
+                                        ]
+                                    },
+                                    silverTongue: {
+                                        name: "Silver Tongue",
+                                        description: "A seductive accent or eloquent phrasing makes your argument more convincing.",
+                                        mechanics: [
+                                            "You have an Edge on all Negotiation rolls as long as you are given a chance to speak."
+                                        ]
                                     },
                                     socialLearner: {
                                         name: "Social Learner",
@@ -2176,15 +2187,32 @@
                                     },
                                     stalwartNavigator: {
                                         name: "Stalwart Navigator",
-                                        description: "",
-                                        mechanics: [],
+                                        description: "Whether it's thanks to wanderlust, a natural sense of direction, or an encyclopedic knowledge of the world, you always seem to be able to find your way around.",
+                                        mechanics: [
+                                            "Guide: You are able to act as a Guide when going on a Journey.",
+                                            "Cartography: You can attempt to make a Map good enough to be used by others or sold.",
+                                            "Rank 1: You can create a Local Map of any area you have Journeyed through.",
+                                            "If you have enough Local Maps, you can combine them into a Kingdom Map.",
+                                            "Rank 5: You are now able to create Region Maps from the appropriate Kingdom Maps.",
+                                            "If you have maps of the four main surface Regions, you can combine them into a World Map.",
+                                            "----",
+                                            "CHECK: Insight",
+                                            "SUCCESS: You created a usable map.",
+                                            "FAILURE: You need 24 hours to reset your compass before trying again."
+                                        ],
                                     }
                                 },
                                 advancedAbilities: {
                                     boonCompanion: {
                                         name: "Boon Companion",
                                         description: "Sometimes a trusted pet suddenly begins to talk. This is a phenomena that is often appreciated, occassionally lamented, but never questioned.",
-                                        mechanics: []
+                                        mechanics: [
+                                            "An Animal Companion, of your choice, gains the power of reason and speech.",
+                                            "Your Companion can speak the same languages as you.",
+                                            "Your Companion will remain loyal to you, even if mistreated or coerced.",
+                                            "Your Companion's personality and vocal ticks will be true to their animalistic nature. For example, a Rokko-Do would be proud and aloof, but a Slime might be easy going and relaxed.",
+                                            "If the Boon Companion dies, you can select a new Companion to assign this ability to, although this Companion must be in your service for at least a week before being eligible."
+                                        ]
                                     },
                                     troubleshooter: {
                                         name: "Troubleshooter",

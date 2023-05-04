@@ -40,10 +40,10 @@
     "\/source\/index.html" : {
       "cB" : 0,
       "ft" : 8192,
-      "hM" : 1,
+      "hM" : 0,
       "oA" : 0,
       "oAP" : "\/build\/index.html",
-      "oF" : 2
+      "oF" : 0
     },
     "\/source\/scss\/main.scss" : {
       "aP" : 1,

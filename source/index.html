@@ -69,7 +69,9 @@
                         <label>
                             History
                             <select v-model="historySelected">
-                                <option v-for="history in histories" :value="history.name">{{history.name}}</option>
+                                <optgroup label="Wistful Dark">
+                                    <option v-for="history in histories.wistfulDark" :value="history.name">{{history.name}}</option>
+                                </optgroup>
                             </select>
                         </label>
                         <label>
@@ -450,10 +452,6 @@
                             <span>Homeland</span>
                         </hgroup>
                         <hgroup>
-                            <h6>{{historySelected}}</h6>
-                            <span>History</span>
-                        </hgroup>
-                        <hgroup>
                             <h6>{{quirkSelected}}</h6>
                             <span>Quirk</span>
                         </hgroup>
@@ -502,9 +500,32 @@
                         </nav>
                     </div>
                 </div>
-
                 <hr>
-
+                <div id="history">
+                    <nav>
+                        <ul>
+                            <li><i class="fa-solid fa-clock fa-xl"></i></li>
+                            <li>
+                                <hgroup>
+                                    <h6>{{historySelected}}</h6>
+                                    <span>History</span>
+                                </hgroup>
+                            </li>
+                        </ul>
+                    </nav>
+                    <template v-for="history in histories.wistfulDark">
+                        <details open v-if="historySelected == history.name">
+                            <summary>{{history.name}}</summary>
+                            <p>{{history.description}}</p>
+                            <p>Purviews:</p>
+                            <ul>
+                                <li v-for="purview in history.purviews">{{purview}}</li>
+                            </ul>
+                        </details>
+                    </template>
+                    
+                </div>
+                <hr>
                 <div id="attack">
                     <nav>
                         <ul>
@@ -3982,41 +4003,187 @@
                             },
                         },
                         histories: {
-                            forsakenWanderer: {
-                                name: "Forsaken Wanderer"
-                            },
-                            blightRaider: {
-                                name: "Blight Raider"
-                            },
-                            shadowLandsNomad: {
-                                name: "Shadow Lands Nomad"
-                            },
-                            murkDweller: {
-                                name: "Murk Dweller"
-                            },
-                            nightwallYeoman: {
-                                name: "Nightwall Yeoman"
-                            },
-                            starlightFarmer: {
-                                name: "Starlight Farmer"
-                            },
-                            guildAgent: {
-                                name: "Guild Agent"
-                            },
-                            townGuard: {
-                                name: "Town Guard"
-                            },
-                            celebratedArtist: {
-                                name: "Celebrated Artist"
-                            },
-                            magiaUniversityGraduate: {
-                                name: "Magia University Graduate"
-                            },
-                            knightErrant: {
-                                name: "Knight Errant"
-                            },
-                            shardStatePatrician: {
-                                name: "Shard State Patrician"
+                            wistfulDark: {
+                                forsakenWanderer: {
+                                    name: "Forsaken Wanderer",
+                                    description: "You are an orphaned vagabond and have spent most of your life crawling in the darkness. This is where you developed your survival strategies.",
+                                    purviews: [
+                                        "Staying unseen and unheard.",
+                                        "Bending so you don’t break.",
+                                        "Succeeding in desperate times."
+                                    ],
+                                    gear: [
+                                        "Master Weapon, forgotten sword",
+                                        "Tattered Outfit, rags",
+                                        "Compass, cracked but functional",
+                                        "Star Gem, hope in the dark"
+                                    ]
+                                },
+                                blightRaider: {
+                                    name: "Blight Raider",
+                                    description: "You were a bandit in the Mana Blight, ruthlessly taking what you needed, and perhaps a bit more. You’ve left that life behind, but the poisoned land has hardened your soul.",
+                                    purviews: [
+                                        "Swift and ruthless action.",
+                                        "Getting out of tricky situations.",
+                                        "Taking what isn’t yours."
+                                    ],
+                                    gear: [
+                                        "Arc Weapon, bandit spear",
+                                        "Light Armor, bandit leathers",
+                                        "Rebreather, raider’s maw",
+                                        "Grenades x2, fireberries"
+                                    ]
+                                },
+                                shadowLandsNomad: {
+                                    name: "Shadow Lands Nomad",
+                                    description: "You lived among a small troupe, wandering from place to place to avoid demons and scrounge for food. It was a hard life, but you were not alone, and you valued that.",
+                                    purviews: [
+                                        "Sticking together at all costs",
+                                        "Caring for those important to you",
+                                        "Pulling your weight"
+                                    ],
+                                    gear: [
+                                        "Extreme Weather Outfit: Cold, wanderer’s cloak",
+                                        "Backpack, nomad’s pack",
+                                        "Lantern & Oil Units x2, a guiding light",
+                                        "Hardy Rations x5, journey loaf"
+                                    ]
+                                },
+                                murkDweller: {
+                                    name: "Murk Dweller",
+                                    description: "You were one of the few shaped inhabitants of the Murk, and spent your time quietly living among strange and belligerent creatures. You are not easily phased.",
+                                    purviews: [
+                                        "Dealing with the odd and arcane.",
+                                        "A working knowledge of magic.",
+                                        "Keeping calm in odd situations."
+                                    ],
+                                    gear: [
+                                        "Quick Weapon, grass blade",
+                                        "Appealing Outfit, petal pixie clothes",
+                                        "Booster Cakes x2, moon drop candy",
+                                        "Solvent x2 Units, ash elm sap"
+                                    ]
+                                },
+                                nightwallYeoman: {
+                                    name: "Nightwall Yeoman",
+                                    description: "Your lived on the edge of a Star Shard’s glow. From there you observed the Shadowed Lands and learned to defend yourself from what emerged from the dark.",
+                                    purviews: [
+                                        "Spotting what hides in the darkness.",
+                                        "Staying focused, even while rushing.",
+                                        "Finding a weak point."
+                                    ],
+                                    gear: [
+                                        "Drawn Weapon & 10 Arrows, yeoman’s bow",
+                                        "Light Armor, cuirass",
+                                        "Traveller’s Bag, sling pack",
+                                        "Companion: Growlhund, a trusty friend"
+                                    ]
+                                },
+                                starlightFarmer: {
+                                    name: "Starlight Farmer",
+                                    description: "You toiled in the fields that flourished in the light of the Star Shards, harvesting food for yourself and the wealthier residents of the realm.",
+                                    purviews: [
+                                        "Sorting the good soil from the bad.",
+                                        "Persevering when you ought to.",
+                                        "Empathy for all living creatures"
+                                    ],
+                                    gear: [
+                                        "Treat x10, mama’s cookies",
+                                        "Trade Goods, star plums",
+                                        "Rural Goods, your family’s best shovel",
+                                        "Pudge Grub, blue ribbon winner"
+                                    ]
+                                },
+                                guildAgent: {
+                                    name: "Guild Agent",
+                                    description: "Raised and trained as an artisan, shopkeeper, or tavern worker you are well versed in the hustle and bustle of Shard’s cities. You joined the regional guild to travel the world",
+                                    purviews: [
+                                        "Making and spotting a good deal.",
+                                        "Working at a brisk pace.",
+                                        "Keeping others satisfied."
+                                    ],
+                                    gear: [
+                                        "Artisan’s Outfit, apron",
+                                        "Kingdom Map, Shard trade route guide",
+                                        "Packbeast, Shaggy Bumpo, a stubborn thing",
+                                        "Follower: Scamp, assistant"
+                                    ]
+                                },
+                                townGuard: {
+                                    name: "Town Guard",
+                                    description: "You’ve worked for local constabulary. The job was a taxing one: chasing down miscreants, fending off stray monsters, and interrogating any suspicious travellers.",
+                                    purviews: [
+                                        "Seeing the truth of a situation.",
+                                        "Throwing your weight around.",
+                                        "Powering through obstacles."
+                                    ],
+                                    gear: [
+                                        "Medium Armor, city guard’s uniform",
+                                        "Large Shield, riot bulwark",
+                                        "Authoritative Outfit, captain’s hat & sash",
+                                        "Lantern, night watch’s companion"
+                                    ]
+                                },
+                                celebratedArtist: {
+                                    name: "Celebrated Artist",
+                                    description: "You are a dabbler in several mediums, but talent was not enough to guarantee your success. You’ve also mastered the art of shameless self- promotion.",
+                                    purviews: [
+                                        "Creative Expression!",
+                                        "Making yourself seen and heard.",
+                                        "Appreciating the artistic or symbolic."
+                                    ],
+                                    gear: [
+                                        "Concealed Weapon, ornamental dagger",
+                                        "Appealing Outfit, fine robes",
+                                        "Urban Goods, stylus & parchment",
+                                        "Luxury Item, starlight lyre"
+                                    ]
+                                },
+                                magiaUniversityGraduate: {
+                                    name: "Magia University Graduate",
+                                    description: "You are an academic, studying one of the University of Magia’s numerous programs. It’s been demanding so you’ve decided to take a gap year.",
+                                    purviews: [
+                                        "Research and close study.",
+                                        "Pushing yourself to stay focused.",
+                                        "Recalling useful facts and trivia."
+                                    ],
+                                    gear: [
+                                        "Traveller’s Bag, satchel",
+                                        "Master’s Tome, on a subject of your choice!",
+                                        "Translation Journal, Bright Speech",
+                                        "Booster Cakes x2: Insight, cram cookies"
+                                    ]
+                                },
+                                knightErrant: {
+                                    name: "Knight Errant",
+                                    description: "You have been knighted as the result of a grand and noteworthy deed, but now you have strayed from your order to go on quests that you deem worthy.",
+                                    purviews: [
+                                        "Forthright communication.",
+                                        "Knowledge of vanquished evils.",
+                                        "Finding your courage."
+                                    ],
+                                    gear: [
+                                        "Medium Armor, questing plate",
+                                        "Standard Shield, heraldic heater",
+                                        "Holy Icon, sacred chain",
+                                        "Mount, Mokko-Do"
+                                    ]
+                                },
+                                shardStatePatrician: {
+                                name: "Shard State Patrician",
+                                description: "You were born into one of Shard’s noble families. Your privileged life is a prison of duty and expectation. You seek adventure and are in search of some much needed excitement.",
+                                purviews: [
+                                    "Demanding the proper respect.",
+                                    "Knowledge of political practice.",
+                                    "Stubborn, competitive pride."
+                                ],
+                                gear: [
+                                    "Small Mechanical Weapon & Bolts x10, hand crossbow",
+                                    "Medium Armor, traveller’s mail",
+                                    "Appealing Outfit, fine attire",
+                                    "Follower: Custrel, dedicated butler or maid"
+                                ]
+                            }
                             }
                         },
                         languages: {

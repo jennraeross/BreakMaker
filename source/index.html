@@ -4572,34 +4572,37 @@
                         }
                     },
                     getHearts() {
+                        let calcHearts = 2;
                         switch(this.callingSelected) {
                             case "Battle Princess":
-                                return this.callings.battlePrincess.stats[(this.getLevel - 1)][1];
+                                calcHearts = this.callings.battlePrincess.stats[(this.getLevel - 1)][1];
                                 break;
                             case "Champion":
-                                return this.callings.champion.stats[(this.getLevel - 1)][1];
+                                calcHearts = this.callings.champion.stats[(this.getLevel - 1)][1];
                                 break;
                             case "Factotum":
-                                return this.callings.factotum.stats[(this.getLevel - 1)][1];
+                                calcHearts = this.callings.factotum.stats[(this.getLevel - 1)][1];
                                 break;
                             case "Heretic":
-                                return this.callings.heretic.stats[(this.getLevel - 1)][1];
+                                calcHearts = this.callings.heretic.stats[(this.getLevel - 1)][1];
                                 break;
                             case "Murder Princess":
-                                return this.callings.murderPrincess.stats[(this.getLevel - 1)][1];
+                                calcHearts = this.callings.murderPrincess.stats[(this.getLevel - 1)][1];
                                 break;
                             case "Raider":
-                                return this.callings.raider.stats[(this.getLevel - 1)][1];
+                                calcHearts = this.callings.raider.stats[(this.getLevel - 1)][1];
                                 break;
                             case "Sage":
-                                return this.callings.sage.stats[(this.getLevel - 1)][1];
+                                calcHearts = this.callings.sage.stats[(this.getLevel - 1)][1];
                                 break;
                             case "Sneak":
-                                return this.callings.sneak.stats[(this.getLevel - 1)][1];
+                                calcHearts = this.callings.sneak.stats[(this.getLevel - 1)][1];
                                 break;
-                            default:
-                                return 2;
                         }
+                        if (this.speciesSelected == 'Gruun') {
+                            calcHearts++;
+                        }
+                        return calcHearts;
                     },
                     getAttack() {
                         switch(this.callingSelected) {

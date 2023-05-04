@@ -9,6 +9,14 @@
   ],
   "creatorBuild" : "34484",
   "files" : {
+    "\/.prettierrc" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 1,
+      "oAP" : "\/build\/.prettierrc",
+      "oF" : 1
+    },
     "\/build" : {
       "ft" : 65536,
       "oA" : 1,
@@ -44,6 +52,17 @@
       "oA" : 0,
       "oAP" : "\/build\/index.html",
       "oF" : 0
+    },
+    "\/source\/js\/app.js" : {
+      "bF" : 0,
+      "ft" : 64,
+      "ma" : 0,
+      "mi" : 1,
+      "oA" : 0,
+      "oAP" : "\/build\/js\/app-min.js",
+      "oF" : 0,
+      "sC" : 3,
+      "tS" : 0
     },
     "\/source\/scss\/main.scss" : {
       "aP" : 1,

@@ -3968,8 +3968,10 @@ export default {
 		},
 		getSpeed() {
 			let calcSpeed = 1;
+			if (this.callingSelected == 'Raider') {
+				calcSpeed++;
+			}
 			switch (true) {
-				case this.callingSelected == "Raider":
 				case this.hasAbility("The Better Part of Valor"):
 				case this.hasAbility("Relentless Pursuer"):
 				case this.hasAbility("Blistering Pace"):

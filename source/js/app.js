@@ -248,7 +248,7 @@ export default {
 								"Attempting this Ability during a Fight requires you to spend your Action.",
 								"Note: This Ability cannot be used for situational Ailments: Toppled, Restrained and Overburdened.",
 								"----",
-								"REQUIRES: An Aura Check",
+								"CHECK: Aura",
 								"SUCCESS: The Ailment is removed",
 								"FAILURE: The Ailment remains, you cannot make any further attempts to cure it",
 							],
@@ -286,7 +286,7 @@ export default {
 								"You can attempt to coordinate your allies during a Fight, granting all participants a Minor Bonus (+2) to a single roll on their Turn.",
 								"This Ability can be used in conjunction with your other permitted Actions, but you must declare the use of this Ability at the beginning of your Turn.",
 								"----",
-								"REQUIRES: An Aura Check",
+								"CHECK: Aura",
 								"SUCCESS: 3 - 2 - 1 - Go! Your Battle Dance begins...",
 								"You can apply a Minor Bonus (+2) to a single roll made on your Turn.",
 								"Once you have started a Dance, allies in the same Battlefield Area can choose to join in. To do so they must make an Aura Check at the start of your team’s Turn.",
@@ -306,7 +306,7 @@ export default {
 							mechanics: [
 								"Whenever you reduce a foe to 0 Hearts or less, and choose to spare their lives, you can attempt to soften their resolve.",
 								"----",
-								"REQUIRES: An Aura Check",
+								"CHECK: Aura",
 								"SUCCESS: You form a Social Bond (􏰀 p279) with the beaten opponent. Discuss and agree with your GM an appropriate Bond. For example, ‘a begrudging admiration’.",
 								"A Bonded opponent is less inclined to target you for attack in the future, and will avoid dealing you a finishing blow unless absolutely necessary.",
 							],
@@ -374,7 +374,7 @@ export default {
 							mechanics: [
 								"Whenever you enter a new Settlement you can attempt Reputation Management (􏰀 p275).",
 								"----",
-								"REQUIRES: An Aura Check",
+								"CHECK: Aura",
 								"SUCCESS: You’ve already established a positive Reputation in this locale. If possible, the Reputation should be based on heroic efforts made in a previous Session. For example, ‘Savior of Homble Village’ or ‘Slayer of the Ooze Beast’.",
 								"FAILURE: The locals have never heard of you, or your ‘daring’ exploits.",
 							],
@@ -414,13 +414,13 @@ export default {
 						[1, 3, 10, 8, 9, 7, 8],
 						[2, 3, 10, 8, 9, 7, 8],
 						[3, 4, 11, 9, 10, 8, 9],
-						[3, 4, 11, 9, 10, 8, 9],
-						[4, 5, 12, 10, 11, 9, 10],
-						[4, 5, 12, 10, 11, 9, 10],
-						[5, 6, 13, 11, 12, 10, 11],
-						[5, 6, 13, 11, 12, 10, 11],
-						[6, 7, 14, 12, 13, 11, 12],
-						[7, 7, 14, 12, 13, 11, 12],
+						[4, 4, 11, 9, 10, 8, 9],
+						[5, 5, 12, 10, 11, 9, 10],
+						[6, 5, 12, 10, 11, 9, 10],
+						[7, 6, 13, 11, 12, 10, 11],
+						[8, 6, 13, 11, 12, 10, 11],
+						[9, 7, 14, 12, 13, 11, 12],
+						[10, 7, 14, 12, 13, 11, 12],
 					],
 					classAbilities: {
 						combatMomentum: {
@@ -448,15 +448,26 @@ export default {
 						},
 						intoTheFray: {
 							name: "Into the Fray",
-							description: "",
-							mechanics: [],
+							description: "You are able to vary your fighting style to suit the battle, applying caution, flair or precision when and where it is required.",
+							mechanics: [
+								"Each Round during a Fight, you can choose between the following",
+								"Daring: Perform an Attack Stunt(p255) without making a wager.",
+								"Tooth and Nail: Use a mundane (non-magical) Attack to harm a creature that is normally immune to them.",
+								"Whirlwind Defense: Temporarily increase your Defense Rating:",
+								"Rank 1: +1 to Defense Rating.",
+								"Rank 5: +2 to Defense Rating",
+								"All bonuses last until the start of your next Turn."
+							],
 						},
 					},
 					standardAbilities: {
 						valiant: {
 							name: "Valiant",
-							description: "",
-							mechanics: [],
+							description: "While all Champions possess great courage, you can laugh in the face of incomprehensible terror.",
+							mechanics: [
+								"You have immunity to the Terrified Ailment(p271).",
+								"You can help allies defend against the Ailment by shouting encouraging words. Those within earshot gain an Edge on their roll to resist, or remove, the Ailment."
+							],
 						},
 						opportunisticButcher: {
 							name: "Opportunistic Butcher",
@@ -541,12 +552,31 @@ export default {
 							name: "Berserker",
 							description:
 								"When the heat of the battle is upon you the red mist descends and your rage takes control. This is very bad news for your foes... but your allies should be careful too.",
-							mechanics: [],
+							mechanics: [
+								"You can enter Berserk Mode while fighting or participating in a Check or Contest that calls for brute force.",
+								"While Berserk the following applies:",
+								"+2 on Attack rolls.",
+								"-1 to Defense Rating.",
+								"+2 Might and Grit.",
+								"You are unable to communicate or participate in any coordinated actions or team efforts.",
+								"After you've dispatched a foe, or completed the objective of your Check or Contest you will:",
+								"Attack the closest individual in the same Battlefield Area as you, whether it's friend or foe...",
+								"And continue to find and Attack targets until none are left.",
+								"You can attempt to exit Berserk Mode at the end of your Turn.",
+								"----",
+								"CHECK: Ending Berserk Mode requires an Aura Check",
+								"SUCCESS: You regain control.",
+								"FAILURE: You must wait until the end of the next Round before you can make another attempt to exit Berserk Mode."
+							],
 						},
 						sentinel: {
 							name: "Sentinel",
-							description: "",
-							mechanics: [],
+							description: "Being the toughest among your companions means you're happy to soak up hits for them when you can.",
+							mechanics: [
+								"You can redirect any successful physical Attack on an ally, occupying the same Battlefield Area as you, onto yourself.",
+								"The original Attack roll must now beat your Defense Rating to do you harm.",
+								"NOTE: This ability can't be used against area effects like harmful smoke."
+							],
 						},
 						galvanizer: {
 							name: "Galvanizer",
@@ -590,7 +620,14 @@ export default {
 							name: "Roaring Spirit",
 							description:
 								"Even when calm and still, your soul crackles with an energy. A mere look can send this force outwords, sapping the fighting spirit and blood lust from lesser wariors in your presence.",
-							mechanics: [],
+							mechanics: [
+								"You can attempt to subdue opponents of lower Rank with a menacing glower.",
+								"----",
+								"CHECK: Aura",
+								"Success: All adversaries within shouting distance step back and won't engage you, or your allies, unless you strike first.",
+								"NOTE: This ability has no effect on adversaries with a Rank equal to or higher than yours.",
+								"NOTE: This Ability may only be used once a game Session."
+							],
 						},
 					},
 				},
@@ -653,8 +690,22 @@ export default {
 						},
 						folklorist: {
 							name: "Folklorist",
-							description: "",
-							mechanics: [],
+							description: "You've heard the old tales that say even the scariest monsters can be subdued with a pinch of spice or deterred by a drop of moon-plum juice. Is there something to them or are they just stories?",
+							mechanics: [
+								"You may choose a consumable material (such as lantern oil or a treat) to act as a deterrent to an Unearthly Adversary.",
+								"Unearthy Adversaries include Asura, Devas, Demons, Undead, Unshaped, or any creature with 4 or more Allegiance points.",
+								"----",
+								"CONTEST: Your Insight vs. the Adversary's Aura. In addition:",
+								"You must expend 1 Unit of the chosen consumable material.",
+								"If a rare, or appropriate, consumable is selected your GM may offer you a Minor Bonus (+2). For example, Bright Water against a Dark Aligned enemy.",
+								"SUCCESS: You can choose between one of two outcomes:",
+								"Ability loss: The Adversary loses the use of an Ability of your choice.",
+								"Protective circle: The Adversary cannot enter a circle made from the protective consumable. 1 Unit can create a circle for a single PC more Units can be used to create larger circles on this basis.",
+								"The effect lasts for 24 hours",
+								"Failure: You've wasted your consumable and look rather silly!",
+								"----",
+								"NOTE: Use of this Ability is subject to the rule of Diminishing Returns"
+							],
 						},
 						healersHands: {
 							name: "Healer's Hands",
@@ -746,18 +797,28 @@ export default {
 						},
 						troubleshooter: {
 							name: "Troubleshooter",
-							description: "",
-							mechanics: [],
+							description: "When the proper tools aren't at hand, you can make do with the next best thing.",
+							mechanics: [
+								"You can attempt an Ability Check that requires a specific tool with an improvised alternative. For example, instead of requiring a Physician's Kit to perform Healer's Hands, you might use a ripped cloak as substitute bandage.",
+								"Any Checks performed with an inferior substitute incur a Minor Penalty (-2).",
+								"Your GM decides whether a proposed substitute is acceptable. Is an Immortal dandruff just as good as Arcane Powder? Ask your GM."
+							],
 						},
 						multiTasker: {
 							name: "Multi-Tasker",
-							description: "",
-							mechanics: [],
+							description: "You make the most of you spare time with good scheduling and enthusiasm",
+							mechanics: [
+								"You can perform two Activities during Downtime, instead of one.",
+								"NOTE: Exception! You cannot Multi-Task if you have chosen Healing an Injury."
+							],
 						},
 						packTactics: {
 							name: "Pack Tactics",
-							description: "",
-							mechanics: [],
+							description: "A few extra spikes here a metal plate or two there, and your bulky Factotum's Pack is now combat ready! Cower behind it or swing at your foes,",
+							mechanics: [
+								"On your combat Turn, you can use your Pack as either: a Mighty Weapon, or a Large Shield.",
+								"NOTE: Gear Allowance Restrictions don't apply when using your Pack as a piece of Combat Gear."
+							],
 						},
 						masterOfSpectacle: {
 							name: "Master of Spectacle",
@@ -940,8 +1001,17 @@ export default {
 						},
 						messengerKaila: {
 							name: "Messenger Kaila",
-							description: "",
-							mechanics: [],
+							description: "Kaila, Whisper most Pleasant, is a sultry figure in a flowing dress and decorated mask. Her voice is quiet but authoritive. When she speaks, her message is always heard by those for whom it was meant for.",
+							mechanics: [
+								"Say her name and Kaila, appears ready to deliver a message for you.",
+								"Summoning requires 1 Action.",
+								"Kaila drapes herself over your shoulders, and will commit a message of no more than 50 words to memory, then vanishes.",
+								"Your message can be delivered to a single recipient you are at least briefly familiar with. Kalia appears behind the recipient and whispers into their ear, so only they can hear... then vanishes.",
+								"Kalia is amused by attempts to harm her spectral form.",
+								"NOTE: Kalia may only be called upon once every 24 hours.",
+								"----",
+								"GAIN 1 Dark Allegiance Point."
+							],
 						},
 						wretchedJarah: {
 							name: "Wretched Jarah",
@@ -1016,9 +1086,22 @@ export default {
 							],
 						},
 						imperatrixDelilah: {
-							name: "Imeratrix Delilah",
-							description: "",
-							mechanics: [],
+							name: "Imperatrix Delilah",
+							description: "Delilah, Who Rules Absolutely, is the light. She floods the senses with hope to bring the peace of dominion to all who would receive her.",
+							mechanics: [
+								"Call out her name and Deliah shines forth, taking control of a mind that means you harm.",
+								"Summoning requires 1 Action.",
+								"----",
+								"CONTEST: Your Grit vs your target's Aura",
+								"SUCCESS: Delilah forms around your target like a halo.",
+								"You can target a foe up to 1 Battlefield Area away from you.",
+								"You can control your target for next Turn. For example, you can make them speak, drop a powerful item, or attack an ally.",
+								"Delilah vanishes after your target performs the controlled action.",
+								"FAILURE: Delilah (played by your GM) decides your next Turn. Then vanishes with a lingering laugh.",
+								"Delilah would never cause you to directly harm yourself, though she might have you throw an important item aside or shout at enemies you're hiding from.",
+								"----",
+								"GAIN: 1 Bright Allegiance Point."
+							],
 						},
 						dowagerCollette: {
 							name: "Dowager Collette",
@@ -1088,7 +1171,15 @@ export default {
 							name: "Queen Amhika",
 							description:
 								"Queen Amhika, Dweller in Our Hearts, is pleasant and obliging. Her soothing and kind embrace will transport you to a place of safety.",
-							mechanics: [],
+							mechanics: [
+								"With an earnest desire Queen Amhika will appear ready to remove you from harms way.",
+								"Summoning is instantaneous.",
+								"Queen Amhika will envelope you, and up to 5 allies, in her enormous cape. You drift off into a peaceful sleep. When you awake you are in the place where you always felt most safe.",
+								"You should choose your safe place before play and inform your GM. This could be your waterfall retreat, a relaxing meadow, or your childhood home.",
+								"Once Amihika has deposited you safely she cannot be summoned again until you have spent one day actually relaxing.",
+								"----",
+								"GAIN: 1 Bright Allegiance Point."
+							],
 						},
 					},
 				},
@@ -1111,7 +1202,27 @@ export default {
 							name: "Wrath's Blade",
 							description:
 								"You can call upon a weapon forged from your righteous anger or untempered fury. The weapon's appearance reflects the magnificence of you volatile and unyielding psyche.",
-							mechanics: [],
+							mechanics: [
+								"Creating a Wrath's Blade",
+								"Your Wrath's Blade grows in power as you rise in Rank. Add the new properties to your Wrath's Blade when you reach the required Rank.",
+								"Rank 1: Select your weapon's primary form and what it is made of.",
+								"Choose a Weapon Type: Quick, Master, Mighty, Arc, Lash, Drawn or Mechanical Missile(p152).",
+								"Choose a Magical Material: Shade Iron, Dew Silver, or Warp Wood(p289).",
+								"Rank 3: Your Wrath's Blade gains one of the following properties:",
+								"Glistening: +1 to Attack rolls.",
+								"Retributive: The weapon's Extra Damage Threshold is reduced by 2(p152).",
+								"Denying: The weapon can Parry once per combat in the same manner as a Standard Shield",
+								"Rank 6: Your Wrath's Blade can now transform into a secondary form from the Weapon Types listed above.",
+								"Your Wrath's Blade gains the Combination Weapon Ability allowing a hybrid weapon form.",
+								"----",
+								"Using your Wrath's Blade",
+								"You can call this weapon into existence through force of will.",
+								"Melee Weapons are formed instantly and may be used on the same Turn they are called.",
+								"Drawn and Mechanical Missile weapons take a Turn to fully form and appear with 4 units of ammunition included.",
+								"Your Wrath's Blade (and any ammunition) will vanish instantly on command.",
+								"Only a single form of the Wrath's Blade may be summoned at any one time. Either the primary, secondary or combination form.",
+								"If the weapon is Sundered or lost during combat, you can will it away and summon a new Blade."
+							],
 						},
 						witheringGlare: {
 							name: "Withering Glare",
@@ -1155,7 +1266,7 @@ export default {
 								"Freezing Blow: After a successful Attack, the ice can be discharged to freeze one of your opponent's limbs. The chosen limb is Restrained until your opponent, or someone trying to assist them, makes a successful Might Check to break free. This exhausts the Ability.",
 								"NOTE: Frost Blade can only be used once per fight.",
 								"----",
-								"COST: 1 Dark Allegiance Point.",
+								"GAIN: 1 Dark Allegiance Point.",
 							],
 						},
 						wrathBolt: {
@@ -1168,7 +1279,7 @@ export default {
 								"Bolts do 1 Heart of Dark Damage on a successful Attack.",
 								"Wrath Blade: If you envelop your Wrath's Blade with this Ability it now deals Dark Damage instead of Normal Damage.",
 								"----",
-								"COST: 1 Dark Allegiance Point",
+								"GAIN: 1 Dark Allegiance Point",
 							],
 						},
 						bulwarkOfDisdain: {
@@ -1193,7 +1304,11 @@ export default {
 							name: "Desperate Friendship",
 							description:
 								"You do not make friends readily, but when you commit, you take the responsibility seriously.",
-							mechanics: [],
+							mechanics: [
+								"You are now subconsciously connected to anyone you have a Social Bond(p279) with and if separated:",
+								"You know which direction to go in order find them.",
+								"You can sense if any of them are in mortal danger."
+							],
 						},
 						barbedJustice: {
 							name: "Barbed Justice",
@@ -1202,14 +1317,28 @@ export default {
 								"You inflict an extra Heart of Damage on a successful Attack but lose 2 of your own.",
 								"If you drop below 0 Hearts when using this ability, you must roll on the Injury Table after each successful Attack.",
 								"----",
-								"COST: 1 Dark Allegiance Point.",
+								"GAIN: 1 Dark Allegiance Point.",
 							],
 						},
 						causticTruth: {
 							name: "Caustic Truth",
 							description:
 								"When physical force fails you resort to psychological assault. By ridiculing your opponent's deeply held beliefs, or competence, you can send your foe into an unbalancing rage.",
-							mechanics: [],
+							mechanics: [
+								"Once per Fight, you can to attempt to enrage your opponent with a disparaging or spiteful truth.",
+								"Targets for this Ability must:",
+								"Be engaged in a Fight with you for a Turn or more.",
+								"Be able to understand you.",
+								"Be capable of feeling emotions.",
+								"CONTEST: Your Grit vs. your target's Aura",
+								"Success: Your comment unsettles your opponent:",
+								"Their rage now provides them with an Edge on all Attack rolls, and Abitities, aimed at you, but...",
+								"This leaves them open to attack. All Attack rolls made against the enraged foe benefit from an Edge.",
+								"Their rage ends if you die, are no longer visible, or when the current Fight ends.",
+								"NOTE: This Ability may only on one target per Fight, whether it is successful or not.",
+								"----",
+								"GAIN: 1 Dark Allegiance Point."
+							],
 						},
 					},
 					advancedAbilities: {
@@ -1260,12 +1389,28 @@ export default {
 							name: "Blade of Darkness",
 							description:
 								"You can summon a Wrath's Blade composed of pure dark energy. It's capable of wounding the soul.",
-							mechanics: [],
+							mechanics: [
+								"You can activate this Ability at will upon summoning your Wrath's Blade.",
+								"Dark Strike: Your Wrath's Blade a cosmic void that now drains an additional Heart of Dark Damage (> p259) in addition to the weapon's Mundane Damage.",
+								"Wrapped in Darkness: After a strike with the Wrath's Blade, the energy can be discharged to engulf your target and cause an additional Heart of Dark Damage, which dispels the Ability.",
+								"NOTE: Using Wrapped in Darkness prevents you from using this Ability again for another 24 hours.",
+								"----",
+								"GAIN: 1 Dark Allegiance Point."
+							],
 						},
 						redPetalRevenge: {
 							name: "Red Petal Revenge",
-							description: "",
-							mechanics: [],
+							description: "Picking a rose in haste can prick your fingers, and so those that wish to d0 harm will suffer the consequences.",
+							mechanics: [
+								"If you are hit in a Fight, or suffer an Ailment caused by an enemy Ability, you can attempt to get revenge on your aggressor.",
+								"----",
+								"CONTEST: Your Grit vs. the attacker's Grit",
+								"SUCCESS: Your attacker suffers the same Damage, or Ailment, that they inflicted on you.",
+								"If an Ailment can not be applied your attacker, they take a Heart Damage instead.",
+								"NOTE: Red Petal Revenge may only be used once every 24 hours.",
+								"----",
+								"GAIN: 1 Dark Allegiance Point."
+							],
 						},
 						vexedDispel: {
 							name: "Vexed Dispel",
@@ -1326,7 +1471,12 @@ export default {
 							name: "Sidestep",
 							description:
 								"Anyone trying to strike you finds it trickier than it ought to be. You are an elusive opponent, able to twist away from a devastating strike at the very last moment.",
-							mechanics: [],
+							mechanics: [
+								"Once per Fight you can Sidestep an Attack, or Ability, that would normally have hit you.",
+								"You can Sidestep any Attack that could be feasibly avoided with a last second manoeuvre. For example, avoiding a sword thrust with nonchalant turn of your head or shielding your eyes from a mesmerising gaze.",
+								"The Sidestep prevents an Attack from connecting or affecting you.",
+								"NOTE: You'll need freedom to move and adequate space to execute your Sidestep."
+							],
 						},
 					},
 					standardAbilities: {
@@ -1351,7 +1501,13 @@ export default {
 							name: "Trusted Comrade",
 							description:
 								"Most folks can't be trusted, and you prefer the company of animals. You embrace their code: protect the pack, show no fear, survive another day. In return you are accepted as one of their own.",
-							mechanics: [],
+							mechanics: [
+								"You can forge a special bond with an Animal Companion that has spent a week or more with you.",
+								"Your Trusted Comrades seem to understand your words, and you are able to sense what they are thinking or feeling.",
+								"You and your Trusted Comrades are able to sense each other's presence and, if separated, know which direction to go in order to find one another.",
+								"Trusted Comrades will never abandon you, and never have to make Loyalty Checks.",
+								"NOTE: This Ability can extend to Tamed Monsters with your GM's Approval."
+							],
 						},
 						freeRunner: {
 							name: "Free Runner",
@@ -1404,7 +1560,11 @@ export default {
 							name: "Flash Step",
 							description:
 								"You levelled up your Sidestep. Now your enemies find themselves striking thin air, as you take up a more advantageous position.",
-							mechanics: [],
+							mechanics: [
+								"You can now move to an adjacent Battlefield Area, or a more strategic place in the same Area, whenever you use your Sidestep.",
+								"All other Sidestep restrictions apply.",
+								"NOTE: This Ability does not allow you to move to an Area you could not normally enter."
+							],
 						},
 						blisteringPace: {
 							name: "Blistering Pace",
@@ -1416,13 +1576,22 @@ export default {
 						},
 						counterFang: {
 							name: "Counter Fang",
-							description: "",
-							mechanics: [],
+							description: "When surrounded by lesser warriors you enter Counter Fang stance. From this meditative state you visualise the flow of the fight then, when engaged by predictable foes, you lay waste to them with choreographed efficiency.",
+							mechanics: [
+								"During a Fight you can choose to enter the Counter Fang stance instead of making an Attack or taking another Action.",
+								"While in the Counter Fang stance, any opponent that fails their Attack roll on you is subject to a retaliatory Attack, Attack Stunt, or Combat Trick.",
+								"The benefit of this Ability lasts until the start of your next Turn when you can move and re-enter the Counter-Fang stance if desired."
+							],
 						},
 						windWearsAwayStone: {
 							name: "Wind Wears Away Stone",
-							description: "",
-							mechanics: [],
+							description: "You're a true hunter, able to find a path through any built-up defense.",
+							mechanics: [
+								"You can attempt to find a weak spot on an opponent that is the target of your Hunter's Focus",
+								"----",
+								"CHECK: Insight",
+								"SUCCESS: You can ignore the Target's Defense Bonus from worn Armor and Speed Rating."
+							],
 						},
 						mindfulness: {
 							name: "Mindfulness",
@@ -1438,7 +1607,15 @@ export default {
 							name: "Spell Cutter",
 							description:
 								"While imperceptible to regular folk, your eyes can distinguish the tiny distortions in the air created by coalescing man. A well placed swipe can sometimes disrupt a spell's formation.",
-							mechanics: [],
+							mechanics: [
+								"You can attempt to nullify a Magic Ability that has targeted you, or an ally in the same Battlefield Area.",
+								"----",
+								"CONTEST: Your Deftness vs. the Aptitude related to the magical Ability's use.",
+								"If no Aptitude is specified, then use the caster's Aura.",
+								"SUCCESS: The spell is shattered and does not effect its intended targets.",
+								"----",
+								"NOTE: Successful or not. You cannot act during your next Turn."
+							],
 						},
 						lightningAndThunder: {
 							name: "Lightning and Thunder",
@@ -1454,7 +1631,18 @@ export default {
 						sureKillStrike: {
 							name: "Sure Kill Strike",
 							description: "To you, execution is an art form.",
-							mechanics: [],
+							mechanics: [
+								"To attempt a Sure Kill Strike you must first declare a target at the beginning of your Turn.",
+								"Next, you must make an Attack roll against your chosen target. if successful...",
+								"----",
+								"MAKE: An Execution roll",
+								"If your initial Attack roll was over the Extra Damage threshold, +2 to the result.",
+								"Next, Divide the end result by 2 (rounding up).",
+								"To succeed. the result must be higher than your target's remaining Hearts.",
+								"SUCCESS: Your target loses all their remaining Hearts and dies. If it's a PC, they are forced to roll on the Injury Table.",
+								"FAILURE: Your hit is resolved like a standard Attack.",
+								"NOTE: Sure Kill can only be attempted once every 24 hours."
+							],
 						},
 					},
 				},
@@ -1488,7 +1676,21 @@ export default {
 							name: "Sage's Staff",
 							description:
 								"Staves are an iconic part of any Sage's inventory. Your elegant wand, or gnarled walking stick, carries your personal sigil and is the primary conduit for your magic.",
-							mechanics: [],
+							mechanics: [
+								"Spell Push: With a dramatic gesture and a shout, you can use your staff to magically shove things about.",
+								"The Push can effect things up to 15 ft away.",
+								"The Push exerts the same amount of force as an adult human.",
+								"The Push is always executed with full power and can not be used with any delicacy.",
+								"If the Push is used in a Check or Contest, the spell's Might is the same as your Insight. This might include attempting to shove against a monster, or moving a heavy stone.",
+								"If the Push is used as an Attack. it is treated as an Unarmed strike, and can strike at a target up to 1 Battlefield Area away.",
+								"----",
+								"Magelight: Your Staff can glow with a radiance equivalent to a Torch(p175).",
+								"This light can be turned on and off by lightly tapping the staff.",
+								"The light remains in effect as long as you are holding your staff and are conscious.",
+								"----",
+								"Long, heavy staffs can be used as a Standard Weapon, shorter wands double as Concealed Weapons.",
+								"While you may only have one Staff at any time, creating a new one is as simple as carving your personal sigil on to your chosen piece."
+							],
 						},
 						prestidigitonium: {
 							name: "Prestidigitonium",
@@ -1535,14 +1737,27 @@ export default {
 						},
 						arcaneArtificing: {
 							name: "Arcane Artificing",
-							description: "",
-							mechanics: [],
+							description: "You have whittled away many hours tinkering with magical devices. Whether a passion or a hobby, you have learned enough to repair, maintain and even create such devices in your spare time",
+							mechanics: [
+								"You gain the Crafting Discipline Artificing(p282).",
+								"For specific rules on creating things refer to Craft(p280).",
+								"You can identify Oddities, Artifacts, and Gadgets related to your craft with an Insight Check.",
+								"You use Insight for your Crafting rolls."
+							],
 						},
 						glowingInk: {
 							name: "Glowing Ink",
 							description:
 								"You can wring out a special luminescent ink from your staff drawing on it's magelight ability. Now you can leave a glowing crumb trail or honor the tavern toilet wall with your sigil.",
-							mechanics: [],
+							mechanics: [
+								"You can use your Mage Staff as if it were a giant pen or paintbrush as long as the Magelight Ability is active.",
+								"The ink glows as brightly as a torch, but vanishes after a day.",
+								"You can squirt ink on an enemy up to 1 Battlefield Area away with a successful Attack roll.",
+								"The ink does no damage, but prevents enemies from hiding in the shadows.",
+								"Targets that are vulnerable to light may suffer other ill affects. This is at your GMs discretion.",
+								"----",
+								"GAIN: 1 Brightness Point."
+							],
 						},
 						hocusPox: {
 							name: "Hocus Pox",
@@ -1616,8 +1831,13 @@ export default {
 					advancedAbilities: {
 						cloakOfObscurity: {
 							name: "Cloak of Obscurity",
-							description: "",
-							mechanics: [],
+							description: "You can slip behind a mantle of subtle darkness and become a shadow. While you're not invisible, you are definitely more difficult to notice for those not expecting you.",
+							mechanics: [
+								"When covered by the Cloak you use your Insight, rather than Deftness, when making your Stealth rolls.",
+								"When your Team is Exploring using Stealthy Movement(p234), you make an independent Stealth roll.",
+								"When Cloaked, even if your Team is Exploring using Cautious or Hasty Movement you also benefit from effects of Stealthy Movement.",
+								"If you are Cloaked when discovered by a Map or Site Encounter, you make can make a Stealth roll to remain hidden."
+							],
 						},
 						demiystify: {
 							name: "Demystify",
@@ -1685,7 +1905,17 @@ export default {
 							name: "Shadow Puppet",
 							description:
 								"You can seize another's shadow and, by proxy, their physical agency. While you make menacing gestures, resembling those of a puppeteer, your victim dances to your desire.",
-							mechanics: [],
+							mechanics: [
+								"You can use this Ability on any creature that casts a shadow and is roughly 10 feet, or 1 Battlefield Area, away.",
+								"----",
+								"CONTEST: Your Insight vs. your target's Aura",
+								"SUCCESS: You can control your target for the next 10 seconds, or their Turn during a Fight. For example, you can make them speak, shout, or even attack themselves (which still requires an Attack roll!)",
+								"You must repeat, and win, the Contest each Turn to retain control of your target.",
+								"NOTE: You can only control one Puppet at a time.",
+								"FAILURE: The target breaks free of your mana strings and you cannot target them with this Ability again for 24 hours.",
+								"----",
+								"GAIN: 1 Dark Allegiance Point."
+							],
 						},
 						momentaryFortress: {
 							name: "Momentary Fortress",

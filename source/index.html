@@ -273,13 +273,13 @@
                         <optgroup label="Battle Princess Basic Abilities" v-if="callingSelected == 'Battle Princess'">
                             <option v-for="ability in callings.battlePrincess.standardAbilities" :value="ability.name">{{ability.name}}</option>
                         </optgroup>
-                        <!--<option v-if="callingSelected == 'Champion'" v-for="ability in callings.champion.standardAbilities" :value="ability.name">{{ability.name}}</option>
+                        <option v-if="callingSelected == 'Champion'" v-for="ability in callings.champion.standardAbilities" :value="ability.name">{{ability.name}}</option>
                         <option v-if="callingSelected == 'Factotum'" v-for="ability in callings.factotum.standardAbilities" :value="ability.name">{{ability.name}}</option>
                         <option v-if="callingSelected == 'Heretic'" v-for="ability in callings.heretic.standardAbilities" :value="ability.name">{{ability.name}}</option>
                         <option v-if="callingSelected == 'Murder Princess'" v-for="ability in callings.murderPrincess.standardAbilities" :value="ability.name">{{ability.name}}</option>
                         <option v-if="callingSelected == 'Raider'" v-for="ability in callings.raider.standardAbilities" :value="ability.name">{{ability.name}}</option>
                         <option v-if="callingSelected == 'Sage'" v-for="ability in callings.sage.standardAbilities" :value="ability.name">{{ability.name}}</option>
-                        <option v-if="callingSelected == 'Sneak'" v-for="ability in callings.sneak.standardAbilities" :value="ability.name">{{ability.name}}</option>-->
+                        <option v-if="callingSelected == 'Sneak'" v-for="ability in callings.sneak.standardAbilities" :value="ability.name">{{ability.name}}</option>
                     </select>
                 </label>
                 <label v-if="getLevel >= 4">

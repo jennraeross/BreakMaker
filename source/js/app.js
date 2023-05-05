@@ -2842,13 +2842,13 @@ export default {
 					calcDefense = 12;
 					break;
 				case "Medium Armor":
-					calcDefense == 14;
+					calcDefense = 14;
 					break;
 				case "Heavy Armor":
-					calcDefense == 16;
+					calcDefense = 16;
 					break;
 				case "Super Heavy Armor":
-					calcDefense == 18;
+					calcDefense = 18;
 					break;
 			}
 			switch (this.shieldSelected) {
@@ -2869,28 +2869,39 @@ export default {
 					calcDefense--;
 					break;
 			}
+			switch (this.getSpeed) {
+				case 2:
+					calcDefense += 2;
+					break;
+				case 3:
+				case 4: 
+					calcDefense += 4;
+			}
 			return calcDefense;
 		},
 		getSpeed() {
-			let speed = 1;
+			let calcSpeed = 1;
 			switch (true) {
 				case this.callingSelected == "Raider":
 				case this.hasAbility("The Better Part of Valor"):
 				case this.hasAbility("Relentless Pursuer"):
 				case this.hasAbility("Blistering Pace"):
-					speed++;
+					calcSpeed++;
 			}
 			switch (this.armorSelected) {
 				case "Medium Armor":
-					speed = speed > 2 ? 2 : speed;
+					calcSpeed = calcSpeed > 2 ? 2 : calcSpeed;
 					break;
 				case "Heavy Armor":
-					speed = speed > 1 ? 1 : speed;
+					calcSpeed = calcSpeed > 1 ? 1 : calcSpeed;
 					break;
 				case "Super Heavy Armor":
-					speed = 0;
+					calcSpeed = 0;
 			}
-			return speed;
+			if (this.shieldSelected == "Large Shield" && calcSpeed > 0) {
+				calcSpeed--;
+			}
+			return calcSpeed;
 		},
 		getSpeedRating() {
 			switch (this.getSpeed) {

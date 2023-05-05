@@ -3975,6 +3975,7 @@ export default {
 				case this.hasAbility("The Better Part of Valor"):
 				case this.hasAbility("Relentless Pursuer"):
 				case this.hasAbility("Blistering Pace"):
+				case this.hasAbility("Desperate Scurry"):
 					calcSpeed++;
 			}
 			switch (this.armorSelected) {

@@ -1742,22 +1742,181 @@ export default {
 					classAbilities: {
 						lightFooted: {
 							name: "Light Footed",
-							description: "",
-							mechanics: [],
+							description: "As one might expect, you are especially nimble. You can move through terrain that impedes others and scale surfaces with a deceptive sure- footedness", 
+							mechanics: [
+								"You are unaffected by Isolated(p250) and Precarious(p251) Battlefield Conditions.",
+								"You are able to climb vertical surfaces with the slightest of foot holds without being slowed down or requiring a Check."
+							],
 						},
 						furtive: {
 							name: "Furtive",
-							description: "",
-							mechanics: [],
+							description: "You are so used to skulking around in the shadows that you conduct yourself with a habitual stealth.",
+							mechanics: [
+								"You always gain the benefit of Stealthy Movement(p234) while Exploring, even if your Team is using a different Movement Type.",
+								"You have an Edge on Stealth rolls while acting as a Scout while on a Journey(p228) or Exploring."
+							],
 						},
 						stickyFingers: {
 							name: "Sticky Fingers",
-							description: "",
-							mechanics: [],
+							description: "While you would prefer the term 'Treasure Hunter' to Thief, you're skilled in relieving others of their possessions- even in the midst of battle.",
+							mechanics: [
+								"You can attempt to take an item from an individual in the same Battlefield Area as you after perform a successful Attack, Attack Stunt, or Combat Trick on them.",
+								"The item you can acquire is limited by the following:",
+								"It cannot be armor, an outfit or something currently being held by the target.",
+								"It must be something within your reach. A worn locket or ring would count, something sealed away in backpack would not.",
+								"It cannot occupy more than 2 Inventory Slots.",
+								"----",
+								"CHECK: Deftness",
+								"SUCCESS: You snatched it."
+							],
 						},
 					},
-					standardAbilities: {},
-					advancedAbilities: {},
+					standardAbilities: {
+						manyMasks: {
+							name: "Many Masks",
+							description: "You able to alter your voice and mannerisms to conceal your true identity. Very handy when you're cornered and there is no obvious escape route.",
+							mechanics: [
+								"You have an Edge on all rolls involving acting out different personas to fool others, you might even be able to trick people you know if your face is covered.",
+								"You have an Edge when attempting to create Alter-Egos during Reputation Management"
+							]
+						},
+						kawarimi: {
+							name: "Kawarimi",
+							description: "This technique allows you to nullify an attack via a misdirection. Your opponent strikes convinced their blow has reached its target... only to discover they've hit a log wearing your hat!",
+							mechanics: [
+								"If you've been hit by an Attack, you can attempt to avoid taking any Damage with Kawarimi",
+								"----",
+								"CHECK: Deftness",
+								"SUCCESS: You manage to completely dodge the blow by slipping out of something you were wearing. For example, a cloak, a hat, or even by tearing off a sleeve.",
+								"Normal Outfits used with this Ability are only partially removed, becoming a Tattered Outfit(p172).",
+								"Already Tattered Outfits are simply destroyed. Embarrassing!",
+								"Armor or Outfits of Magical Materials are discarded but otherwise undamaged",
+								"FAILURE: You take the Damage.",
+								"----",
+								"NOTE: This Ability will not work if you have nothing left to slip out of!",
+								"NOTE: This Ability may only be used once per Fight."
+							]
+						},
+						meticulousDungeoneer: {
+							name: "Meticulous Dungeoneer",
+							description: "You have become rather good at gathering information with a mere glance even when you're in the most dangerous of places.",
+							mechanics: [
+								"You able to perform the Inspect Location Action (+ p235) without prompting a roll on the Adventure Site's Encounter Table."
+							]
+						},
+						twitchy: {
+							name: "Twitchy",
+							description: "You are wired for self-preservation and have developed an almost supernatural sense of danger.",
+							mechanics: [
+								"You have an odd reaction that warns you that you are about to do something dangerous without realizing it. Perhaps you sneeze before opening a trapped door, or maybe your palms itch before you sip from a poisoned goblet."
+							]
+						},
+						suddenStrikes: {
+							name: "Sudden Strikes",
+							description: "Thanks to some lessons from a choice tutor, The Ninja of the Seven Holy Isles or your sucker punching sibling, you have become pretty good at catching others off guard with your fists.",
+							mechanics: [
+								"You are able to make Unarmed Attacks as if wielding a Concealed Weapon(p152)."
+							]
+						},
+						ableAlchemist: {
+							name: "Able Alchemist",
+							description: "Alchemy allows you to create a of number of useful concoctions that greatly benefit practitioners of chicanery or skulduggery.",
+							mechanics: [
+								"You gain the Crafting Discipline Alchemy(p282).",
+								"For specific rules on creating items refer to Craft (p280).",
+								"You can identify potions and poisons related to your craft with an Insight Check.",
+								"You use Deftness for your Crafting rolls."
+							]
+						},
+						legerdemain: {
+							name: "Legerdemain",
+							description: "Developing quick fingers is something that happens naturally in your line of work, and you're happy to use them to fool or entertain.",
+							mechanics: [
+								"You have an Edge on all Deftness rolls that involve:",
+								"Removing or attaching an item to someone's person without them noticing",
+								"Picking a lock or tampering with a mechanical device.",
+								"Performing card tricks, shell games and other forms of sleight of hand."
+							]
+						},
+						flanker: {
+							name: "Flanker",
+							description: "While a one on-one fights are not an attractive proposition to you, ganging up on someone certainly is.",
+							mechanics: [
+								"During a Fight, you gain a Minor Bonus (+2) on your Attack rolls against opponents who are being attacked by another character in the same Turn."
+							]
+						},
+						combatOpportunist: {
+							name: "Combat Opportunist",
+							description: "You aren't the best shot or the biggest hitter - but sometimes it's all about timing.",
+							mechanics: [
+								"You have an Edge on all Attack rolls made while if you've chosen to React(p258)."
+							]
+						}
+					},
+					advancedAbilities: {
+						stowing: {
+							name: "Stowing",
+							description: "Knowing one day you'll get caught and patted down, you've found an intimate place to conceal a small object (in your hair, mouth or.. other place). This little trick guarantees that you will never be stripped of that secret something.",
+							mechanics: [
+								"You may hide a single item, no larger than 1 Inventory Slot, somewhere on your person... even if naked!",
+								"The stowed item does not take up one of your Inventory Slots.",
+								"The stowed item cannot be found via conventional search methods.",
+								"it takes a Turn to retrieve a stowed item from it's hiding place."
+							]
+						},
+						innerDramatics: {
+							name: "Inner Dramatics",
+							description: "Your overactive imagination is constantly scheming and assessing the odds. If Plan A looks like it ain't gonna happen, then you've already got Plan B all figured out.",
+							mechanics: [
+								"You may cancel an Action you have made if you are dissatisfied with the results... it turns out you were only playing it out in your mind.",
+								"You can now choose a new Action, but it must be different from the cancelled Action.",
+								"NOTE: This Ability may only be used once a game Session, so you are stuck with however your second choice works out."
+							]
+						},
+						borrowedBlade: {
+							name: "Borrowed Blade",
+							description: "Like a rat, you are most deadly when cornered. When you find yourself encircled, by the town guard or an angry mob, you have a few manoeuvres to tip the balance back in your favor.",
+							mechanics: [
+								"You can attempt to redirect a failed Attack roll against you onto another target, if they are in offending weapon's Range.",
+								"CHECK: Deftness",
+								"SUCCESS: You redirect the attack towards your chosen target.",
+								"If the original Attack roll exceeds your chosen target's Defense Rating they suffer the consequences."
+							]
+						},
+						charmingGrifter: {
+							name: "Charming Grifter",
+							description: "You have learned that an innocent smile and a touch of false sincerity can hide even your most outlandish fabrications.",
+							mechanics: [
+								"During Negotiation you add an Edge to the Primary Negotiator's Aura Check If they are using the Honeyed Words/Outright Deceit Tactic(p240).",
+								"If your team is using another Negotiation Tactic you can offer 'total lies' as an Influencing Factor, granting a Minor Bonus (+2)."
+							]
+						},
+						hideInPlainSight: {
+							name: "Hide in Plain Sight",
+							description: "You can lose pursuers even when they right on top of you, it's like you just vanished into thin air.",
+							mechanics: [
+								"You can attempt to hide while being observed, assuming there is room to move, somewhere to hide and/or something to provide a distraction.",
+								"NOTE: This Ability can not be used if you are being Restrained, or in an empty and well lit room.",
+								"----",
+								"CONTEST: Your Deftness vs. the observer's Insight",
+								"Success: You have 'disappeared'. You remain hidden until you Move or take another Action. Any foe must spend a Turn to re-enter the Contest to detect you."
+							]
+						},
+						catsEyes: {
+							name: "Cat's Eyes",
+							description: "Darkness is your ally in all things.",
+							mechanics: [
+								"You able to see, or at least sense, in total darkness without suffering a penalty."
+							]
+						},
+						desperateScurry: {
+							name: "Desperate Scurry",
+							description: "Your quick feet are jokingly referred to as your 'Ultimate Technique'",
+							mechanics: [
+								"Your Speed Rating increases by a single level."
+							]
+						}
+					},
 				},
 			},
 			species: {

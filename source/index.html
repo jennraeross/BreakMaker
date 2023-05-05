@@ -12,8 +12,8 @@
                 </li>
             </ul>
             <ul>
-                <li><button id="print" class="secondary" @click="printDiv('charSheet')">Download</button></li>
-                <li><button>Create</button></li>
+                <li><button class="secondary" @click="dialogOpen = true">Roadmap</button></li>
+                <li><button id="print" @click="printDiv('charSheet')">Download</button></li>
             </ul>
         </nav>
 
@@ -34,6 +34,26 @@
                         </ul>
                     </nav>
                 </header>
+                <dialog :open="dialogOpen">
+                    <article>
+                        <header>
+                            <a href="#close" aria-label="Close" class="close" @click="dialogOpen = false"></a>
+                            Roadmap
+                        </header>
+                        <ul>
+                            <li><s>Initial Release</s></li>
+                            <li><s>Battle Princess Elective Abilities</s></li>
+                            <li><s>Dark Bright Gifts</s></li>
+                            <li><s>Rudimentary PDF Export</s></li>
+                            <li><s>Armor & Shields</s></li>
+                            <li><s>Species Abilities</s></li>
+                            <li><s>All Histories</s></li>
+                            <li><s>All Callings</s></li>
+                            <li>Quirks</li>
+                            <li>Inventory System</li>
+                        </ul>
+                    </article>
+                </dialog>
                 <form>
                     <label>
                         Name

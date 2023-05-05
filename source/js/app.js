@@ -2,6 +2,7 @@ export default {
 	data() {
 		return {
 			show: false,
+			dialogOpen: false,
 			traits: [0, -2, -1, "+1", "+2"],
 			mightTrait: 0,
 			deftTrait: 0,

@@ -2526,6 +2526,552 @@ export default {
 				},
 			},
 			histories: {
+				blazingGarden: {
+					kinlessVagrant: {
+						name: "Kinless Vagrant",
+						description: "You are from the continent of Taaga, but you have no home there. Exiled or orphaned from family and purpose, your existence is a hard and ruthless one.",
+						purviews: [
+							"Finding what you need to survive",
+							"Moving with quiet certainty",
+							"Efficient analysis of a situation."
+						],
+						gear: [
+							"Arc Weapon, old spear",
+							"Extreme Weather Outfit: Hot, prickle poncho",
+							"Oil/Fuel Units x10, iron eater's blood",
+							"Pet: Purr, feral but loya"
+						]
+					},
+					monsterSlayer: {
+						name: "Monster Slayer",
+						description: "The gigantic beasts of your homeland leave a wake of destruction behind them. You've sworn to stop them. When you're ready you will return to honor your oath.",
+						purviews: [
+							"The lore of beasts",
+							"Staying a step ahead of danger",
+							"Finding a weak point"
+						],
+						gear: [
+							"Mighty Weapon, slayer axe",
+							"Medium Armor, beast hide",
+							"Beginner's Tome: Colossal Creatures, Crow's Guide",
+							"Rural Goods, rope 30 ft"
+						]
+					},
+					streetRat: {
+						name: "Street Rat",
+						description: "You've survived in the gutters of the glittering city, taking your chances and evading the law. Maybe bigger and better opportunities await outside the city's walls.",
+						purviews: [
+							"Keeping quiet and staying hidden.",
+							"Death-defying acrobatics.",
+							"Chicanery and general mischief."
+						],
+						gear: [
+							"Gem x1, not exactly yours",
+							"Concealed Weapon, trusty knife",
+							"Solvent Units x2, largzard spittle",
+							"Adventuring Gear, grappling hook"
+						]
+					},
+					thundaClan: {
+						name: "Thunda Clan Barbarian",
+						description: "Named after the deadly desert they call home, the Clan are a diverse group of nomads who'll accept anyone who pulls their weight. They've been your family up until now.",
+						purviews: [
+							"Getting on with odd individuals",
+							"Enduring the harshest conditions",
+							"Making yourself heard"
+						],
+						gear: [
+							"Master Weapon, your mother's axe",
+							"Light Armor, breastplate",
+							"Traveller's Bag, animal skin sack",
+							"Oddity, old telescope"
+						]
+					},
+					beastHandler: {
+						name: "Beast Handler",
+						description: "You grew up on a ranch or farm, were you trained and domesticated large creatures. To succeed you had to become just as stubborn as the beasts you reared.",
+						purviews: [
+							"Handling things larger than you.",
+							"Keeping track of a large group",
+							"Wearing down opposition."
+						],
+						gear: [
+							"Hardy Rations x10, monster feed",
+							"Rural Item, wool shears",
+							"Rural item, rancher bell",
+							"Pack Beast: Stubbly Bumpo, sturdy but flatulent"
+						]
+					},
+					villageRunner: {
+						name: "Village Runner",
+						description: "Smaller villages do not afford the magical communication systems of prosperous cities. They depend on runners like you to relay messages.",
+						purviews: [
+							"Pacing yourself to go the distance",
+							"Noticing the small things that may trip you up.",
+							"Remembering the important stuff."
+						],
+						gear: [
+							"Thrown Missile Weapon x10, skipping stones",
+							"Backpack, courier's pack",
+							"Basic Potion ×2, sunberry mixture",
+							"Rural Goods, gourd canteen"
+						]
+					},
+					jubilantPerformer: {
+						name: "Jubilant Performer",
+						description: "You used to dance, sing or play an instrument for the wealthy inhabitants of a busy city. You tire of the current culture and yearn to discover the forgotten songs",
+						purviews: [
+							"Ballads both ancient and new",
+							"Keeping everyone smiling",
+							"Putting on a good show."
+						],
+						gear: [
+							"Lash Weapon, ribbon blade",
+							"Light Armor, leathers",
+							"Appealing Outfit, dancer's costume",
+							"Luxury Item, musical instrument"
+						]
+					},
+					cityScrivener: {
+						name: "City Scrivener",
+						description: "Big cities need official records, and you kept the books for a respected philosopher, general, or treasurer. You've left the post, but haven't forgotten the importance of note-taking",
+						purviews: [
+							"Absorbing a torrent of information",
+							"Making precise notes and sketches.",
+							"Remembering important details"
+						],
+						gear: [
+							"Authoritative Outfit, scribe's uniform",
+							"Translation Guide: Fadesong",
+							"Urban Goods, pad & pen",
+							"Follower: Scamp, assistant page"
+						]
+					},
+					emissaryOfSol: {
+						name: "Emissary of Sol",
+						description: "You preach the enlightened thinking of the revered masters of the Sol Alliance. You've now been given the duty to spread these teachings across the Outer World",
+						purviews: [
+							"The lore of the Invincible Bright.",
+							"Grandiose speaking and mannerisms",
+							"Recognizing and chastising the duplicitous and unrighteous"
+						],
+						gear: [
+							"Light Armor, plated vestments",
+							"Holy Icon, sol medallion",
+							"Follower: Custrel, acolyte attendant",
+							"Vial of Bright Water ×3"
+						]
+					},
+					wyrmBlooded: {
+						name: "Wyrm Blooded",
+						description: "You are one Taaga's Lost Dragon Chosen, born on an auspicious date. Your kin met all your needs and the ritual marks on your face remind you of their hopes and expectations",
+						purviews: [
+							"Bearing the weight of responsibility.",
+							"Noting and understanding hierarchies of all kinds.",
+							"Respecting rituals and tradition"
+						],
+						gear: [
+							"Gem x1, a parting gift",
+							"Arc Weapon, wing spear",
+							"Medium Armor, largzard hide",
+							"Compass, destiny charm"
+						]
+					},
+					hinterlandNoble: {
+						name: "Hinterland Noble",
+						description: "No-Folk's Land is a contested area, dotted with petty warning settlements. As a child of this fringe nobility, you learned from the ruthless example of despots.",
+						purviews: [
+							"Radiating quiet menace",
+							"Rough but efficient leadership",
+							"Being athletic when necessary"
+						],
+						gear: [
+							"Drawn Weapon & Arrows ×10, hunting bow",
+							"Authoritative Outfit, emblematic clothing",
+							"Compass, a keepsake from your tutor",
+							"Riding Mount: Jumbug"
+						]
+					},
+					startechAdept: {
+						name: "Startech Adept",
+						description: "Nyanko is the legacy of the Rai-Neko and the technologies they bought to Outer World. You are among the chosen expected to study and maintain these aging devices.",
+						purviews: [
+							"Working with any technology.",
+							"Analysis and troubleshooting.",
+							"Providing a reason for anything"
+						],
+						gear: [
+							"Large Mechanical Missile Weapon & Ammo x5, Rai-Neko rifle",
+							"Artisan's Outfit, adept's coat",
+							"Scanner, startech monitor",
+							"Small Spell Engine, startech battery"
+						]
+					}
+				},
+				buriedKingdom: {
+					tunnelCrawler: {
+						name: "Tunnel Crawler",
+						description: "You have wandered alone in the dark corridors and dank caves of the Buried Kingdoms for some time. The unusual habits you've developed can unsettle regular folk.",
+						purviews: [
+							"Feeling your way through darkness.",
+							"Surviving with what's available",
+							"Empathy with oddness."
+						],
+						gear: [
+							"Concealed Weapon, improvised shiv",
+							"Tattered Outfit, dusty rags",
+							"Bomb x1, unexploded mine",
+							"Star Gem, hope in the dark"
+						]
+					},
+					ruinScavenger: {
+						name: "Ruin Scavenger",
+						description: "The sunken cities and abandoned fortresses of the Underland are filled with valuable treasure. Valuable enough that you've risked your life in order to claim it.",
+						purviews: [
+							"Things left over from aeons past.",
+							"Moving through cramped areas.",
+							"Noticing traps and other dangers."
+						],
+						gear: [
+							"Light Armor, crawling pads",
+							"Standard Shield, old soldier's bulwark",
+							"Traveller's Bag. a big sack",
+							"Lumi-Slime Lantern, you called your slime Hue-bert"
+						]
+					},
+					warDeserter: {
+						name: "War Deserter",
+						description: "You once fought in the war between New Ore and Old Iron, but you've lost faith in the cause. You felt risking your life was more wisely gambled on personal gain.",
+						purviews: [
+							"Departing without notice",
+							"Picking away to reveal a weakness.",
+							"Knowing when it's time to go"
+						],
+						gear: [
+							"Mighty Weapon, rusty war maul",
+							"Medium Armor, assault mail",
+							"Tattered Outfit, old uniform",
+							"Flame Grenades ×2, tunnel clearers"
+						]
+					},
+					mossScraper: {
+						name: "Moss Scraper",
+						description: "While not particularly hospitable, the Sea of Sludge coastline is relatively peaceful. You grew up among the resilient folk that carved out a simple existence there.",
+						purviews: [
+							"Making even the repugnant palatable.",
+							"Rationing what you need.",
+							"Keeping quiet and unnoticed"
+						],
+						gear: [
+							"Extreme Weather Outfit: Cold, worm skin cloak",
+							"Rebreather Mask, creeper shell mask",
+							"Hardy Rations ×10, shrooms",
+							"Oddity, scraping knife"
+						]
+					},
+					underlandSoldier: {
+						name: "Underland Soldier",
+						description: "You fought in the esteemed ranks of the Old Iron Guard, or the admired Liberation Army of New Ore, enduring the propaganda and danger that came with it.",
+						purviews: [
+							"Rank and file conduct.",
+							"Keeping your gear maintained",
+							"Staring down the enemy."
+						],
+						gear: [
+							"Large Mechanical Missile Weapon & Ammo x5, underland rifle",
+							"Light Armor, infantry armor",
+							"Authoritative Outfit, Old Iron or New Ore military uniform",
+							"Basic Potion ×2, jolt juice"
+						]
+					},
+					honoredLaborer: {
+						name: "Honored Laborer",
+						description: "You were employed in one of New Ore's communes digging tunnels, repairing railways, or maintaining war machines; whatever was needed.",
+						purviews: [
+							"Performing back-breaking labor.",
+							"Knowing the right tool for the job",
+							"Keeping everyone going no matter how grim it gets."
+						],
+						gear: [
+							"Black-out Goggles, New Ore issue",
+							"Lantern & Oil/Fuel Unit x1, ring-handle lantern",
+							"Common Rural Item, mattock",
+							"Pet: Skree, leather wing"
+						]
+					},
+					forgeHand: {
+						name: "Forge Hand",
+						description: "Of the crafters of Old Iron, none are more honored than those who work with the very metal the nation is named after. You were an apprentice to such a master craftsman",
+						purviews: [
+							"Digging in and finishing your task.",
+							"Metal working tools and weaponry",
+							"Proper procedure and safety"
+						],
+						gear: [
+							"Standard Weapon with Utility Ability, forge hammer",
+							"Light Armor, protective gear",
+							"Standard Shield, your latest project",
+							"Artisan's Outfit, smith's apron"
+						]
+					},
+					fieldSapper: {
+						name: "Field Sapper",
+						description: "War in the Buried Kingdoms is often fought between mechanized infantry and fortified tunnels. Your job was to undermine the enemies gun emplacements, or thwart the advance of their death machines.",
+						purviews: [
+							"The workings of war machines.",
+							"Getting behind enemy lines",
+							"Spotting a structural weakness."
+						],
+						gear: [
+							"Small Mechanical Missile Weapon crank pistol",
+							"Backpack, rucksack",
+							"Bomb x1, demolitions kit",
+							"Common Rural Item, spade"
+						]
+					},
+					recordEtcher: {
+						name: "Record Etcher",
+						description: "The history of Old Iron is not kept on the delicate paper of the surface world! You etched important information onto iron sheets to ensure it for future generations.",
+						purviews: [
+							"Keeping track of every little thing.",
+							"Making good on a grudge",
+							"A steady, steady hand"
+						],
+						gear: [
+							"Traveller's Bag, courier bag",
+							"Precise Dabber & Solvent x1 Unit, etching tools",
+							"Oddity, multi-lens magnification goggles",
+							"Oddity, metal etching sheet"
+						]
+					},
+					comradeAgitator: {
+						name: "Comrade Agitator",
+						description: "When the citizens of New Ore strayed from their daily duties it was your job to loudly remind them of the collective goals. When called for you'd exploit their guilt, fears, or anger.",
+						purviews: [
+							"Working the crowd.",
+							"Making anything sound bad",
+							"Reading the mood of the masses"
+						],
+						gear: [
+							"Light Armor, Strategically placed metal plates",
+							"Appealing Outfit, New Ore counter-fashion",
+							"Basic Potion ×2, jolt juice",
+							"Grenades ×2, havoc crackers"
+						]
+					},
+					resoluteOverseer: {
+						name: "Resolute Overseer",
+						description: "The nation of Old Iron is, built on a foundation of hard graft. You were an overseer, an almost religious figure, called on to 'encourage' flagging spirits or believers.",
+						purviews: [
+							"Finding the nail that needs to be hammered down.",
+							"A stern, intimidating glare",
+							"Identifying the most useful member of a group."
+						],
+						gear: [
+							"Lash Weapon, spur cord",
+							"Medium Armor, big pauldrons",
+							"Authoritative Outfit, robes",
+							"Holy Icon, Creator's glyph"
+						]
+					},
+					apprenticeThinker: {
+						name: "Apprentice Thinker",
+						description: "Your unorthodox thoughts were recognized by one of the Thinkers of New Ore, who took you in as a student. You learned radical new ideas, and ways to make them sound useful,",
+						purviews: [
+							"Making words sound profound",
+							"Convoluted, but useful, planning.",
+							"Rude and incessant interruption."
+						],
+						gear: [
+							"Concealed Weapon, dagger",
+							"Blackout Goggles, for research trips to the surface",
+							"Beginner's Tome: Buried Kingdom History",
+							"Booster Cakes ×2: Insight, clever candies"
+						]
+					}
+				},
+				twilightMeridian: {
+					disgracedScion: {
+						name: "Disgraced Scion",
+						description: "You were the heir to a premiere merchant family, but your familys fortune was lost or you were disowned. Now you survive on nothing but your bitter memories.",
+						purviews: [
+							"Cunning trickery and deceit.",
+							"Desperate and dramatic escape.",
+							"Damaging rumors and cruel gossip."
+						],
+						gear: [
+							"Concealed Weapon, tarnished knife",
+							"Tattered Outfit, once fine coat",
+							"Regional Map, Twilight Meridian",
+							"Luxury Item, old party mask"
+						]
+					},
+					shadowSeaPirate: {
+						name: "Shadow Sea Pirate",
+						description: "Hailing from the strange isle of Night Haven, you robbed the rich merchants navigating the Shadow Sea. A series of misfortunes has left you without a ship or crew.",
+						purviews: [
+							"Keeping your head above water.",
+							"Navigating the unfamiliar.",
+							"Daring to be foolish."
+						],
+						gear: [
+							"Quick Weapon, cutlass",
+							"Compass, ship's memento",
+							"Grenades ×2, deck busters",
+							"Rural Goods, rope 30 ft"
+						]
+					},
+					orphanedShinobi: {
+						name: "Orphaned Shinobi",
+						description: "The Ninja Clan of the Seven Holy Isles are ruthless and secretive. You were betrayed and your clan was eliminated by the Shogun's forces. You are the soul survivor.",
+						purviews: [
+							"Remaining unnoticed.",
+							"Old and strange secrets.",
+							"Paranoid awareness."
+						],
+						gear: [
+							"Thrown Weapon x10, your last shuriken",
+							"Costume, folorful fop",
+							"Dungeoneer's Kit, dragon tooth picks",
+							"Adventuring Gear, climbing claws"
+						]
+					},
+					oldtechJunker: {
+						name: "Oldtech Junker",
+						description: "You're love of Oldtech has matured into practical knowledge. The salvage yards of Stahlfeld are your playground; where others see trash you see treasure.",
+						purviews: [
+							"Picking your way through a mess.",
+							"Side-stepping catastrophe.",
+							"Tinkering and tooling about."
+						],
+						gear: [
+							"Small Mechanical Missile Weapon, old machine pistol",
+							"Light Armor, padded duster",
+							"Lumi-Slime Lantern, slime included",
+							"Scanner, Gleysian model"
+						]
+					},
+					twilightSilkTailor: {
+						name: "Twilight Silk Tailor",
+						description: "The Galvanus Peninsula is well known for it's enchanted silks, and you used to weave it. You were surprised to find your skills were transferable to a life of adventure.",
+						purviews: [
+							"Understanding patterns.",
+							"Extremely delicate handiwork.",
+							"An eye for color."
+						],
+						gear: [
+							"Concealed Weapon with Utility Ability, scissor knife",
+							"Trade Goods ×2 Units, twilight silk",
+							"Artisan's Outfit, tailor's apron",
+							"Urban Goods, silk measuring tape"
+						]
+					},
+					medicinePeddler: {
+						name: "Medicine Peddler",
+						description: "You were a student of medicine on the Holy Isle. You travelled from place to place peddling remedies. Sales were slow and adventuring seemed a more lucrative vocation.",
+						purviews: [
+							"Practical herbology.",
+							"Treating all kinds of wounds.",
+							"Getting attention discreetly,"
+						],
+						gear: [
+							"Appealing Outfit, kimono",
+							"Traveller's Bag, medicine case",
+							"Basic Potion x2, teacher's recipe",
+							"Arcane Powder ×2 Units"
+						]
+					},
+					shiningSeaFisherman: {
+						name: "Shining Sea Fisherman",
+						description: "You were raised in one of the many coastal villages of the Twilight Meridian. Here you were taught to read the oceans and reap its plentiful bounty",
+						purviews: [
+							"Even headed patience",
+							"Knowing when the tide is turning",
+							"Using the right bait for the job"
+						],
+						gear: [
+							"Arc Weapon, trident",
+							"Hardy Rations ×5, bubbler fish jerky",
+							"Rural Goods, fishing rod",
+							"Coracle"
+						]
+					},
+					portianUniversity: {
+						name: "Portian University Graduate",
+						description: "The famed school of the Galvanus Peninsula has a focused and demanding curriculum. Many students resort to cheating due to the competitive ethos.",
+						purviews: [
+							"Rushing at the last possible minute",
+							"Practical know how",
+							"Working just enough."
+						],
+						gear: [
+							"Backpack, book bag",
+							"Beginner's Tome: Economics & Trade, classmate's notes",
+							"Booster Cakes 2: Insight, mental muffins",
+							"Urban Goods, quill & ink"
+						]
+					},
+					merchantScion: {
+						name: "Merchant Scion",
+						description: "You were born to one of the Galvanus Peninsula's aristocratic families, enjoying a life of plenty You have the means to seek opportunity in far off places.",
+						purviews: [
+							"Getting the deal you want",
+							"Levelling a critical eye",
+							"Remaining unfazed"
+						],
+						gear: [
+							"Quick Weapon, ornate kalis",
+							"Appealing Outfit, fashionable baro",
+							"Pouch & 50 Coins, family stipend",
+							"Oddity, oldtech pocket watch"
+						]
+					},
+					holyIsleSamurai: {
+						name: "Holy Isle Samurai",
+						description: "As a member of the ruling class you were expected to be a custodian of society Your kind are elite warriors, diplomats, and philosophers.",
+						purviews: [
+							"Maintaining proper etiquette.",
+							"Judging merit in another.",
+							"Respecting ritual and tradition."
+						],
+						gear: [
+							"Master Weapon, katana",
+							"Light Armor, tatami cuirass",
+							"Authoritative Outfit, dark kamishimo",
+							"Luxury Item, calligraphy set"
+						]
+					},
+					archiveResearcher: {
+						name: "Archive Researcher",
+						description: "You were trained, and are currently employed by, Stahlfeld's Helical Archive. You are a field agent sent to find and return ancient technology to the Archive's laboratories",
+						purviews: [
+							"Investigation and analysis",
+							"Spotting the unusual",
+							"A working knowledge of ancient tech"
+						],
+						gear: [
+							"Large Mechanical Missile Wespon & Ammo x5, machine rifle",
+							"Traveller's Bag, field satchel",
+							"Lantern, Oil/Fuel Units ×2, guide light",
+							"Paw Post Membership, Helical Archive account"
+						]
+					},
+					blackGloveCavalier: {
+						name: "Black Glove Cavalier",
+						description: "You are an aspiring member of Night Haven's Black Glove order, an aristocratic organization dedicated to the Profound Darkness. You have had dealings with dark creatures and powers.",
+						purviews: [
+							"All matters concerning the Profound Darkness.",
+							"Knowing things you shouldn't",
+							"Deeply unsettling mannerisms"
+						],
+						gear: [
+							"Lash Weapon, duelist's chain",
+							"Medium Armor, plated coat",
+							"Holy Icon, darkfire circlet",
+							"Shadow Stone, your precious"
+						]
+					}
+				},
 				wistfulDark: {
 					forsakenWanderer: {
 						name: "Forsaken Wanderer",
@@ -2720,6 +3266,158 @@ export default {
 						],
 					},
 				},
+				otherWorld: {
+					transient: {
+						name: "Transient",
+						description: "You never really stayed in once place for long. This strange new world doesn't feel much like home, but then again the old one didn't either. Nothin' new, huh?",
+						purviews: [
+							"Scrounging for what you need",
+							"Enduring harsh conditions",
+							"Communicating in code"
+						],
+						gear: [
+							"Tattered Outfit, no shoes and a ripped trench coat",
+							"Backpack, trusty kit bag",
+							"Treat x5, candy from a child",
+							"Pet: Growl, brave mongrel."
+						]
+					},
+					neet: {
+						name: "NEET",
+						description: "Not in Education, Employment, or Training. You're young and have your whole life ahead of you, you just aren't sure what your supposed to do with it yet.",
+						purviews: [
+							"Trivia related to important persona",
+							"Finding the path of least resistance",
+							"Sharp, cynical judgement."
+						],
+						gear: [
+							"Beginner's Tome: Adventure Sites, Akenia Adventure!! guide",
+							"Basic Potion x2, energy drinks",
+							"Holy Icon, collectible plush",
+							"Other World Pocket Device, Game Gal Advance"
+						]
+					},
+					retail: {
+						name: "Retail / Service",
+						description: "You used to wait tables or work a cash register The new place is filled with some pretty odd characters, but it's nothing compared to the strange types you had to serve back home.",
+						purviews: [
+							"Dealing with the unreasonable.",
+							"Keeping calm when in a rush",
+							"Remembering the particulars."
+						],
+						gear: [
+							"Artisan's Outfit, sales apron",
+							"Rations x10, box of nuggets",
+							"Urban Goods, company branded pad & pen",
+							"Other World Pocket Device, smart phone"
+						]
+					},
+					blueCollar: {
+						name: "Blue Collar",
+						description: "You worked with your hands, doing jobs that were often unappreciated back home. Your strong work ethic and practical nature will put you in good stead here",
+						purviews: [
+							"Putting your back into it.",
+							"Knowing your limits and pacing yourself.",
+							"Seeing through pretension."
+						],
+						gear: [
+							"Mighty Weapon with Utility Ability, sledgehammer",
+							"Light Armor, hard hat & protective overalls",
+							"Traveller's Bag, tool belt",
+							"Basic Potion x2, coffee flask"
+						]
+					},
+					whiteCollar: {
+						name: "White Collar",
+						description: "Up until recently, your days were spent behind a desk. You worked a comfy, if a little dull, 9.5 routine and day dreamed about taking more risks.",
+						purviews: [
+							"Keeping a deadline.",
+							"Effective multi-tasking.",
+							"Saying just about anything while retaining a polite tone."
+						],
+						gear: [
+							"Authoritative Outfit, suit & tie",
+							"Treat x2 & Hardy Rations ×2, packed lunch",
+							"Oddity, red stapler",
+							"Other World Pocket Device, synth tablet"
+						]
+					},
+					domestic: {
+						name: "Domestic",
+						description: "You cooked and cleaned as a servant. chef or stay-at home spouse. But now, without warning, you've been transported to this strange new world. You think you left the oven on!",
+						purviews: [
+							"Noticing something out of place",
+							"Making others comfortable.",
+							"Working with edible things."
+						],
+						gear: [
+							"Standard Weapon with Utility Ability, iron frying pan",
+							"Traveller's Bag. cute tote",
+							"Beginner's Tome: Outer World Legends, children's book",
+							"Treats x10, perfect cookies"
+						]
+					},
+					miltaryLawEnforcement: {
+						name: "Military / Law Enforcement",
+						description: "Unlike most Other Worlders, you are armed and trained for combat. Yet nothing could have prepared you for the strange critters you're up against here.",
+						purviews: [
+							"Quick but rigorous investigation",
+							"Practical athletics.",
+							"Reading a situation"
+						],
+						gear: [
+							"Light Armor, anti-stab vest",
+							"Authoritative Outfit, uniform",
+							"Grenades ×2, frags",
+							"Other World Side Arm & Ammo x10 trusty shooter"
+						]
+					},
+					educationFaculty: {
+						name: "Education (Faculty)",
+						description: "Wait a minute, you're the teacher... isn't it supposed to be the kids who end up on a silly mystical adventure!? Still. it beats grading papers",
+						purviews: [
+							"Explaining complicated ideas",
+							"Critical assessment against criteria",
+							"Managing stress."
+						],
+						gear: [
+							"Backpack, teacher's satchel",
+							"Urban Goods, pack of chalk",
+							"Oddity, hand puppet for educational use",
+							"Oddity, three-hole puncher"
+						]
+					},
+					educationStudent: {
+						name: "Education (Student)",
+						description: "This is the sort of thing that happens in lazy, fantasy fiction. How are you going to get to class now? Still it's less stressful than preparing for those end of semester papers.",
+						purviews: [
+							"Rushing at the very last minute.",
+							"Dedication to learning",
+							"Expressing yourself loudly"
+						],
+						gear: [
+							"Master Weapon, aluminium baseball bat",
+							"Backpack, book bag",
+							"Appealing Outfit, school uniform",
+							"Other World Pocket Device, smart phone with charm"
+						]
+					},
+					idleRich: {
+						name: "Idle Rich",
+						description: "Thanks to wealthy parents or inheritance, you've lead a luxurious lifestyle and had everything handed to you on a silver plate. So much for that.",
+						purviews: [
+							"Keeping all eyes on you.",
+							"Maintaining an air of superiority, deserved or not.",
+							"Getting what you want."
+						],
+						gear: [
+							"Gem x1, assorted bling",
+							"Appealing Outfit, strong look",
+							"Blackout Goggles, shades",
+							"Other World Pocket Device, Pear Pad DX"
+						]
+					}
+				}
 			},
 			languages: {
 				lowSpeech: {

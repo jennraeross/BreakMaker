@@ -69,8 +69,20 @@
                         <label>
                             History
                             <select v-model="historySelected">
+                                <optgroup label="Blazing Garden">
+                                    <option v-for="history in histories.blazingGarden" :value="history.name">{{history.name}}</option>
+                                </optgroup>
+                                <optgroup label="Buried Kingdom">
+                                    <option v-for="history in histories.buriedKingdom" :value="history.name">{{history.name}}</option>
+                                </optgroup>
+                                <optgroup label="Twilight Meridian">
+                                    <option v-for="history in histories.twilightMeridian" :value="history.name">{{history.name}}</option>
+                                </optgroup>
                                 <optgroup label="Wistful Dark">
                                     <option v-for="history in histories.wistfulDark" :value="history.name">{{history.name}}</option>
+                                </optgroup>
+                                <optgroup label="Other World">
+                                    <option v-for="history in histories.otherWorld" :value="history.name">{{history.name}}</option>
                                 </optgroup>
                             </select>
                         </label>
@@ -273,13 +285,27 @@
                         <optgroup label="Battle Princess Basic Abilities" v-if="callingSelected == 'Battle Princess'">
                             <option v-for="ability in callings.battlePrincess.standardAbilities" :value="ability.name">{{ability.name}}</option>
                         </optgroup>
-                        <option v-if="callingSelected == 'Champion'" v-for="ability in callings.champion.standardAbilities" :value="ability.name">{{ability.name}}</option>
-                        <option v-if="callingSelected == 'Factotum'" v-for="ability in callings.factotum.standardAbilities" :value="ability.name">{{ability.name}}</option>
-                        <option v-if="callingSelected == 'Heretic'" v-for="ability in callings.heretic.standardAbilities" :value="ability.name">{{ability.name}}</option>
-                        <option v-if="callingSelected == 'Murder Princess'" v-for="ability in callings.murderPrincess.standardAbilities" :value="ability.name">{{ability.name}}</option>
-                        <option v-if="callingSelected == 'Raider'" v-for="ability in callings.raider.standardAbilities" :value="ability.name">{{ability.name}}</option>
-                        <option v-if="callingSelected == 'Sage'" v-for="ability in callings.sage.standardAbilities" :value="ability.name">{{ability.name}}</option>
-                        <option v-if="callingSelected == 'Sneak'" v-for="ability in callings.sneak.standardAbilities" :value="ability.name">{{ability.name}}</option>
+                        <optgroup label="Champion Basic Abilities" v-if="callingSelected == 'Champion'">                        
+                            <option v-for="ability in callings.champion.standardAbilities" :value="ability.name">{{ability.name}}</option>
+                        </optgroup>
+                        <optgroup label="Factotum Basic Abilities" v-if="callingSelected == 'Factotum'">
+                            <option v-for="ability in callings.factotum.standardAbilities" :value="ability.name">{{ability.name}}</option>
+                        </optgroup>
+                        <optgroup label="Heretic Basic Abilities" v-if="callingSelected == 'Heretic'">
+                            <option v-for="ability in callings.heretic.standardAbilities" :value="ability.name">{{ability.name}}</option>
+                        </optgroup>
+                        <optgroup label="Murder Princess Basic Abilities" v-if="callingSelected == 'Murder Princess'">
+                            <option v-for="ability in callings.murderPrincess.standardAbilities" :value="ability.name">{{ability.name}}</option>
+                        </optgroup>
+                        <optgroup label="Raider Basic Abilities" v-if="callingSelected == 'Raider'">
+                            <option v-for="ability in callings.raider.standardAbilities" :value="ability.name">{{ability.name}}</option>
+                        </optgroup>
+                        <optgroup label="Sage Basic Abilities" v-if="callingSelected == 'Sage'">
+                            <option v-for="ability in callings.sage.standardAbilities" :value="ability.name">{{ability.name}}</option>
+                        </optgroup>
+                        <optgroup label="Sneak Basic Abilities" v-if="callingSelected == 'Sneak'">
+                            <option v-for="ability in callings.sneak.standardAbilities" :value="ability.name">{{ability.name}}</option>
+                        </optgroup>
                     </select>
                 </label>
                 <label v-if="getLevel >= 4">
@@ -287,6 +313,27 @@
                     <select v-model="elective4">
                         <optgroup label="Battle Princess Basic Abilities" v-if="callingSelected == 'Battle Princess'">
                             <option v-for="ability in callings.battlePrincess.standardAbilities" :value="ability.name">{{ability.name}}</option>
+                        </optgroup>
+                        <optgroup label="Champion Basic Abilities" v-if="callingSelected == 'Champion'">                        
+                            <option v-for="ability in callings.champion.standardAbilities" :value="ability.name">{{ability.name}}</option>
+                        </optgroup>
+                        <optgroup label="Factotum Basic Abilities" v-if="callingSelected == 'Factotum'">
+                            <option v-for="ability in callings.factotum.standardAbilities" :value="ability.name">{{ability.name}}</option>
+                        </optgroup>
+                        <optgroup label="Heretic Basic Abilities" v-if="callingSelected == 'Heretic'">
+                            <option v-for="ability in callings.heretic.standardAbilities" :value="ability.name">{{ability.name}}</option>
+                        </optgroup>
+                        <optgroup label="Murder Princess Basic Abilities" v-if="callingSelected == 'Murder Princess'">
+                            <option v-for="ability in callings.murderPrincess.standardAbilities" :value="ability.name">{{ability.name}}</option>
+                        </optgroup>
+                        <optgroup label="Raider Basic Abilities" v-if="callingSelected == 'Raider'">
+                            <option v-for="ability in callings.raider.standardAbilities" :value="ability.name">{{ability.name}}</option>
+                        </optgroup>
+                        <optgroup label="Sage Basic Abilities" v-if="callingSelected == 'Sage'">
+                            <option v-for="ability in callings.sage.standardAbilities" :value="ability.name">{{ability.name}}</option>
+                        </optgroup>
+                        <optgroup label="Sneak Basic Abilities" v-if="callingSelected == 'Sneak'">
+                            <option v-for="ability in callings.sneak.standardAbilities" :value="ability.name">{{ability.name}}</option>
                         </optgroup>
                     </select>
                 </label>
@@ -296,8 +343,50 @@
                         <optgroup label="Battle Princess Basic Abilities" v-if="callingSelected == 'Battle Princess'">
                             <option v-for="ability in callings.battlePrincess.standardAbilities" :value="ability.name">{{ability.name}}</option>
                         </optgroup>
+                        <optgroup label="Champion Basic Abilities" v-if="callingSelected == 'Champion'">                        
+                            <option v-for="ability in callings.champion.standardAbilities" :value="ability.name">{{ability.name}}</option>
+                        </optgroup>
+                        <optgroup label="Factotum Basic Abilities" v-if="callingSelected == 'Factotum'">
+                            <option v-for="ability in callings.factotum.standardAbilities" :value="ability.name">{{ability.name}}</option>
+                        </optgroup>
+                        <optgroup label="Heretic Basic Abilities" v-if="callingSelected == 'Heretic'">
+                            <option v-for="ability in callings.heretic.standardAbilities" :value="ability.name">{{ability.name}}</option>
+                        </optgroup>
+                        <optgroup label="Murder Princess Basic Abilities" v-if="callingSelected == 'Murder Princess'">
+                            <option v-for="ability in callings.murderPrincess.standardAbilities" :value="ability.name">{{ability.name}}</option>
+                        </optgroup>
+                        <optgroup label="Raider Basic Abilities" v-if="callingSelected == 'Raider'">
+                            <option v-for="ability in callings.raider.standardAbilities" :value="ability.name">{{ability.name}}</option>
+                        </optgroup>
+                        <optgroup label="Sage Basic Abilities" v-if="callingSelected == 'Sage'">
+                            <option v-for="ability in callings.sage.standardAbilities" :value="ability.name">{{ability.name}}</option>
+                        </optgroup>
+                        <optgroup label="Sneak Basic Abilities" v-if="callingSelected == 'Sneak'">
+                            <option v-for="ability in callings.sneak.standardAbilities" :value="ability.name">{{ability.name}}</option>
+                        </optgroup>
                         <optgroup label="Battle Princess Advanced Abilities" v-if="callingSelected == 'Battle Princess'">
                             <option v-for="ability in callings.battlePrincess.advancedAbilities" :value="ability.name">{{ability.name}}</option>
+                        </optgroup>
+                        <optgroup label="Champion Advanced Abilities" v-if="callingSelected == 'Champion'">                        
+                            <option v-for="ability in callings.champion.advancedAbilities" :value="ability.name">{{ability.name}}</option>
+                        </optgroup>
+                        <optgroup label="Factotum Advanced Abilities" v-if="callingSelected == 'Factotum'">
+                            <option v-for="ability in callings.factotum.advancedAbilities" :value="ability.name">{{ability.name}}</option>
+                        </optgroup>
+                        <optgroup label="Heretic Advanced Abilities" v-if="callingSelected == 'Heretic'">
+                            <option v-for="ability in callings.heretic.advancedAbilities" :value="ability.name">{{ability.name}}</option>
+                        </optgroup>
+                        <optgroup label="Murder Princess Advanced Abilities" v-if="callingSelected == 'Murder Princess'">
+                            <option v-for="ability in callings.murderPrincess.advancedAbilities" :value="ability.name">{{ability.name}}</option>
+                        </optgroup>
+                        <optgroup label="Raider Advanced Abilities" v-if="callingSelected == 'Raider'">
+                            <option v-for="ability in callings.raider.advancedAbilities" :value="ability.name">{{ability.name}}</option>
+                        </optgroup>
+                        <optgroup label="Sage Advanced Abilities" v-if="callingSelected == 'Sage'">
+                            <option v-for="ability in callings.sage.advancedAbilities" :value="ability.name">{{ability.name}}</option>
+                        </optgroup>
+                        <optgroup label="Sneak Advanced Abilities" v-if="callingSelected == 'Sneak'">
+                            <option v-for="ability in callings.sneak.advancedAbilities" :value="ability.name">{{ability.name}}</option>
                         </optgroup>
                         <optgroup label="Human (Native) Maturative Abilities" v-if="speciesSelected =='Human (Native)'">
                             <option v-for="ability in species.native.maturativeAbilities" :value="ability.name">{{ability.name}}</option>
@@ -340,8 +429,50 @@
                         <optgroup label="Battle Princess Basic Abilities" v-if="callingSelected == 'Battle Princess'">
                             <option v-for="ability in callings.battlePrincess.standardAbilities" :value="ability.name">{{ability.name}}</option>
                         </optgroup>
+                        <optgroup label="Champion Basic Abilities" v-if="callingSelected == 'Champion'">                        
+                            <option v-for="ability in callings.champion.standardAbilities" :value="ability.name">{{ability.name}}</option>
+                        </optgroup>
+                        <optgroup label="Factotum Basic Abilities" v-if="callingSelected == 'Factotum'">
+                            <option v-for="ability in callings.factotum.standardAbilities" :value="ability.name">{{ability.name}}</option>
+                        </optgroup>
+                        <optgroup label="Heretic Basic Abilities" v-if="callingSelected == 'Heretic'">
+                            <option v-for="ability in callings.heretic.standardAbilities" :value="ability.name">{{ability.name}}</option>
+                        </optgroup>
+                        <optgroup label="Murder Princess Basic Abilities" v-if="callingSelected == 'Murder Princess'">
+                            <option v-for="ability in callings.murderPrincess.standardAbilities" :value="ability.name">{{ability.name}}</option>
+                        </optgroup>
+                        <optgroup label="Raider Basic Abilities" v-if="callingSelected == 'Raider'">
+                            <option v-for="ability in callings.raider.standardAbilities" :value="ability.name">{{ability.name}}</option>
+                        </optgroup>
+                        <optgroup label="Sage Basic Abilities" v-if="callingSelected == 'Sage'">
+                            <option v-for="ability in callings.sage.standardAbilities" :value="ability.name">{{ability.name}}</option>
+                        </optgroup>
+                        <optgroup label="Sneak Basic Abilities" v-if="callingSelected == 'Sneak'">
+                            <option v-for="ability in callings.sneak.standardAbilities" :value="ability.name">{{ability.name}}</option>
+                        </optgroup>
                         <optgroup label="Battle Princess Advanced Abilities" v-if="callingSelected == 'Battle Princess'">
                             <option v-for="ability in callings.battlePrincess.advancedAbilities" :value="ability.name">{{ability.name}}</option>
+                        </optgroup>
+                        <optgroup label="Champion Advanced Abilities" v-if="callingSelected == 'Champion'">                        
+                            <option v-for="ability in callings.champion.advancedAbilities" :value="ability.name">{{ability.name}}</option>
+                        </optgroup>
+                        <optgroup label="Factotum Advanced Abilities" v-if="callingSelected == 'Factotum'">
+                            <option v-for="ability in callings.factotum.advancedAbilities" :value="ability.name">{{ability.name}}</option>
+                        </optgroup>
+                        <optgroup label="Heretic Advanced Abilities" v-if="callingSelected == 'Heretic'">
+                            <option v-for="ability in callings.heretic.advancedAbilities" :value="ability.name">{{ability.name}}</option>
+                        </optgroup>
+                        <optgroup label="Murder Princess Advanced Abilities" v-if="callingSelected == 'Murder Princess'">
+                            <option v-for="ability in callings.murderPrincess.advancedAbilities" :value="ability.name">{{ability.name}}</option>
+                        </optgroup>
+                        <optgroup label="Raider Advanced Abilities" v-if="callingSelected == 'Raider'">
+                            <option v-for="ability in callings.raider.advancedAbilities" :value="ability.name">{{ability.name}}</option>
+                        </optgroup>
+                        <optgroup label="Sage Advanced Abilities" v-if="callingSelected == 'Sage'">
+                            <option v-for="ability in callings.sage.advancedAbilities" :value="ability.name">{{ability.name}}</option>
+                        </optgroup>
+                        <optgroup label="Sneak Advanced Abilities" v-if="callingSelected == 'Sneak'">
+                            <option v-for="ability in callings.sneak.advancedAbilities" :value="ability.name">{{ability.name}}</option>
                         </optgroup>
                         <optgroup label="Human (Native) Maturative Abilities" v-if="speciesSelected =='Human (Native)'">
                             <option v-for="ability in species.native.maturativeAbilities" :value="ability.name">{{ability.name}}</option>
@@ -384,8 +515,50 @@
                         <optgroup label="Battle Princess Basic Abilities" v-if="callingSelected == 'Battle Princess'">
                             <option v-for="ability in callings.battlePrincess.standardAbilities" :value="ability.name">{{ability.name}}</option>
                         </optgroup>
+                        <optgroup label="Champion Basic Abilities" v-if="callingSelected == 'Champion'">                        
+                            <option v-for="ability in callings.champion.standardAbilities" :value="ability.name">{{ability.name}}</option>
+                        </optgroup>
+                        <optgroup label="Factotum Basic Abilities" v-if="callingSelected == 'Factotum'">
+                            <option v-for="ability in callings.factotum.standardAbilities" :value="ability.name">{{ability.name}}</option>
+                        </optgroup>
+                        <optgroup label="Heretic Basic Abilities" v-if="callingSelected == 'Heretic'">
+                            <option v-for="ability in callings.heretic.standardAbilities" :value="ability.name">{{ability.name}}</option>
+                        </optgroup>
+                        <optgroup label="Murder Princess Basic Abilities" v-if="callingSelected == 'Murder Princess'">
+                            <option v-for="ability in callings.murderPrincess.standardAbilities" :value="ability.name">{{ability.name}}</option>
+                        </optgroup>
+                        <optgroup label="Raider Basic Abilities" v-if="callingSelected == 'Raider'">
+                            <option v-for="ability in callings.raider.standardAbilities" :value="ability.name">{{ability.name}}</option>
+                        </optgroup>
+                        <optgroup label="Sage Basic Abilities" v-if="callingSelected == 'Sage'">
+                            <option v-for="ability in callings.sage.standardAbilities" :value="ability.name">{{ability.name}}</option>
+                        </optgroup>
+                        <optgroup label="Sneak Basic Abilities" v-if="callingSelected == 'Sneak'">
+                            <option v-for="ability in callings.sneak.standardAbilities" :value="ability.name">{{ability.name}}</option>
+                        </optgroup>
                         <optgroup label="Battle Princess Advanced Abilities" v-if="callingSelected == 'Battle Princess'">
                             <option v-for="ability in callings.battlePrincess.advancedAbilities" :value="ability.name">{{ability.name}}</option>
+                        </optgroup>
+                        <optgroup label="Champion Advanced Abilities" v-if="callingSelected == 'Champion'">                        
+                            <option v-for="ability in callings.champion.advancedAbilities" :value="ability.name">{{ability.name}}</option>
+                        </optgroup>
+                        <optgroup label="Factotum Advanced Abilities" v-if="callingSelected == 'Factotum'">
+                            <option v-for="ability in callings.factotum.advancedAbilities" :value="ability.name">{{ability.name}}</option>
+                        </optgroup>
+                        <optgroup label="Heretic Advanced Abilities" v-if="callingSelected == 'Heretic'">
+                            <option v-for="ability in callings.heretic.advancedAbilities" :value="ability.name">{{ability.name}}</option>
+                        </optgroup>
+                        <optgroup label="Murder Princess Advanced Abilities" v-if="callingSelected == 'Murder Princess'">
+                            <option v-for="ability in callings.murderPrincess.advancedAbilities" :value="ability.name">{{ability.name}}</option>
+                        </optgroup>
+                        <optgroup label="Raider Advanced Abilities" v-if="callingSelected == 'Raider'">
+                            <option v-for="ability in callings.raider.advancedAbilities" :value="ability.name">{{ability.name}}</option>
+                        </optgroup>
+                        <optgroup label="Sage Advanced Abilities" v-if="callingSelected == 'Sage'">
+                            <option v-for="ability in callings.sage.advancedAbilities" :value="ability.name">{{ability.name}}</option>
+                        </optgroup>
+                        <optgroup label="Sneak Advanced Abilities" v-if="callingSelected == 'Sneak'">
+                            <option v-for="ability in callings.sneak.advancedAbilities" :value="ability.name">{{ability.name}}</option>
                         </optgroup>
                         <optgroup label="Human (Native) Maturative Abilities" v-if="speciesSelected =='Human (Native)'">
                             <option v-for="ability in species.native.maturativeAbilities" :value="ability.name">{{ability.name}}</option>
@@ -513,7 +686,47 @@
                             </li>
                         </ul>
                     </nav>
+                    <template v-for="history in histories.blazingGarden">
+                        <details open v-if="historySelected == history.name">
+                            <summary>{{history.name}}</summary>
+                            <p>{{history.description}}</p>
+                            <p>Purviews:</p>
+                            <ul>
+                                <li v-for="purview in history.purviews">{{purview}}</li>
+                            </ul>
+                        </details>
+                    </template>
+                    <template v-for="history in histories.buriedKingdom">
+                        <details open v-if="historySelected == history.name">
+                            <summary>{{history.name}}</summary>
+                            <p>{{history.description}}</p>
+                            <p>Purviews:</p>
+                            <ul>
+                                <li v-for="purview in history.purviews">{{purview}}</li>
+                            </ul>
+                        </details>
+                    </template>
+                    <template v-for="history in histories.twilightMeridian">
+                        <details open v-if="historySelected == history.name">
+                            <summary>{{history.name}}</summary>
+                            <p>{{history.description}}</p>
+                            <p>Purviews:</p>
+                            <ul>
+                                <li v-for="purview in history.purviews">{{purview}}</li>
+                            </ul>
+                        </details>
+                    </template>
                     <template v-for="history in histories.wistfulDark">
+                        <details open v-if="historySelected == history.name">
+                            <summary>{{history.name}}</summary>
+                            <p>{{history.description}}</p>
+                            <p>Purviews:</p>
+                            <ul>
+                                <li v-for="purview in history.purviews">{{purview}}</li>
+                            </ul>
+                        </details>
+                    </template>
+                    <template v-for="history in histories.otherWorld">
                         <details open v-if="historySelected == history.name">
                             <summary>{{history.name}}</summary>
                             <p>{{history.description}}</p>

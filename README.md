@@ -27,6 +27,7 @@ This project is built using VueJS and PicoCSS
 - ~~Species Abilities~~
 - ~~All Histories~~
 - ~~All Callings~~
-- Quirks
+- ~~Quirks~~
 - Inventory System
 - Improve Printing
+- Customize Items

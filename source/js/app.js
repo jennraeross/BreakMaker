@@ -3541,75 +3541,585 @@ export default {
 				},
 			},
 			quirks: {
-				unhinged: {
-					name: "Unhinged",
+				spirit: {
+					unhinged: {
+						name: "Unhinged",
+						description: "Inflicting grievous harm on others doesn't seem to bother you, in fact you quite enjoy it. Perhaps it was your unaffectionate mother or traumatic past event that is to blame for this unrelenting bloodlust.",
+						advantages: [
+							"You gain +2 to your Attack Bonus, you are vigorously violent."
+						],
+						disadvantages: [
+							"Your suffer a -1 to your Defense Rating, your enthusiastic commitment to causing harm leaves you vulnerable to attack."
+						]
+					},
+					jumpy: {
+						name: "Jumpy",
+						description: "You are jittery, skittish or paranoid. This means that while you spot potential dangers sooner than most, your nervous outbursts can telegraph your approach to enemies",
+						advantages: [
+							"Your Team gains an Edge on all Insight rolls related to checking for danger."
+						],
+						disadvantages: [
+							"Your Team suffers a Snag on Deftness rolls when it is attempting an Ambush."
+						]
+					},
+					pedantic: {
+						name: "Pedantic",
+						description: "You are well read, and you make sure everyone knows it. While your extensive knowledge and attention to detail comes in handy, it can be grating for those around you. Woe betide those that fail to heed your advice, as they will suffer a healthy dose of 'I told you so'",
+						advantages: [
+							"You gain an Edge on Insight rolls when attempting to research or recall information."
+						],
+						disadvantages: [
+							"You suffer a Snag when making Aura rolls when trying to Negotiate or impress someone."
+						]
+					},
+					clearIntent: {
+						name: "Clear Intent",
+						description: "Despite attempts to hide it, your true intentions are always apparent because of your revealing body language and tone of voice. This is great when getting your point across, but it makes you a terrible liar.",
+						advantages: [
+							"You can communicate simple, one sentence ideas or commands without the need to speak Helpful when you need to keep silent or are interacting with someone who doesn't speak your language"
+						],
+						disadvantages: [
+							"You have a Snag when attempting to lie to someone. You are betrayed by your expressions and gestures."
+						]
+					},
+					boring: {
+						name: "Boring",
+						description: "You are unremarkable. You're difficult to notice and easy to forget, and while you may not be recognized for you successes, at least you avoid being defined by your failures",
+						advantages: [
+							"An insight Check is required when someone is trying to recall if you were present at event or situation. unless you were the only one there!"
+						],
+						disadvantages: [
+							"If you are placed at the scene, your actions will be attributed to another, including any positive or heroic deeds you performed."
+						]
+					},
+					curious: {
+						name: "Curious",
+						description: "The world is a dangerous yet wondrous place and you want to see it all. Unless restrained or strenuously cautioned, you will inadvertently explore your surroundings, haphazardly poking around",
+						advantages: [
+							"Whenever entering a new room or small area. you can opt to use this Quirk to immediately discover a single hidden thing, if it exists. For example, a secret door or treasure."
+						],
+						disadvantages: [
+							"Using this Quirk while exploring a room with a trap, or other triggered event, means you set it off without a chance to avoid or stop it."
+						]
+					},
+					alwaysPrepared: {
+						name: "Always Prepared",
+						description: "You carry a plethora of unusual items with you. While everyone you travel with is pleased when you got just the right tool to hand, your vast collection can sometimes spill out at exactly the wrong moment",
+						advantages: [
+							"Once per game Session, you may 'have' any single item you require. The item must be worth less than 45 Coins and be no larger than a single inventory Slot."
+						],
+						disadvantages: [
+							"Whenever you roll an unmodified 20 on a Deftness Check random assorted junk spills everywhere and complicates the situation. Your GM will decide exactly how!"
+						]
+					},
+					stylish: {
+						name: "Stylish",
+						description: "Your innate sense of style and panache means you are always on the cutting edge of fashion. Whether your attire is practical or for a special occasion, you always dress to impress",
+						advantages: [
+							"You gain an Edge on Aura rolls where your appearance is a factor."
+						],
+						disadvantages: [
+							"You always buy the best. You must spend at least 50% more on any clothing, armor, or other accessories... or lose your style advantage",
+							"NOTE: If you want to wear something you've been given, or found, you'll still need to spend the additional money to get it adorned, gilded, or modified to suit your demanding aesthetic requirements"
+						]
+					},
+					miser: {
+						name: "Miser",
+						description: "The draw of material wealth is almost overwhelming for you. Precious metals gems, works of art. and even fine clothes; you love it all. Find it, grab it, hoard it",
+						advantages: [
+							"You are supernaturally aware of any concentration of valuables. Temptations range from a stockpile of gold to a walk in closet filled with exquisite garments",
+							"The valuables must have a net worth of 5 Gems and be within 300 feet for you to detect their presence.",
+							"You are able to sense the direction in which the valuables are located."
+						],
+						disadvantages: [
+							"If you are close enough to a qualifying treasure horde, you must make an Aura Check to resist the urge to find and plunder from it."
+						]
+					},
+					soulLink: {
+						name: "Soul Link",
+						description: "You are able to connect your heart and mind with another. However, when not linked to another, your supernatural empathy crowds your mind with a cacophony of ambient emotions.",
+						advantages: [
+							"You may choose a single, willing person to Link with.",
+							"You must be close enough to touch someone in order to establish a Link with them.",
+							"Once Linked, you can share thoughts and feelings with each other no matter how much distance comes between you.",
+							"You may terminate, or switch, who you are Linked to at any time."
+						],
+						disadvantages: [
+							"When not Linked to another, all Checks and Contest rolls suffer a Minor Penalty (+2]. Your receptive mind is distracted by the stream of other's thoughts."
+						]
+					},
 				},
-				jumpy: {
-					name: "Jumpy",
+				physical: {
+					girthsome: {
+						name: "Girthsome",
+						description: "You're a robust specimen; muscular, fat, or bulky in some way. Your ample body can soak up more punishment than most, but it also slows you down.",
+						advantages: [
+							"You gain +1 to your Hearts Total",
+							"You gain + 1 to your Grit."
+						],
+						disadvantages: [
+							"Your Speed Rating is reduced by a single step."
+						]
+					},
+					nearsighted: {
+						name: "Nearsighted",
+						description: "Years of staring at old books in dim light has strained your eyes As a result you are extremely well read but now you require a pair of spectacles to see properly.",
+						advantages: [
+							"You start with a pair of spectacles, these do not take up one of your Inventory Slots.",
+							"You gain +1 to your insight.",
+							"You gain 2 additional Bonus Languages of your choice"
+						],
+						disadvantages: [
+							"Without your glasses you suffer a Snag on all rolis that are dependent on sight."
+						]
+					},
+					adorable: {
+						name: "Adorable",
+						description: "You are childlike, cute, or otherwise innocent looking. This makes you incredibly disarming and easy to agree with, but also considerably less threatening.",
+						advantages: [
+							"You gain an Edge on Aura rolis when attempting to charm, or convince others of your relative harmlessness."
+						],
+						disadvantages: [
+							"You incur a Snag on Aura rolls when attempting to intimidate or impress."
+						]
+					},
+					darkDemeanor: {
+						name: "Dark Demeanor",
+						description: "You carry yourself in a way that suggests nefarious intent, even if you don't harbor such thoughts. You have shifty looking eyes and probably dress in black.",
+						advantages: [
+							"At first glance, wicked creatures will presume you are a potential ally."
+						],
+						disadvantages: [
+							"Conversely, those favoring law and order will distrust you, and are quick to blame you for ill deeds.",
+							"NOTE: Your demeanor will be dispelled if others witness you perform good deeds or others provide substantial evidence of your true nature."
+						]
+					},
+					angelicCountenance: {
+						name: "Angelic Countenance",
+						description: "A guileless smile and soothing voice project an aura of heavenly innocence. Your saintly air persists even when you harbor ill intent.",
+						advantages: [
+							"At first glance, benevolent individuals will assume you are trustworthy and pass you over for blame. They are also willing to accept your more believable lies"
+						],
+						disadvantages: [
+							"Villainous types will assume you're out to get them. Maybe they should get rid of you before you cause any trouble for them.",
+							"NOTE: The effect is negated if you are witnessed acting contrary to your angelic appearance."
+						]
+					},
+					bigEater: {
+						name: "Big Eater",
+						description: "A fast metabolism, or a lifetime of plenty. has increased your appetite exponentially. While your grocery bill is high, your love of eating invigorates you.",
+						advantages: [
+							"During a Fight you can use your Action to inhale a day's worth of Rations to restore 1 lost Heart.",
+						],
+						disadvantages: [
+							"You need to eat double the amount of required Rations for each day spent on a Journey."
+						]
+					},
+					waifish: {
+						name: "Waifish",
+						description: "You are lean, scrawny, or otherwise lacking in substance. While this has made you extremely light on your feet it has, unfortunately, also made you prone to injury.",
+						advantages: [
+							"Your Speed Rating is increased by a single step.",
+							"You gain +1 to your Deftness."
+						],
+						disadvantages: [
+							"Your suffer -1 to your Hearts Total"
+						]
+					},
+					magitechGraft: {
+						name: "Magitech Graft",
+						description: "Severe injury usually results in hardship for survivors, but you have been fitted with a Prosthetic Replacement. Once commonplace in the 3rd Aeon, these magitech grafts are now extremely rare... lucky you!",
+						advantages: [
+							"Change to one of the following Robotic Quirks:",
+							"Utility Servo",
+							"Sproing Sprockets",
+							"Nox-Vision"
+						],
+						disadvantages: [
+							"Any Injuries to your graft will not heal naturally and will require Bio-Mechanoid Treatment"
+						]
+					},
+					winged: {
+						name: "Winged",
+						description: "You have large, feathered wings. While you cannot soar, you can glide or get extra lift when you jump. Some think you may be the spawn of a Deva, others the target of a wizard's practical joke.",
+						advantages: [
+							"You gain Supernatural Leaping",
+							"You can glide safely down to earth from great heights without risk.",
+							"If falling. or knocked from the sky. you can avoid an Impact Injury with a successful Deftness Check to slow your decent."
+						],
+						disadvantages: [
+							"Your suffer -1 to your Hearts Total, you have pneumatized bones.",
+							"You suffer - 1 to your Grit Aptitude, carrying wings is tiresome",
+							"NOTE: If you receive an Injury that targets your arms you can choose to have it affect your wings instead.",
+							"NOTE: You can't benefit from your wings if: • They are Injured or Restrained. • You are Overburdened. • You are wearing Heavy or Superheavy Armor."
+						]
+					},
+					graspingTresses: {
+						name: "Grasping Tresses",
+						description: "Your hair is extremely long and writhes like a living creature. Your prehensile locks mostly cooperate with you, but occasionally exhibit a will of their own.",
+						advantages: [
+							"Your hair may act as an additional set of arms that can grab, manipulate, and attack. During a Fight your hair can:",
+							"Hold on to things to create an advantage, For example, holding a lamp in addition to your sword and shield or clinging to a ledge while you fire your bow.",
+							"Be used to perform Actions and Attacks instead, not as well as, your arms. Your hair can perform any task your regular arms could"
+						],
+						disadvantages: [
+							"You have a Snag on any Deftness rolls involving the use of your legs.",
+							"NOTE: You can cut your hair, but it grows back within minutes in a restless and irritable mood."
+						]
+					},
 				},
-				pedantic: {
-					name: "Pedantic",
+				fate: {
+					survivor: {
+						name: "Survivor",
+						description: "You've suffered many trials and ordeals in the past and lived to tell the tale. You know the punishment your body can take and no longer fear physical injury as much as you should, knowing you'll be able to bounce back in no time.",
+						advantages: [
+							"You heal 2 Injuries, instead of the usual 1, when you choose to Heal an injury during Downtime."
+						],
+						disadvantages: [
+							"You suffer a Snag on all Deftness rolls related to avoiding injury, why get out of harm's way when you mend so quickly?"
+						]
+					},
+					mageBreaker: {
+						name: "Mage Breaker",
+						description: "Every fibre of your soul seems to lash out and reject the magical or supernatural. This is great when shielding you from curses, but less desirable when negating blessings.",
+						advantages: [
+							"Any magical Ability directed at you is nullified if you make an Aura Check, or win an Aura Contest if you're targeted by a spellcaster."
+						],
+						disadvantages: [
+							"You might nullify all magic that target's you, even those intended to help you and your own spells!",
+							"Magical Artifacts you attempt to use might also be nullified.",
+							"NOTE: This ability does not stop you from using your own magic on others.",
+							"Persistent magic effects or Artifact Abilities resume once you leave the area of effect."
+						]
+					},
+					young: {
+						name: "Young",
+						description: "You are significantly younger than the average adventurer, barely in your teens. You've not had your growth spurt yet, but that's not gonna stop you!",
+						advantages: [
+							"If you are a Medium or Large Species your size is reduced by one step",
+							"If you are a Small Species you gain the Adorable Quirk.",
+							"NOTE: Should you survive to adulthood, the Quirk is removed."
+						]
+					},
+					pastInjury: {
+						name: "Past Injury",
+						description: "A traumatic incident has left you with a distinctive gash on your chest, a missing eye, or similar indelible scar. This nagging injury reminds you to be cautious.",
+						advantages: [
+							"You gain +1 to your Defense Rating due to your caution",
+							"NOTE: This benefit is lost if you aren't aware of the Attack."
+						],
+						disadvantages: [
+							"You suffer - 1 to an Aptitude related to an injury of your choice. For example, a leg wound might reduce you Deftness.",
+							"NOTE: If your Injury is removed your Quirk is also removed."
+						]
+					},
+					weary: {
+						name: "Weary",
+						description: "You are much older than your peers, or simply worn down thanks to years of struggle or hardship. While no longer in your physical prime, your experience is useful.",
+						advantages: [
+							"Choose one of the following:",
+							"A scarred soul: You gain +1 to your Attack Bonus",
+							"You also possess a trusty weapon. This weapon can be of any Type, except for Combination or imbued",
+							"Walker of two paths: You choose, or roll, for an additional History from your Homeland."
+						],
+						disadvantages: [
+							"Your suffer -1 Might and -1 Grit."
+						]
+					},
+					destined: {
+						name: "Destined",
+						description: "You are the plaything of whimsical cosmic forces. Sometimes these forces intervene to help you, other times they seek to hinder.",
+						advantages: [
+							"You can grant yourself an Edge for any single roll once per game Session."
+						],
+						disadvantages: [
+							"Your GM can give you a Snag for a single roll once per game Session, but cannot use it to counter a roll you've already chosen to grant an Edge to."
+						]
+					},
+					dreadOrator: {
+						name: "Dread Orator",
+						description: "Once per day you can place your hand on a corpse that's less than a day old, and ask it two questions which it will answer truthfully.",
+						advantages: [
+							"Once per day you can place your hand on a corpse that's less than a day old, and ask it two questions which it will answer truthfully."
+						],
+						disadvantages: [
+							"If you fail an Aura Check the spirit of the corpse remains with you for a week and a day. During this period, it speaks to you in your sleep and you suffer the effects of Fatigue (+ p269). However, the spirt may continue to impart useful information to you during it's protracted stay"
+						]
+					},
+					beastTongue: {
+						name: "Beast Tongue",
+						description: "You've been able to speak with animals since you were small. Though the wildlife tends to be a bit simple minded, they can be a useful source of information.",
+						advantages: [
+							"You can talk with one of the following creature categories; bird, mammal, reptile, insect, or aquatic.",
+							"Animals give simple responses and do not understand complicated concepts or vocabulary."
+						],
+						disadvantages: [
+							"You cannot be unduly cruel to animals, or eat animal flesh of any kind, doing so will remove the Quirk",
+							"NOTE: The Ability can be regained by completing a task designated to you by the ruler of the offended animal's kingdom."
+						]
+					},
+					guardian: {
+						name: "Guardian",
+						description: "You are an overly protective type and must defend another, it could be someone you've grown up with or a random person you've latched on to. Regardless, your devotion is unequivocal.",
+						advantages: [
+							"You must choose a member of your Team to be your ward, a character you've become overly protective of.",
+							"You can sense when your ward is in any kind of mortal peril.",
+							"You know what direction to go in order to find them, regardless of how much distance separates you."
+						],
+						disadvantages: [
+							"You are incapable of abandoning your ward while they are alive.",
+							"If your ward is in desperate danger you must seek them out or you will be so worried you will not be able to sleep and suffer Fatigue.",
+							"NOTE: If this character dies your Quirk becomes inactive. You may reactivate this Quirk by choosing another character you have Social Bond with to become your ward."
+						]
+					},
+					crowned: {
+						name: "Crowned",
+						description: "As a child you assisted a kindly Fairy, who bestowed upon you a grand title. While this prestige is entirely unrecognized among conventional nobility, and may even invite ridicule, immortals treat you with due respect. Titles include, but are not limited to: Queen of Unfinished Songs, Prince of Grass, Our Lady of Chocolate, and Eari of Lost Buttons.",
+						advantages: [
+							"Your status is honored by Asura Devas, Unshaped, Elves, and other immortal entities. Usually this means little more than polite hospitality and invitations to private functions, but your GM can extend your influence beyond this."
+						],
+						disadvantages: [
+							"Mortals aware of your 'noble' status find it hard to take you seriously. You suffer a Snag on any Aura Checks or Contests when attempting to impress, intimidate, or persuade someone who knows."
+						]
+					},
 				},
-				clearIntent: {
-					name: "Clear Intent",
+				eldritch: {
+					dreamer: {
+						name: "Dreamer",
+						description: "Your mind is often in places that do not properly exist. thinking of things that could be instead of what is. To you reality seems more flexible.",
+						advantages: [
+							"Once per game Session you can propose and agree with your GM an event that gets you out of a tricky predicament. For exampie, an unexpected rock fall that cuts off your pursuers."
+						],
+						disadvantages: [
+							"In a game Session where you have invoked this Quirk your GM can have your adversaries benefit from a similar improbable event to negate an advantage you possess."
+						]
+					},
+					lyrical: {
+						name: "Lyrical",
+						description: "You speak in rhymes or verse when there is no reason to. Strangely, when your choice of words flows smoothly success seems more likely, yet stumble and ill fortune awaits.",
+						advantages: [
+							"When you describe your Actions in rhyme, you gain an Edge on any required rolls, but...",
+							"You cannot repeat a rhyme you have already used and must not delay the game longer than 30 seconds when creating a rhyme."
+						],
+						disadvantages: [
+							"If you cannot word your Actions in rhyme, you suffer a Snag on any required rolls.",
+							"NOTE: At the start of a game Session you can opt to have a day off, and ignore the Quirk until you are feeling more poetic."
+						]
+					},
+					infested: {
+						name: "Infested",
+						description: "You are crawling with insects, the residue of a slain Asura, or something equally terrible. The infestation has a vested interest in your survival and employs strange methods to ensure it.",
+						advantages: [
+							"When you choose to Heal an Injury during Downtime, your 'Friends' can repair a single Injury you've sustained, including the regeneration of destroyed limbs or other mutilated body parts."
+						],
+						disadvantages: [
+							"You must consume twice as much food as normal to satisfy your own hunger and that of the infestation.",
+							"When Starving, the creatures are visible beneath your skin, which can be unsettling to those that notice."
+						]
+					},
+					peculiarTaste: {
+						name: "Peculiar Taste",
+						description: "You have acquired, or were born with, an unusual source of nourishment. While you only need to consume a tiny portion of 'food' to survive, you'll starve just the same if you don't eat.",
+						advantages: [
+							"You must choose an alternative source of nourishment. This could be a specific type of object, such as coins or buttons, or something organic but not normally eaten, like a hair or teeth.",
+							"You any need to eat a single piece. of your peculiar food per day to sustain you."
+						],
+						disadvantages: [
+							"You are unable to stomach Rations and other regular food, but can drink water, alcohol, and potions with no ill effect.",
+							"NOTE: You suffer Starvation if deprived of your peculiar food."
+						]
+					},
+					kinToFire: {
+						name: "Kin to Fire",
+						description: "The spirits within the flames speak to you in whispers that no one else can hear. You can talk back, though this makes the water spirits grow jealous and spiteful.",
+						advantages: [
+							"You can converse with burning flame. Fires are not smart, but are observant.",
+							"With a successful Aura Check you can prompt flames to perform simple favors. For example, reluctantly dim or set fire to something within reach; but they won't do anything that risks them being extinguished."
+						],
+						disadvantages: [
+							"Water is less fond of you. You can hold your breath underwater for only a quarter, rather than the usual half your Grit Aptitude (rounded down) before Suffocating.",
+							"You suffer a Snag on all rolls when attemping to swim, sail, or otherwise traverse a body of water."
+						]
+					},
+					fairyCap: {
+						name: "Fairy Cap",
+						description: "You have a wonderful little hat, but can't quite remember where you got it. Others think it looks a bit strange, but you like it just the way it is. You never want to take it off... ever!",
+						advantages: [
+							"Most of the time your Cap sticks strangely to your head. but... occasionally, at your GM's discretion, you might need to make a Deftness Check to keep it in place!",
+							"If the Cap is dislodged fate makes sure you are able to reclaim it; but it may require a little time and effort.",
+							"You gain +1 to your Defense Rating when wearing your Cap, it makes the world feel a bit safer."
+						],
+						disadvantages: [
+							"Your lose an extra Heart every time you take Damage from an Attack or other ill effect when not wearing your Cap, you feel weak and afraid."
+						]
+					},
+					sneezles: {
+						name: "Sneezles",
+						description: "You have a non-conventional allergy that never fails to cause a brief, albeit violent sneezing fit. It's like a sort of early warning system.",
+						advantages: [
+							"You can choose what causes your sneezing fits, it could be a type of creature or substance. Discuss and agree your allergen with your GM.",
+							"If you within a hundred and fifty feet of your chosen allergen, you sneeze loudly a few times and then abruptly stop."
+						],
+						disadvantages: [
+							"The sneezing fits are alarmingly loud and will alert anyone within earshot to your presence."
+						]
+					},
+					masked: {
+						name: "Masked",
+						description: "You can change your physical appearance at will. Over the years you've taken many form, if you ever had a 'true' face, you've long forgotten it.",
+						advantages: [
+							"You can alter your facial features, skin, hair, build, and sex in an instant.",
+							"You must maintain something close to your current height and weight and cannot mimic other species"
+						],
+						disadvantages: [
+							"You suffer a Snag on Checks and Contests when resisting effects that alter your body, such as the Petrification, Ballooned, or Jellyfied Ailments. Your malleable form is vulnerable to forced change."
+						]
+					},
+					ferrous: {
+						name: "Ferrous",
+						description: "Your skin has an iron-like quality, weapons clang and spark when they strike you. Your heart is just as cold and hard. You are physical and emotional fortress",
+						advantages: [
+							"Your naked Defense Rating is 14"
+						],
+						disadvantages: [
+							"The Armor you can wear without penalty is limited to Light Armor.",
+							"You suffer a Snag when attempting to do anything where excessive body mass is a limiting factor.",
+							"Your suffer a Minor Penalty (+2) on all Aura rolls related to charm or persuasion, due to your hard heart."
+						]
+					},
+					figmentFollower: {
+						name: "Figment Follower",
+						description: "Sometimes, when you wake up. you are accompanied by your imaginary pet. Strangely this pet seems just as real to others as it does to you.",
+						advantages: [
+							"You can choose any Pet to be your Figment Follower.",
+							"Your Pet has an ethereal shimmer and speaks one of your languages",
+							"Every time you wake up you roll to see if your Pet has manifested",
+							"Your Pet will vanish if you sleep, fall unconscious or die",
+							"Even if killed, captured, or lost your Pet may reappear after a good sleep."
+						],
+						disadvantages: [
+							"Your Pet is not always there.",
+							"Roll to see if your Pet appears today:",
+							"(1-14) Pet appears in good health",
+							"(15-20) No Pet, try again tomarrow"
+						]
+					}
 				},
-				boring: {
-					name: "Boring",
-				},
-				curious: {
-					name: "Curious",
-				},
-				alwaysPrepared: {
-					name: "Always Prepared",
-				},
-				stylish: {
-					name: "Stylish",
-				},
-				miser: {
-					name: "Miser",
-				},
-				soulLink: {
-					name: "Soul Link",
-				},
-				girthsome: {
-					name: "Girthsome",
-				},
-				nearsighted: {
-					name: "Nearsighted",
-				},
-				adorable: {
-					name: "Adorable",
-				},
-				darkDemeanor: {
-					name: "Dark Demeanor",
-				},
-				angelicCountenance: {
-					name: "Angelic Countenance",
-				},
-				bigEater: {
-					name: "Big Eater",
-				},
-				waifish: {
-					name: "Waifish",
-				},
-				magitechGraft: {
-					name: "Magitech Graft",
-				},
-				winged: {
-					name: "Winged",
-				},
-				graspingTresses: {
-					name: "Grasping Tresses",
-				},
-				survivor: {
-					name: "Survivor",
-				},
-				mageBreaker: {
-					name: "Mage Breaker",
-				},
-				young: {
-					name: "Young",
-				},
+				robotic: {
+					industrialFrame: {
+						name: "Industrial Frame",
+						description: "Your robotic skeleton is made of super dense alloy, this increases your durability and strength without increasing your size, However, the extra weight does slow you.",
+						advantages: [
+							"You gain +1 to your Hearts Total.",
+							"You gain + 1 to your Might."
+						],
+						disadvantages: [
+							"Your Speed Rating reduced by a single step.",
+							"You suffer a Snag when attempting to do anything where excessive body mass is a limiting factor."
+						]
+					},
+					utilityServo: {
+						name: "Utility Servo",
+						description: "Your left arm has been modified to accommodate an array of specialist tools. You've also been programmed to use them with aplomb",
+						advantages: [
+							"Your left arm contains a Specialist Kit of your choice.",
+							"The Utility Servo works the same as a manual Specialist Kit, except: It does not require replenishing, and it does not take up one of your Inventory Slots.",
+							"You can use the Servo without the Ability normally required, except. you must have a Crafting Discipline to Craft items"
+						],
+						disadvantages: [
+							"You suffer a Snag on all Deftness rolls requiring fine motor skills when using your clunky Servo arm"
+						]
+					},
+					sproingSprockets: {
+						name: "Sproing Sprockets",
+						description: "Your thick legs house giant springs that and in large metal boots. Your incredible leaps are accompanied by a loud and distinctive 'sproing!' sound.",
+						advantages: [
+							"You gain Supernatural Leaping"
+						],
+						disadvantages: [
+							"You suffer a Snag when attempting stealthy actions thanks to your noisy steps."
+						]
+					},
+					translatorModule: {
+						name: "Translator Module",
+						description: "Advanced audio receptors and other forgotten linguistic technologies enable you to comprehend any spoken language. However, your mechanical speech patterns make conversations awkward.",
+						advantages: [
+							"You are able to understand any audible language, including those used by beasts and ones that originate from beyond Outer World."
+						],
+						disadvantages: [
+							"You suffer a Snag on all Aura rolls that involve verbal communication, your robotic syntax can be difficult to follow for native speakers."
+						]
+					},
+					battleScanner: {
+						name: "Battle Scanner",
+						description: "With a quick glance you can assess the potential threat of any opponent you engage with. However, you're wired for combat which makes processing other things suboptimal.",
+						advantages: [
+							"On a successful Insight Check you can ask your GM for two of the following data points about a target: Attack Bonus, Hearts Total, Defense Rating, Speed Rating, combat Abilities, tactics, or if they have any inherent weaknesses.",
+							"During a Fight, you must use your Action to perform a scan."
+						],
+						disadvantages: [
+							"You incur a Snag on all Insight Checks that are unrelated to combat or assessing risK."
+						]
+					},
+					busterArm: {
+						name: "Buster Arm",
+						description: "One of your arms is equipped with a powerful, long range energy weapon. It draws its power from your internal energy reserves, so you need to be careful how much you use it.",
+						advantages: [
+							"Your right arm has an energy canon, it is fitted in such a way that it does not inhibit your dexterity.",
+							"The canon functions like a Mechanical Missile Weapon, except: it does Bright Damage and it does not require reloading."
+						],
+						disadvantages: [
+							"You can fire the canon once per Fight without penalty, but..",
+							"If discharged again during the same Fight, your suffer 1 Heart of Damage for every shot you take.",
+							"If you have 0 Hearts you the weapon cannot be used, it just gives out a sad bleep."
+						]
+					},
+					mascotChassis: {
+						name: "Mascot Chassis",
+						description: "Your are small and aesthetically pleasing. You were created to stand out rather than to fulfil any practical objective. You probably represented a popular brand that was prominent in Gleysian society during the 3rd Aeon.",
+						advantages: [
+							"You are a Small Species",
+							"You gain the Adorable Quirk"
+						],
+						disadvantages: [
+							""
+						]
+					},
+					nanotechMaintenance: {
+						name: "Nanotech Maintenance",
+						description: "Unlike other Mechanoids, your body contains a unit of tiny mechanical cells that repair and maintain you. Unfortunately, these artificial cells won't allow you to benefit from any outside assistance.",
+						advantages: [
+							"You recover from Injury in the same way as organic characters."
+						],
+						disadvantages: [
+							"You cannot be conventionally repaired, with the exception of reinstating lost limbs or other replacement parts."
+						]
+					},
+					bioskin: {
+						name: "Bioskin",
+						description: "An organic shell surrounds and disguises, your mechanical exoskeleton. You superficially appear like a living creature, but your thoughts are undeniably synthetic.",
+						advantages: [
+							"You must choose which species your Bioskin replicates: Human, Tenebrate, or Elf.",
+							"You pass for an organic creature, unless exposed to close scrutiny.",
+						],
+						disadvantages: [
+							"While you can't starve, you must eat to maintain your synthetic skin and hair.",
+							"Your Bioskin will completely decay after three days without food, revealing your metal skeleton.",
+							"The Bioskin will grow back in three days if food is consumed regularly."
+						]
+					},
+					noxVision: {
+						name: "Nox-Vision",
+						description: "You have two types of visual sensor, one that works in daylight and another which is ideal for low light or total darkness. Switching between these sensors can take a little while.",
+						advantages: [
+							"During a Fight, it requires the use of your Action to switch between regular vision and Nox-Mode.",
+							"Nox-Mode makes you Immune to the Obscured Battlefield Condition if caused by darkness, smoke, or other visual obstruction. However, making out fine details can be difficult."
+						],
+						disadvantages: [
+							"While in Nox-Mode, you are Blinded by regular light."
+						]
+					}
+				}
 			},
 		};
 	},
@@ -3676,13 +4186,19 @@ export default {
 					calcMight = this.callings.sneak.stats[this.getLevel - 1][2];
 					break;
 			}
-			switch (this.speciesSelected) {
-				case "Chib":
-				case "Goblin":
+			switch (this.getSize) {
+				case "Small":
 					calcMight--;
 					break;
-				case "Gruun":
-				case "Promethean":
+				case "Large":
+					calcMight++;
+					break;
+			}
+			switch (this.quirkSelected) {
+				case "Weary":
+					calcMight--;
+					break;
+				case "Industrial Frame":
 					calcMight++;
 					break;
 			}
@@ -3692,28 +4208,19 @@ export default {
 			let calcDeft = 10;
 			switch (this.callingSelected) {
 				case "Battle Princess":
-					calcDeft =
-						this.callings.battlePrincess.stats[
-							this.getLevel - 1
-						][3];
+					calcDeft = this.callings.battlePrincess.stats[this.getLevel - 1][3];
 					break;
 				case "Champion":
-					calcDeft =
-						this.callings.champion.stats[this.getLevel - 1][3];
+					calcDeft = this.callings.champion.stats[this.getLevel - 1][3];
 					break;
 				case "Factotum":
-					calcDeft =
-						this.callings.factotum.stats[this.getLevel - 1][3];
+					calcDeft = this.callings.factotum.stats[this.getLevel - 1][3];
 					break;
 				case "Heretic":
-					calcDeft =
-						this.callings.heretic.stats[this.getLevel - 1][3];
+					calcDeft = this.callings.heretic.stats[this.getLevel - 1][3];
 					break;
 				case "Murder Princess":
-					calcDeft =
-						this.callings.murderPrincess.stats[
-							this.getLevel - 1
-						][3];
+					calcDeft = this.callings.murderPrincess.stats[this.getLevel - 1][3];
 					break;
 				case "Raider":
 					calcDeft = this.callings.raider.stats[this.getLevel - 1][3];
@@ -3725,81 +4232,96 @@ export default {
 					calcDeft = this.callings.sneak.stats[this.getLevel - 1][3];
 					break;
 			}
-			switch (this.speciesSelected) {
-				case "Chib":
-				case "Goblin":
+			switch (this.getSize) {
+				case "Small":
+					calcDeft++;
+					break;
+			}
+			switch (this.quirkSelected) {
+				case "Waifish":
 					calcDeft++;
 					break;
 			}
 			return calcDeft;
 		},
 		getGrit() {
+			let calcGrit = 0
 			switch (this.callingSelected) {
 				case "Battle Princess":
-					return this.callings.battlePrincess.stats[
-						this.getLevel - 1
-					][4];
+					calcGrit = this.callings.battlePrincess.stats[this.getLevel - 1][4];
 					break;
 				case "Champion":
-					return this.callings.champion.stats[this.getLevel - 1][4];
+					calcGrit = this.callings.champion.stats[this.getLevel - 1][4];
 					break;
 				case "Factotum":
-					return this.callings.factotum.stats[this.getLevel - 1][4];
+					calcGrit = this.callings.factotum.stats[this.getLevel - 1][4];
 					break;
 				case "Heretic":
-					return this.callings.heretic.stats[this.getLevel - 1][4];
+					calcGrit = this.callings.heretic.stats[this.getLevel - 1][4];
 					break;
 				case "Murder Princess":
-					return this.callings.murderPrincess.stats[
-						this.getLevel - 1
-					][4];
+					calcGrit = this.callings.murderPrincess.stats[this.getLevel - 1][4];
 					break;
 				case "Raider":
-					return this.callings.raider.stats[this.getLevel - 1][4];
+					calcGrit = this.callings.raider.stats[this.getLevel - 1][4];
 					break;
 				case "Sage":
-					return this.callings.sage.stats[this.getLevel - 1][4];
+					calcGrit = this.callings.sage.stats[this.getLevel - 1][4];
 					break;
 				case "Sneak":
-					return this.callings.sneak.stats[this.getLevel - 1][4];
+					calcGrit = this.callings.sneak.stats[this.getLevel - 1][4];
 					break;
 				default:
-					return 10;
+					calcGrit = 10;
 			}
+			switch (this.quirkSelected) {
+				case "Girthsome":
+					calcGrit++;
+					break;
+				case "Winged":
+					calcGrit--;
+					break;
+				case "Weary":
+					calcGrit--;
+					break;
+			}
+			return calcGrit;
 		},
 		getInsight() {
+			let calcInsight = 0;
 			switch (this.callingSelected) {
 				case "Battle Princess":
-					return this.callings.battlePrincess.stats[
-						this.getLevel - 1
-					][5];
+					calcInsight = this.callings.battlePrincess.stats[this.getLevel - 1][5];
 					break;
 				case "Champion":
-					return this.callings.champion.stats[this.getLevel - 1][5];
+					calcInsight = this.callings.champion.stats[this.getLevel - 1][5];
 					break;
 				case "Factotum":
-					return this.callings.factotum.stats[this.getLevel - 1][5];
+					calcInsight = this.callings.factotum.stats[this.getLevel - 1][5];
 					break;
 				case "Heretic":
-					return this.callings.heretic.stats[this.getLevel - 1][5];
+					calcInsight = this.callings.heretic.stats[this.getLevel - 1][5];
 					break;
 				case "Murder Princess":
-					return this.callings.murderPrincess.stats[
-						this.getLevel - 1
-					][5];
+					calcInsight = this.callings.murderPrincess.stats[this.getLevel - 1][5];
 					break;
 				case "Raider":
-					return this.callings.raider.stats[this.getLevel - 1][5];
+					calcInsight = this.callings.raider.stats[this.getLevel - 1][5];
 					break;
 				case "Sage":
-					return this.callings.sage.stats[this.getLevel - 1][5];
+					calcInsight = this.callings.sage.stats[this.getLevel - 1][5];
 					break;
 				case "Sneak":
-					return this.callings.sneak.stats[this.getLevel - 1][5];
+					calcInsight = this.callings.sneak.stats[this.getLevel - 1][5];
 					break;
 				default:
-					return 10;
+					calcInsight = 10;
 			}
+			switch (this.quirkSelected) {
+				case "Nearsighted":
+					calcInsight++;
+			}
+			return calcInsight;
 		},
 		getAura() {
 			switch (this.callingSelected) {
@@ -3877,54 +4399,78 @@ export default {
 			if (this.speciesSelected == "Gruun") {
 				calcHearts++;
 			}
+			switch (this.quirkSelected) {
+				case "Girthsome":
+					calcHearts++;
+					break;
+				case "Waifish":
+					calcHearts--;
+					break;
+				case "Winged":
+					calcHearts--;
+					break;
+				case "Industial Frame":
+					calcHearts++;
+					break;
+			}
 			return calcHearts;
 		},
 		getAttack() {
+			let calcAttack = 0;
 			switch (this.callingSelected) {
 				case "Battle Princess":
-					return this.callings.battlePrincess.stats[
-						this.getLevel - 1
-					][0];
+					calcAttack = this.callings.battlePrincess.stats[this.getLevel - 1][0];
 					break;
 				case "Champion":
-					return this.callings.champion.stats[this.getLevel - 1][0];
+					calcAttack = this.callings.champion.stats[this.getLevel - 1][0];
 					break;
 				case "Factotum":
-					return this.callings.factotum.stats[this.getLevel - 1][0];
+					calcAttack = this.callings.factotum.stats[this.getLevel - 1][0];
 					break;
 				case "Heretic":
-					return this.callings.heretic.stats[this.getLevel - 1][0];
+					calcAttack = this.callings.heretic.stats[this.getLevel - 1][0];
 					break;
 				case "Murder Princess":
-					return this.callings.murderPrincess.stats[
-						this.getLevel - 1
-					][0];
+					calcAttack = this.callings.murderPrincess.stats[this.getLevel - 1][0];
 					break;
 				case "Raider":
-					return this.callings.raider.stats[this.getLevel - 1][0];
+					calcAttack = this.callings.raider.stats[this.getLevel - 1][0];
 					break;
 				case "Sage":
-					return this.callings.sage.stats[this.getLevel - 1][0];
+					calcAttack = this.callings.sage.stats[this.getLevel - 1][0];
 					break;
 				case "Sneak":
-					return this.callings.sneak.stats[this.getLevel - 1][0];
+					calcAttack = this.callings.sneak.stats[this.getLevel - 1][0];
 					break;
 				default:
-					return 0;
+					calcAttack = 0;
 			}
+			return calcAttack;
 		},
 		getAttackBonus() {
+			let calcAttackBonus = 0;
 			switch (this.weaponSelected) {
 				case "Master":
-					return 1;
+					calcAttackBonus = 1;
 				case "Large Mechanical Missile":
-					return 2;
+					calcAttackBonus = 2;
 				default:
-					return 0;
+					calcAttackBonus = 0;
 			}
+			switch(this.quirkSelected) {
+				case "Unhinged": 
+					calcAttackBonus += 2;
+				case "Weary": 
+					calcAttackBonus++;
+			}
+			return calcAttackBonus;
 		},
 		getDefense() {
 			let calcDefense = 10;
+			switch (true) {
+				case (this.quirkSelected == "Ferrous"):
+					calcDefense = 14;
+			}
 			switch (this.armorSelected) {
 				case "Light Armor":
 					calcDefense = 12;
@@ -3947,13 +4493,11 @@ export default {
 					calcDefense += 2;
 					break;
 			}
-			switch (this.speciesSelected) {
-				case "Chib":
-				case "Goblin":
+			switch (this.getSize) {
+				case "Small":
 					calcDefense++;
 					break;
-				case "Gruun":
-				case "Promethean":
+				case "Large":
 					calcDefense--;
 					break;
 			}
@@ -3964,6 +4508,13 @@ export default {
 				case 3:
 				case 4: 
 					calcDefense += 4;
+			}
+			switch (this.quirkSelected) {
+				case "Unhinged":
+					calcDefense--;
+					break;
+				case "Fairy Cap":
+					calcDefense++;
 			}
 			return calcDefense;
 		},
@@ -3978,6 +4529,17 @@ export default {
 				case this.hasAbility("Blistering Pace"):
 				case this.hasAbility("Desperate Scurry"):
 					calcSpeed++;
+			}
+			switch (this.quirkSelected) {
+				case "Girthsome":
+					calcSpeed--;
+					break;
+				case "Waifish":
+					calcSpeed++;
+					break;
+				case "Industrial Frame":
+					calcSpeed--;
+					break;
 			}
 			switch (this.armorSelected) {
 				case "Medium Armor":
@@ -4013,6 +4575,35 @@ export default {
 					return "Average";
 			}
 		},
+		getSize() {
+			let calcSize = 1;
+			switch(this.speciesSelected) {
+				case "Chib":
+				case "Goblin":
+					calcSize--;
+					break;
+				case "Promethean":
+				case "Gruun":
+					calcSize++;
+					break;					
+			}
+			switch(this.quirkSelected) {
+				case "Young":
+					if (calcSize > 0) calcSize--;
+					break;
+				case "Mascot Chassis":
+					calcSize = 0;
+					break;
+			}
+			switch(true) {
+				case (calcSize < 1):
+					return "Small";
+				case (calcSize > 1):
+					return "Large";
+				default:
+					return "Medium";
+			}
+		}
 	},
 	methods: {
 		hasAbility(ability) {

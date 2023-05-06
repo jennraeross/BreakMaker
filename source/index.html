@@ -110,7 +110,21 @@
                         <label>
                             Quirk
                             <select v-model="quirkSelected">
-                                <option v-for="quirk in quirks" :value="quirk.name">{{quirk.name}}</option>
+                                <optgroup label="Spirit">
+                                    <option v-for="quirk in quirks.spirit" :value="quirk.name">{{quirk.name}}</option>
+                                </optgroup>
+                                <optgroup label="Physiological">
+                                    <option v-for="quirk in quirks.physical" :value="quirk.name">{{quirk.name}}</option>
+                                </optgroup>
+                                <optgroup label="Fate">
+                                    <option v-for="quirk in quirks.fate" :value="quirk.name">{{quirk.name}}</option>
+                                </optgroup>
+                                <optgroup label="Eldritch">
+                                    <option v-for="quirk in quirks.eldritch" :value="quirk.name">{{quirk.name}}</option>
+                                </optgroup>
+                                <optgroup label="Robotic">
+                                    <option v-for="quirk in quirks.robotic" :value="quirk.name">{{quirk.name}}</option>
+                                </optgroup>
                             </select>
                         </label>
                     </div>
@@ -645,10 +659,6 @@
                             <h6>{{homelandSelected}}</h6>
                             <span>Homeland</span>
                         </hgroup>
-                        <hgroup>
-                            <h6>{{quirkSelected}}</h6>
-                            <span>Quirk</span>
-                        </hgroup>
                     </div>
                     <hr>
                     <nav>
@@ -758,6 +768,90 @@
                         </details>
                     </template>
                     
+                </div>
+                <hr>
+                <div id="Quirk">
+                    <nav>
+                        <ul>
+                            <li><i class="fa-solid fa-shuffle fa-xl"></i></li>
+                            <li>
+                                <hgroup>
+                                    <h6>{{quirkSelected}}</h6>
+                                    <span>Quirk</span>
+                                </hgroup>
+                            </li>
+                        </ul>
+                    </nav>
+                    <template v-for="quirk in quirks.spirit">
+                        <details open v-if="quirkSelected == quirk.name">
+                            <summary>{{quirk.name}}</summary>
+                            <p>{{quirk.description}}</p>
+                            <p><strong>Advantages</strong></p>
+                            <ul>
+                                <li v-for="advantage in quirk.advantages">{{advantage}}</li>
+                            </ul>
+                            <p><strong>Disadvantages</strong></p>
+                            <ul>
+                                <li v-for="advantage in quirk.disadvantages">{{advantage}}</li>
+                            </ul>
+                        </details>
+                    </template>
+                    <template v-for="quirk in quirks.physical">
+                        <details open v-if="quirkSelected == quirk.name">
+                            <summary>{{quirk.name}}</summary>
+                            <p>{{quirk.description}}</p>
+                            <p><strong>Advantages</strong></p>
+                            <ul>
+                                <li v-for="advantage in quirk.advantages">{{advantage}}</li>
+                            </ul>
+                            <p><strong>Disadvantages</strong></p>
+                            <ul>
+                                <li v-for="advantage in quirk.disadvantages">{{advantage}}</li>
+                            </ul>
+                        </details>
+                    </template>
+                    <template v-for="quirk in quirks.fate">
+                        <details open v-if="quirkSelected == quirk.name">
+                            <summary>{{quirk.name}}</summary>
+                            <p>{{quirk.description}}</p>
+                            <p><strong>Advantages</strong></p>
+                            <ul>
+                                <li v-for="advantage in quirk.advantages">{{advantage}}</li>
+                            </ul>
+                            <p><strong>Disadvantages</strong></p>
+                            <ul>
+                                <li v-for="advantage in quirk.disadvantages">{{advantage}}</li>
+                            </ul>
+                        </details>
+                    </template>
+                    <template v-for="quirk in quirks.eldritch">
+                        <details open v-if="quirkSelected == quirk.name">
+                            <summary>{{quirk.name}}</summary>
+                            <p>{{quirk.description}}</p>
+                            <p><strong>Advantages</strong></p>
+                            <ul>
+                                <li v-for="advantage in quirk.advantages">{{advantage}}</li>
+                            </ul>
+                            <p><strong>Disadvantages</strong></p>
+                            <ul>
+                                <li v-for="advantage in quirk.disadvantages">{{advantage}}</li>
+                            </ul>
+                        </details>
+                    </template>
+                    <template v-for="quirk in quirks.robotic">
+                        <details open v-if="quirkSelected == quirk.name">
+                            <summary>{{quirk.name}}</summary>
+                            <p>{{quirk.description}}</p>
+                            <p><strong>Advantages</strong></p>
+                            <ul>
+                                <li v-for="advantage in quirk.advantages">{{advantage}}</li>
+                            </ul>
+                            <p><strong>Disadvantages</strong></p>
+                            <ul>
+                                <li v-for="advantage in quirk.disadvantages">{{advantage}}</li>
+                            </ul>
+                        </details>
+                    </template>
                 </div>
                 <hr>
                 <div id="attack">

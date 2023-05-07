@@ -31,3 +31,4 @@ This project is built using VueJS and PicoCSS
 - Inventory System
 - Improve Printing
 - Customize Items
+- Companions

@@ -3,6 +3,11 @@ export default {
 		return {
 			show: false,
 			dialogOpen: false,
+			gems: 0,
+			coins: 0,
+			stones: 0,
+			itemSelected: null,
+			inventory: [],
 			traits: [0, -2, -1, "+1", "+2"],
 			mightTrait: 0,
 			deftTrait: 0,
@@ -4121,6 +4126,518 @@ export default {
 					}
 				}
 			},
+			items: {
+				melee: {
+					standard: {
+						name: "Standard Weapon",
+						cost: 10.2,
+						inventory: 1,
+						number: 1
+					},
+					concealed: {
+						name: "Concealed Weapon",
+						cost: 5.0,
+						inventory: 1,
+						number: 1
+					},
+					quick: {
+						name: "Quick Weapon",
+						cost: 15.0,
+						inventory: 1,
+						number: 1
+					},
+					master: {
+						name: "Master Weapon",
+						cost: 30.0,
+						inventory: 2,
+						number: 1
+					},
+					mighty: {
+						name: "Mighty Weapon",
+						cost: 20.0,
+						inventory: 2,
+						number: 1
+					},
+					arc: {
+						name: "Arc Weapon",
+						cost: 25.0,
+						inventory: 3,
+						number: 1
+					},
+					lash: {
+						name: "Lash Weapon",
+						cost: 30.0,
+						inventory: 1,
+						number: 1
+					}
+				},
+				missile: {
+					thrown: {
+						name: "Thrown Weapon",
+						cost: 2.0,
+						inventory: 1,
+						number: 1
+					},
+					drawn: {
+						name: "Drawn Weapon",
+						cost: 10.0,
+						inventory: 2,
+						number: 1
+					},
+					drawnAmmo: {
+						name: "Drawn Ammunition (x5)",
+						cost: 1.0,
+						inventory: 0.5,
+						number: 1
+					},
+					smallMechanical: {
+						name: "Small Mechanical Missile Weapon",
+						cost: 15.0,
+						inventory: 1.0,
+						number: 1
+					},
+					smallMechanicalAmmo: {
+						name: "Small Mechanical Ammo (x3)",
+						cost: 1,
+						inventory: 0.1,
+						number: 1
+					},
+					largeMechanical: {
+						name: "Large Mechanical Missile Weapon",
+						cost: 25.0,
+						inventory: 2,
+						number: 1
+					},
+					largeMechanicalAmmo: {
+						name: "Large Mechanical Ammo (x3)",
+						cost: 1,
+						inventory: 0.1,
+						number: 1
+					}
+				},
+				armor: {
+					light: {
+						name: "Light Armor",
+						cost: 30.0,
+						inventory: 2,
+						number: 1
+					},
+					medium: {
+						name: "Medium Armor",
+						cost: 60.0,
+						inventory: 3,
+						number: 1
+					},
+					heavy: {
+						name: "Heavy Armor",
+						cost: 120.0,
+						inventory: 4,
+						number: 1
+					},
+					superHeavy: {
+						name: "Super Heavy Armor",
+						cost: 600.0,
+						inventory: 5,
+						number: 1
+					}
+				},
+				shields: {
+					small: {
+						name: "Small Shield",
+						cost: 15,
+						inventory: 1,
+						number: 1
+					},
+					standard: {
+						name: "Standard Shield",
+						cost: 25,
+						inventory: 1,
+						number: 1
+					},
+					large: {
+						name: "Large Shield",
+						cost: 35,
+						inventory: 2,
+						number: 1
+					}
+				},
+				outfits: {
+					functional: {
+						name: "Functional Outfit",
+						cost: 0.5,
+						inventory: 2,
+						number: 1
+					},
+					tattered: {
+						name: "Tattered Outfit",
+						cost: 0,
+						inventory: 1,
+						number: 1
+					},
+					costume: {
+						name: "Costume",
+						cost: 1.5,
+						inventory: 2,
+						number: 1
+					},
+					artisansOutfit: {
+						name: "Artisan's Outfit",
+						cost: 8,
+						inventory: 2,
+						number: 1
+					},
+					coldOutfit: {
+						name: "Extreme Cold Outfit",
+						cost: 12,
+						inventory: 2,
+						number: 1
+					},
+					heatOutfit: {
+						name: "Extreme Heat Outfit",
+						cost: 8,
+						inventory: 2,
+						number: 1
+					},
+					appealingOutfit: {
+						name: "Appealing Outfit",
+						cost: 2,
+						inventory: 2,
+						number: 1
+					},
+					authoritativeOutfit: {
+						name: "Authoritative Outfit",
+						cost: 2,
+						inventory: 2,
+						number: 1
+					}
+				},
+				wearableAccessories: {
+					backpack: {
+						name: "Backpack",
+						cost: 5,
+						inventory: -4,
+						number: 1
+					},
+					travelBag: {
+						name: "Traveler's Bag",
+						cost: 3,
+						inventory: -2,
+						number: 1
+					},
+					pouch: {
+						name: "Pouch",
+						cost: 0.3,
+						inventory: 0,
+						number: 1
+					},
+					rebreather: {
+						name: "Rebreather",
+						cost: 15,
+						inventory: 1,
+						number: 1
+					},
+					blackoutGoggles: {
+						name: "Blackout Goggles",
+						cost: 2,
+						inventory: 1,
+						number: 1
+					}
+				},
+				wayfinding: {
+					local: {
+						name: "Local Map",
+						cost: 0.5,
+						inventory: 0.1,
+						number: 1
+					},
+					kingdom: {
+						name: "Kingdom Map",
+						cost: 2,
+						inventory: 0.1,
+						number: 1
+					},
+					region: {
+						name: "Regional Map",
+						cost: 20,
+						inventory: 1,
+						number: 1
+					},
+					world: {
+						name: "World Map",
+						cost: 200,
+						inventory: 2,
+						number: 1
+					},
+					compass: {
+						name: "Compass",
+						cost: 20,
+						inventory: 1,
+						number: 1
+					}
+				},
+				illumination: {
+					torch: {
+						name: "Torch",
+						cost: 0.4,
+						inventory: 1,
+						number: 1
+					},
+					lantern: {
+						name: "Lantern",
+						cost: 5,
+						inventory: 1,
+						number: 1
+					},
+					slimeLantern: {
+						name: "Lumi-Slime Lantern",
+						cost: 20,
+						inventory: 1,
+						number: 1
+					}
+				},
+				specialist: {
+					physician: {
+						name: "Physician's Kit",
+						cost: 50,
+						inventory: 2,
+						number: 1
+					},
+					dungeoneer: {
+						name: "Dungeoneer's Kit",
+						cost: 50,
+						inventory: 2,
+						number: 1
+					},
+					alchemist: {
+						name: "Alchemist's Kit",
+						cost: 50,
+						inventory: 2,
+						number: 1
+					},
+					mender: {
+						name: "Mender's Kit",
+						cost: 50,
+						inventory: 2,
+						number: 1
+					},
+					gedgeteer: {
+						name: "Gadgeteer's Kit",
+						cost: 50,
+						inventory: 2,
+						number: 1
+					},
+					Refill: {
+						name: "Refill a Kit",
+						cost: 25,
+						inventory: 0,
+						number: 1
+					},
+				},
+				tomes: {
+					beginner: {
+						name: "Beginner's Tome (Insight 12)",
+						cost: 6,
+						inventory: 1,
+						number: 1
+					},
+					journeyman: {
+						name: "Journeyman's Tome (Insight 14)",
+						cost: 12,
+						inventory: 1,
+						number: 1
+					},
+					master: {
+						name: "Master's Tome (Insight 16)",
+						cost: 18,
+						inventory: 2,
+						number: 1
+					},
+					forgotten: {
+						name: "Forgotten Lore (Insight 18)",
+						cost: 24,
+						inventory: 2,
+						number: 1
+					},
+					translation: {
+						name: "Translation Journal",
+						cost: 20,
+						inventory: 1,
+						number: 1
+					}
+				},
+				consumables: {
+					rations: {
+						name: "Rations",
+						cost: 0.1,
+						inventory: 0.1,
+						number: 1
+					},
+					hardy: {
+						name: "Hardy Rations",
+						cost: 0.3,
+						inventory: 0.1,
+						number: 1
+					},
+					treat: {
+						name: "Treats",
+						cost: 0.3,
+						inventory: 0.1,
+						number: 1
+					},
+					potion: {
+						name: "Basic Potion",
+						cost: 10,
+						inventory: 1,
+						number: 1
+					},
+					cake: {
+						name: "Booster Cakes",
+						cost: 15,
+						inventory: 0.1,
+						number: 1
+					}
+				},
+				chemicals: {
+					oil: {
+						name: "Oil / Fuel",
+						cost: 10,
+						inventory: 1,
+						number: 1
+					},
+					solvent: {
+						name: "Solvent",
+						cost: 20,
+						inventory: 1,
+						number: 1
+					},
+					grenade: {
+						name: "Grenade",
+						cost: 20,
+						inventory: 1,
+						number: 1
+					},
+					bomb: {
+						name: "Bomb",
+						cost: 45,
+						inventory: 3,
+						number: 1
+					}
+				},
+				miscellaneous: {
+					adventuring: {
+						name: "Adventuring Gear",
+						cost: 8,
+						inventory: 1,
+						number: 1
+					},
+					adventuringL: {
+						name: "Adventuring Gear (Large)",
+						cost: 8,
+						inventory: 2,
+						number: 1
+					},
+					rural: {
+						name: "Common Rural Goods",
+						cost: 0.8,
+						inventory: 1,
+						number: 1
+					},
+					ruralL: {
+						name: "Common Rural Goods (Large)",
+						cost: 0.8,
+						inventory: 2,
+						number: 1
+					},
+					urban: {
+						name: "Common Urban Goods",
+						cost: 1.2,
+						inventory: 1,
+						number: 1
+					},
+					urbanL: {
+						name: "Common Urban Goods (Large)",
+						cost: 1.2,
+						inventory: 2,
+						number: 1
+					},
+					oddity: {
+						name: "Oddity / Luxury Item",
+						cost: 16,
+						inventory: 1,
+						number: 1
+					},
+					oddityL: {
+						name: "Oddity / Luxury Item (Large)",
+						cost: 16,
+						inventory: 2,
+						number: 1
+					},
+					trade: {
+						name: "Trade Goods",
+						cost: 25,
+						inventory: 3,
+						number: 1
+					}
+				},
+				artifacts: {
+					holyIcon: {
+						name: "Holy Icon",
+						cost: 75,
+						inventory: 1,
+						number: 1
+					},
+					starGem: {
+						name: "Star Gem",
+						cost: 300,
+						inventory: 0.1,
+						number: 1
+					},
+					shadowStone: {
+						name: "Shadow Stone",
+						cost: 500,
+						inventory: 0.1,
+						number: 1
+					},
+					grabber: {
+						name: "Long Grabber",
+						cost: 45,
+						inventory: 2,
+						number: 1
+					},
+					scanner: {
+						name: "Scanner",
+						cost: 100,
+						inventory: 1,
+						number: 1
+					},
+					smallSpellEngine: {
+						name: "Small Spell Engine",
+						cost: 200,
+						inventory: 1,
+						number: 1
+					},
+					largeSpellEngine: {
+						name: "Large Spell Engine",
+						cost: 400,
+						inventory: 2,
+						number: 1
+					}
+				},
+				other: {
+					sidearm: {
+						name: "Other World Sidearm",
+						cost: 0,
+						inventory: 1,
+						number: 1
+					},
+					device: {
+						name: "Other World Pocket Device",
+						cost: 0,
+						inventory: 1,
+						number: 1
+					}
+				}
+			}
 		};
 	},
 	computed: {
@@ -4603,6 +5120,32 @@ export default {
 				default:
 					return "Medium";
 			}
+		},
+		getWeight() {
+			let calcWeight = 0.0;
+			this.inventory.forEach(item => {
+				calcWeight += (item.inventory * item.number)
+			});
+			if (calcWeight > 0) {
+				return (calcWeight).toFixed(1);
+			} else {
+				return 0
+			}
+
+		},
+		getBurden() {
+			if (this.getWeight > 10) {
+				return true;
+			} else {
+				return false;
+			}
+		},
+		getTotalValue() {
+			let calcValue = 0.0;
+			this.inventory.forEach(item => {
+				calcValue += (item.cost * item.number);
+			});
+			return this.writeDenomination(calcValue);
 		}
 	},
 	methods: {
@@ -4650,5 +5193,21 @@ export default {
 
 			return true;
 		},
+		addItem(item) {
+			if (!this.inventory.includes(item)) this.inventory.push(item);
+		},
+		remove(item) {
+			this.inventory = this.inventory.filter((t) => t !== item);
+		},
+		writeDenomination(num) {
+			let answer = "";
+			num >= 100 ?
+				answer += (Math.floor(num / 100) + "G ") : null;
+			(num % 100) >= 1 ?
+				answer += (Math.floor((num % 100) / 1) + "C ") : null;
+			((num % 100) % 1) >= 0.1 ?
+				answer += (Math.round(((num % 100) % 1) / 0.1) + "s") : null;
+			return answer != "" ? answer : "N/A"
+		}
 	},
 };

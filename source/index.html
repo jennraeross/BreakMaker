@@ -50,7 +50,7 @@
                             <li><s>All Histories</s></li>
                             <li><s>All Callings</s></li>
                             <li><s>Quirks</s></li>
-                            <li>Inventory System</li>
+                            <li><s>Inventory System</s></li>
                             <li>Improve Printing</li>
                             <li>Item Customization</li>
                             <li>Companions</li>
@@ -157,7 +157,7 @@
                 </form>
             </article>
 
-            <article id="equipment">
+            <article id="loadout">
                 <header>
                     <nav>
                         <ul>
@@ -166,7 +166,7 @@
                             </li>
                             <li>
                                 <hgroup>
-                                    <h4>Equipment</h4>
+                                    <h4>Weapons and Armor</h4>
                                     <h5>What gear does your character use?</h5>
                                 </hgroup>
                             </li>
@@ -198,6 +198,95 @@
                     
                     
                 </form>
+            </article>
+
+            <article id="inventoryForm">
+                <header>
+                    <nav>
+                        <ul>
+                            <li>
+                                <i class="fa-solid fa-box fa-xl"></i>
+                            </li>
+                            <li>
+                                <hgroup>
+                                    <h4>Inventory</h4>
+                                    <h5>Prepare for Your Journey</h5>
+                                </hgroup>
+                            </li>
+                        </ul>
+                    </nav>
+                </header>
+                <div style="display: grid; grid-gap: 5px; grid-template-columns: repeat(3, minmax(0, 1fr));">
+                    <label>
+                        Gems
+                        <input type="text" v-model="gems">
+                    </label>
+                    <label>
+                        Coins
+                        <input type="text" v-model="coins">
+                    </label>
+                    <label>
+                        Stones
+                        <input type="text" v-model="stones">
+                    </label>
+                </div>
+                <p>Your History gives you two of the following:</p>
+                <ul>
+                    <template v-for="region in histories">
+                        <template v-for="history in region">
+                            <li v-if="history.name == historySelected" v-for="gear in history.gear">{{gear}}</li>
+                        </template>
+                    </template>
+                </ul>
+                <div style="display: grid; grid-gap: 5px; grid-template-columns: repeat(3, minmax(0, 1fr));">
+                        <select v-model="itemSelected" style="grid-column: auto / span 2 ;">
+                            <optgroup label="Melee Weapons"><option v-for="item in items.melee" :value="item">{{item.name}} - {{item.inventory}} {{item.inventory != 1 ? "Slots" : "Slot"}} - {{writeDenomination(item.cost)}}</option></optgroup>
+                            <optgroup label="Missile Weapons"><option v-for="item in items.missile" :value="item">{{item.name}} - {{item.inventory}} {{item.inventory != 1 ? "Slots" : "Slot"}} - {{writeDenomination(item.cost)}}</option></optgroup>
+                            <optgroup label="Armor"><option v-for="item in items.armor" :value="item">{{item.name}} - {{item.inventory}} {{item.inventory != 1 ? "Slots" : "Slot"}} - {{writeDenomination(item.cost)}}</option></optgroup>
+                            <optgroup label="Shields"><option v-for="item in items.shields" :value="item">{{item.name}} - {{item.inventory}} {{item.inventory != 1 ? "Slots" : "Slot"}} - {{writeDenomination(item.cost)}}</option></optgroup>
+                            <optgroup label="Outfits"><option v-for="item in items.outfits" :value="item">{{item.name}} - {{item.inventory}} {{item.inventory != 1 ? "Slots" : "Slot"}} - {{writeDenomination(item.cost)}}</option></optgroup>
+                            <optgroup label="Wearable Accessories"><option v-for="item in items.wearableAccessories" :value="item">{{item.name}} - {{item.inventory}} {{item.inventory != 1 ? "Slots" : "Slot"}} - {{writeDenomination(item.cost)}}</option></optgroup>
+                            <optgroup label="Wayfinding"><option v-for="item in items.wayfinding" :value="item">{{item.name}} - {{item.inventory}} {{item.inventory != 1 ? "Slots" : "Slot"}} - {{writeDenomination(item.cost)}}</option></optgroup>
+                            <optgroup label="Illumination"><option v-for="item in items.illumination" :value="item">{{item.name}} - {{item.inventory}} {{item.inventory != 1 ? "Slots" : "Slot"}} - {{writeDenomination(item.cost)}}</option></optgroup>
+                            <optgroup label="Specialist Kits"><option v-for="item in items.specialist" :value="item">{{item.name}} - {{item.inventory}} {{item.inventory != 1 ? "Slots" : "Slot"}} - {{writeDenomination(item.cost)}}</option></optgroup>
+                            <optgroup label="Tomes"><option v-for="item in items.tomes" :value="item">{{item.name}} - {{item.inventory}} {{item.inventory != 1 ? "Slots" : "Slot"}} - {{writeDenomination(item.cost)}}</option></optgroup>
+                            <optgroup label="Consumables"><option v-for="item in items.consumables" :value="item">{{item.name}} - {{item.inventory}} {{item.inventory != 1 ? "Slots" : "Slot"}} - {{writeDenomination(item.cost)}}</option></optgroup>
+                            <optgroup label="Combustibles & Chemicals"><option v-for="item in items.chemicals" :value="item">{{item.name}} - {{item.inventory}} {{item.inventory != 1 ? "Slots" : "Slot"}} - {{writeDenomination(item.cost)}}</option></optgroup>
+                            <optgroup label="Miscellaneous"><option v-for="item in items.miscellaneous" :value="item">{{item.name}} - {{item.inventory}} {{item.inventory != 1 ? "Slots" : "Slot"}} - {{writeDenomination(item.cost)}}</option></optgroup>
+                            <optgroup label="Curiosities, Artifacts, & Gadgets"><option v-for="item in items.artifacts" :value="item">{{item.name}} - {{item.inventory}} {{item.inventory != 1 ? "Slots" : "Slot"}} - {{writeDenomination(item.cost)}}</option></optgroup>
+                            <optgroup label="Other World Items"><option v-for="item in items.other" :value="item">{{item.name}} - {{item.inventory}} {{item.inventory != 1 ? "Slots" : "Slot"}} - {{writeDenomination(item.cost)}}</option></optgroup>
+                        </select>
+                    <button @click="addItem(itemSelected)">Add Item</button>
+                </div>
+                <table role="grid" v-if="inventory.length">
+                    <thead>
+                        <tr>
+                            <th>Item</th>
+                            <th>Slots</th>
+                            <th>Value</th>
+                            <th>#</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="item in inventory" :key="item.id">
+                            <td>{{item.name}}</td>
+                            <td>{{item.inventory}} {{item.inventory != 1 ? "Slots" : "Slot"}}</td>
+                            <td>{{writeDenomination(item.cost)}}</td>
+                            <td><input type="text" v-model="item.number"></td>
+                            <td><a @click="remove(item)">Remove</a></td>
+                        </tr>
+                    </tbody>
+                    <thead>
+                        <tr>
+                            <th>Total:</th>
+                            <th>{{getWeight}} {{getWeight != 1 ? "Slots" : "Slot"}}</th>
+                            <th>{{getTotalValue}}</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                </table>
             </article>
 
             <article id="traitsForm">
@@ -1987,7 +2076,7 @@
                 </div>
 
                 <hr>
-                <hr>
+
                 <div id="speciesFeaturesNative" v-if="speciesSelected == 'Human (Native)'">
                     <nav>
                         <ul>
@@ -2339,6 +2428,66 @@
                             </ul>
                         </details>
                     </template>
+                </div>
+
+                <hr>
+
+                <div id="inventory" v-if="inventory.length">
+                    <header>
+                        <nav>
+                            <ul>
+                                <li>
+                                    <i class="fa-solid fa-box fa-xl"></i>
+                                </li>
+                                <li>
+                                    <hgroup>
+                                        <h4>Inventory</h4>
+                                        <h5>What you are carrying</h5>
+                                    </hgroup>
+                                </li>
+                            </ul>
+                        </nav>
+                    </header>
+                    <div style="display: grid; grid-gap: 5px; grid-template-columns: repeat(3, minmax(0, 1fr));">
+                        <label>
+                            Gems
+                            <input type="text" v-model="gems">
+                        </label>
+                        <label>
+                            Coins
+                            <input type="text" v-model="coins">
+                        </label>
+                        <label>
+                            Stones
+                            <input type="text" v-model="stones">
+                        </label>
+                    </div>
+                    <table role="grid">
+                        <thead>
+                            <tr>
+                                <th>Item</th>
+                                <th>Slots</th>
+                                <th>Value</th>
+                                <th>#</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr v-for="item in inventory" :key="item.id">
+                                <td>{{item.name}}</td>
+                                <td>{{item.inventory}} {{item.inventory != 1 ? "Slots" : "Slot"}}</td>
+                                <td>{{writeDenomination(item.cost)}}</td>
+                                <td>{{item.number}}</td>
+                            </tr>
+                        </tbody>
+                        <thead>
+                            <tr>
+                                <th>Total:</th>
+                                <th>{{getWeight}} {{getWeight != 1 ? "Slots" : "Slot"}}</th>
+                                <th>{{getTotalValue}}</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                    </table>
                 </div>
             </article>
         </main>

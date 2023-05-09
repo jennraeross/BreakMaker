@@ -33,3 +33,4 @@ This project is built using VueJS and PicoCSS
 - Backup/Restore System
 - Customize Items
 - Companions
+- Improved Bright/Dark Point Management

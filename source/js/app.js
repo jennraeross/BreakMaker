@@ -3,6 +3,7 @@ export default {
 		return {
 			show: false,
 			dialogOpen: false,
+			backupOpen: false,
 			gems: 0,
 			coins: 0,
 			stones: 0,
@@ -5170,9 +5171,98 @@ export default {
 				calcValue += (item.cost * item.number);
 			});
 			return this.writeDenomination(calcValue);
+		},
+		getBackupDataString() {
+			return JSON.stringify({
+				gems: this.gems,
+				coins: this.coins,
+				stones: this.stones,
+				itemSelected: this.itemSelected,
+				inventory: this.inventory,
+				mightTrait: this.mightTrait,
+				deftTrait: this.deftTrait,
+				gritTrait: this.gritTrait,
+				insightTrait: this.insightTrait,
+				auraTrait: this.auraTrait,
+				callingSelected: this.callingSelected,
+				weaponSelected: this.weaponSelected,
+				armorSelected: this.armorSelected,
+				shieldSelected: this.shieldSelected,
+				xp: this.xp,
+				characterName: this.characterName,
+				speciesSelected: this.speciesSelected,
+				homelandSelected: this.homelandSelected,
+				historySelected: this.historySelected,
+				languagesSelected: this.languagesSelected,
+				quirkSelected: this.quirkSelected,
+				currentHearts: this.currentHearts,
+				brightPoints: this.brightPoints,
+				darkPoints: this.darkPoints,
+				elective1: this.elective1,
+				elective2: this.elective2,
+				elective4: this.elective4,
+				elective6: this.elective6,
+				elective8: this.elective8,
+				elective10: this.elective10,
+				brightGifts: this.brightGifts,
+				darkGifts: this.darkGifts,
+				tenebrateGift: this.tenebrateGift,
+			});
 		}
 	},
 	methods: {
+		backup() {
+			var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(this.getBackupDataString);
+			var dlAnchorElem = document.getElementById('downloadAnchorElem');
+			dlAnchorElem.setAttribute("href",     dataStr     );
+			dlAnchorElem.setAttribute("download", "scene.json");
+			dlAnchorElem.click();
+		},
+		restore() {
+			var vm = this;
+			var importedFile = document.getElementById('import-file').files[0];
+			//console.log("importedFile: " + importedFile);
+			var reader = new FileReader();
+			reader.onload = function() {
+				var fileContent = JSON.parse(reader.result);
+				//console.log("fileContent: " + fileContent);
+				vm.gems = fileContent.gems;
+				//console.log("gems: " + fileContent.gems)
+				vm.coins = fileContent.coins;
+				vm.stones = fileContent.stones;
+				vm.itemSelected = fileContent.itemSelected;
+				vm.inventory = fileContent.inventory;
+				vm.mightTrait = fileContent.mightTrait;
+				vm.deftTrait = fileContent.deftTrait;
+				vm.gritTrait = fileContent.gritTrait;
+				vm.insightTrait = fileContent.insightTrait;
+				vm.auraTrait = fileContent.auraTrait;
+				vm.callingSelected = fileContent.callingSelected;
+				vm.weaponSelected = fileContent.weaponSelected;
+				vm.armorSelected = fileContent.armorSelected;
+				vm.shieldSelected = fileContent.shieldSelected;
+				vm.xp = fileContent.xp;
+				vm.characterName = fileContent.characterName;
+				vm.speciesSelected = fileContent.speciesSelected;
+				vm.homelandSelected = fileContent.homelandSelected;
+				vm.historySelected = fileContent.historySelected;
+				vm.languagesSelected = fileContent.languagesSelected;
+				vm.quirkSelected = fileContent.quirkSelected;
+				vm.currentHearts = fileContent.currentHearts;
+				vm.brightPoints = fileContent.brightPoints;
+				vm.darkPoints = fileContent.darkPoints;
+				vm.elective1 = fileContent.elective1;
+				vm.elective2 = fileContent.elective2;
+				vm.elective4 = fileContent.elective4;
+				vm.elective6 = fileContent.elective6;
+				vm.elective8 = fileContent.elective8;
+				vm.elective10 = fileContent.elective10;
+				vm.brightGifts = fileContent.brightGifts;
+				vm.darkGifts = fileContent.darkGifts;
+				vm.tenebrateGift = fileContent.tenebrateGift;
+			};
+			reader.readAsText(importedFile); 
+		},
 		hasAbility(ability) {
 			if (
 				this.elective1 == ability ||

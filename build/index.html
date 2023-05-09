@@ -13,6 +13,7 @@
             </ul>
             <ul>
                 <li><button class="secondary" @click="dialogOpen = true">Roadmap</button></li>
+                <li><button class="secondary" @click="backupOpen = true">Backup/Restore</button></li>
                 <li><button id="print" @click="printDiv('sheetTemplate')">Download</button></li>
             </ul>
         </nav>
@@ -2812,6 +2813,21 @@
                 </template>
             </div>
         </div>
+
+        <dialog :open="backupOpen">
+            <article>
+                <header>
+                    <a href="#close" aria-label="Close" class="close" @click="backupOpen = false"></a>
+                    Backup/Restore
+                </header>
+                <button @click="backup()">Backup</button>
+                <hr>
+                <input type="file" name="import-file" id="import-file" accept="application/json"/>
+                <button @click="restore(); backupOpen = false">Restore</button>
+            </article>
+        </dialog>
+
+        <a id="downloadAnchorElem" style="display:none"></a>
 
         <script type="module">
             import { createApp } from 'https://cdnjs.cloudflare.com/ajax/libs/vue/3.2.47/vue.esm-browser.prod.min.js';

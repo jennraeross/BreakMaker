@@ -30,7 +30,7 @@ This project is built using VueJS and PicoCSS
 - ~~Quirks~~
 - ~~Inventory System~~
 - ~~Improve Printing~~
-- Backup/Restore System
+- ~~Backup/Restore System~~
 - Customize Items
 - Companions
 - Improved Bright/Dark Point Management

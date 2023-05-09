@@ -28,7 +28,8 @@ This project is built using VueJS and PicoCSS
 - ~~All Histories~~
 - ~~All Callings~~
 - ~~Quirks~~
-- Inventory System
+- ~~Inventory System~~
 - Improve Printing
 - Customize Items
 - Companions
+- Backup/Restore System

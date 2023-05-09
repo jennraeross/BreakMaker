@@ -2661,25 +2661,25 @@
                         <div><input type="checkbox"><label>DARK</label></div>
                         <div><input type="checkbox"><label>TWILIGHT</label></div>
                         <div><input type="checkbox"><label>BRIGHT</label></div> -->
-                        <div>
+                        <div style="display: flex; align-items: center;">
                             <button style="background-color: white; border: 1px solid black; aspect-ratio: 1 /1; border-radius: 5%; height: 2em; width: 2em;">
                                 {{(brightPoints == 0 && darkPoints == 0) ? '&#10003;' : ''}}
                             </button>
                             <label>NONE</label>
                         </div>
-                        <div>
+                        <div style="display: flex; align-items: center;">
                             <button style="background-color: white; border: 1px solid black; aspect-ratio: 1 /1; border-radius: 5%; height: 2em; width: 2em;">
                                 {{(darkPoints > (brightPoints + 1)) ? '&#10003;' : ''}}
                             </button>
                             <label>DARK</label>
                         </div>
-                        <div>
+                        <div style="display: flex; align-items: center;">
                             <button style="background-color: white; border: 1px solid black; aspect-ratio: 1 /1; border-radius: 5%; height: 2em; width: 2em;">
                                 {{(brightPoints <= (darkPoints + 1) && darkPoints <= (brightPoints + 1) && (brightPoints != 0 || darkPoints != 0)) ? '&#10003;' : ''}}
                             </button>
                             <label>TWILIGHT</label>
                         </div>
-                        <div>
+                        <div style="display: flex; align-items: center;">
                             <button style="background-color: white; border: 1px solid black; aspect-ratio: 1 /1; border-radius: 5%; height: 2em; width: 2em;">
                                 {{(brightPoints > (darkPoints + 1)) ? '&#10003;' : ''}}
                             </button>

@@ -2763,6 +2763,15 @@
                             </ul>
                         </article>
                     </template>
+                    <template v-for="ability in specie.maturativeAbilities" v-if="specie.name == speciesSelected">
+                        <article v-if="hasAbility(ability.name)">
+                            <p><strong>{{ability.name}}</strong></p>
+                            <p>{{ability.description}}</p>
+                            <ul>
+                                <li v-for="mechanic in ability.mechanics">{{mechanic}}</li>
+                            </ul>
+                        </article>
+                    </template>
                 </template>
                 <h3 class="card-divider">Calling Abilities</h3>
                 <template v-for="calling in callings">

@@ -4,6 +4,7 @@ export default {
 			show: false,
 			dialogOpen: false,
 			backupOpen: false,
+			backupName: "default",
 			gems: 0,
 			coins: 0,
 			stones: 0,
@@ -5215,7 +5216,7 @@ export default {
 			var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(this.getBackupDataString);
 			var dlAnchorElem = document.getElementById('downloadAnchorElem');
 			dlAnchorElem.setAttribute("href",     dataStr     );
-			dlAnchorElem.setAttribute("download", "scene.json");
+			dlAnchorElem.setAttribute("download", this.backupName + ".json");
 			dlAnchorElem.click();
 		},
 		restore() {

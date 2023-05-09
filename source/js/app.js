@@ -5179,6 +5179,7 @@ export default {
 				this.elective2 == ability ||
 				this.elective4 == ability ||
 				this.elective6 == ability ||
+				this.elective8 == ability ||
 				this.elective10 == ability
 			) {
 				return true;

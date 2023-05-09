@@ -29,7 +29,7 @@ This project is built using VueJS and PicoCSS
 - ~~All Callings~~
 - ~~Quirks~~
 - ~~Inventory System~~
-- Improve Printing
+- ~~Improve Printing~~
+- Backup/Restore System
 - Customize Items
 - Companions
-- Backup/Restore System

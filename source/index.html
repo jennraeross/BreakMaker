@@ -181,7 +181,7 @@
                         <span>Weapon</span>
                         <span style="text-align: center;">Custom</span>
                         <select v-model="weaponSelected">
-                            <option v-for="weapon in weapons">{{weapon.name}}</option>
+                            <option v-for="weapon in weapons" :value="weapon">{{weapon.name}}</option>
                         </select>
                         <input type="checkbox" style="place-self: center;" v-model="weaponCustom"/>
                     </label>
@@ -189,7 +189,7 @@
                         <span>Armor</span>
                         <span style="text-align: center;">Custom</span>
                         <select v-model="armorSelected">
-                            <option v-for="armor in armors">{{armor.name}}</option>
+                            <option v-for="armor in armors" :value="armor">{{armor.name}}</option>
                         </select>
                         <input type="checkbox" style="place-self: center;" v-model="armorCustom"/>
                     </label>
@@ -198,7 +198,7 @@
                         <span style="text-align: center;">Custom</span>
                         <select v-model="shieldSelected">
                             <option value="null">None</option>
-                            <option v-for="shield in shields">{{shield.name}}</option>
+                            <option v-for="shield in shields" :value="shield">{{shield.name}}</option>
                         </select>
                         <input type="checkbox" style="place-self: center;" v-model="shieldCustom"/>
                     </label>
@@ -219,7 +219,7 @@
                                 <label v-if="customWeaponSelected.name == 'Combination'">
                                     Second Weapon Type
                                     <select v-model="combinationWeaponSelected">
-                                        <option v-for="weapon in weapons">{{weapon.name}}</option>
+                                        <option v-for="weapon in weapons" :value="weapon">{{weapon.name}}</option>
                                     </select> 
                                 </label>
                                 <p>{{customWeaponSelected.description}}</p>
@@ -328,35 +328,62 @@
                         </select>
                     <button @click="addItem(itemSelected)">Add Item</button>
                 </div>
-                <table role="grid" v-if="inventory.length">
-                    <thead>
-                        <tr>
-                            <th>Item</th>
-                            <th>Slots</th>
-                            <th>Value</th>
-                            <th>#</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr v-for="item in inventory" :key="item.id">
-                            <td>{{item.name}}</td>
-                            <td>{{item.inventory}} {{item.inventory != 1 ? "Slots" : "Slot"}}</td>
-                            <td>{{writeDenomination(item.cost)}}</td>
-                            <td><input type="text" v-model="item.number"></td>
-                            <td><a @click="remove(item)">Remove</a></td>
-                        </tr>
-                    </tbody>
-                    <thead>
-                        <tr>
-                            <th>Total:</th>
-                            <th>{{getWeight}} {{getWeight != 1 ? "Slots" : "Slot"}}</th>
-                            <th>{{getTotalValue}}</th>
-                            <th></th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                </table>
+                <div style="overflow-x: auto;">
+                    <table role="grid" v-if="inventory.length || weaponSelected || armorSelected || shieldSelected">
+                        <thead>
+                            <tr>
+                                <th>Item</th>
+                                <th>Slots</th>
+                                <th>Value</th>
+                                <th>#</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr v-if="weaponSelected">
+                                <td><span v-if="customWeaponSelected">{{customWeaponSelected.name}}&nbsp;</span>{{weaponSelected.name}}<span v-if="combinationWeaponSelected"> + {{combinationWeaponSelected.name}}</span></td>
+                                <td v-if="!combinationWeaponSelected"> {{weaponSelected.bulk}}</td>
+                                <td v-if="combinationWeaponSelected"> {{(weaponSelected.bulk > combinationWeaponSelected.bulk) ? weaponSelected.bulk : combinationWeaponSelected.bulk}}</td>
+                                <td v-if="!customWeaponSelected">{{writeDenomination(weaponSelected.cost)}}</td>
+                                <td v-if="customWeaponSelected">{{writeDenomination(getCustomWeaponCost)}}</td>
+                                <td><input type="text" v-model="weaponNumber"></td>
+                                <td></td>
+                            </tr>
+                            <tr v-if="armorSelected">
+                                <td><span v-if="customArmorSelected">{{customArmorSelected.name}}&nbsp;</span>{{armorSelected.name}}</td>
+                                <td>{{armorSelected.bulk}}</td>
+                                <td v-if="!customArmorSelected">{{writeDenomination(armorSelected.cost)}}</td>
+                                <td v-if="customArmorSelected">{{writeDenomination(getCustomArmorCost)}}</td>
+                                <td><input type="text" v-model="armorNumber"></td>
+                                <td></td>
+                            </tr>
+                            <tr v-if="shieldSelected">
+                                <td><span v-if="customShieldSelected">{{customShieldSelected.name}}&nbsp;</span>{{shieldSelected.name}}</td>
+                                <td>{{shieldSelected.bulk}}</td>
+                                <td v-if="!customShieldSelected">{{writeDenomination(shieldSelected.cost)}}</td>
+                                <td v-if="customShieldSelected">{{writeDenomination(getCustomShieldCost)}}</td>
+                                <td><input type="text" v-model="shieldNumber"></td>
+                                <td></td>
+                            </tr>
+                            <tr v-for="item in inventory" :key="item.id">
+                                <td>{{item.name}}</td>
+                                <td>{{item.inventory}} {{item.inventory != 1 ? "Slots" : "Slot"}}</td>
+                                <td>{{writeDenomination(item.cost)}}</td>
+                                <td><input type="text" v-model="item.number"></td>
+                                <td><a @click="remove(item)">Remove</a></td>
+                            </tr>
+                        </tbody>
+                        <thead>
+                            <tr>
+                                <th>Total:</th>
+                                <th>{{getWeight}} {{getWeight != 1 ? "Slots" : "Slot"}}</th>
+                                <th>{{getTotalValue}}</th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
             </article>
 
             <article id="traitsForm">
@@ -839,30 +866,120 @@
                         </template>
                     </ul>
                     <hr>
-                    <div class="grid">
-                        <nav>
-                            <ul>
-                                <li><i class="fa-solid fa-gun fa-xl"></i></li>
-                                <li>
-                                    <hgroup>
-                                        <h6>{{weaponSelected}}</h6>
-                                        <span>Weapon</span>
-                                    </hgroup>
-                                </li>
-                            </ul>
-                        </nav>
-                        
-                        <nav>
-                            <ul>
-                                <li><i class="fa-solid fa-shield fa-xl"></i></li>
-                                <li>
-                                    <hgroup>
-                                        <h6>{{armorSelected}}</h6>
-                                        <span>Armor</span>
-                                    </hgroup>
-                                </li>
-                            </ul>
-                        </nav>
+                </div>
+                <div id="Weapon" v-if="weaponSelected">
+                    <nav>
+                        <ul>
+                            <li><i class="fa-solid fa-gun fa-xl"></i></li>
+                            <li>
+                                <hgroup>
+                                    <h6><span v-if="customWeaponSelected">{{customWeaponSelected.name}}&nbsp;</span>{{weaponSelected.name}}<span v-if="combinationWeaponSelected"> + {{combinationWeaponSelected.name}}</span></h6>
+                                    <span>Weapon</span>
+                                </hgroup>
+                            </li>
+                        </ul>
+                    </nav>
+                    <blockquote>
+                        <p>
+                            Damage Threshold:
+                            <span v-if="(customWeaponSelected != 'Dangerous') && !combinationWeaponSelected">{{weaponSelected.threshold}}</span>
+                            <span v-if="customWeaponSelected">
+                                <span v-if="combinationWeaponSelected">{{(weaponSelected.threshold < combinationWeaponSelected.threshold) ? weaponSelected.threshold : combinationWeaponSelected.threshold}}</span>
+                                <span v-if="customWeaponSelected.name == 'Dangerous'">{{(weaponSelected.threshold - 2)}}</span>
+                            </span>
+                        </p>
+                        <p>
+                            Bulk: 
+                            <span v-if="!combinationWeaponSelected"> {{weaponSelected.bulk}}</span>
+                            <span v-if="combinationWeaponSelected"> {{(weaponSelected.bulk > combinationWeaponSelected.bulk) ? weaponSelected.bulk : combinationWeaponSelected.bulk}}</span>
+                        </p>
+                        <p>Base Weapon Cost: {{writeDenomination(weaponSelected.cost)}}</p>
+                        <p v-if="customWeaponSelected">Modified Weapon Cost: {{writeDenomination(getCustomWeaponCost)}}</p>
+                    </blockquote>
+                    <p>{{weaponSelected.description}}</p>
+                    <ul>
+                        <template v-for="mechanic in weaponSelected.mechanics">
+                            <li>{{mechanic}}</li>
+                        </template>
+                    </ul>
+                    <div v-if="weaponSelected && weaponCustom && combinationWeaponSelected">
+                        <p>{{combinationWeaponSelected.description}}</p>
+                        <ul>
+                            <li v-for="mechanic in combinationWeaponSelected.mechanics">{{mechanic}}</li>
+                        </ul>
+                    </div> 
+                    <div v-if="weaponCustom && customWeaponSelected">
+                        <hr>
+                        <h6>Weapon Customization</h6>
+                        <strong>{{customWeaponSelected.name}}</strong>
+                        <p>{{customWeaponSelected.description}}</p>
+                        <ul>
+                            <li v-for="mechanic in customWeaponSelected.mechanics">{{mechanic}}</li>
+                        </ul>
+                    </div>
+                </div>
+                <hr>
+                <div id="Armor" v-if="armorSelected">
+                    <nav>
+                        <ul>
+                            <li><i class="fa-solid fa-shield fa-xl"></i></li>
+                            <li>
+                                <hgroup>
+                                    <h6><span v-if="customArmorSelected">{{customArmorSelected.name}}&nbsp;</span>{{armorSelected.name}}</h6>
+                                    <span>Armor</span>
+                                </hgroup>
+                            </li>
+                        </ul>
+                    </nav>
+                    <blockquote>
+                        <p>Defense Bonus: {{armorSelected.bonus}}</p>
+                        <p>Bulk: {{armorSelected.bulk}}</p>
+                        <p>
+                            Base Armor Cost: {{writeDenomination(armorSelected.cost)}}
+                        </p>
+                        <p v-if="customArmorSelected">Modified Armor Cost: {{writeDenomination(getCustomArmorCost)}}</p>
+                    </blockquote>
+                    <p>{{armorSelected.description}}</p>
+                    <div v-if="armorCustom && customArmorSelected">
+                        <hr>
+                        <h6>Armor Customization</h6>
+                        <strong>{{customArmorSelected.name}}</strong>
+                        <p>{{customArmorSelected.description}}</p>
+                        <ul>
+                            <li v-for="mechanic in customArmorSelected.mechanics">{{mechanic}}</li>
+                        </ul>
+                    </div>
+                </div>
+                <hr>
+                <div id="Shield" v-if="shieldSelected">
+                    <nav>
+                        <ul>
+                            <li><i class="fa-solid fa-shield fa-xl"></i></li>
+                            <li>
+                                <hgroup>
+                                    <h6><span v-if="customShieldSelected">{{customShieldSelected.name}}&nbsp;</span>{{shieldSelected.name}}</h6>
+                                    <span>Shield</span>
+                                </hgroup>
+                            </li>
+                        </ul>
+                    </nav>
+                    <blockquote>
+                        <p>Defense Bonus: {{shieldSelected.bonus}}</p>
+                        <p>Bulk: {{shieldSelected.bulk}}</p>
+                        <p>
+                            Base Shield Cost: {{writeDenomination(shieldSelected.cost)}}
+                        </p>
+                        <p v-if="customShieldSelected">Modified Shield Cost: {{writeDenomination(getCustomShieldCost)}}</p>
+                    </blockquote>
+                    <p>{{shieldSelected.description}}</p>
+                    <div v-if="shieldCustom && customShieldSelected">
+                        <hr>
+                        <h6>Shield Customization</h6>
+                        <strong>{{customShieldSelected.name}}</strong>
+                        <p>{{customShieldSelected.description}}</p>
+                        <ul>
+                            <li v-for="mechanic in customShieldSelected.mechanics">{{mechanic}}</li>
+                        </ul>
                     </div>
                 </div>
                 <hr>
@@ -2500,7 +2617,7 @@
                     </template>
                 </div>
                 <hr>
-                <div id="inventory" v-if="inventory.length">
+                <div id="inventory" v-if="inventory.length || weaponSelected || armorSelected || shieldSelected">
                     <header>
                         <nav>
                             <ul>
@@ -2530,32 +2647,56 @@
                             <button class="outline">{{stones}}</button>
                         </label>
                     </div>
-                    <table role="grid">
-                        <thead>
-                            <tr>
-                                <th>Item</th>
-                                <th>Slots</th>
-                                <th>Value</th>
-                                <th>#</th>
+                    <div style="overflow-x: auto;">
+                        <table role="grid">
+                            <thead>
+                                <tr>
+                                    <th>Item</th>
+                                    <th>Slots</th>
+                                    <th>Value</th>
+                                    <th>#</th>
+                                </tr>
+                            </thead>
+                            <tr v-if="weaponSelected">
+                                <td><span v-if="customWeaponSelected">{{customWeaponSelected.name}}&nbsp;</span>{{weaponSelected.name}}<span v-if="combinationWeaponSelected"> + {{combinationWeaponSelected.name}}</span></td>
+                                <td v-if="!combinationWeaponSelected"> {{weaponSelected.bulk}}</td>
+                                <td v-if="combinationWeaponSelected"> {{(weaponSelected.bulk > combinationWeaponSelected.bulk) ? weaponSelected.bulk : combinationWeaponSelected.bulk}}</td>
+                                <td v-if="!customWeaponSelected">{{writeDenomination(weaponSelected.cost)}}</td>
+                                <td v-if="customWeaponSelected">{{writeDenomination(getCustomWeaponCost)}}</td>
+                                <td>{{weaponNumber}}</td>
                             </tr>
-                        </thead>
-                        <tbody>
-                            <tr v-for="item in inventory" :key="item.id">
-                                <td>{{item.name}}</td>
-                                <td>{{item.inventory}} {{item.inventory != 1 ? "Slots" : "Slot"}}</td>
-                                <td>{{writeDenomination(item.cost)}}</td>
-                                <td>{{item.number}}</td>
+                            <tr v-if="armorSelected">
+                                <td><span v-if="customArmorSelected">{{customArmorSelected.name}}&nbsp;</span>{{armorSelected.name}}</td>
+                                <td>{{armorSelected.bulk}}</td>
+                                <td v-if="!customArmorSelected">{{writeDenomination(armorSelected.cost)}}</td>
+                                <td v-if="customArmorSelected">{{writeDenomination(getCustomArmorCost)}}</td>
+                                <td>{{armorNumber}}</td>
                             </tr>
-                        </tbody>
-                        <thead>
-                            <tr>
-                                <th>Total:</th>
-                                <th>{{getWeight}} {{getWeight != 1 ? "Slots" : "Slot"}}</th>
-                                <th>{{getTotalValue}}</th>
-                                <th></th>
+                            <tr v-if="shieldSelected">
+                                <td><span v-if="customShieldSelected">{{customShieldSelected.name}}&nbsp;</span>{{shieldSelected.name}}</td>
+                                <td>{{shieldSelected.bulk}}</td>
+                                <td v-if="!customShieldSelected">{{writeDenomination(shieldSelected.cost)}}</td>
+                                <td v-if="customShieldSelected">{{writeDenomination(getCustomShieldCost)}}</td>
+                                <td>{{shieldNumber}}</td>
                             </tr>
-                        </thead>
-                    </table>
+                            <tbody>
+                                <tr v-for="item in inventory" :key="item.id">
+                                    <td>{{item.name}}</td>
+                                    <td>{{item.inventory}} {{item.inventory != 1 ? "Slots" : "Slot"}}</td>
+                                    <td>{{writeDenomination(item.cost)}}</td>
+                                    <td>{{item.number}}</td>
+                                </tr>
+                            </tbody>
+                            <thead>
+                                <tr>
+                                    <th>Total:</th>
+                                    <th>{{getWeight}} {{getWeight != 1 ? "Slots" : "Slot"}}</th>
+                                    <th>{{getTotalValue}}</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
                 </div>
             </article>
         </main>
@@ -2769,6 +2910,13 @@
 
                 <div class="draft grey right-round"><p><strong>INVENTORY</strong></p></div>
                 <div class="draft" style="grid-row: auto / span 5;">
+                    <p class="border-top" v-if="weaponSelected"><strong>Weapon</strong></p>
+                    <p class="border-top" v-if="weaponSelected"><span v-if="customWeaponSelected">{{customWeaponSelected.name}}&nbsp;</span>{{weaponSelected.name}}<span v-if="combinationWeaponSelected"> + {{combinationWeaponSelected.name}}</span></p>
+                    <p class="border-top" v-if="armorSelected"><strong>Armor</strong></p>
+                    <p class="border-top" v-if="armorSelected"><span v-if="customArmorSelected">{{customArmorSelected.name}}&nbsp;</span>{{armorSelected.name}}</p>
+                    <p class="border-top" v-if="shieldSelected"><strong>Shield</strong></p>
+                    <p class="border-top" v-if="shieldSelected"><span v-if="customShieldSelected">{{customShieldSelected.name}}&nbsp;</span>{{shieldSelected.name}}</p>
+                    <p class="border-top"><strong>Other</strong></p>
                     <p class="border-top" v-for="item in inventory">{{item.name}}</p>
                 </div>
 
@@ -2901,7 +3049,8 @@
         <a id="downloadAnchorElem" style="display:none"></a>
 
         <script type="module">
-            import { createApp } from 'https://cdnjs.cloudflare.com/ajax/libs/vue/3.2.47/vue.esm-browser.prod.min.js';
+            //import { createApp } from 'https://cdnjs.cloudflare.com/ajax/libs/vue/3.2.47/vue.esm-browser.prod.min.js';
+            import { createApp } from 'https://cdnjs.cloudflare.com/ajax/libs/vue/3.3.0/vue.esm-browser.min.js';
             import App from '/js/app-min.js';
             createApp(App).mount('#app');
         </script>

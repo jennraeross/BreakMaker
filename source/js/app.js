@@ -27,6 +27,9 @@ export default {
 			customWeaponSelected: null,
 			customArmorSelected: null,
 			customShieldSelected: null,
+			weaponNumber: 1,
+			armorNumber: 1,
+			shieldNumber: 1,
 			xp: 0,
 			characterName: null,
 			speciesSelected: null,
@@ -3482,76 +3485,216 @@ export default {
 			},
 			weapons: {
 				unarmed: {
-					name: "Unarmed",
+					name: "Unarmed Weapon",
+					threshold: false,
+					description: "Desperate situations sometimes call for adventurers to strike out with their bare hands",
+					mechanics: [
+						"Unarmed strikes suffer a Snag on their Attack roll when directed at armed or armored enemies."
+					],
+					bulk: 0,
+					cost: 0
 				},
 				standard: {
-					name: "Standard",
+					name: "Standard Weapon",
+					description: "Standard Weapons are simple yet practical death dealing implements with no added frills.",
+					threshold: 20,
+					mechanics: [
+						"Any Calling or Species can use Standard Weapon."
+					],
+					bulk: 1,
+					cost: 10
+
 				},
 				concealed: {
-					name: "Concealed",
+					name: "Concealed Weapon",
+					description: "Concealed Weapons are usually small so that they can be hidden about your person with ease.",
+					threshold: 22,
+					mechanics: [
+						"Unlike other arms, Concealed Weapons are not immediately visible.",
+						"During a Fight, drawing and striking with a Concealed Weapon can be performed in one Action.",
+						"Weapon Ability, Sneaky Swipe: If your target isn't aware of your Concealed Weapon you may attempt to Ambush them, even when you are in plain sight.",
+						"Your Target must be in the same Battlefield Area as you, but otherwise this attack works like a normal Ambush.",
+						"If your Ambush is successful, others using Concealed or Thrown weapons can join in the Ambush."
+					],
+					bulk: 1,
+					cost: 5
 				},
 				quick: {
-					name: "Quick",
+					name: "Quick Weapon",
+					description: "Quick Weapons are lighter arms that emphasize speed over power. Prized by those who prefer evasive fighting.",
+					threshold: 22,
+					mechanics: [
+						"Weapon Ability, Darting Style: You gain a + 1 to your Defense Rating when using a Quick Weapon."
+					],
+					bulk: 1,
+					cost: 15
 				},
 				master: {
-					name: "Master",
+					name: "Master Weapon",
+					description: "These finely crafted weapons are often difficult to use and rather expensive, as such they are favored by the warrior elite",
+					threshold: 18,
+					mechanics: [
+						"Weapon Ability, Perfect Strike: You gain a +1 to your Attack rolls when using a Master Weapon."
+					],
+					bulk: 2,
+					cost: 30
 				},
 				mighty: {
-					name: "Mighty",
+					name: "Mighty Weapon",
+					description: "These heavy weapons require both hands to use. Enjoyed by warriors who wish to quickly dispatch their enemies",
+					threshold: 20,
+					mechanics: [
+						"When wielding one-handed you suffer a Minor Penalty (-2) on Attack rolls, Attack Stunts, & Combat Tricks.",
+						"Weapon Ability, Crushing Blow: You do 2 Hearts of damage, instead of 1, on a successful Attack"
+					],
+					bulk: 2,
+					cost: 20
 				},
 				arc: {
-					name: "Arc",
+					name: "Arc Weapon",
+					description: "Long weapons that allow its wielder to make wide, dangerous strokes that hit several enemies at once.",
+					threshold: 20,
+					mechanics: [
+						"When wielding one-handed you suffer a Minor Penalty (-2) on Attack rolls, Attack Stunts, & Combat Tricks.",
+						"Weapon Ability, Deadly Sweep: You can hit two enemies in the same Battlefield Area with one Attack",
+						"Make a single Attack roll, and apply the result to both enemies."
+					],
+					bulk: 3,
+					cost: 25
 				},
 				lash: {
-					name: "Lash",
+					name: "Lash Weapon",
+					description: "Weapons that incorporate a chain or cord, capable of reaching foes a considerable distance away.",
+					threshold: 22,
+					mechanics: [
+						"Weapon Ability, Crack!: You can Attack an enemy up to 1 Battlefield Area away."
+					],
+					bulk: 1,
+					cost: 30
 				},
 				thrown: {
-					name: "Thrown",
+					name: "Thrown Weapon",
+					description: "These small, hand-held weapons are shaped and balanced specifically for throwing. Sneaks love them.",
+					threshold: 22,
+					mechanics: [
+						"Weapon Ability, Hidden Fangs: If your target isn't aware of your Thrown Weapon you may attempt to Ambush them, even when you are in plain sight.",
+						"Targets must be in Range, but otherwise this attack works like a normal Ambush.",
+						"If your Ambush is successful, others using Concealed or Thrown weapons can join in the Ambush."
+					],
+					range: 1,
+					load: "Loading Time: None, but weapon must be retrieved before reuse.",
+					bulk: 1,
+					cost: 2
 				},
 				drawn: {
-					name: "Drawn",
+					name: "Drawn Weapon",
+					description: "Drawn Weapons include slingshots, bows, and other projectiles that require you to manually maintain tension.",
+					threshold: 20,
+					mechanics: [
+						"You must use two hands while wielding a Drawn Missile Weapon."
+					],
+					range: 2,
+					load: "Loading Time: These can be both loaded and fired in 1 Action.",
+					bulk: 2,
+					cost: 10
 				},
 				smallMissile: {
-					name: "Small Mechanical Missile",
+					name: "Small Mechanical Missile Weapon",
+					description: "These compact marvels of engineering let you take a shot while keeping a hand free for other things.",
+					threshold: 18,
+					mechanics: [
+						"You can fire these Weapons with one hand, but must load with two."
+					],
+					range: 1,
+					load: "Loading Time: 1 Action.",
+					bulk: 1,
+					cost: 15
 				},
 				largeMissile: {
-					name: "Large Mechanical Missile",
+					name: "Large Mechanical Missile Weapon",
+					description: "While more accurate than their smaller cousins, these bombastic weapons are more cumbersome to operate.",
+					threshold: 18,
+					mechanics: [
+						"You must use two hands to load and fire these Weapons.",
+						"Weapon Ability, Thunderous Shot: You gain a +2 to your Attack roll."
+					],
+					range: 2,
+					load: "Loading Time: 1 Action",
+					bulk: 2,
+					cost: 25
 				},
 			},
 			armors: {
 				naked: {
 					name: "Naked",
 					bonus: 0,
+					description: "If you are un-armored, either nude or wearing regular clothes, you are considered naked in combat.",
+					bulk: 0,
+					cost: 0
 				},
 				light: {
 					name: "Light Armor",
 					bonus: 2,
+					description: "Armor that prioritizes speed over defensive performance, and covers only the most vital points on your body.",
+					bulk: 2,
+					cost: 30
 				},
 				medium: {
 					name: "Medium Armor",
 					bonus: 4,
+					description: "Robust armor that provides good protection without heavily compromising your freedom of movement.",
+					bulk: 3,
+					cost: 60
 				},
 				heavy: {
 					name: "Heavy Armor",
 					bonus: 6,
+					description: "Thick, durable armor that provides strong protection for most of your body, at the expense of combat mobility.",
+					bulk: 4,
+					cost: 120
 				},
 				superHeavy: {
 					name: "Super Heavy Armor",
 					bonus: 8,
+					description: "A weighty protective shell that encases your entire body, but considerably restricts your maximum speed.",
+					bulk: 5,
+					cost: 600
 				},
 			},
 			shields: {
 				small: {
 					name: "Small Shield",
 					bonus: 0,
+					description: "Favored by fighters who want to use equip hands, Small Shields are worn on your arm rather than held.",
+					mechanics: [
+						"You can Parry 1 Melee Attack per Fight.",
+						"You may still use both hands when equipped with a Small Shield."
+					],
+					bulk: 1,
+					cost: 15
 				},
 				medium: {
-					name: "Medium Shield",
+					name: "Standard Shield",
 					bonus: 1,
+					description: "The most common shields are sturdy pieces of wood or metal that are held in place by a grip or strap along its back side.",
+					mechanics: [
+						"You can Parry 1 Melee or Missile Attack per Fight. This includes spells or any special attacks that require an Attack roll.",
+						"Standard Shields require one hand to use, so they affect your ability to use two-handed weapons."
+					],
+					bulk: 1,
+					cost: 25
 				},
 				large: {
 					name: "Large Shield",
 					bonus: 2,
+					description: "Enormous bulwarks that are large enough to obscure their bearer completely. Effective but large and difficult to carry.",
+					mechanics: [
+						"You can Parry 1 Melee or Missile Attack per Fight. This includes spells or any special attacks that require an Attack roll.",
+						"Large Shields require one hand to use, so they affect your ability to use two-handed weapons",
+						"Your Speed Rating is reduced by one step during a Fight."
+					],
+					bulk: 2,
+					cost: 35
 				},
 			},
 			customWeaponTypes: {
@@ -3573,7 +3716,7 @@ export default {
 						"NOTE: Combining two weapons that each have an inherent Weapon Ability will take you to the 3 Ability limit.",
 						"NOTE: Your GM may deem some combinations impossible, common sense should be the guide."
 					],
-					cost: "(Price of Weapon Type 1 + Weapon Type 2) x2"
+					cost: "(Price of Weapon Type 1 + Weapon Type 2) x2",
 				},
 				shoddy: {
 					name: "Shoddy",
@@ -3651,7 +3794,7 @@ export default {
 						"You are immune to the Harmful Battlefield Condition and any other dangerous environmental effects.",
 						"Also functions as Extreme Weather Clothing protecting you from both heat and cold."
 					],
-					cost: "Armor Price +100"
+					cost: "Armor Price + 100"
 				},
 				bouyant: {
 					name: "Bouyant",
@@ -3659,7 +3802,8 @@ export default {
 					mechanics: [
 						"You are exempt from any Checks or Contests your GM might require you to make attempting to stay afloat when wearing the armor.",
 						"Deliberately trying to submerge in the armor is problematic and requires a, Might Check."
-					]
+					],
+					cost: "Armor Price + 50"
 				},
 				integrated: {
 					name: "Integrated",
@@ -5225,27 +5369,31 @@ export default {
 				case (this.quirkSelected == "Ferrous"):
 					calcDefense = 14;
 			}
-			switch (this.armorSelected) {
-				case "Light Armor":
-					calcDefense = 12;
-					break;
-				case "Medium Armor":
-					calcDefense = 14;
-					break;
-				case "Heavy Armor":
-					calcDefense = 16;
-					break;
-				case "Super Heavy Armor":
-					calcDefense = 18;
-					break;
+			if (this.armorSelected) {
+				switch (this.armorSelected.name) {
+					case "Light Armor":
+						calcDefense = 12;
+						break;
+					case "Medium Armor":
+						calcDefense = 14;
+						break;
+					case "Heavy Armor":
+						calcDefense = 16;
+						break;
+					case "Super Heavy Armor":
+						calcDefense = 18;
+						break;
+				}
 			}
-			switch (this.shieldSelected) {
-				case "Medium Shield":
-					calcDefense++;
-					break;
-				case "Large Shield":
-					calcDefense += 2;
-					break;
+			if (this.shieldSelected) {
+				switch (this.shieldSelected.name) {
+					case "Medium Shield":
+						calcDefense++;
+						break;
+					case "Large Shield":
+						calcDefense += 2;
+						break;
+				}
 			}
 			switch (this.getSize) {
 				case "Small":
@@ -5295,18 +5443,22 @@ export default {
 					calcSpeed--;
 					break;
 			}
-			switch (this.armorSelected) {
-				case "Medium Armor":
-					calcSpeed = calcSpeed > 2 ? 2 : calcSpeed;
-					break;
-				case "Heavy Armor":
-					calcSpeed = calcSpeed > 1 ? 1 : calcSpeed;
-					break;
-				case "Super Heavy Armor":
-					calcSpeed = 0;
+			if (this.armorSelected){
+				switch (this.armorSelected.name) {
+					case "Medium Armor":
+						calcSpeed = calcSpeed > 2 ? 2 : calcSpeed;
+						break;
+					case "Heavy Armor":
+						calcSpeed = calcSpeed > 1 ? 1 : calcSpeed;
+						break;
+					case "Super Heavy Armor":
+						calcSpeed = 0;
+				}
 			}
-			if (this.shieldSelected == "Large Shield" && calcSpeed > 0) {
-				calcSpeed--;
+			if (this.shieldSelected) {
+				if (this.shieldSelected.name == "Large Shield" && calcSpeed > 0) {
+					calcSpeed--;
+				}
 			}
 			return calcSpeed;
 		},
@@ -5363,12 +5515,24 @@ export default {
 			this.inventory.forEach(item => {
 				calcWeight += (item.inventory * item.number)
 			});
+			if (this.weaponSelected) {
+				if (this.combinationWeaponSelected) {
+					calcWeight += this.weaponSelected.bulk > this.combinationWeaponSelected.bulk ? this.weaponSelected.bulk : this.combinationWeaponSelected.bulk;
+				} else {
+					calcWeight += this.weaponSelected.bulk
+				}
+			}
+			if (this.armorSelected) {
+				calcWeight += this.armorSelected.bulk;
+			}
+			if (this.shieldSelected) {
+				calcWeight += this.shieldSelected.bulk;
+			}
 			if (calcWeight > 0) {
 				return (calcWeight).toFixed(1);
 			} else {
 				return 0
 			}
-
 		},
 		getBurden() {
 			if (this.getWeight > 10) {
@@ -5382,6 +5546,27 @@ export default {
 			this.inventory.forEach(item => {
 				calcValue += (item.cost * item.number);
 			});
+			if (this.weaponSelected) {
+				if (this.customWeaponSelected) {
+					calcValue += this.getCustomWeaponCost;
+				} else {
+					calcValue += this.weaponSelected.cost;
+				}
+			}
+			if (this.armorSelected) {
+				if (this.customArmorSelected) {
+					calcValue += this.getCustomArmorCost;
+				} else {
+					calcValue += this.armorSelected.cost;
+				}
+			}
+			if (this.shieldSelected) {
+				if (this.customShieldSelected) {
+					calcValue += this.getCustomShieldCost;
+				} else {
+					calcValue += this.shieldSelected.cost;
+				}
+			}
 			return this.writeDenomination(calcValue);
 		},
 		getBackupDataString() {
@@ -5420,6 +5605,64 @@ export default {
 				darkGifts: this.darkGifts,
 				tenebrateGift: this.tenebrateGift,
 			});
+		},
+		getCustomWeaponCost() {
+			if ( this.weaponSelected && this.customWeaponSelected) {
+				switch (this.customWeaponSelected.name) {
+					case "Combination": 
+						if (this.combinationWeaponSelected) {
+							return (this.weaponSelected.cost + this.combinationWeaponSelected.cost) * 2;
+						} else {
+							return this.weaponSelected.cost * 2;
+						}
+					case "Shoddy":
+						return this.weaponSelected.cost / 2;
+					case "Disguised":
+					case "Secret Compartment":
+						return this.weaponSelected.cost + 5;
+					case "Dangerous":
+						return this.weaponSelected.cost + 10;
+					case "Utility": 
+						return (this.weaponSelected.cost + 5);
+					case "Rapid Fire":
+						return this.weaponSelected.cost * 10;
+					case "Special Ammunition":
+						return this.weaponSelected.cost;
+				}
+			}
+		},
+		getCustomArmorCost() {
+			if (this.armorSelected && this.customArmorSelected) {
+				switch (this.customArmorSelected.name) {
+					case "Anti-Hazard":
+						return this.armorSelected.cost + 100;
+					case "Buoyant":
+					case "Integrated":
+						return this.armorSelected.cost + 50;
+					case "Spiked":
+						return this.armorSelected.cost + 75;
+					case "Cargo":
+					case "Shadowed":
+						return this.armorSelected.cost + 15;
+					case "Magnificent":
+						return this.armorSelected.cost + 25;
+					case "Resplendent":
+						return this.armorSelected.cost + 50;
+					case "Mechanical Motion":
+						return this.armorSelected.cost * 10;
+				}
+			}
+		},
+		getCustomShieldCost() {
+			if (this.shieldSelected && this.customShieldSelected) {
+				switch (this.customShieldSelected.name) {
+					case "Assault":
+						return this.shieldSelected.cost + 20;
+					case "Barricade":
+						return this.shieldSelected.cost * 20;
+
+				}
+			}
 		}
 	},
 	methods: {
@@ -5511,7 +5754,17 @@ export default {
 			return true;
 		},
 		addItem(item) {
-			if (!this.inventory.includes(item)) this.inventory.push(item);
+			if (this.inventory.includes(item)) return;
+			if (this.weaponSelected && !this.customWeaponSelected) {
+				if (this.weaponSelected.name == item.name) return;
+			}
+			if (this.armorSelected && !this.customArmorSelected) {
+				if (this.armorSelected.name == item.name) return;
+			}
+			if (this.shieldSelected && !this.customShieldSelected) {
+				if (this.shieldSelected.name == item.name) return;
+			}
+			this.inventory.push(item);
 		},
 		remove(item) {
 			this.inventory = this.inventory.filter((t) => t !== item);

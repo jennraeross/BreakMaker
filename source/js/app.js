@@ -5517,16 +5517,16 @@ export default {
 			});
 			if (this.weaponSelected) {
 				if (this.combinationWeaponSelected) {
-					calcWeight += this.weaponSelected.bulk > this.combinationWeaponSelected.bulk ? this.weaponSelected.bulk : this.combinationWeaponSelected.bulk;
+					calcWeight += (this.weaponSelected.bulk > this.combinationWeaponSelected.bulk ? this.weaponSelected.bulk : this.combinationWeaponSelected.bulk) * this.weaponNumber;
 				} else {
-					calcWeight += this.weaponSelected.bulk
+					calcWeight += this.weaponSelected.bulk * this.weaponNumber
 				}
 			}
 			if (this.armorSelected) {
-				calcWeight += this.armorSelected.bulk;
+				calcWeight += this.armorSelected.bulk * this.armorNumber;
 			}
 			if (this.shieldSelected) {
-				calcWeight += this.shieldSelected.bulk;
+				calcWeight += this.shieldSelected.bulk * this.shieldNumber;
 			}
 			if (calcWeight > 0) {
 				return (calcWeight).toFixed(1);
@@ -5548,23 +5548,23 @@ export default {
 			});
 			if (this.weaponSelected) {
 				if (this.customWeaponSelected) {
-					calcValue += this.getCustomWeaponCost;
+					calcValue += this.getCustomWeaponCost * this.weaponNumber;
 				} else {
-					calcValue += this.weaponSelected.cost;
+					calcValue += this.weaponSelected.cost * this.weaponNumber;
 				}
 			}
 			if (this.armorSelected) {
 				if (this.customArmorSelected) {
-					calcValue += this.getCustomArmorCost;
+					calcValue += this.getCustomArmorCost * this.armorNumber;
 				} else {
-					calcValue += this.armorSelected.cost;
+					calcValue += this.armorSelected.cost * this.armorNumber;
 				}
 			}
 			if (this.shieldSelected) {
 				if (this.customShieldSelected) {
-					calcValue += this.getCustomShieldCost;
+					calcValue += this.getCustomShieldCost * this.shieldNumber;
 				} else {
-					calcValue += this.shieldSelected.cost;
+					calcValue += this.shieldSelected.cost * this.shieldNumber;
 				}
 			}
 			return this.writeDenomination(calcValue);
@@ -5604,6 +5604,16 @@ export default {
 				brightGifts: this.brightGifts,
 				darkGifts: this.darkGifts,
 				tenebrateGift: this.tenebrateGift,
+				combinationWeaponSelected: this.combinationWeaponSelected,
+				weaponCustom: this.weaponCustom,
+				armorCustom: this.armorCustom,
+				shieldCustom: this.shieldCustom,
+				customWeaponSelected: this.customWeaponSelected,
+				customArmorSelected: this.customArmorSelected,
+				customShieldSelected: this.customShieldSelected,
+				weaponNumber: this.weaponNumber,
+				armorNumber: this.armorNumber,
+				shieldNumber: this.shieldNumber,
 			});
 		},
 		getCustomWeaponCost() {
@@ -5715,6 +5725,16 @@ export default {
 				vm.brightGifts = fileContent.brightGifts;
 				vm.darkGifts = fileContent.darkGifts;
 				vm.tenebrateGift = fileContent.tenebrateGift;
+				vm.combinationWeaponSelected = fileContent.combinationWeaponSelected;
+				vm.weaponCustom = fileContent.weaponCustom;
+				vm.armorCustom = fileContent.armorCustom;
+				vm.shieldCustom = fileContent.shieldCustom;
+				vm.customWeaponSelected = fileContent.customWeaponSelected;
+				vm.customArmorSelected = fileContent.customArmorSelected;
+				vm.customShieldSelected = fileContent.customShieldSelected;
+				vm.weaponNumber = fileContent.weaponNumber;
+				vm.armorNumber = fileContent.armorNumber;
+				vm.shieldNumber = fileContent.shieldNumber;
 			};
 			reader.readAsText(importedFile); 
 		},

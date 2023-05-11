@@ -31,6 +31,6 @@ This project is built using VueJS and PicoCSS
 - ~~Inventory System~~
 - ~~Improve Printing~~
 - ~~Backup/Restore System~~
-- Customize Items
+- ~~Customize Items~~
 - Companions
 - Improved Bright/Dark Point Management

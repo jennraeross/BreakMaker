@@ -181,6 +181,7 @@
                         <span>Weapon</span>
                         <span style="text-align: center;">Custom</span>
                         <select v-model="weaponSelected">
+                            <option value="">None</option>
                             <option v-for="weapon in weapons" :value="weapon">{{weapon.name}}</option>
                         </select>
                         <input type="checkbox" style="place-self: center;" v-model="weaponCustom"/>
@@ -189,6 +190,7 @@
                         <span>Armor</span>
                         <span style="text-align: center;">Custom</span>
                         <select v-model="armorSelected">
+                            <option value="">None</option>
                             <option v-for="armor in armors" :value="armor">{{armor.name}}</option>
                         </select>
                         <input type="checkbox" style="place-self: center;" v-model="armorCustom"/>
@@ -197,7 +199,7 @@
                         <span>Shield</span>
                         <span style="text-align: center;">Custom</span>
                         <select v-model="shieldSelected">
-                            <option value="null">None</option>
+                            <option value="">None</option>
                             <option v-for="shield in shields" :value="shield">{{shield.name}}</option>
                         </select>
                         <input type="checkbox" style="place-self: center;" v-model="shieldCustom"/>

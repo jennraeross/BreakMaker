@@ -1,7 +1,7 @@
 <html>
     <head>
-        <link rel="stylesheet" href="css/main.css?ckcachebust=705531231">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css?ckcachebust=705531231" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="css/main.css?ckcachebust=705535508">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css?ckcachebust=705535508" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body id="app">
@@ -181,6 +181,7 @@
                         <span>Weapon</span>
                         <span style="text-align: center;">Custom</span>
                         <select v-model="weaponSelected">
+                            <option value="">None</option>
                             <option v-for="weapon in weapons" :value="weapon">{{weapon.name}}</option>
                         </select>
                         <input type="checkbox" style="place-self: center;" v-model="weaponCustom"/>
@@ -189,6 +190,7 @@
                         <span>Armor</span>
                         <span style="text-align: center;">Custom</span>
                         <select v-model="armorSelected">
+                            <option value="">None</option>
                             <option v-for="armor in armors" :value="armor">{{armor.name}}</option>
                         </select>
                         <input type="checkbox" style="place-self: center;" v-model="armorCustom"/>
@@ -197,7 +199,7 @@
                         <span>Shield</span>
                         <span style="text-align: center;">Custom</span>
                         <select v-model="shieldSelected">
-                            <option value="null">None</option>
+                            <option value="">None</option>
                             <option v-for="shield in shields" :value="shield">{{shield.name}}</option>
                         </select>
                         <input type="checkbox" style="place-self: center;" v-model="shieldCustom"/>

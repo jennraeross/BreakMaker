@@ -18,8 +18,15 @@ export default {
 			auraTrait: 0,
 			callingSelected: null,
 			weaponSelected: null,
+			combinationWeaponSelected: null,
 			armorSelected: null,
 			shieldSelected: null,
+			weaponCustom: false,
+			armorCustom: false,
+			shieldCustom: false,
+			customWeaponSelected: null,
+			customArmorSelected: null,
+			customShieldSelected: null,
 			xp: 0,
 			characterName: null,
 			speciesSelected: null,
@@ -3546,6 +3553,210 @@ export default {
 					name: "Large Shield",
 					bonus: 2,
 				},
+			},
+			customWeaponTypes: {
+				combination: {
+					name: "Combination",
+					description: "Combination merges the benefits of two Weapon Types, making them difficult and expensive to forge.",
+					mechanics: [
+						"Combination Weapons inherit the properties of their two constituent weapons in the following way:",
+						"The Weapon Abilities of both.",
+						"The usage restrictions of both.",
+						"Take up the Inventory Slots from the largest of the two weapons.",
+						"The Extra Damage of the most effective weapon.",
+						"For example, a Master Arc Combination Weapon would gain a +1 to Attack rolls (Master), be able to target two foes in the same area (Arc), and require both hands to use without penalty (Arc), and take up 3 Inventory Slots (Arc).",
+						"If any Missile and Melee Weapon Types are combined, you must choose which mode of attack you are using for your Action (ie: Melee or Missile).",
+						"These weapon's only benefit from Missile Weapon Abilities when making Missile attacks.",
+						"These weapon's only benefit from Melee Weapon Abilities when making Melee attacks.",
+						"The Extra Damage value used is taken from the base weapon appropriate to your chosen mode of attack.",
+						"NOTE: Concealed and Thrown Weapons can only combined with each other, due to their comparably small size.",
+						"NOTE: Combining two weapons that each have an inherent Weapon Ability will take you to the 3 Ability limit.",
+						"NOTE: Your GM may deem some combinations impossible, common sense should be the guide."
+					],
+					cost: "(Price of Weapon Type 1 + Weapon Type 2) x2"
+				},
+				shoddy: {
+					name: "Shoddy",
+					description: "Hastily and carelessly made, these weapons are easy on the purse but unreliable in battle.",
+					mechanics: [
+						"These weapons are Sundered when you get an unmodified 1 or 2 on your Attack roll."
+					],
+					cost: "(Weapon Price + Custom Ability Costs, if any) / 2 (rounded up)"
+				},
+				disguised: {
+					name: "Disguised",
+					description: "The weapon appears like a walking stick, jewelry, or other harmless item until carefully inspected or used.",
+					mechanics: [
+						"Discerning this weapon's real function requires a mistrustful person to make a successful Insight Check."
+					],
+					cost: "Weapon Price + 5"
+				},
+				dangerous: {
+					name: "Dangerous",
+					description: "While all weapons are inherently harmful, these weapons are made to inflict maximum damage at the expense of the wielder's safety.",
+					mechanics: [
+						"NOTE: Available for Melee Weapons only.",
+						"Dangerous weapons reduce the weapon's Extra Damage value by 2.",
+						"You take 1 Heart of Damagewhenever you get an unmodified 1or 2 on your Attack roll.",
+					],
+					cost: "Weapon Price + 10"
+				},
+				utility: {
+					name: "Utility",
+					description: "This allows a weapon to also function as a simple tool. For example, a Fishing Rod Spear or a Shovel Sword.",
+					mechanics: [
+						"You can combine a weapon with a tool that falls under the Adventuring Gear, Common Rural Goods, Common Urban Goods, or Oddities & Luxury Items.",
+						"Utility weapons take up as many Inventory Slots as the largest of its two components.",
+						"Your GM may deem some combinations impossible, common sense should be the guide."
+					],
+					cost: "Weapon Price + Tool Price + 5"
+				},
+				secretCompartment: {
+					name: "Secret Compartment",
+					description: "A small gadget, or hidden cavity, can be incorporated into the pommel, grip or guard of a weapon.",
+					mechanics: [
+						"A Secret Compartment allows you to stow a small item like one dose of a consumable, a gem, or a folded treasure map.",
+						"If you opt to add a gadget, it must be small enough to be incorporated into the weapon, for example a compass on the pommel of a cutlass."
+					],
+					cost: "Weapon Price + 5"
+				},
+				rapidFire: {
+					name: "Rapid Fire",
+					description: "Reloading Mechanical Missile weapons in the middle of combat is an onerous task. This technological advancement reduces the need to do it quite so often.",
+					mechanics: [
+						"NOTE: Only available for Large and Small Mechanical Missile Weapons",
+						"Rapid Fire weapons may be fired 3 times before they need to be reloaded, which still takes a 1 Action."
+					],
+					cost: "Weapon Price x10"
+				},
+				specialAmmo: {
+					name: "Special Ammunition",
+					description: "Special Ammunition provides ranged weapons with more tactical options. They enable you to create distractions, signal for help, or simply do more harm.",
+					mechanics: [
+						"NOTE: lable for Missile Weapons only",
+						"Fireberry Shot: These do Flame Damage instead of Mundane Damage. Your GM may also allow other types of Special Damage may also be available.",
+						"Flare: Ammunition that creates a lingering and visually impressive effect, such as bright light, when shot. Ineffective as a weapon but a good signal.",
+						"Heavy: A large, clumsy shot that incurs a Major Penalty (-4) on your Attack roll when used, but does an +1 Heart of Damage on a successful hit.",
+						"Whistling: Ammunition that makes ear-splitting scream when fired Anyone in earshot must make a successful Insight Check or be Deafened (+ p2681 on their next Turn.",
+						"NOTE: Just like regular ammunition, these variants are expended after use."
+					],
+					cost: "Ammo Price ×2"
+				}
+			},
+			customArmorTypes: {
+				antiHazard: {
+					name: "Anti-Hazard",
+					description: "This armor protects you from harmful gasses, magical radiation, or extreme environments. These suits are also hermetically sealed with systerns that purify the air and regulate temperature.",
+					mechanics: [
+						"You are immune to the Harmful Battlefield Condition and any other dangerous environmental effects.",
+						"Also functions as Extreme Weather Clothing protecting you from both heat and cold."
+					],
+					cost: "Armor Price +100"
+				},
+				bouyant: {
+					name: "Bouyant",
+					description: "Fitted with inflatable air bags, this armor prevents you from sinking in water.",
+					mechanics: [
+						"You are exempt from any Checks or Contests your GM might require you to make attempting to stay afloat when wearing the armor.",
+						"Deliberately trying to submerge in the armor is problematic and requires a, Might Check."
+					]
+				},
+				integrated: {
+					name: "Integrated",
+					description: "This armor has a weapon or tool built into one of the arms.",
+					mechanics: [
+						"A weapon or tool can be fitted to the armor's right or left arm.",
+						"Integrated items are limited to those that you could use with one hand. For example, you cannot install a Large Mechanical Missile Weapon as it requires two hands to operate.",
+						"Integrated weapons do not have to be drawn, they are always ready to use.",
+						"Using an integrated item does not require your hand to use, enabling you to carry an additional item. For example, an integrated lantern will allow you to still carry a shield and a sword.",
+						"NOTE: An integrated item does not grant you an additional Action and you must choose to use the integrated item, if it normally requires an Action to use, or the item you are holding in your hand."
+					],
+					cost: "Armor Price +50"
+				},
+				spiked: {
+					name: "Spiked",
+					description: "The ostentatious spikes that cover this Armor are more than decoration. The wearer is harder to grab or swallow, endearing it to titan hunters all over the Outer World.",
+					mechanics: [
+						"Any creature attempting to grab, squeeze, swallow or otherwise smash against you takes 1 Heart of Damage while doing so.",
+						"Your Unarmed attacks now strike as a Standard Weapon."
+					],
+					cost: "Armor Price +75"
+				},
+				cargo: {
+					name: "Cargo",
+					description: "This armor has a built in storage space in a chest or back cavity to protect valuable, or easily damaged, items.",
+					mechanics: [
+						"The armor provides you with an additional 3 Inventory Slots.",
+						"Any stowed items are protected from water, fire, and other physical trauma.",
+						"If the armor is destroyed whatever is stored inside will fall out."
+					],
+					cost: "Armor Price +15"
+				},
+				magnificent: {
+					name: "Magnificent",
+					description: "This armor is a work of art, either gilded in gems or sculpted like a fearsome beast.",
+					mechanics: [
+						"This armor comes with a closed helmet, that when worn, provides you gives you an Aura of 12, or 14 for more expensive versions.",
+						"You can use your armor's Aura in place of your own for Checks and Contests where an impressive physical appearance is a factor."
+					],
+					cost: "Aura 12: Armor Price +25; Aura 14: Armor Price +50"
+				},
+				shadowed: {
+					name: "Shadowed",
+					description: "This armor is engineered to avoid noisy movement, and colored to help it blend into the shadows. Heavy duty protection need not come at the expense of stealth.",
+					mechanics: [
+						"This armor provides a Minor Bonus(+2) when you are:",
+						"Making rolls to hide in shadow.",
+						"Attempting Stealthily Movement.",
+						"Attempting an Ambush."
+					],
+					cost: "Armor Price +15"
+				},
+				mechanical: {
+					name: "Mechanical Motion",
+					description: "A system of levers, pistons, gears, and chains allow this armor to move under it's own power. Warriors pilot these oversized suits rather than wear them.",
+					mechanics: [
+						"NOTE: , Only available for Heavy and Superheavy Armor.",
+						"Despite size the usual restriction, Small Species can use Heavy and Superheavy Armor without penalty if fitted with Mechanical Motion.",
+						"It takes an hour to adiust the armor to a pilot's measurements. It will need to be adjusted again if a different pilot wants to use it.",
+						"Mechanical Motion provides:",
+						"+2 to your Might Aptitude.",
+						"Supernatural Might",
+						"+1 to your Heart Total.",
+						"The ability to use combat gear as if a Large Species.",
+						"NOTE: This armor requires routine maintenance or it will lock up. Your GM will determine when maintenance is required, usually after five or so Fights or a long arduous Journey. Maintenance requires an evening and a single use of a Gadgeteer Kit by someone with the Gadeteering Crafting Discipline. Failure to do so will result in a Snag on all actions attempted while wearing the armor."
+					],
+					cost: "Armor Price x10"
+				}
+			},
+			customShieldTypes: {
+				assault: {
+					name: "Assault",
+					description: "These shields are spiked, have a sharp edge, or are otherwise weaponized.",
+					mechanics: [
+						"NOTE: Only available for Standard Shields",
+						"During a Fight, at the beginning of your Turn, you can choose to wield this shield as a Standard Weapon. Doing so means:",
+						"You will not benefit from the Shield's Defense Bonus on your opponent's next Turn.",
+						"You can still use it to Parry.",
+						"If you miss, you can Attack with another held weapon as if Dual-Wielding."
+					],
+					cost: "Shield Price +20"
+				},
+				barricade: {
+					name: "Barricade",
+					description: "Immense bulwarks that can be propped up and used as cover, Popular with wielders of ranged weapons with slow reload times.",
+					mechanics: [
+						"NOTE: Only available for Large Shields",
+						"Thanks to a kickstand, or other stabilizing device, this Shield can stand on its own. You can set it down and take cover behind it.",
+						"While behind cover:",
+						"The Shield will automatically Parry all Missile attacks directed at you.",
+						"You can make Missile attacks from behind the Shield and still benefit from its Defense Bonus.",
+						"You cannot Parry Melee attacks.",
+						"You do not receive the Shield's Defense Bonus for Melee Attacks.",
+						"Setting down or picking up the Shield does not require an Action, allowing you to Move and take Actions normally on your Turn."
+					],
+					cost: "Shield Price ×20"
+				}
 			},
 			quirks: {
 				spirit: {

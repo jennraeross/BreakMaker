@@ -1,20 +1,20 @@
 <html>
     <head>
-        <link rel="stylesheet" href="css/main.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="css/main.css?ckcachebust=705507951">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css?ckcachebust=705507951" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body id="app">
-        <nav class="container-fluid">
+        <nav class="container-fluid flex-responsive">
             <ul>
                 <li>
                     <strong>BreakMaker</strong>
                 </li>
             </ul>
-            <ul>
-                <li><button class="secondary" @click="dialogOpen = true">Roadmap</button></li>
-                <li><button class="secondary" @click="backupOpen = true">Backup/Restore</button></li>
-                <li><button id="print" @click="printDiv('sheetTemplate')">Download</button></li>
+            <ul class="flex-responsive">
+                <li><button class="secondary nav-button" @click="dialogOpen = true">Roadmap</button></li>
+                <li><button class="secondary nav-button" @click="backupOpen = true">Backup/Restore</button></li>
+                <li><button class="nav-button" id="print" @click="printDiv('sheetTemplate')">Download</button></li>
             </ul>
         </nav>
 
@@ -177,28 +177,95 @@
                     </nav>
                 </header>
                 <form>
-                    <label>
-                        Weapon
+                    <label style="display: grid;grid-template-columns: 3fr 1fr;">
+                        <span>Weapon</span>
+                        <span style="text-align: center;">Custom</span>
                         <select v-model="weaponSelected">
                             <option v-for="weapon in weapons">{{weapon.name}}</option>
                         </select>
+                        <input type="checkbox" style="place-self: center;" v-model="weaponCustom"/>
                     </label>
-                    <div class="grid">
-                        <label>
-                            Armor
-                            <select v-model="armorSelected">
-                                <option v-for="armor in armors">{{armor.name}}</option>
-                            </select>
-                        </label>
-                        <label>
-                            Shield
-                            <select v-model="shieldSelected">
-                                <option value="null">None</option>
-                                <option v-for="shield in shields">{{shield.name}}</option>
-                            </select>
-                        </label>
+                    <label style="display: grid;grid-template-columns: 3fr 1fr;">
+                        <span>Armor</span>
+                        <span style="text-align: center;">Custom</span>
+                        <select v-model="armorSelected">
+                            <option v-for="armor in armors">{{armor.name}}</option>
+                        </select>
+                        <input type="checkbox" style="place-self: center;" v-model="armorCustom"/>
+                    </label>
+                    <label style="display: grid;grid-template-columns: 3fr 1fr;">
+                        <span>Shield</span>
+                        <span style="text-align: center;">Custom</span>
+                        <select v-model="shieldSelected">
+                            <option value="null">None</option>
+                            <option v-for="shield in shields">{{shield.name}}</option>
+                        </select>
+                        <input type="checkbox" style="place-self: center;" v-model="shieldCustom"/>
+                    </label>
+                    <div v-if="weaponCustom || armorCustom || shieldCustom">
+                        <hr>
+                        <h5>Customization</h5>
+                        <div v-if="weaponCustom">
+                            <label>
+                                Custom Weapon Abilities
+                                <select v-model="customWeaponSelected">
+                                    <option value="">None</option>
+                                    <template v-for="custom in customWeaponTypes">
+                                        <option :value="custom">{{custom.name}}</option>
+                                    </template>
+                                </select>
+                            </label>
+                            <div v-if="customWeaponSelected">
+                                <label v-if="customWeaponSelected.name == 'Combination'">
+                                    Second Weapon Type
+                                    <select v-model="combinationWeaponSelected">
+                                        <option v-for="weapon in weapons">{{weapon.name}}</option>
+                                    </select> 
+                                </label>
+                                <p>{{customWeaponSelected.description}}</p>
+                                <ul>
+                                    <li v-for="mechanic in customWeaponSelected.mechanics">{{mechanic}}</li>
+                                </ul>
+                                <p>Cost: {{customWeaponSelected.cost}}</p>
+                                <hr v-if="armorCustom || shieldCustom">
+                            </div>
+                        </div>
+                        <div v-if="armorCustom">
+                            <label>
+                                Custom Armor Abilities
+                                <select v-model="customArmorSelected">
+                                    <option value="">None</option>
+                                    <template v-for="custom in customArmorTypes">
+                                        <option :value="custom">{{custom.name}}</option>
+                                    </template>
+                                </select>
+                            </label>
+                            <p v-if="customArmorSelected">{{customArmorSelected.description}}</p>
+                            <ul v-if="customArmorSelected">
+                                <li v-for="mechanic in customArmorSelected.mechanics">{{mechanic}}</li>
+                            </ul>
+                            <p v-if="customArmorSelected">Cost: {{customArmorSelected.cost}}</p>
+                            <hr v-if="customArmorSelected && shieldCustom">
+
+                        </div>
+                        <div v-if="shieldCustom">
+                            <label>
+                                Custom Shield Abilities
+                                <select v-model="customShieldSelected">
+                                    <option value="">None</option>
+                                    <template v-for="custom in customShieldTypes">
+                                        <option :value="custom">{{custom.name}}</option>
+                                    </template>
+                                </select>
+                            </label>
+                            <p v-if="customShieldSelected">{{customShieldSelected.description}}</p>
+                            <ul v-if="customShieldSelected">
+                                <li v-for="mechanic in customShieldSelected.mechanics">{{mechanic}}</li>
+                            </ul>
+                            <p v-if="customShieldSelected">Cost: {{customShieldSelected.cost}}</p>
+
+                        </div>
                     </div>
-                    
                     
                 </form>
             </article>

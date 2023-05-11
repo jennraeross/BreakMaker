@@ -67,7 +67,7 @@
     "\/source\/index.html" : {
       "cB" : 1,
       "ft" : 8192,
-      "hM" : 1,
+      "hM" : 0,
       "oA" : 0,
       "oAP" : "\/build\/index.html",
       "oF" : 0

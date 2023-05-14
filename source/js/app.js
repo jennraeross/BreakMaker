@@ -6189,7 +6189,7 @@ export default {
 			let brightness = (Number(this.getBrightPoints) + Number(this.brightPoints));
 			let darkness = (Number(this.getDarkPoints) + Number(this.darkPoints));
 
-			if (brightness > 1 || darkness > 1){
+			if (brightness + darkness > 1){
 				if (brightness > darkness + 1) {
 					return 'Bright Aligned';
 				}

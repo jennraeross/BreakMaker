@@ -1,7 +1,7 @@
 <html>
     <head>
-        <link rel="stylesheet" href="css/main.css?ckcachebust=705724399">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css?ckcachebust=705724399" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="css/main.css?ckcachebust=705777100">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css?ckcachebust=705777100" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body id="app">
@@ -124,11 +124,11 @@
                     </label>
                     <div class="grid">
                         <label>
-                            Bright Allegiance Points
+                            Extra Bright Allegiance Points
                             <input type="text" v-model="brightPoints">
                         </label>
                         <label>
-                            Dark Allegiance Points
+                            Extra Dark Allegiance Points
                             <input type="text" v-model="darkPoints">
                         </label>
                     </div>
@@ -414,54 +414,6 @@
                             </select>
                         </label>
                     </div>
-                </form>
-            </article>
-
-            <article id="giftsForm" v-if="brightPoints >=3 || darkPoints >= 3 || speciesSelected == 'Tenebrate'">
-                <header>
-                    <nav>
-                        <ul>
-                            <li><i class="fa-solid fa-circle-half-stroke fa-xl"></i></li>
-                            <li>
-                                <hgroup>
-                                    <h4>Gifts</h4>
-                                    <h5>Signs of your allegiance to the Bright or the Dark</h5>
-                                </hgroup>
-                            </li>
-                        </ul>
-                    </nav>
-                </header>
-                <form>
-                    <label v-if="brightPoints >= 3">
-                        Bright Gifts
-                        <select v-model="brightGifts[0]">
-                            <option v-for="gift in gifts.bright" :value="gift.name">{{gift.name}}</option>
-                        </select>
-                        <select v-model="brightGifts[1]" v-if="brightPoints >= 6">
-                            <option v-for="gift in gifts.bright" :value="gift.name">{{gift.name}}</option>
-                        </select>
-                        <select v-model="brightGifts[2]" v-if="brightpoints >= 9">
-                            <option v-for="gift in gifts.bright" :value="gift.name">{{gift.name}}</option>
-                        </select>
-                    </label>
-                    <label v-if="darkPoints >= 3">
-                        Dark Gifts
-                        <select v-model="darkGifts[0]">
-                            <option v-for="gift in gifts.dark" :value="gift.name">{{gift.name}}</option>
-                        </select>
-                        <select v-model="darkGifts[1]" v-if="darkPoints >= 6">
-                            <option v-for="gift in gifts.dark" :value="gift.name">{{gift.name}}</option>
-                        </select>
-                        <select v-model="darkGifts[2]" v-if="darkPoints >= 9">
-                            <option v-for="gift in gifts.dark" :value="gift.name">{{gift.name}}</option>
-                        </select>
-                    </label>
-                    <label v-if="speciesSelected == 'Tenebrate'">
-                        Tenebrate Gift
-                        <select v-model="tenebrateGift">
-                            <option v-for="gift in gifts.dark" :value="gift.name">{{gift.name}}</option>
-                        </select>
-                    </label>
                 </form>
             </article>
             
@@ -795,6 +747,54 @@
                         </optgroup>
                     </select>
                 </label>
+            </article>
+
+            <article id="giftsForm" v-if="(Number(getBrightPoints) + Number(brightPoints)) >=3 || (Number(getDarkPoints) + Number(darkPoints)) >= 3 || speciesSelected == 'Tenebrate'">
+                <header>
+                    <nav>
+                        <ul>
+                            <li><i class="fa-solid fa-circle-half-stroke fa-xl"></i></li>
+                            <li>
+                                <hgroup>
+                                    <h4>Gifts</h4>
+                                    <h5>Signs of your allegiance to the Bright or the Dark</h5>
+                                </hgroup>
+                            </li>
+                        </ul>
+                    </nav>
+                </header>
+                <form>
+                    <label v-if="(Number(getBrightPoints) + Number(brightPoints)) >= 3">
+                        Bright Gifts
+                        <select v-model="brightGifts[0]">
+                            <option v-for="gift in gifts.bright" :value="gift.name">{{gift.name}}</option>
+                        </select>
+                        <select v-model="brightGifts[1]" v-if="(Number(getBrightPoints) + Number(brightPoints)) >= 6">
+                            <option v-for="gift in gifts.bright" :value="gift.name">{{gift.name}}</option>
+                        </select>
+                        <select v-model="brightGifts[2]" v-if="(Number(getBrightPoints) + Number(brightPoints)) >= 9">
+                            <option v-for="gift in gifts.bright" :value="gift.name">{{gift.name}}</option>
+                        </select>
+                    </label>
+                    <label v-if="(Number(getDarkPoints) + Number(darkPoints)) >= 3">
+                        Dark Gifts
+                        <select v-model="darkGifts[0]">
+                            <option v-for="gift in gifts.dark" :value="gift.name">{{gift.name}}</option>
+                        </select>
+                        <select v-model="darkGifts[1]" v-if="(Number(getDarkPoints) + Number(darkPoints)) >= 6">
+                            <option v-for="gift in gifts.dark" :value="gift.name">{{gift.name}}</option>
+                        </select>
+                        <select v-model="darkGifts[2]" v-if="(Number(getDarkPoints) + Number(darkPoints)) >= 9">
+                            <option v-for="gift in gifts.dark" :value="gift.name">{{gift.name}}</option>
+                        </select>
+                    </label>
+                    <label v-if="speciesSelected == 'Tenebrate'">
+                        Tenebrate Gift
+                        <select v-model="tenebrateGift">
+                            <option v-for="gift in gifts.dark" :value="gift.name">{{gift.name}}</option>
+                        </select>
+                    </label>
+                </form>
             </article>
 
             <article id="companionForm">
@@ -1462,18 +1462,19 @@
                     <div class="grid">
                         <label>
                             Bright Points
-                            <button class="outline">{{brightPoints}}</button>
+                            <button class="outline">{{Number(getBrightPoints) + Number(brightPoints)}}</button>
                         </label>
                         <label>
                             Dark Points
-                            <button class="outline">{{darkPoints}}</button>
+                            <button class="outline">{{Number(getDarkPoints) + Number(darkPoints)}}</button>
                         </label>
                     </div>
-                    <h5 v-if="brightPoints > (darkPoints + 1)">Bright Aligned</h5>
+                    <!--<h5 v-if="brightPoints > (darkPoints + 1)">Bright Aligned</h5>
                     <h5 v-if="darkPoints > (brightPoints + 1)">Dark Aligned</h5>
                     <h5 v-if="brightPoints <= (darkPoints + 1) && darkPoints <= (brightPoints + 1) && (brightPoints != 0 || darkPoints != 0)">Twilight Aligned</h5>
-                    <h5 v-if="brightPoints == 0 && darkPoints == 0">Unaligned</h5>
-                    <h5 v-if="brightPoints >= 3">Bright Gifts:</h5>
+                    <h5 v-if="brightPoints == 0 && darkPoints == 0">Unaligned</h5>-->
+                    <h5>{{getAlignment}}</h5>
+                    <h5 v-if="(Number(getBrightPoints) + Number(brightPoints)) >= 3">Bright Gifts:</h5>
                     <template v-for="gift in brightGifts">
                         <details open>
                             <summary>{{gift}}</summary>
@@ -1482,7 +1483,7 @@
                             </template>
                         </details>
                     </template>
-                    <h5 v-if="darkPoints >= 3 || speciesSelected == 'Tenebrate'">Dark Gifts:</h5>
+                    <h5 v-if="(Number(getDarkPoints) + Number(darkPoints)) >= 3 || speciesSelected == 'Tenebrate'">Dark Gifts:</h5>
                     <template v-for="gift in darkGifts">
                         <details open>
                             <summary>{{gift}}</summary>
@@ -3370,7 +3371,7 @@
                     <li><s>Backup/Restore System</s></li>
                     <li><s>Item Customization</s></li>
                     <li><s>Companions</s></li>
-                    <li>Improved Bright/Dark Point Management</li>
+                    <li><s>Improved Bright/Dark Point Management</s></li>
                 </ul>
             </article>
         </dialog>

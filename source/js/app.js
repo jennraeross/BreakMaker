@@ -6110,6 +6110,99 @@ export default {
 
 				}
 			}
+		},
+		getBrightPoints() {
+			let calcBright = 0;
+			if (this.speciesSelected) {
+				if (this.speciesSelected == 'Promethean') calcBright++;
+			}
+			if (this.callingSelected){
+				if (this.callingSelected == 'Battle Princess') {
+					if (this.hasAbility('Glittering Machine')) calcBright++
+					if (this.hasAbility("Passion's Fire")) calcBright++;
+					if (this.hasAbility('Cry of the Heart')) calcBright++;
+					if (this.hasAbility('Spirit Wings')) calcBright++;
+					if (this.hasAbility('Opened Hearts')) calcBright++;
+					if (this.hasAbility('Radiant Blade')) calcBright++;
+					if (this.hasAbility("Heart's Aegis")) calcBright++;
+				}
+				else if (this.callingSelected == 'Sage') {
+					if (this.hasAbility('Glowing Ink')) calcBright++;
+					if (this.hasAbility('Very Useful Cloud')) calcBright++;
+					if (this.hasAbility('Eldritch Explosives')) calcBright++;
+					if (this.hasAbility('Mana Crush')) calcBright++;
+					if (this.hasAbility('Harmonious Geomancy')) calcBright++;
+					if (this.hasAbility('Momentary Fortress')) calcBright++;
+				}
+				else if (this.callingSelected == 'Heretic') {
+					if (this.hasAbility('Yogi Tulpa')) calcBright++;
+					if (this.hasAbility('Wretched Jarah')) calcBright++;
+					if (this.hasAbility('Altgrave Ultima')) calcBright++;
+					if (this.hasAbility('Imperatrix Delilah')) calcBright++;
+					if (this.hasAbility('Queen Amhika')) calcDark++;
+				}
+			}
+			if (this.inventory.includes(this.items.artifacts.starGem)) calcBright++;
+			return calcBright;
+
+		},
+		getDarkPoints() {
+			let calcDark = 0;
+			if (this.speciesSelected) {
+				if (this.speciesSelected == 'Tenebrate') calcDark++;
+			}
+			if (this.callingSelected){
+				if (this.callingSelected == 'Murder Princess') {
+					if (this.hasAbility('Frost Blade')) calcDark++;
+					if (this.hasAbility('Wrath Bolt')) calcDark++;
+					if (this.hasAbility('Barbed Justice')) calcDark++;
+					if (this.hasAbility('Caustic Truth')) calcDark++;
+					if (this.hasAbility('Blade of Darkness')) calcDark++;
+					if (this.hasAbility('Red Petal Revenge')) calcDark++;
+				}
+				else if (this.callingSelected == 'Heretic') {
+					if (this.hasAbility('The Widow Prisma')) calcDark++;
+					if (this.hasAbility('Deacon Galrave')) calcDark++;
+					if (this.hasAbility('Bushi Miyabi')) calcDark++;
+					if (this.hasAbility('Seer Kasnah')) calcDark++;
+					if (this.hasAbility('Messenger Kaila')) calcDark++;
+					if (this.hasAbility('Count Paris')) calcDark++;
+					if (this.hasAbility('Prince Justiniaus')) calcDark++;
+					if (this.hasAbility('Dowager Collette')) calcDark++;
+					if (this.hasAbility('Servant Pazuu')) calcDark++;
+					if (this.hasAbility('Umbra Draconis')) calcDark++;
+					if (this.hasAbility('Egomet')) calcDark++;
+				}
+				else if (this.callingSelected == 'Sage') {
+					if (this.hasAbility('Hocus Pox')) calcDark++;
+					if (this.hasAbility('Murky Mask')) calcDark++;
+					if (this.hasAbility('Cloak of Obscurity')) calcDark++;
+					if (this.hasAbility('Shadow Puppet')) calcDark++;
+					if (this.hasAbility('Soothing Darkness')) calcDark++;
+					if (this.hasAbility('Mortifying Bloat')) calcDark++;
+				}
+			}
+			if (this.inventory.includes(this.items.artifacts.shadowStone)) calcDark++;
+			return calcDark;
+		},
+		getAlignment() {
+			let brightness = (Number(this.getBrightPoints) + Number(this.brightPoints));
+			let darkness = (Number(this.getDarkPoints) + Number(this.darkPoints));
+
+			if (brightness > 1 || darkness > 1){
+				if (brightness > darkness + 1) {
+					return 'Bright Aligned';
+				}
+				else if (darkness > brightness + 1) {
+					return 'Dark Aligned';
+				}
+				else {
+					return 'Twilight Aligned';
+				}
+			} 
+			else {
+				return 'Unaligned';
+			}
 		}
 	},
 	methods: {

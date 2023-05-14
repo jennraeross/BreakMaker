@@ -1,7 +1,7 @@
 <html>
     <head>
-        <link rel="stylesheet" href="css/main.css?ckcachebust=705724107">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css?ckcachebust=705724107" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="css/main.css?ckcachebust=705724399">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css?ckcachebust=705724399" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body id="app">
@@ -35,31 +35,6 @@
                         </ul>
                     </nav>
                 </header>
-                <dialog :open="dialogOpen">
-                    <article>
-                        <header>
-                            <a href="#close" aria-label="Close" class="close" @click="dialogOpen = false"></a>
-                            Roadmap
-                        </header>
-                        <ul>
-                            <li><s>Initial Release</s></li>
-                            <li><s>Battle Princess Elective Abilities</s></li>
-                            <li><s>Dark Bright Gifts</s></li>
-                            <li><s>Rudimentary PDF Export</s></li>
-                            <li><s>Armor & Shields</s></li>
-                            <li><s>Species Abilities</s></li>
-                            <li><s>All Histories</s></li>
-                            <li><s>All Callings</s></li>
-                            <li><s>Quirks</s></li>
-                            <li><s>Inventory System</s></li>
-                            <li><s>Improve Printing</s></li>
-                            <li><s>Backup/Restore System</s></li>
-                            <li><s>Item Customization</s></li>
-                            <li>Companions</li>
-                            <li>Improved Bright/Dark Point Management</li>
-                        </ul>
-                    </article>
-                </dialog>
                 <form>
                     <label>
                         Name
@@ -822,7 +797,7 @@
                 </label>
             </article>
 
-            <article>
+            <article id="companionForm">
                 <header>
                     <nav>
                         <ul>
@@ -3371,6 +3346,32 @@
                 <hr>
                 <input type="file" name="import-file" id="import-file" accept="application/json"/>
                 <button @click="restore(); backupOpen = false">Restore</button>
+            </article>
+        </dialog>
+
+        <dialog :open="dialogOpen">
+            <article>
+                <header>
+                    <a href="#close" aria-label="Close" class="close" @click="dialogOpen = false"></a>
+                    Roadmap
+                </header>
+                <ul>
+                    <li><s>Initial Release</s></li>
+                    <li><s>Battle Princess Elective Abilities</s></li>
+                    <li><s>Dark Bright Gifts</s></li>
+                    <li><s>Rudimentary PDF Export</s></li>
+                    <li><s>Armor & Shields</s></li>
+                    <li><s>Species Abilities</s></li>
+                    <li><s>All Histories</s></li>
+                    <li><s>All Callings</s></li>
+                    <li><s>Quirks</s></li>
+                    <li><s>Inventory System</s></li>
+                    <li><s>Improve Printing</s></li>
+                    <li><s>Backup/Restore System</s></li>
+                    <li><s>Item Customization</s></li>
+                    <li><s>Companions</s></li>
+                    <li>Improved Bright/Dark Point Management</li>
+                </ul>
             </article>
         </dialog>
 

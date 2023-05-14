@@ -49,6 +49,443 @@ export default {
 			brightGifts: [],
 			darkGifts: [],
 			tenebrateGift: null,
+			companionSelected: null,
+			followerSpecies: null,
+			followerHumanCalling: null,
+			followerHumanAbility: null,
+			soulCompAbility1: null,
+			soulCompAbility5: null,
+			companionTypes: {
+				followers: {
+					scamp: {
+						name: "Scamp",
+						description: "Youthful sidekicks who rely on pluck and enthusiasm to compensate for a lack of experience. There's no shortage of bored, naive, or desperate youth in Outer World.",
+						stats: [0, 2, 6, 7, 6, 6, 6],
+						abilities: [
+							"Impish: All Scamps have the Young Quirk",
+							"Native Human? Choose an additional Standard Elective Ability from either the Sneak or Raider"
+						],
+						electiveAbility: ["Sneak", "Raider"],
+						inventory: [
+							"Tattered Outfit",
+							"Standard Weapon with the Shoddy Ability."
+						],
+						services: "Scamps will help you with simple tasks. For example, running errands, eavesdropping or holding your torch.",
+						recruitment: "You gain a Minor Bonus (+2) if you have been generous, paternal, or protective towards your Scamp.",
+						fee: 1
+					},
+					scholar: {
+						name: "Scholar",
+						description: "Scholars are ordinary folk with an unhealthy interest in a useful skill or area of knowledge. They are usually motivated by boredom, greed, or curiosity.",
+						stats: [0, 2, 6, 6, 6, 7, 6],
+						abilities: [
+							"Specialist Subject: Scholars have a Purview pertaining to a single area of knowledge. For example, the history of ancient Akenia.",
+							"They also have a Language related to this knowledge.",
+							"Researcher: Scholars can perform Research on your behalf.",
+							"Native Human? Choose an additional Standard Elective Ability from either the Factotum or Sage."
+						],
+						electiveAbility: ["Factotum", "Sage"],
+						inventory: [
+							"Functional Outfit",
+							"Traveller's Bag",
+							"Scholars with a Crafting Discipline also have a Specialist Toolkit or access to a Workshop."
+						],
+						services: "Scholars will provide you with facts and information about their Specialist Subject.",
+						recruitment: "You gain a Minor Bonus (+2) if you have a Calling or Origin that appeals to the Scholar.",
+						fee: 5
+					},
+					guide: {
+						name: "Guide",
+						description: "These folk have travelled further from home than most would consider safe. They are able to guide anyone who wants to venture beyond the city wall.",
+						stats: [0, 2, 6, 6, 7, 6, 6],
+						abilities: [
+							"Wayfarer: These folk can act as Guides (+ p226) in the Region they are hired in. For example, the Wistful Dark or Blazing Gardens. Once Recruited, Guides can lead in new Regions if they spend one session of Downtime scouting.",
+							"Native Human? Guides can choose an additional Standard Elective Ability from either the Factotum or Raider."
+						],
+						electiveAbility: ["Factotum","Raider"],
+						inventory: [
+							"Extreme Weather Outfit",
+							"Traveller's Bag",
+							"Guides with a Crafting Discipline also have a Specialist Toolkit or access to a Workshop."
+						],
+						services: "Guides will escort you to and from a location within the Region they are familiar with.",
+						recruitment: "You gain a Minor Bonus (+2) if you have a Calling or Origin that appeals to the Guide.",
+						fee: 5
+					},
+					custrel: {
+						name: "Custrel",
+						description: "Combat ready assistants and squires. Custrels specialize in acting as seconds or bodyguards in battle, as well as taking care of little things for their ward or master.",
+						stats: [1, 2, 7, 6, 6, 6, 6],
+						abilities: [
+							"Weapon Proficiency: Custrels can use Light Armor and two other pieces of uncustomized combat gear of their choice. They will not be proficient in gear which would incur a penalty because of their Species Size's Combat Gear Allowance.",
+							"Native Human? Custrels can choose a Standard Elective Ability from the Champion or Battle Princess."
+						],
+						electiveAbility: ["Champion", "Battle Princess"],
+						inventory: [
+							"Appealing or Authoritative Outfit",
+							"Light Armor",
+							"Any 2 pieces of combat gear, which they are proficient in."
+						],
+						services: "Custrels will fight alongside, or protect you, when exploring dangerous places.",
+						recruitment: "You gain a Minor Bonus (421 16 you have a Calling or Origin that appeals to the Custrel.",
+						fee: 8
+					}
+				},
+				pets: {
+					growl: {
+						name: "Growl",
+						description: "These furry canines are popular pets among common folk, but also the mount of choice for the tiny warror. Selective breeding has resulted in some distinct breeds but all are uniformly fierce with a keen sense of smell.",
+						stats: [1, 3, 7, 7, 7, 7, 4],
+						defense: 14,
+						speed: "Fast",
+						abilities: [
+							"Tracking: Growis grant you an Edge on tracking or detecting quarry with a particular scent.",
+							"Super Sense: They grow and snarl if someone unfamiliar close by is using magic of some kind, even if not visible or obvious"
+						],
+						inventory: [
+							"6 Slots with a harness",
+							"Can be Mounts for Small Species."
+						],
+						fighting: [
+							"Claws and fangs strike like a Quick Weapon providing a +1 Defense Bonus during a Fight*."
+						],
+						cost: 75
+					},
+					buzzer: {
+						name: "Buzzer",
+						description: "Named after the curious humming sound they make, these large, scuttling insects have chitinous armor and a nasty nip. Vicious but loyal, Buzzers are popular with bandits and nomads due to their hardy nature.",
+						stats: [1, 2, 7, 7, 7, 3, 3],
+						defense: 15,
+						abilities: [
+							"Buzz Off: When they, or their owner, are under attack Buzzers can raise the pitch of their hum to an unpleasant level. The Battlefield Area they occupy becomes Obscured unless your ears are protected.",
+							"Exoskeleton: Their tough shell boosts their Defense by +4*.",
+							"Grazing: They require an environment that contains vermin or other small creatures to Graze."
+						],
+						inventory: [
+							"6 Slots with a harness.",
+							"Can be Mounts for Small Species."
+						],
+						fighting: [
+							"Mand bles strike like a Standard Weapon."
+						],
+						cost: 75
+					},
+					pudgeGrub: {
+						name: "Pudge Grub",
+						description: "About the size and weight of a ripe watermelon, these bright, doughy creatures waddle harmlessly all over Outer World. They are easy prey but survive through frequent asexual division. Most commonly used as low maintenance livestock, they also have practical uses for Adventurers.",
+						stats: [0, 1, 3, 3, 3, 3, 3],
+						defense: 11,
+						speed: "Slow",
+						abilities: [
+							"Directable Decoy: If urged in one direction, Pudge Grubs will trundle away until prompted to stop or go in another direction, much like a clockwork toy.",
+							"Delicious Decoy: Their sweet smell and succulent appearance make Pudge Grubs irresistible to bestial predators, who must make a Grit Check to avoid stalking them.",
+							"Squashy Defense: All crushing or squashing Attacks, such as fists or clubs, do 1 less Heart of Damage.",
+							"Edible: If butchered they provide 3 Units of Hardy Rations.",
+							"Grazing: They require an environment of lush grass, fungus, or moss to Graze."
+						],
+						inventory: [
+							"6 Slots with a harness.",
+							"Can be really, really, slow Mounts for Small Species. The distance you can cover in one day is halved!"
+						],
+						fighting: [
+							"Nope."
+						],
+						cost: 20
+					},
+					fuzzcoil: {
+						name: "Fuzzcoil",
+						description: "These hairy, serpentine creatures wrap themselves around their owners, keeping out of sight; up sleeves or inside tunics. Their venom can be milked, diluted, and then sold as an anti-aging remedy. While this odd elixir does tighten the skin, the effect is only temporary.",
+						stats: [1, 2, 5, 5, 5, 5, 5],
+						defense: 13,
+						speed: "Fast",
+						abilities: [
+							"Wearable: The animal will wrap around a part of your body and remain there unless forced or ordered off. Easily mistaken for a harmless pelt by casual observers.",
+							"Venom: Anyone bitten must make a successful Grit Check or become Disoriented for 4 Turns. Once poisoned, the afflicted cannot be affected by Fuzzcoil venom for another 24 hours."
+						],
+						inventory: [
+							"1 Slot in their mouth, or coiled in their tail."
+						],
+						fighting: [
+							"Strike like a Concealed Weapon and can make a Sneaky Swipe at a target, if worn or hidden. A successful hit is also venomous."
+						],
+						cost: 100
+					},
+					skree: {
+						name: "Skree",
+						description: "An umbrella term for small flying creatures, covering birds, bats, and moth-like species Quick and intelligent, Skree can be trained to be aerial scouts and messengers.",
+						stats: [1, 2, 4, 7, 4, 7, 4],
+						defense: 13,
+						speed: "Fast",
+						abilities: [
+							"Fast flyer: When in flight, a Skree is Fast*; when grounded its speed is reduced to Average, and its Defense Rating drops to 11.",
+							"Messenger: Skrees can carry messages, or small items, to a location or character that they are familiar with. They will eventually wing their way back to you.",
+							"Sky Scout: On a Journey your Skree can act as a Scout with the following differences:",
+							"They get an Edge on their Stealth roll, as they are small and airborne. If detected, observers still might not think anything of it.",
+							"They can not relay precise information, only indicate if the way ahead has: a serious threat a potential threat, or no threat.",
+							"Grazing: They require an open area populated by tiny vermin to Graze."
+						],
+						inventory: [
+							"1 Slot in Talons, or Beak."
+						],
+						fighting: [
+							"Skrees cannot damage targets larger than themselves. but they can flutter and harry your foes providing an Attack Assist."
+						],
+						cost: 100
+					},
+					purr: {
+						name: "Purr",
+						description: "Small, capricious feline creatures that are, at best, casually attached to their owners. While they avoid a fight when possible, their sly interventions can be useful. Most Purrs are covered in colorful fur, though hairless and scaled breeds exist.",
+						stats: [0, 2, 4, 8, 4, 8, 4],
+						defense: 11,
+						abilities: [
+							"Slinky: Nimble and acrobatic, Purrs have an Edge on all roils involving climbing, getting to high places, and landing safely.",
+							"Occasional Obedience: Purrs are able to understand simple commands like \"Knock that over\" or \"Catch that\", but sometimes they simply don't feel like doing it. You must make a successful Aura Check to instruct your Purr. Once per session, your GM can direct your Purr to act independently, this might prove costly or useful, You must make an Aura Check to stop them.",
+							"Grazing: They require an area containing small mammals or vermin to Graze."
+						],
+						inventory: [
+							"Purrs refuse to wear a harness or be used as a Mount. However, they can snatch and carry small items in their teeth."
+						],
+						fighting: [
+							"Purrs cannot damage targets larger than themselves, but they can perform Combat Tricks."
+						],
+						cost: 75
+					}
+				},
+				mounts: {
+					jumbug: {
+						name: "Jumbug",
+						description: "Giant insectoids with powerful hind legs that rocket them forwards. Notoriously dangerous to ride, these beast's unusual propulsion method them helps traverse the most tortuous terrain. Jumbugs are also famed for the soft chirping sounds they make while settling down, soothing for both owner and beast.",
+						stats: [0, 3, 9, 9, 4, 4, 4],
+						defense: 15,
+						speed: "Fast",
+						abilities: [
+							"Exoskeleton: Their tough shell boosts their Defense Rating by +4*.",
+							"Boing: The Jumbug is capable of Supernatural Leaping. Any jumps attempted during a Fight, or similarly tense situation, require the rider to make a Deftness or Might Check to avoid falling off and being Toppled.",
+							"Grazing: They require an environment with plentiful flora or fungus to Graze."
+						],
+						inventory: [
+							"12 Slots with a harness."
+						],
+						fighting: [
+							"Mandibles strike as a Standard Weapon."
+						],
+						cost: 200
+					},
+					mokkoDo: {
+						name: "Mokko-Do",
+						description: "These fluffy, flightless birds are much quicker than they appear. Their speed and reliability has made them one of the most common mounts on Outer World. This popularity has also inspired best of-breed shows, races and other novelty events capable of drawing large crowds. Pedigree specimens, with rich or attractive plumage, will cost twice the market price.",
+						stats: [0, 3, 8, 8, 5, 5, 5],
+						defense: 11,
+						speed: "Fast",
+						abilities: [
+							"Useful Beak: The Mokko-Do's beak, while unsuitable for combat, is precise enough to grab and hold onto most items that a human could, though using most of them is still beyond the creature.",
+							"Mokko-yolk: When Camping on a Journey, females can produce an egg a day, equivalent to 1 Ration, providing the animal is not suffering from Starvation.",
+							"Grazing: They require an environment with lots of grass or coarse flora to Graze."
+						],
+						inventory: [
+							"12 Slots with a harness."
+						],
+						fighting: [
+							"Talons strike as Standard Weapons."
+						],
+						cost: 150
+					},
+					rokkoDo: {
+						name: "Rokko-Do",
+						description: "The larger and more fearsome cousin of the Mokko Do, These creatures are difficult to train and prone to bluster, but ultimately fierce and loyal mounts once tamed. Rumors of the flying Black Rokko-do persist despite no recorded sighting for hundreds of years. Highly valued steeds among noble warriors.",
+						stats: [2, 4, 9, 9, 9, 5, 5],
+						defense: 11,
+						speed: "Fast",
+						abilities: [
+							"One Master: Rokko-Do will become extremely attached to you if you treat them well.",
+							"An Aura Check is required to coax them into allowing another person to mount them.",
+							"They will refuse to leave you behind if you fall in battle, either dragging your body to safety or standing over you to ward off attackers until help arrives.",
+							"Fearlessly Loyal: Rokko-Dos automatically pass Loyalty Checks."
+						],
+						inventory: [
+							"12 Slots with a harness."
+						],
+						fighting: [
+							"Beak and Talons strike as Standard Weapons.",
+							"Rokko-Do's are Battle Ready."
+						],
+						cost: 275
+					},
+					largzard: {
+						name: "Largzard",
+						description: "These irrepressible lizards are admired for their ferocity in battle, less so for their servility. The high price reflects the difficult and dangerous process of training ther The legendary flame breathing Crimson Largzard has never been caught, let alone tamed. Used by immense warriors too bulky for standard Mounts.",
+						stats: [3, 5, 10, 10, 10, 4, 4],
+						defense: 15,
+						abilities: [
+							"Ravenous: These creatures must consume 2 Units of Rations a day. Failure to do so will prompt the Largzard to attack and kill for food, usually targeting your smaller companions first.",
+							"Scutes: Their thick scales provide fortification, boosting their Defense Rating by +6* but making them less nimble than other mounts.",
+							"Blood Lust: Directing these violent creatures away from a Fight requires a successful Aura Check Failure means they enter the fray. often carrying you with them."
+						],
+						inventory: [
+							"16 Slots with a harness."
+						],
+						fighting: [
+							"Bite strikes as a Mighty Weapon.",
+							"Tail strikes as an Are Weapon.",
+							"Largzard's are Battle Ready."
+						],
+						cost: 500
+					}
+				},
+				packBeasts: {
+					shaggyBumpo: {
+						name: "Shaggy Bumpo",
+						description: "These humongous bovids have a fluffy, charming appearance that behes their rugged frame. Their strength, coupled with a compliant nature, make them perfect beasts of burden. The Bumpo is a paternal animal and will 'adopt unattached youth, which they will then vigorously defend.",
+						stats: [0, 4, 10, 3, 10, 3, 3],
+						defense: 9,
+						abilities: [
+							"Shaggy: A Bumpo may be shorn once a year, providing 2 Units of Bumpo Wool (Trade Goods). Their fleece is a great raw material for crafting Cold Weather Outfits.",
+							"Bumpo Cream: Females can be milked once a day to produce 2 Ration's worth of cream, providing the animal is not suffering from Starvation.",
+							"Grazing: They require an environment with lots of grass or coarse flora to Graze."
+						],
+						inventory: [
+							"20 Slots with harness."
+						],
+						fighting: [
+							"Hooves and Horns strike as if Unarmed, a gentle giant."
+						],
+						cost: 400
+					},
+					grubbish: {
+						name: "Grubbish",
+						description: "Enormous, multi-legged and bulbous; Grubbish are awkward but stable beasts. Having originated in the Mana Wastes, these creatures are extremely resilient, and this has made them popular with travellers and traders that operate in inhospitable locations. Most Grubbish have a simple, mask-like face, but some rare specimens look unnervingly human.",
+						stats: [0, 3, 10, 4, 10, 4, 4],
+						defense: 9,
+						abilities: [
+							"Will-less: They are rather dull creatures, and will obey their owner without question. Grubbish never need to make Loyalty Checks.",
+							"Iron Guts: Grubbish can eat spoiled or even poisonous food.",
+							"Filth dweller: Grubbish are immune to being Putrefied, as well as any ill effects from ingested toxic materials.",
+							"Grazing: They can Graze anywhere there is something organic to eat."
+						],
+						inventory: [
+							"20 Slots with harness."
+						],
+						fighting: [
+							"Feelers strike as if Unarmed."
+						],
+						cost: 435
+					}
+				},
+				soulCompanions: {
+					guardianAnimal: {
+						name: "Guardian Animal",
+						description: "Your four-legged familiar appears normal in shape and size but inherits your colors, or any distinct markings or patterns you wear.",
+						stats: [0,2],
+						defense: 12,
+						speed: "Fast",
+						abilities: [
+							"Languages: Bright Tongue, Low Speak. Companions will only talk to you unless otherwise requested.",
+							"Range: They can exist up to 40 ft away from you. Beyond that range they vanish, only to reappear by your side.",
+							"Ailments: They are immune to the direct effect of Aliments, however they suffer the symptoms of any Ailments you contract!",
+							"Sustenance: They do not need to eat, breath or rest. They vanish whenever you fall asleep or are rendered unconscious. They disappear forever if you die.",
+							"Advancement: When you reach Rank 5 they gain an additional Heart and a new Champion Ability.",
+							"Aptitudes: Aptitudes are 2 points lower than your own."
+						],
+						optAbilities: {
+							mount: {
+								name: "Mount",
+								description: "When required, they can grow in size to carry a rider.",
+								mechanics: [
+									"Companions are Battle Ready when in Mount form."
+								]
+							},
+							burrower: {
+								name: "Burrower",
+								description: "They have claw-like digging tools for rapid excavation.",
+								mechanics: [
+									"They can excavate a PC-sized tunnel through a Battlefield Area's worth of soil each Turn."
+								]
+							},
+							fighter: {
+								name: "Fighter",
+								description: "They grow fangs, claws or some other natural weapon.",
+								mechanics: [
+									"They can now Attack as if wielding a Standard Weapon.",
+									"Their Attack Bonus is now half yours, rounded down."
+								]
+							},
+							glider: {
+								name: "Glider",
+								description: "They sprout small, vestigial wings incapable of full flight.",
+								mechanics: [
+									"They gain Supernatural Leaping."
+								]
+							}
+						},
+						inventory: [
+							"Inventory Slots: 6",
+							"Any carried items are dropped if they vanish for any reason."
+						],
+						fighting: [
+							"Attack: They are not powerful enough to harm foes, but can perform Attack Assists for you or your allies.",
+							"Health: At 0 Hearts they puff out of existence, but will return after you've slept and rested."
+						]
+					},
+					braveToy: {
+						name: "Brave Toy",
+						description: "Your small, mechanical doll is dressed like a knight or soldier. It also sports an emblem of great significance to you.",
+						stats: [0,2],
+						defense: 14,
+						abilities: [
+							"Languages: Bright Tongue, Low Speak. Companions will only talk to you unless otherwise requested.",
+							"Range: They can exist up to 40 ft away from you. Beyond that range they vanish, only to reappear by your side.",
+							"Ailments: They are immune to the direct effect of Aliments, however they suffer the symptoms of any Ailments you contract!",
+							"Sustenance: They do not need to eat, breath or rest. They vanish whenever you fall asleep or are rendered unconscious. They disappear forever if you die.",
+							"Advancement: When you reach Rank 5 they gain an additional Heart and a new Champion Ability.",
+							"Aptitudes: Aptitudes are 2 points lower than your own."
+						],
+						optAbilities: {
+							shielder: {
+								name: "Shielder",
+								description: "They can defend themselves and others.",
+								mechanics: [
+									"Once per Fight, they can Parry one Attack made against them, or any allies that in the same Battlefield Area as them, like a Shield.",
+									"As if built by Magical Materials, they do not break when blocking a Magical Attack or Ability."
+								]
+							},
+							weaponLink: {
+								name: "Weapon Link",
+								description: "They can transform and connect to your Heart's Blade for extra impact.",
+								mechanics: [
+									"Your Companion and your Heart's Blade can combine once per Session to provide either:",
+									"A Minor Bonus (+2) to all Attack rolls or...",
+									"Deal an additional Heart of Damage on a successful strike."
+								]
+							},
+							booster: {
+								name: "Booster",
+								description: "They can convert into a jetpack, cling onto your back, and lift you to safety.",
+								mechanics: [
+									"You gain the power of flight at an Average Speed Rating.",
+									"The boost grants enough lift you to reach one visible destination.",
+									"During a Fight, your Companion loses a single Heart for each Turn this Ability is in use."
+								]
+							},
+							toter: {
+								name: "Toter",
+								description: "This chunky toy has a built in backpack.",
+								mechanics: [
+									"They have 10 Inventory Slots.",
+									"During a Fight, they can use their Turn to find and instantly present any item they are carrying."
+								]
+							}
+						},
+						inventory: [
+							"Inventory Slots: 6",
+							"Any carried items are dropped if they vanish for any reason."
+						],
+						fighting: [
+							"Attack: They are not powerful enough to harm foes, but can perform Attack Assists for you or your allies.",
+							"Health: At 0 Hearts they puff out of existence, but will return after you've slept and rested."
+						]
+					}
+				}
+			},
 			gifts: {
 				bright: {
 					luminescentTattoos: {
@@ -5798,6 +6235,20 @@ export default {
 			((num % 100) % 1) >= 0.1 ?
 				answer += (Math.round(((num % 100) % 1) / 0.1) + "s") : null;
 			return answer != "" ? answer : "N/A"
+		},
+		getSoulCompStat(stat) {
+			switch (stat) {
+				case 'Might':
+					return this.getMight - 2;
+				case 'Deft':
+					return this.getDeft - 2;
+				case 'Grit':
+					return this.getGrit - 2;
+				case 'Insight':
+					return this.getInsight - 2;
+				case 'Aura':
+					return this.getAura - 2;
+			}
 		}
 	},
 };

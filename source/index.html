@@ -822,6 +822,85 @@
                 </label>
             </article>
 
+            <article>
+                <header>
+                    <nav>
+                        <ul>
+                            <li>
+                                <i class="fa-solid fa-address-card fa-xl"></i>
+                            </li>
+                            <li>
+                                <hgroup>
+                                    <h4>Companions</h4>
+                                    <h5>Do you have a Follower, or Pet?</h5>
+                                </hgroup>
+                            </li>
+                        </ul>
+                    </nav>
+                </header>
+                <form>
+                    <label>
+                        Do you have a Companion?
+                        <select v-model="companionSelected">
+                            <option :value="">None</option>
+                            <optgroup label="Followers">
+                                <option v-for="companionType in companionTypes.followers" :value="companionType">{{companionType.name}}</option>
+                            </optgroup>
+                            <optgroup label="Pets">
+                                <option v-for="companionType in companionTypes.pets" :value="companionType">{{companionType.name}}</option>
+                            </optgroup>
+                            <optgroup label="Mounts">
+                                <option v-for="companionType in companionTypes.mounts" :value="companionType">{{companionType.name}}</option>
+                            </optgroup>
+                            <optgroup label="Pack Beasts">
+                                <option v-for="companionType in companionTypes.packBeasts" :value="companionType">{{companionType.name}}</option>
+                            </optgroup>
+                            <optgroup label="Soul Companions" v-if="callingSelected =='Battle Princess'">
+                                <option v-for="companionType in companionTypes.soulCompanions" :value="companionType">{{companionType.name}}</option>
+                            </optgroup>
+                        </select>
+                    </label>
+                    <div v-if="companionSelected">
+                        <label v-if="companionSelected.name == 'Scamp' || companionSelected.name == 'Scholar' || companionSelected.name == 'Guide' || companionSelected.name == 'Custrel'">
+                            Follower Species
+                            <select v-model="followerSpecies">
+                                <option v-for="specie in species" :value="specie">{{specie.name}}</option>
+                            </select>
+                        </label>
+                        <div v-if="followerSpecies">
+                            <label v-if="followerSpecies.name == 'Human (Native)'">
+                                Follower Calling
+                                <select v-model="followerHumanCalling">
+                                    <option v-for="calling in companionSelected.electiveAbility">{{calling}}</option>
+                                </select>
+                            </label>
+                            <label v-if="followerHumanCalling">
+                                Elective Ability
+                                <select v-model="followerHumanAbility">
+                                    <template v-for="calling in callings">
+                                        <template v-for="ability in calling.standardAbilities" v-if="calling.name == followerHumanCalling">
+                                            <option :value="ability">{{ability.name}}</option>
+                                        </template>
+                                    </template>
+                                </select>
+                            </label>
+                        </div>
+                        <label v-if="companionSelected.name == 'Guardian Animal' || companionSelected.name == 'Brave Toy'">
+                            Rank 1 Soul Companion Ability
+                            <select v-model="soulCompAbility1">
+                                <option v-for="ability in companionSelected.optAbilities" :value="ability">{{ability.name}}</option>
+                            </select>
+                        </label>
+                        <label v-if="(companionSelected.name == 'Guardian Animal' || companionSelected.name == 'Brave Toy') && getLevel >= 5">
+                            Rank 5 Soul Companion Ability
+                            <select v-model="soulCompAbility5">
+                                <option v-for="ability in companionSelected.optAbilities" :value="ability">{{ability.name}}</option>
+                            </select>
+                        </label>
+                    </div>
+                </form>
+            </article>
+
             <article id="charSheet">
                 <header>Character Sheet</header>
                 
@@ -2700,6 +2779,132 @@
                         </table>
                     </div>
                 </div>
+                <hr>
+                <div id="companion" v-if="companionSelected">
+                    <nav>
+                        <ul>
+                            <li>
+                                <i class="fa-solid fa-address-card fa-xl"></i>
+                            </li>
+                            <li>
+                                <hgroup>
+                                    <h5>Companion</h4>
+                                    <h6>Your Follower or Pet.</h5>
+                                </hgroup>
+                            </li>
+                        </ul>
+                    </nav>
+                    <strong>{{companionSelected.name}}</strong>
+                    <p>{{companionSelected.description}}</p>
+                    <blockquote v-if="followerSpecies">
+                        <p>Species: {{followerSpecies.name}}</p>
+                        <p>Innate Abilities</p>
+                        <ul>
+                            <li v-for="ability in followerSpecies.innateAbilities">
+                                {{ability.name}}
+                                <ul>
+                                    <li v-for="mechanic in ability.mechanics">{{mechanic}}</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <div v-if="followerHumanAbility">
+                            <p>Elective Ability</p>
+                            <ul>
+                                <li>
+                                    {{followerHumanAbility.name}}
+                                    <ul>
+                                        <li v-for="mechanic in followerHumanAbility.mechanics">{{mechanic}}</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </blockquote>
+                    <div class="grid">
+                        <table role="grid">
+                            <tr>
+                                <th>Might</th>
+                                <td v-if="companionSelected.stats[2]">{{companionSelected.stats[2]}}</td>
+                                <td v-if="!companionSelected.stats[2]">{{getSoulCompStat('Might')}}</td>
+                            </tr>
+                            <tr>
+                                <th>Deft</th>
+                                <td v-if="companionSelected.stats[3]">{{companionSelected.stats[3]}}</td>
+                                <td v-if="!companionSelected.stats[3]">{{getSoulCompStat('Deft')}}</td>
+                            </tr>
+                            <tr>
+                                <th>Grit</th>
+                                <td v-if="companionSelected.stats[4]">{{companionSelected.stats[4]}}</td>
+                                <td v-if="!companionSelected.stats[4]">{{getSoulCompStat('Grit')}}</td>
+                            </tr>
+                            <tr>
+                                <th>Insight</th>
+                                <td v-if="companionSelected.stats[5]">{{companionSelected.stats[5]}}</td>
+                                <td v-if="!companionSelected.stats[5]">{{getSoulCompStat('Insight')}}</td>
+                            </tr>
+                            <tr>
+                                <th>Aura</th>
+                                <td v-if="companionSelected.stats[6]">{{companionSelected.stats[6]}}</td>
+                                <td v-if="!companionSelected.stats[6]">{{getSoulCompStat('Aura')}}</td>
+                            </tr>
+                        </table>
+                        <div class="compStats">
+                            <div style="width:100%;display:grid;grid-template-columns: 1fr 1fr;">
+                                <div style="text-align: center; display: flex;justify-content: center; align-items: center; border-right: 1px solid #EDF0F2;border-bottom: 1px solid #EDF0F2; padding: .5em">+{{companionSelected.stats[0]}}<br>Attack</div>
+                                <div style="text-align: center; display: flex;justify-content: center; align-items: center;border-bottom: 1px solid #EDF0F2; padding: .5em">{{companionSelected.stats[1]}}<br>Hearts</div>
+                            </div>
+                            <div style="width: 100%; display: grid;grid-template-columns: 1fr 1fr;">
+                                <div v-if="companionSelected.defense" style="text-align: center; display: flex;justify-content: center; align-items: center; border-right: 1px solid #EDF0F2; padding: .5em">{{companionSelected.defense}}<br>Defense</div>
+                                <div v-if="!companionSelected.defense" style="text-align: center; display: flex;justify-content: center; align-items: center; border-right: 1px solid #EDF0F2; padding: .5em">10<br>Defense</div>
+                                <div v-if="companionSelected.speed" style="text-align: center; display: flex;justify-content: center;align-items: center; padding: .5em">{{companionSelected.speed}}<br>Speed</div>
+                                <div v-if="!companionSelected.speed" style="text-align: center; display: flex;justify-content: center;align-items: center; padding: .5em">Average<br>Speed</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div v-if="companionSelected.abilities">
+                        <p>Abilities</p>
+                        <ul>
+                            <li v-for="ability in companionSelected.abilities">{{ability}}</li>
+                            <li v-if="soulCompAbility1">
+                                {{soulCompAbility1.name}}
+                                <ul>
+                                    <li v-for="mechanic in soulCompAbility1.mechanics">{{mechanic}}</li>
+                                </ul>
+                            </li>
+                            <li v-if="soulCompAbility5">
+                                {{soulCompAbility5.name}}
+                                <ul>
+                                    <li v-for="mechanic in soulCompAbility5.mechanics">{{mechanic}}</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div v-if="companionSelected.inventory">
+                        <p>Inventory</p>
+                        <ul>
+                            <li v-for="inventory in companionSelected.inventory">{{inventory}}</li>
+                        </ul>
+                    </div>
+                    <div v-if="companionSelected.services">
+                        <p>Services</p>
+                        <p>{{companionSelected.services}}</p>
+                    </div>
+                    <div v-if="companionSelected.fighting">
+                        <p>Fighting</p>
+                        <ul>
+                            <li v-for="fighting in companionSelected.fighting">{{fighting}}</li>
+                        </ul>
+                    </div>
+                    <div v-if="companionSelected.recruitment">
+                        <p>Recruitment</p>
+                        <p>{{companionSelected.recruitment}}</p>
+                    </div>
+                    <div v-if="companionSelected.fee">
+                        <p>Fee: {{writeDenomination(companionSelected.fee)}} per Day.</p>
+                    </div>
+                    <div v-if="companionSelected.cost">
+                        <p>Cost: {{writeDenomination(companionSelected.cost)}}</p>
+                    </div>
+                </div>
             </article>
         </main>
 
@@ -3028,6 +3233,127 @@
                         </article>
                     </template>
                 </template>
+                <div v-if="companionSelected">
+                    <h3 class="card-divider">Companion</h3>
+                    <article>
+                        <p><strong>{{companionSelected.name}}</strong></p>
+                        <p>{{companionSelected.description}}</p>
+                        <div style="border: 1px solid black; border-radius: .5em;" v-if="followerSpecies">
+                            <p>Species: {{followerSpecies.name}}</p>
+                            <p>Innate Abilities</p>
+                            <ul>
+                                <li v-for="ability in followerSpecies.innateAbilities">
+                                    {{ability.name}}
+                                    <ul>
+                                        <li v-for="mechanic in ability.mechanics">{{mechanic}}</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <div v-if="followerHumanAbility">
+                                <p>Elective Ability</p>
+                                <ul>
+                                    <li>
+                                        {{followerHumanAbility.name}}
+                                        <ul>
+                                            <li v-for="mechanic in followerHumanAbility.mechanics">{{mechanic}}</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div style="display: grid; grid-template-columns: 1fr 2fr;">
+                            <table role="grid">
+                                <tr>
+                                    <th>Might</th>
+                                    <td v-if="companionSelected.stats[2]">{{companionSelected.stats[2]}}</td>
+                                    <td v-if="!companionSelected.stats[2]">{{getSoulCompStat('Might')}}</td>
+                                </tr>
+                                <tr>
+                                    <th>Deft</th>
+                                    <td v-if="companionSelected.stats[3]">{{companionSelected.stats[3]}}</td>
+                                    <td v-if="!companionSelected.stats[3]">{{getSoulCompStat('Deft')}}</td>
+                                </tr>
+                                <tr>
+                                    <th>Grit</th>
+                                    <td v-if="companionSelected.stats[4]">{{companionSelected.stats[4]}}</td>
+                                    <td v-if="!companionSelected.stats[4]">{{getSoulCompStat('Grit')}}</td>
+                                </tr>
+                                <tr>
+                                    <th>Insight</th>
+                                    <td v-if="companionSelected.stats[5]">{{companionSelected.stats[5]}}</td>
+                                    <td v-if="!companionSelected.stats[5]">{{getSoulCompStat('Insight')}}</td>
+                                </tr>
+                                <tr>
+                                    <th>Aura</th>
+                                    <td v-if="companionSelected.stats[6]">{{companionSelected.stats[6]}}</td>
+                                    <td v-if="!companionSelected.stats[6]">{{getSoulCompStat('Aura')}}</td>
+                                </tr>
+                            </table>
+                            <div class="compStats">
+                                <div style="width:100%;display:grid;grid-template-columns: 1fr 1fr;">
+                                    <div style="text-align: center; display: flex;justify-content: center; align-items: center; border-right: 1px solid #EDF0F2;border-bottom: 1px solid #EDF0F2; padding: .5em">+{{companionSelected.stats[0]}}<br>Attack</div>
+                                    <div style="text-align: center; display: flex;justify-content: center; align-items: center;border-bottom: 1px solid #EDF0F2; padding: .5em">{{companionSelected.stats[1]}}<br>Hearts</div>
+                                </div>
+                                <div style="width: 100%; display: grid;grid-template-columns: 1fr 1fr;">
+                                    <div v-if="companionSelected.defense" style="text-align: center; display: flex;justify-content: center; align-items: center; border-right: 1px solid #EDF0F2; padding: .5em">{{companionSelected.defense}}<br>Defense</div>
+                                    <div v-if="!companionSelected.defense" style="text-align: center; display: flex;justify-content: center; align-items: center; border-right: 1px solid #EDF0F2; padding: .5em">10<br>Defense</div>
+                                    <div v-if="companionSelected.speed" style="text-align: center; display: flex;justify-content: center;align-items: center; padding: .5em">{{companionSelected.speed}}<br>Speed</div>
+                                    <div v-if="!companionSelected.speed" style="text-align: center; display: flex;justify-content: center;align-items: center; padding: .5em">Average<br>Speed</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div v-if="companionSelected.abilities">
+                            <hr>
+                            <p>Abilities</p>
+                            <ul>
+                                <li v-for="ability in companionSelected.abilities">{{ability}}</li>
+                                <li v-if="soulCompAbility1">
+                                    {{soulCompAbility1.name}}
+                                    <ul>
+                                        <li v-for="mechanic in soulCompAbility1.mechanics">{{mechanic}}</li>
+                                    </ul>
+                                </li>
+                                <li v-if="soulCompAbility5">
+                                    {{soulCompAbility5.name}}
+                                    <ul>
+                                        <li v-for="mechanic in soulCompAbility5.mechanics">{{mechanic}}</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <div v-if="companionSelected.inventory">
+                            <hr>
+                            <p>Inventory</p>
+                            <ul>
+                                <li v-for="inventory in companionSelected.inventory">{{inventory}}</li>
+                            </ul>
+                        </div>
+                        <div v-if="companionSelected.services">
+                            <hr>
+                            <p>Services</p>
+                            <p>{{companionSelected.services}}</p>
+                        </div>
+                        <div v-if="companionSelected.fighting">
+                            <hr>
+                            <p>Fighting</p>
+                            <ul>
+                                <li v-for="fighting in companionSelected.fighting">{{fighting}}</li>
+                            </ul>
+                        </div>
+                        <div v-if="companionSelected.recruitment">
+                            <hr>
+                            <p>Recruitment</p>
+                            <p>{{companionSelected.recruitment}}</p>
+                        </div>
+                        <div v-if="companionSelected.fee">
+                            <p>Fee: {{writeDenomination(companionSelected.fee)}} per Day.</p>
+                        </div>
+                        <div v-if="companionSelected.cost">
+                            <hr>
+                            <p>Cost: {{writeDenomination(companionSelected.cost)}}</p>
+                        </div>
+                    </article>
+                </div>
             </div>
         </div>
 

@@ -1,7 +1,9 @@
 export default {
 	data() {
 		return {
+			edit: true,
 			show: false,
+			showSidebar: false,
 			dialogOpen: false,
 			backupOpen: false,
 			backupName: "default",
@@ -10,7 +12,7 @@ export default {
 			stones: 0,
 			itemSelected: null,
 			inventory: [],
-			traits: [0, -2, -1, "+1", "+2"],
+			traits: [0, -1, "+1", "+2"],
 			mightTrait: 0,
 			deftTrait: 0,
 			gritTrait: 0,
@@ -5135,7 +5137,13 @@ export default {
 						cost: 2,
 						inventory: 1,
 						number: 1
-					}
+					},
+					factotumBackpack: {
+						name: "Factotum Pack",
+						cost: 5,
+						inventory: -7,
+						number: 1
+					},
 				},
 				wayfinding: {
 					local: {

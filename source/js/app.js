@@ -1686,7 +1686,7 @@ export default {
 							description:
 								"Your eyes are a window to your darkened soul. A mere glance can weaken the resolve of your enemies.",
 							mechanics: [
-								"During a fight you can Glare at a single enemy at the start of your Turn.",
+								"At the start of a Fight you can Glare at a single enemy at the start of your Turn.",
 								"Rank 1: The target of your glare loses a single heart.",
 								"Rank 5: Your target must now also participate in a Contest with you. Their Grit vs. your Aura.",
 								"SUCCESS: Your enemy is unnerved and incurs a Snag on all Attack rolls against you.",

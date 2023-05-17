@@ -61,7 +61,8 @@
     position: sticky;
     top: 0;
     //background-color: white;
-    background-color: rgba($color: #fff, $alpha: .9);
+    //background-color: rgba($color: #fff, $alpha: .9);
+    background-color: var(--form-element-border-color);
     z-index: 3;
     box-shadow: 1px 2px 3px 0px rgba(0,0,0,0.33);
     -webkit-box-shadow: 1px 2px 3px 0px rgba(0,0,0,0.33);
@@ -91,7 +92,8 @@
         top: 0;
         left: 0;
         height: 100vh;
-        background-color: white;
+        //background-color: white;
+        background-color: var(--card-background-color);
         padding: 2em;
         min-width: 70%;
         transform: translateX(-100%);
@@ -139,7 +141,7 @@
         position: sticky;
         top: 0;
         //background-color: white;
-        background-color: rgba($color: #fff, $alpha: .9);
+        //background-color: rgba($color: #fff, $alpha: .9);
         z-index: 5;
         box-shadow: 1px 2px 5px 0px rgba(0,0,0,0.33);
         -webkit-box-shadow: 1px 2px 5px 0px rgba(0,0,0,0.33);

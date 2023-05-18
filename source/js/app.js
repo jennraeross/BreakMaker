@@ -35,10 +35,13 @@ export default {
 			xp: 0,
 			characterName: null,
 			speciesSelected: null,
+			nativeHumanElective: null,
+			elfImmunity: null,
 			homelandSelected: null,
 			historySelected: null,
 			languagesSelected: ["Low Speech"],
 			quirkSelected: null,
+			wearyHistory: null,
 			currentHearts: null,
 			brightPoints: 0,
 			darkPoints: 0,
@@ -4614,13 +4617,22 @@ export default {
 							"NOTE: If your Injury is removed your Quirk is also removed."
 						]
 					},
-					weary: {
-						name: "Weary",
+					wearyScarred: {
+						name: "Weary (Scarred Soul)",
 						description: "You are much older than your peers, or simply worn down thanks to years of struggle or hardship. While no longer in your physical prime, your experience is useful.",
 						advantages: [
-							"Choose one of the following:",
 							"A scarred soul: You gain +1 to your Attack Bonus",
 							"You also possess a trusty weapon. This weapon can be of any Type, except for Combination or imbued",
+							"Walker of two paths: You choose, or roll, for an additional History from your Homeland."
+						],
+						disadvantages: [
+							"Your suffer -1 Might and -1 Grit."
+						]
+					},
+					wearyWalker: {
+						name: "Weary (Walker of Two Paths)",
+						description: "You are much older than your peers, or simply worn down thanks to years of struggle or hardship. While no longer in your physical prime, your experience is useful.",
+						advantages: [
 							"Walker of two paths: You choose, or roll, for an additional History from your Homeland."
 						],
 						disadvantages: [
@@ -5538,6 +5550,8 @@ export default {
 					break;
 			}
 			switch (this.quirkSelected) {
+				case "Weary (Scarred Soul)":
+				case "Weary (Walker of Two Paths)":
 				case "Weary":
 					calcMight--;
 					break;
@@ -5624,6 +5638,8 @@ export default {
 				case "Winged":
 					calcGrit--;
 					break;
+				case "Weary (Walker of Two Paths)":
+				case "Weary (Scarred Soul)":
 				case "Weary":
 					calcGrit--;
 					break;
@@ -5803,6 +5819,7 @@ export default {
 			switch(this.quirkSelected) {
 				case "Unhinged": 
 					calcAttackBonus += 2;
+				case "Weary (Scarred Soul)":
 				case "Weary": 
 					calcAttackBonus++;
 			}
@@ -6277,6 +6294,9 @@ export default {
 			reader.readAsText(importedFile); 
 		},
 		hasAbility(ability) {
+			if (this.speciesSelected == 'Human (Native)' && this.nativeHumanElective) {
+				if (this.nativeHumanElective == ability) return true;
+			}
 			if (
 				this.elective1 == ability ||
 				this.elective2 == ability ||

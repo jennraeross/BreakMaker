@@ -159,8 +159,35 @@
                                         </select>
                                     </label>
                                 </div>
+                                <div v-if="quirkSelected == 'Weary (Walker of Two Paths)'">
+                                    <hr>
+                                    <label>
+                                        Extra History (Weary Quirk)
+                                        <select v-model="wearyHistory">
+                                            <option value="">None</option>
+                                            <optgroup label="Blazing Garden">
+                                                <option v-for="history in histories.blazingGarden" :value="history.name">{{history.name}}</option>
+                                            </optgroup>
+                                            <optgroup label="Buried Kingdom">
+                                                <option v-for="history in histories.buriedKingdom" :value="history.name">{{history.name}}</option>
+                                            </optgroup>
+                                            <optgroup label="Twilight Meridian">
+                                                <option v-for="history in histories.twilightMeridian" :value="history.name">{{history.name}}</option>
+                                            </optgroup>
+                                            <optgroup label="Wistful Dark">
+                                                <option v-for="history in histories.wistfulDark" :value="history.name">{{history.name}}</option>
+                                            </optgroup>
+                                            <optgroup label="Other World">
+                                                <option v-for="history in histories.otherWorld" :value="history.name">{{history.name}}</option>
+                                            </optgroup>
+                                        </select>
+                                    </label>
+                                    <hr>
+                                </div>
                                 <label>
                                     Languages
+                                    <blockquote v-if="quirkSelected != 'Nearsighted'">Choose "Low Speech" and 1 other language of your choice.</blockquote>
+                                    <blockquote v-if="quirkSelected == 'Nearsighted'">Choose "Low Speech" and 3 other languages of your choice, due to your Nearsighted Quirk.</blockquote>
                                     <details role="list">
                                         <summary aria-haspopup="listbox">Languages</summary>
                                         <ul role="listbox">
@@ -181,6 +208,28 @@
                                     <label>
                                         Extra Dark Allegiance Points
                                         <input type="text" v-model="darkPoints">
+                                    </label>
+                                </div>
+                                <div v-if="speciesSelected =='Elf'">
+                                    <hr>
+                                    <label>
+                                        Elf Immortal Ego Immunity
+                                        <select v-model="elfImmunity">
+                                            <option>Ballooned</option>
+                                            <option>Blinded/Deafened</option>
+                                            <option>Chibbed</option>
+                                            <option>Disoriented</option>
+                                            <option>Dispirited</option>
+                                            <option>Fatigued</option>
+                                            <option>Jellyfied</option>
+                                            <option>Petrified</option>
+                                            <option>Putrefied</option>
+                                            <option>Restrained</option>
+                                            <option>Starved</option>
+                                            <option>Suffocated</option>
+                                            <option>Terrified</option>
+                                            <option>Toppled</option>
+                                        </select>
                                     </label>
                                 </div>
                             </form>
@@ -336,6 +385,19 @@
                                     </template>
                                 </template>
                             </ul>
+                            <div v-if="(wearyHistory && quirkSelected == 'Weary (Walker of Two Paths)')">
+                                <p>Your Extra History from your Weary quirk also gives you two of the following:</p>
+                                <ul>
+                                    <template v-for="region in histories">
+                                        <template v-for="history in region">
+                                            <li v-if="history.name == wearyHistory" v-for="gear in history.gear">{{gear}}</li>
+                                        </template>
+                                    </template>
+                                </ul>
+                            </div>
+                            <div v-if="quirkSelected == 'Weary (Scarred Soul)'">
+                                <p>Your Weary Quirk also gives you a trusty weapon. This weapon can be of any Type, except for Combination or imbued.</p>
+                            </div>
                             <div style="display: grid; grid-gap: 5px; grid-template-columns: repeat(3, minmax(0, 1fr));">
                                     <select v-model="itemSelected" style="grid-column: auto / span 2 ;">
                                         <optgroup label="Melee Weapons"><option v-for="item in items.melee" :value="item">{{item.name}} - {{item.inventory}} {{item.inventory != 1 ? "Slots" : "Slot"}} - {{writeDenomination(item.cost)}}</option></optgroup>
@@ -475,7 +537,7 @@
                             </form>
                         </article>
                         
-                        <article v-if="getLevel >= 2" id="electivesForm">
+                        <article v-if="getLevel >= 2 || speciesSelected == 'Human (Native)'" id="electivesForm">
                             <header>
                                 <nav>
                                     <ul>
@@ -489,7 +551,37 @@
                                     </ul>
                                 </nav>
                             </header>
-                            <label>
+                            <label v-if="speciesSelected == 'Human (Native)'">
+                                Native Human Extra Elective Ability:
+                                <select v-model="nativeHumanElective">
+                                    <option value="" v-if="!callingSelected">Select a Calling</option>
+                                    <optgroup label="Battle Princess Basic Abilities" v-if="callingSelected == 'Battle Princess'">
+                                        <option v-for="ability in callings.battlePrincess.standardAbilities" :value="ability.name">{{ability.name}}</option>
+                                    </optgroup>
+                                    <optgroup label="Champion Basic Abilities" v-if="callingSelected == 'Champion'">                        
+                                        <option v-for="ability in callings.champion.standardAbilities" :value="ability.name">{{ability.name}}</option>
+                                    </optgroup>
+                                    <optgroup label="Factotum Basic Abilities" v-if="callingSelected == 'Factotum'">
+                                        <option v-for="ability in callings.factotum.standardAbilities" :value="ability.name">{{ability.name}}</option>
+                                    </optgroup>
+                                    <optgroup label="Heretic Basic Abilities" v-if="callingSelected == 'Heretic'">
+                                        <option v-for="ability in callings.heretic.standardAbilities" :value="ability.name">{{ability.name}}</option>
+                                    </optgroup>
+                                    <optgroup label="Murder Princess Basic Abilities" v-if="callingSelected == 'Murder Princess'">
+                                        <option v-for="ability in callings.murderPrincess.standardAbilities" :value="ability.name">{{ability.name}}</option>
+                                    </optgroup>
+                                    <optgroup label="Raider Basic Abilities" v-if="callingSelected == 'Raider'">
+                                        <option v-for="ability in callings.raider.standardAbilities" :value="ability.name">{{ability.name}}</option>
+                                    </optgroup>
+                                    <optgroup label="Sage Basic Abilities" v-if="callingSelected == 'Sage'">
+                                        <option v-for="ability in callings.sage.standardAbilities" :value="ability.name">{{ability.name}}</option>
+                                    </optgroup>
+                                    <optgroup label="Sneak Basic Abilities" v-if="callingSelected == 'Sneak'">
+                                        <option v-for="ability in callings.sneak.standardAbilities" :value="ability.name">{{ability.name}}</option>
+                                    </optgroup>
+                                </select>
+                            </label>
+                            <label v-if="getLevel >= 2">
                                 Level 2
                                 <select v-model="elective2">
                                     <optgroup label="Battle Princess Basic Abilities" v-if="callingSelected == 'Battle Princess'">
@@ -1160,7 +1252,60 @@
                                     </ul>
                                 </details>
                             </template>
-                            
+                            <div v-if="(wearyHistory && quirkSelected == 'Weary (Walker of Two Paths)')">
+                                <hr>
+                                <strong>Extra History (Weary Quirk)</strong>
+                                <template v-for="history in histories.blazingGarden">
+                                    <details open v-if="wearyHistory == history.name">
+                                        <summary>{{history.name}}</summary>
+                                        <p>{{history.description}}</p>
+                                        <p>Purviews:</p>
+                                        <ul>
+                                            <li v-for="purview in history.purviews">{{purview}}</li>
+                                        </ul>
+                                    </details>
+                                </template>
+                                <template v-for="history in histories.buriedKingdom">
+                                    <details open v-if="wearyHistory == history.name">
+                                        <summary>{{history.name}}</summary>
+                                        <p>{{history.description}}</p>
+                                        <p>Purviews:</p>
+                                        <ul>
+                                            <li v-for="purview in history.purviews">{{purview}}</li>
+                                        </ul>
+                                    </details>
+                                </template>
+                                <template v-for="history in histories.twilightMeridian">
+                                    <details open v-if="wearyHistory == history.name">
+                                        <summary>{{history.name}}</summary>
+                                        <p>{{history.description}}</p>
+                                        <p>Purviews:</p>
+                                        <ul>
+                                            <li v-for="purview in history.purviews">{{purview}}</li>
+                                        </ul>
+                                    </details>
+                                </template>
+                                <template v-for="history in histories.wistfulDark">
+                                    <details open v-if="wearyHistory == history.name">
+                                        <summary>{{history.name}}</summary>
+                                        <p>{{history.description}}</p>
+                                        <p>Purviews:</p>
+                                        <ul>
+                                            <li v-for="purview in history.purviews">{{purview}}</li>
+                                        </ul>
+                                    </details>
+                                </template>
+                                <template v-for="history in histories.otherWorld">
+                                    <details open v-if="wearyHistory == history.name">
+                                        <summary>{{history.name}}</summary>
+                                        <p>{{history.description}}</p>
+                                        <p>Purviews:</p>
+                                        <ul>
+                                            <li v-for="purview in history.purviews">{{purview}}</li>
+                                        </ul>
+                                    </details>
+                                </template>
+                            </div>
                         </div>
                         <hr>
                         <div id="Quirk">
@@ -1583,6 +1728,17 @@
                                         </ul>
                                     </details>
                                 </template>
+                                <details open v-if="speciesSelected == 'Human (Native)' && nativeHumanElective">
+                                    <summary>{{nativeHumanElective}}</summary>
+                                    <template v-for="ability in callings.battlePrincess.standardAbilities">
+                                        <p v-if="ability.name == nativeHumanElective">{{ability.description}}</p>
+                                        <ul>
+                                            <li v-if="ability.name == nativeHumanElective" v-for="mechanic in ability.mechanics">
+                                                {{mechanic}}
+                                            </li>
+                                        </ul>
+                                    </template>
+                                </details>
                                 <details open v-if="getLevel >= 2">
                                     <summary>{{elective2}}</summary>
                                     <template v-for="ability in callings.battlePrincess.standardAbilities">
@@ -1685,6 +1841,17 @@
                                         </ul>
                                     </details>
                                 </template>
+                                <details open v-if="speciesSelected == 'Human (Native)' && nativeHumanElective">
+                                    <summary>{{nativeHumanElective}}</summary>
+                                    <template v-for="ability in callings.champion.standardAbilities">
+                                        <p v-if="ability.name == nativeHumanElective">{{ability.description}}</p>
+                                        <ul>
+                                            <li v-if="ability.name == nativeHumanElective" v-for="mechanic in ability.mechanics">
+                                                {{mechanic}}
+                                            </li>
+                                        </ul>
+                                    </template>
+                                </details>
                                 <details open v-if="getLevel >= 2">
                                     <summary>{{elective2}}</summary>
                                     <template v-for="ability in callings.champion.standardAbilities">
@@ -1787,6 +1954,17 @@
                                         </ul>
                                     </details>
                                 </template>
+                                <details open v-if="speciesSelected == 'Human (Native)' && nativeHumanElective">
+                                    <summary>{{nativeHumanElective}}</summary>
+                                    <template v-for="ability in callings.factotum.standardAbilities">
+                                        <p v-if="ability.name == nativeHumanElective">{{ability.description}}</p>
+                                        <ul>
+                                            <li v-if="ability.name == nativeHumanElective" v-for="mechanic in ability.mechanics">
+                                                {{mechanic}}
+                                            </li>
+                                        </ul>
+                                    </template>
+                                </details>
                                 <details open v-if="getLevel >= 2">
                                     <summary>{{elective2}}</summary>
                                     <template v-for="ability in callings.factotum.standardAbilities">
@@ -1889,6 +2067,17 @@
                                         </ul>
                                     </details>
                                 </template>
+                                <details open v-if="speciesSelected == 'Human (Native)' && nativeHumanElective">
+                                    <summary>{{nativeHumanElective}}</summary>
+                                    <template v-for="ability in callings.heretic.standardAbilities">
+                                        <p v-if="ability.name == nativeHumanElective">{{ability.description}}</p>
+                                        <ul>
+                                            <li v-if="ability.name == nativeHumanElective" v-for="mechanic in ability.mechanics">
+                                                {{mechanic}}
+                                            </li>
+                                        </ul>
+                                    </template>
+                                </details>
                                 <details open v-if="getLevel >= 2">
                                     <summary>{{elective2}}</summary>
                                     <template v-for="ability in callings.heretic.standardAbilities">
@@ -1991,6 +2180,17 @@
                                         </ul>
                                     </details>
                                 </template>
+                                <details open v-if="speciesSelected == 'Human (Native)' && nativeHumanElective">
+                                    <summary>{{nativeHumanElective}}</summary>
+                                    <template v-for="ability in callings.murderPrincess.standardAbilities">
+                                        <p v-if="ability.name == nativeHumanElective">{{ability.description}}</p>
+                                        <ul>
+                                            <li v-if="ability.name == nativeHumanElective" v-for="mechanic in ability.mechanics">
+                                                {{mechanic}}
+                                            </li>
+                                        </ul>
+                                    </template>
+                                </details>
                                 <details open v-if="getLevel >= 2">
                                     <summary>{{elective2}}</summary>
                                     <template v-for="ability in callings.murderPrincess.standardAbilities">
@@ -2093,6 +2293,17 @@
                                         </ul>
                                     </details>
                                 </template>
+                                <details open v-if="speciesSelected == 'Human (Native)' && nativeHumanElective">
+                                    <summary>{{nativeHumanElective}}</summary>
+                                    <template v-for="ability in callings.raider.standardAbilities">
+                                        <p v-if="ability.name == nativeHumanElective">{{ability.description}}</p>
+                                        <ul>
+                                            <li v-if="ability.name == nativeHumanElective" v-for="mechanic in ability.mechanics">
+                                                {{mechanic}}
+                                            </li>
+                                        </ul>
+                                    </template>
+                                </details>
                                 <details open v-if="getLevel >= 2">
                                     <summary>{{elective2}}</summary>
                                     <template v-for="ability in callings.raider.standardAbilities">
@@ -2195,6 +2406,17 @@
                                         </ul>
                                     </details>
                                 </template>
+                                <details open v-if="speciesSelected == 'Human (Native)' && nativeHumanElective">
+                                    <summary>{{nativeHumanElective}}</summary>
+                                    <template v-for="ability in callings.sage.standardAbilities">
+                                        <p v-if="ability.name == nativeHumanElective">{{ability.description}}</p>
+                                        <ul>
+                                            <li v-if="ability.name == nativeHumanElective" v-for="mechanic in ability.mechanics">
+                                                {{mechanic}}
+                                            </li>
+                                        </ul>
+                                    </template>
+                                </details>
                                 <details open v-if="getLevel >= 2">
                                     <summary>{{elective2}}</summary>
                                     <template v-for="ability in callings.sage.standardAbilities">
@@ -2297,6 +2519,17 @@
                                         </ul>
                                     </details>
                                 </template>
+                                <details open v-if="speciesSelected == 'Human (Native)' && nativeHumanElective">
+                                    <summary>{{nativeHumanElective}}</summary>
+                                    <template v-for="ability in callings.sneak.standardAbilities">
+                                        <p v-if="ability.name == nativeHumanElective">{{ability.description}}</p>
+                                        <ul>
+                                            <li v-if="ability.name == nativeHumanElective" v-for="mechanic in ability.mechanics">
+                                                {{mechanic}}
+                                            </li>
+                                        </ul>
+                                    </template>
+                                </details>
                                 <details open v-if="getLevel >= 2">
                                     <summary>{{elective2}}</summary>
                                     <template v-for="ability in callings.sneak.standardAbilities">
@@ -2689,6 +2922,7 @@
                                         <p>{{ability.description}}</p>
                                         <ul>
                                             <li v-for="mechanic in ability.mechanics">{{mechanic}}</li>
+                                            <li v-if="(ability.name == 'Immortal Ego') && elfImmunity">Your chosen immunity is: {{elfImmunity}}.</li>
                                         </ul>
                                     </details>
                                 </template>
@@ -3104,11 +3338,11 @@
                     <div class="draft" style="display: grid; grid-template-columns: 1fr 1fr 1fr;">
                         <div class="border-right" style="display: grid; grid-template-rows: 1fr 1fr;">
                             <div style="display: grid; grid-template-columns: 1fr 2fr;">
-                                <button style="border: 1px solid black; border-radius: 50%; aspect-ratio: 1 / 1; text-align: center; background-color: white;">{{darkPoints}}</button>
+                                <button style="border: 1px solid black; border-radius: 50%; aspect-ratio: 1 / 1; text-align: center; background-color: white;">{{Number(getDarkPoints) + Number(darkPoints)}}</button>
                                 <p>DARK</p>
                             </div>
                             <div style="display: grid; grid-template-columns: 1fr 2fr;">
-                                <button style="border: 1px solid black; border-radius: 50%; aspect-ratio: 1 / 1; text-align: center; background-color: white;">{{brightPoints}}</button>
+                                <button style="border: 1px solid black; border-radius: 50%; aspect-ratio: 1 / 1; text-align: center; background-color: white;">{{Number(getBrightPoints) + Number(brightPoints)}}</button>
                                 <p>BRIGHT</p>
                             </div>
                         </div>
@@ -3119,25 +3353,25 @@
                             <div><input type="checkbox"><label>BRIGHT</label></div> -->
                             <div style="display: flex; align-items: center;">
                                 <button style="background-color: white; border: 1px solid black; aspect-ratio: 1 /1; border-radius: 5%; height: 2em; width: 2em;">
-                                    {{(brightPoints == 0 && darkPoints == 0) ? '&#10003;' : ''}}
+                                    {{(getAlignment == 'Unaligned') ? '&#10003;' : ''}}
                                 </button>
                                 <label>NONE</label>
                             </div>
                             <div style="display: flex; align-items: center;">
                                 <button style="background-color: white; border: 1px solid black; aspect-ratio: 1 /1; border-radius: 5%; height: 2em; width: 2em;">
-                                    {{(darkPoints > (brightPoints + 1)) ? '&#10003;' : ''}}
+                                    {{getAlignment == 'Dark Aligned' ? '&#10003;' : ''}}
                                 </button>
                                 <label>DARK</label>
                             </div>
                             <div style="display: flex; align-items: center;">
                                 <button style="background-color: white; border: 1px solid black; aspect-ratio: 1 /1; border-radius: 5%; height: 2em; width: 2em;">
-                                    {{(brightPoints <= (darkPoints + 1) && darkPoints <= (brightPoints + 1) && (brightPoints != 0 || darkPoints != 0)) ? '&#10003;' : ''}}
+                                    {{getAlignment == 'Twilight Aligned' ? '&#10003;' : ''}}
                                 </button>
                                 <label>TWILIGHT</label>
                             </div>
                             <div style="display: flex; align-items: center;">
                                 <button style="background-color: white; border: 1px solid black; aspect-ratio: 1 /1; border-radius: 5%; height: 2em; width: 2em;">
-                                    {{(brightPoints > (darkPoints + 1)) ? '&#10003;' : ''}}
+                                    {{getAlignment == 'Bright Aligned' ? '&#10003;' : ''}}
                                 </button>
                                 <label>BRIGHT</label>
                             </div>                   

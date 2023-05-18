@@ -1,7 +1,7 @@
 <html>
     <head>
-        <link rel="stylesheet" href="css/main.css?ckcachebust=706120691">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css?ckcachebust=706120691" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="css/main.css?ckcachebust=706123207">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css?ckcachebust=706123207" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body id="app">
@@ -3316,7 +3316,7 @@
                         </template>
                         <template v-for="specie in species">
                             <template v-for="ability in specie.innateAbilities" v-if="specie.name == speciesSelected">
-                                <p class="border-top">{{ability.name}}</p>
+                                <p class="border-top">{{ability.name}}<span v-if="ability.name == 'Immortal Ego'"> - {{elfImmunity}}</span></p>
                             </template>
                             <template v-for="ability in specie.maturativeAbilities" v-if="specie.name == speciesSelected">
                                 <p class="border-top" v-if="hasAbility(ability.name)">{{ability.name}}</p>

@@ -5505,41 +5505,43 @@ export default {
 		},
 		getMight() {
 			let calcMight = 10;
-			switch (this.callingSelected) {
-				case "Battle Princess":
-					calcMight =
-						this.callings.battlePrincess.stats[
-							this.getLevel - 1
-						][2];
-					break;
-				case "Champion":
-					calcMight =
-						this.callings.champion.stats[this.getLevel - 1][2];
-					break;
-				case "Factotum":
-					calcMight =
-						this.callings.factotum.stats[this.getLevel - 1][2];
-					break;
-				case "Heretic":
-					calcMight =
-						this.callings.heretic.stats[this.getLevel - 1][2];
-					break;
-				case "Murder Princess":
-					calcMight =
-						this.callings.murderPrincess.stats[
-							this.getLevel - 1
-						][2];
-					break;
-				case "Raider":
-					calcMight =
-						this.callings.raider.stats[this.getLevel - 1][2];
-					break;
-				case "Sage":
-					calcMight = this.callings.sage.stats[this.getLevel - 1][2];
-					break;
-				case "Sneak":
-					calcMight = this.callings.sneak.stats[this.getLevel - 1][2];
-					break;
+			if (this.callingSelected) {
+				switch (this.callingSelected.name) {
+					case "Battle Princess":
+						calcMight =
+							this.callings.battlePrincess.stats[
+								this.getLevel - 1
+							][2];
+						break;
+					case "Champion":
+						calcMight =
+							this.callings.champion.stats[this.getLevel - 1][2];
+						break;
+					case "Factotum":
+						calcMight =
+							this.callings.factotum.stats[this.getLevel - 1][2];
+						break;
+					case "Heretic":
+						calcMight =
+							this.callings.heretic.stats[this.getLevel - 1][2];
+						break;
+					case "Murder Princess":
+						calcMight =
+							this.callings.murderPrincess.stats[
+								this.getLevel - 1
+							][2];
+						break;
+					case "Raider":
+						calcMight =
+							this.callings.raider.stats[this.getLevel - 1][2];
+						break;
+					case "Sage":
+						calcMight = this.callings.sage.stats[this.getLevel - 1][2];
+						break;
+					case "Sneak":
+						calcMight = this.callings.sneak.stats[this.getLevel - 1][2];
+						break;
+				}
 			}
 			switch (this.getSize) {
 				case "Small":
@@ -5563,31 +5565,33 @@ export default {
 		},
 		getDeft() {
 			let calcDeft = 10;
-			switch (this.callingSelected) {
-				case "Battle Princess":
-					calcDeft = this.callings.battlePrincess.stats[this.getLevel - 1][3];
-					break;
-				case "Champion":
-					calcDeft = this.callings.champion.stats[this.getLevel - 1][3];
-					break;
-				case "Factotum":
-					calcDeft = this.callings.factotum.stats[this.getLevel - 1][3];
-					break;
-				case "Heretic":
-					calcDeft = this.callings.heretic.stats[this.getLevel - 1][3];
-					break;
-				case "Murder Princess":
-					calcDeft = this.callings.murderPrincess.stats[this.getLevel - 1][3];
-					break;
-				case "Raider":
-					calcDeft = this.callings.raider.stats[this.getLevel - 1][3];
-					break;
-				case "Sage":
-					calcDeft = this.callings.sage.stats[this.getLevel - 1][3];
-					break;
-				case "Sneak":
-					calcDeft = this.callings.sneak.stats[this.getLevel - 1][3];
-					break;
+			if (this.callingSelected) {
+				switch (this.callingSelected.name) {
+					case "Battle Princess":
+						calcDeft = this.callings.battlePrincess.stats[this.getLevel - 1][3];
+						break;
+					case "Champion":
+						calcDeft = this.callings.champion.stats[this.getLevel - 1][3];
+						break;
+					case "Factotum":
+						calcDeft = this.callings.factotum.stats[this.getLevel - 1][3];
+						break;
+					case "Heretic":
+						calcDeft = this.callings.heretic.stats[this.getLevel - 1][3];
+						break;
+					case "Murder Princess":
+						calcDeft = this.callings.murderPrincess.stats[this.getLevel - 1][3];
+						break;
+					case "Raider":
+						calcDeft = this.callings.raider.stats[this.getLevel - 1][3];
+						break;
+					case "Sage":
+						calcDeft = this.callings.sage.stats[this.getLevel - 1][3];
+						break;
+					case "Sneak":
+						calcDeft = this.callings.sneak.stats[this.getLevel - 1][3];
+						break;
+				}
 			}
 			switch (this.getSize) {
 				case "Small":
@@ -5603,33 +5607,35 @@ export default {
 		},
 		getGrit() {
 			let calcGrit = 0
-			switch (this.callingSelected) {
-				case "Battle Princess":
-					calcGrit = this.callings.battlePrincess.stats[this.getLevel - 1][4];
-					break;
-				case "Champion":
-					calcGrit = this.callings.champion.stats[this.getLevel - 1][4];
-					break;
-				case "Factotum":
-					calcGrit = this.callings.factotum.stats[this.getLevel - 1][4];
-					break;
-				case "Heretic":
-					calcGrit = this.callings.heretic.stats[this.getLevel - 1][4];
-					break;
-				case "Murder Princess":
-					calcGrit = this.callings.murderPrincess.stats[this.getLevel - 1][4];
-					break;
-				case "Raider":
-					calcGrit = this.callings.raider.stats[this.getLevel - 1][4];
-					break;
-				case "Sage":
-					calcGrit = this.callings.sage.stats[this.getLevel - 1][4];
-					break;
-				case "Sneak":
-					calcGrit = this.callings.sneak.stats[this.getLevel - 1][4];
-					break;
-				default:
-					calcGrit = 10;
+			if (this.callingSelected) {
+				switch (this.callingSelected.name) {
+					case "Battle Princess":
+						calcGrit = this.callings.battlePrincess.stats[this.getLevel - 1][4];
+						break;
+					case "Champion":
+						calcGrit = this.callings.champion.stats[this.getLevel - 1][4];
+						break;
+					case "Factotum":
+						calcGrit = this.callings.factotum.stats[this.getLevel - 1][4];
+						break;
+					case "Heretic":
+						calcGrit = this.callings.heretic.stats[this.getLevel - 1][4];
+						break;
+					case "Murder Princess":
+						calcGrit = this.callings.murderPrincess.stats[this.getLevel - 1][4];
+						break;
+					case "Raider":
+						calcGrit = this.callings.raider.stats[this.getLevel - 1][4];
+						break;
+					case "Sage":
+						calcGrit = this.callings.sage.stats[this.getLevel - 1][4];
+						break;
+					case "Sneak":
+						calcGrit = this.callings.sneak.stats[this.getLevel - 1][4];
+						break;
+					default:
+						calcGrit = 10;
+				}
 			}
 			switch (this.quirkSelected) {
 				case "Girthsome":
@@ -5648,33 +5654,35 @@ export default {
 		},
 		getInsight() {
 			let calcInsight = 0;
-			switch (this.callingSelected) {
-				case "Battle Princess":
-					calcInsight = this.callings.battlePrincess.stats[this.getLevel - 1][5];
-					break;
-				case "Champion":
-					calcInsight = this.callings.champion.stats[this.getLevel - 1][5];
-					break;
-				case "Factotum":
-					calcInsight = this.callings.factotum.stats[this.getLevel - 1][5];
-					break;
-				case "Heretic":
-					calcInsight = this.callings.heretic.stats[this.getLevel - 1][5];
-					break;
-				case "Murder Princess":
-					calcInsight = this.callings.murderPrincess.stats[this.getLevel - 1][5];
-					break;
-				case "Raider":
-					calcInsight = this.callings.raider.stats[this.getLevel - 1][5];
-					break;
-				case "Sage":
-					calcInsight = this.callings.sage.stats[this.getLevel - 1][5];
-					break;
-				case "Sneak":
-					calcInsight = this.callings.sneak.stats[this.getLevel - 1][5];
-					break;
-				default:
-					calcInsight = 10;
+			if (this.callingSelected) {
+				switch (this.callingSelected.name) {
+					case "Battle Princess":
+						calcInsight = this.callings.battlePrincess.stats[this.getLevel - 1][5];
+						break;
+					case "Champion":
+						calcInsight = this.callings.champion.stats[this.getLevel - 1][5];
+						break;
+					case "Factotum":
+						calcInsight = this.callings.factotum.stats[this.getLevel - 1][5];
+						break;
+					case "Heretic":
+						calcInsight = this.callings.heretic.stats[this.getLevel - 1][5];
+						break;
+					case "Murder Princess":
+						calcInsight = this.callings.murderPrincess.stats[this.getLevel - 1][5];
+						break;
+					case "Raider":
+						calcInsight = this.callings.raider.stats[this.getLevel - 1][5];
+						break;
+					case "Sage":
+						calcInsight = this.callings.sage.stats[this.getLevel - 1][5];
+						break;
+					case "Sneak":
+						calcInsight = this.callings.sneak.stats[this.getLevel - 1][5];
+						break;
+					default:
+						calcInsight = 10;
+				}
 			}
 			switch (this.quirkSelected) {
 				case "Nearsighted":
@@ -5683,80 +5691,86 @@ export default {
 			return calcInsight;
 		},
 		getAura() {
-			switch (this.callingSelected) {
-				case "Battle Princess":
-					return this.callings.battlePrincess.stats[
-						this.getLevel - 1
-					][6];
-					break;
-				case "Champion":
-					return this.callings.champion.stats[this.getLevel - 1][6];
-					break;
-				case "Factotum":
-					return this.callings.factotum.stats[this.getLevel - 1][6];
-					break;
-				case "Heretic":
-					return this.callings.heretic.stats[this.getLevel - 1][6];
-					break;
-				case "Murder Princess":
-					return this.callings.murderPrincess.stats[
-						this.getLevel - 1
-					][6];
-					break;
-				case "Raider":
-					return this.callings.raider.stats[this.getLevel - 1][6];
-					break;
-				case "Sage":
-					return this.callings.sage.stats[this.getLevel - 1][6];
-					break;
-				case "Sneak":
-					return this.callings.sneak.stats[this.getLevel - 1][6];
-					break;
-				default:
-					return 10;
+			if (this.callingSelected) {
+				switch (this.callingSelected.name) {
+					case "Battle Princess":
+						return this.callings.battlePrincess.stats[
+							this.getLevel - 1
+						][6];
+						break;
+					case "Champion":
+						return this.callings.champion.stats[this.getLevel - 1][6];
+						break;
+					case "Factotum":
+						return this.callings.factotum.stats[this.getLevel - 1][6];
+						break;
+					case "Heretic":
+						return this.callings.heretic.stats[this.getLevel - 1][6];
+						break;
+					case "Murder Princess":
+						return this.callings.murderPrincess.stats[
+							this.getLevel - 1
+						][6];
+						break;
+					case "Raider":
+						return this.callings.raider.stats[this.getLevel - 1][6];
+						break;
+					case "Sage":
+						return this.callings.sage.stats[this.getLevel - 1][6];
+						break;
+					case "Sneak":
+						return this.callings.sneak.stats[this.getLevel - 1][6];
+						break;
+					default:
+						return 10;
+				}
 			}
 		},
 		getHearts() {
 			let calcHearts = 2;
-			switch (this.callingSelected) {
-				case "Battle Princess":
-					calcHearts =
-						this.callings.battlePrincess.stats[
-							this.getLevel - 1
-						][1];
-					break;
-				case "Champion":
-					calcHearts =
-						this.callings.champion.stats[this.getLevel - 1][1];
-					break;
-				case "Factotum":
-					calcHearts =
-						this.callings.factotum.stats[this.getLevel - 1][1];
-					break;
-				case "Heretic":
-					calcHearts =
-						this.callings.heretic.stats[this.getLevel - 1][1];
-					break;
-				case "Murder Princess":
-					calcHearts =
-						this.callings.murderPrincess.stats[
-							this.getLevel - 1
-						][1];
-					break;
-				case "Raider":
-					calcHearts =
-						this.callings.raider.stats[this.getLevel - 1][1];
-					break;
-				case "Sage":
-					calcHearts = this.callings.sage.stats[this.getLevel - 1][1];
-					break;
-				case "Sneak":
-					calcHearts =
-						this.callings.sneak.stats[this.getLevel - 1][1];
-					break;
+			if (this.callingSelected) {
+				switch (this.callingSelected.name) {
+					case "Battle Princess":
+						calcHearts =
+							this.callings.battlePrincess.stats[
+								this.getLevel - 1
+							][1];
+						break;
+					case "Champion":
+						calcHearts =
+							this.callings.champion.stats[this.getLevel - 1][1];
+						break;
+					case "Factotum":
+						calcHearts =
+							this.callings.factotum.stats[this.getLevel - 1][1];
+						break;
+					case "Heretic":
+						calcHearts =
+							this.callings.heretic.stats[this.getLevel - 1][1];
+						break;
+					case "Murder Princess":
+						calcHearts =
+							this.callings.murderPrincess.stats[
+								this.getLevel - 1
+							][1];
+						break;
+					case "Raider":
+						calcHearts =
+							this.callings.raider.stats[this.getLevel - 1][1];
+						break;
+					case "Sage":
+						calcHearts = this.callings.sage.stats[this.getLevel - 1][1];
+						break;
+					case "Sneak":
+						calcHearts =
+							this.callings.sneak.stats[this.getLevel - 1][1];
+						break;
+				}
 			}
-			if (this.speciesSelected == "Gruun") {
-				calcHearts++;
+			if (this.speciesSelected) {
+				if (this.speciesSelected == "Gruun") {
+					calcHearts++;
+				}
 			}
 			switch (this.quirkSelected) {
 				case "Girthsome":
@@ -5776,33 +5790,35 @@ export default {
 		},
 		getAttack() {
 			let calcAttack = 0;
-			switch (this.callingSelected) {
-				case "Battle Princess":
-					calcAttack = this.callings.battlePrincess.stats[this.getLevel - 1][0];
-					break;
-				case "Champion":
-					calcAttack = this.callings.champion.stats[this.getLevel - 1][0];
-					break;
-				case "Factotum":
-					calcAttack = this.callings.factotum.stats[this.getLevel - 1][0];
-					break;
-				case "Heretic":
-					calcAttack = this.callings.heretic.stats[this.getLevel - 1][0];
-					break;
-				case "Murder Princess":
-					calcAttack = this.callings.murderPrincess.stats[this.getLevel - 1][0];
-					break;
-				case "Raider":
-					calcAttack = this.callings.raider.stats[this.getLevel - 1][0];
-					break;
-				case "Sage":
-					calcAttack = this.callings.sage.stats[this.getLevel - 1][0];
-					break;
-				case "Sneak":
-					calcAttack = this.callings.sneak.stats[this.getLevel - 1][0];
-					break;
-				default:
-					calcAttack = 0;
+			if (this.callingSelected) {
+				switch (this.callingSelected.name) {
+					case "Battle Princess":
+						calcAttack = this.callings.battlePrincess.stats[this.getLevel - 1][0];
+						break;
+					case "Champion":
+						calcAttack = this.callings.champion.stats[this.getLevel - 1][0];
+						break;
+					case "Factotum":
+						calcAttack = this.callings.factotum.stats[this.getLevel - 1][0];
+						break;
+					case "Heretic":
+						calcAttack = this.callings.heretic.stats[this.getLevel - 1][0];
+						break;
+					case "Murder Princess":
+						calcAttack = this.callings.murderPrincess.stats[this.getLevel - 1][0];
+						break;
+					case "Raider":
+						calcAttack = this.callings.raider.stats[this.getLevel - 1][0];
+						break;
+					case "Sage":
+						calcAttack = this.callings.sage.stats[this.getLevel - 1][0];
+						break;
+					case "Sneak":
+						calcAttack = this.callings.sneak.stats[this.getLevel - 1][0];
+						break;
+					default:
+						calcAttack = 0;
+				}
 			}
 			return calcAttack;
 		},
@@ -5884,8 +5900,10 @@ export default {
 		},
 		getSpeed() {
 			let calcSpeed = 1;
-			if (this.callingSelected == 'Raider') {
-				calcSpeed++;
+			if (this.callingSelected) {
+				if (this.callingSelected.name == 'Raider') {
+					calcSpeed++;
+				}
 			}
 			switch (true) {
 				case this.hasAbility("The Better Part of Valor"):
@@ -5945,15 +5963,17 @@ export default {
 		},
 		getSize() {
 			let calcSize = 1;
-			switch(this.speciesSelected) {
-				case "Chib":
-				case "Goblin":
-					calcSize--;
-					break;
-				case "Promethean":
-				case "Gruun":
-					calcSize++;
-					break;					
+			if (this.speciesSelected) {
+				switch(this.speciesSelected) {
+					case "Chib":
+					case "Goblin":
+						calcSize--;
+						break;
+					case "Promethean":
+					case "Gruun":
+						calcSize++;
+						break;					
+				}
 			}
 			switch(this.quirkSelected) {
 				case "Young":
@@ -6139,10 +6159,10 @@ export default {
 		getBrightPoints() {
 			let calcBright = 0;
 			if (this.speciesSelected) {
-				if (this.speciesSelected == 'Promethean') calcBright++;
+				if (this.speciesSelected.name == 'Promethean') calcBright++;
 			}
 			if (this.callingSelected){
-				if (this.callingSelected == 'Battle Princess') {
+				if (this.callingSelected.name == 'Battle Princess') {
 					if (this.hasAbility('Glittering Machine')) calcBright++
 					if (this.hasAbility("Passion's Fire")) calcBright++;
 					if (this.hasAbility('Cry of the Heart')) calcBright++;
@@ -6151,7 +6171,7 @@ export default {
 					if (this.hasAbility('Radiant Blade')) calcBright++;
 					if (this.hasAbility("Heart's Aegis")) calcBright++;
 				}
-				else if (this.callingSelected == 'Sage') {
+				else if (this.callingSelected.name == 'Sage') {
 					if (this.hasAbility('Glowing Ink')) calcBright++;
 					if (this.hasAbility('Very Useful Cloud')) calcBright++;
 					if (this.hasAbility('Eldritch Explosives')) calcBright++;
@@ -6159,7 +6179,7 @@ export default {
 					if (this.hasAbility('Harmonious Geomancy')) calcBright++;
 					if (this.hasAbility('Momentary Fortress')) calcBright++;
 				}
-				else if (this.callingSelected == 'Heretic') {
+				else if (this.callingSelected.name == 'Heretic') {
 					if (this.hasAbility('Yogi Tulpa')) calcBright++;
 					if (this.hasAbility('Wretched Jarah')) calcBright++;
 					if (this.hasAbility('Altgrave Ultima')) calcBright++;
@@ -6174,10 +6194,10 @@ export default {
 		getDarkPoints() {
 			let calcDark = 0;
 			if (this.speciesSelected) {
-				if (this.speciesSelected == 'Tenebrate') calcDark++;
+				if (this.speciesSelected.name == 'Tenebrate') calcDark++;
 			}
 			if (this.callingSelected){
-				if (this.callingSelected == 'Murder Princess') {
+				if (this.callingSelected.name == 'Murder Princess') {
 					if (this.hasAbility('Frost Blade')) calcDark++;
 					if (this.hasAbility('Wrath Bolt')) calcDark++;
 					if (this.hasAbility('Barbed Justice')) calcDark++;
@@ -6185,7 +6205,7 @@ export default {
 					if (this.hasAbility('Blade of Darkness')) calcDark++;
 					if (this.hasAbility('Red Petal Revenge')) calcDark++;
 				}
-				else if (this.callingSelected == 'Heretic') {
+				else if (this.callingSelected.name == 'Heretic') {
 					if (this.hasAbility('The Widow Prisma')) calcDark++;
 					if (this.hasAbility('Deacon Galrave')) calcDark++;
 					if (this.hasAbility('Bushi Miyabi')) calcDark++;
@@ -6198,7 +6218,7 @@ export default {
 					if (this.hasAbility('Umbra Draconis')) calcDark++;
 					if (this.hasAbility('Egomet')) calcDark++;
 				}
-				else if (this.callingSelected == 'Sage') {
+				else if (this.callingSelected.name== 'Sage') {
 					if (this.hasAbility('Hocus Pox')) calcDark++;
 					if (this.hasAbility('Murky Mask')) calcDark++;
 					if (this.hasAbility('Cloak of Obscurity')) calcDark++;
@@ -6294,8 +6314,10 @@ export default {
 			reader.readAsText(importedFile); 
 		},
 		hasAbility(ability) {
-			if (this.speciesSelected == 'Human (Native)' && this.nativeHumanElective) {
-				if (this.nativeHumanElective == ability) return true;
+			if (this.speciesSelected) {
+				if (this.speciesSelected.name == 'Human (Native)' && this.nativeHumanElective) {
+					if (this.nativeHumanElective == ability) return true;
+				}
 			}
 			if (
 				this.elective1 == ability ||

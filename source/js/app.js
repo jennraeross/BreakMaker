@@ -18,6 +18,7 @@ export default {
 			gritTrait: 0,
 			insightTrait: 0,
 			auraTrait: 0,
+			languagesSelected: [],
 			callingSelected: null,
 			weaponSelected: false,
 			combinationWeaponSelected: false,
@@ -39,7 +40,6 @@ export default {
 			elfImmunity: null,
 			homelandSelected: null,
 			historySelected: null,
-			languagesSelected: ["Low Speech"],
 			quirkSelected: null,
 			wearyHistory: null,
 			currentHearts: null,
@@ -6075,7 +6075,6 @@ export default {
 				speciesSelected: this.speciesSelected,
 				homelandSelected: this.homelandSelected,
 				historySelected: this.historySelected,
-				languagesSelected: this.languagesSelected,
 				quirkSelected: this.quirkSelected,
 				currentHearts: this.currentHearts,
 				brightPoints: this.brightPoints,
@@ -6115,7 +6114,8 @@ export default {
 				deftness: parseFloat(this.getDeft) + parseFloat(this.deftTrait),
 				grit: parseFloat(this.getGrit) + parseFloat(this.gritTrait),
 				insight: parseFloat(this.getInsight) + parseFloat(this.insightTrait),
-				aura: parseFloat(this.getAura) + parseFloat(this.auraTrait)
+				aura: parseFloat(this.getAura) + parseFloat(this.auraTrait),
+				languages: this.languages
 			});
 		},
 		getCustomWeaponCost() {
@@ -6306,7 +6306,6 @@ export default {
 				vm.speciesSelected = fileContent.speciesSelected;
 				vm.homelandSelected = fileContent.homelandSelected;
 				vm.historySelected = fileContent.historySelected;
-				vm.languagesSelected = fileContent.languagesSelected;
 				vm.quirkSelected = fileContent.quirkSelected;
 				vm.currentHearts = fileContent.currentHearts;
 				vm.brightPoints = fileContent.brightPoints;
@@ -6339,6 +6338,7 @@ export default {
 				vm.soulCompAbility1 = fileContent.soulCompAbility1 ;
 				vm.soulCompAbility5 = fileContent.soulCompAbility5 ;
 				vm.nativeHumanElective = fileContent.nativeHumanElective;
+				vm.languages = fileContent.languages;
 			};
 			reader.readAsText(importedFile); 
 		},

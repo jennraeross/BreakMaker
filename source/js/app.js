@@ -6098,6 +6098,14 @@ export default {
 				weaponNumber: this.weaponNumber,
 				armorNumber: this.armorNumber,
 				shieldNumber: this.shieldNumber,
+				companionSelected: this.companionSelected,
+				followerSpecies: this.followerSpecies,
+				followerHumanCalling: this.followerHumanCalling,
+				followerHumanAbility: this.followerHumanAbility,
+				followerElfImmunity: this.followerElfImmunity,
+				followerDarkGift: this.followerDarkGift,
+				soulCompAbility1: this.soulCompAbility1,
+				soulCompAbility5: this.soulCompAbility5,
 				hearts: this.getHearts,
 				attackBonus: parseFloat(this.getAttack) + parseFloat(this.getAttackBonus),
 				speedRating: this.getSpeedRating,
@@ -6321,6 +6329,14 @@ export default {
 				vm.weaponNumber = fileContent.weaponNumber;
 				vm.armorNumber = fileContent.armorNumber;
 				vm.shieldNumber = fileContent.shieldNumber;
+				vm.companionSelected = fileContent.companionSelected ;
+				vm.followerSpecies = fileContent.followerSpecies ;
+				vm.followerHumanCalling = fileContent.followerHumanCalling ;
+				vm.followerHumanAbility = fileContent.followerHumanAbility ;
+				vm.followerElfImmunity = fileContent.followerElfImmunity ;
+				vm.followerDarkGift = fileContent.followerDarkGift ;
+				vm.soulCompAbility1 = fileContent.soulCompAbility1 ;
+				vm.soulCompAbility5 = fileContent.soulCompAbility5 ;
 			};
 			reader.readAsText(importedFile); 
 		},

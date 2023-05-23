@@ -1,7 +1,7 @@
 <html>
     <head>
-        <link rel="stylesheet" href="css/main.css?ckcachebust=706493939">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css?ckcachebust=706493939" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="css/main.css?ckcachebust=706546608">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css?ckcachebust=706546608" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body id="app">
@@ -16,7 +16,7 @@
                 <ul class="hideResponsive">
                     <li><button class="secondary nav-button" @click="dialogOpen = true">Roadmap</button></li>
                     <li><button class="secondary nav-button" @click="backupOpen = true">Backup/Restore</button></li>
-                    <li><button class="nav-button" id="print" @click="printDiv('sheetTemplate')">Download</button></li>
+                    <li data-placement="left" :data-tooltip="!(callingSelected && speciesSelected && homelandSelected && historySelected && quirkSelected) ? 'Finish the form first' : null"><button class="nav-button" id="print" @click="printDiv('sheetTemplate')" :disabled="!(callingSelected && speciesSelected && homelandSelected && historySelected && quirkSelected)">Print</button></li>
                 </ul>
             </nav>
             <div :class="{fog: showSidebar}" @click="showSidebar = false"></div>
@@ -25,7 +25,7 @@
                     <div id="sidebarFlex">
                         <div class="grid">
                             <button v-if="edit">Edit</button>
-                            <button v-if="edit" class="outline" @click="edit = false">View</button>
+                            <div data-placement="bottom" :data-tooltip="!(callingSelected && speciesSelected && homelandSelected && historySelected && quirkSelected) ? 'Finish the form first' : null"><button v-if="edit" class="outline" @click="edit = false" :disabled="!(callingSelected && speciesSelected && homelandSelected && historySelected && quirkSelected)">View</button></div>
                             <button v-if="!edit" class="outline" @click="edit = true">Edit</button>
                             <button v-if="!edit">View</button>
                         </div>
@@ -66,7 +66,7 @@
                         <hr>
                         <div id="smallNavButtons" v-if="showSidebar">
                             <button class="secondary nav-button" @click="backupOpen = true">Backup/Restore</button>
-                            <button class="nav-button" id="print" @click="printDiv('sheetTemplate')">Download</button>
+                            <div data-placement="top" :data-tooltip="!(callingSelected && speciesSelected && homelandSelected && historySelected && quirkSelected) ? 'Finish the form first' : null"><button class="nav-button" id="print" @click="printDiv('sheetTemplate')" :disabled="!(callingSelected && speciesSelected && homelandSelected && historySelected && quirkSelected)">Download</button></div>
                         </div>
                     </div>
                 </div>

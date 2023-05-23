@@ -6055,6 +6055,7 @@ export default {
 		},
 		getBackupDataString() {
 			return JSON.stringify({
+				nativeHumanElective: this.nativeHumanElective,
 				gems: this.gems,
 				coins: this.coins,
 				stones: this.stones,
@@ -6337,6 +6338,7 @@ export default {
 				vm.followerDarkGift = fileContent.followerDarkGift ;
 				vm.soulCompAbility1 = fileContent.soulCompAbility1 ;
 				vm.soulCompAbility5 = fileContent.soulCompAbility5 ;
+				vm.nativeHumanElective = fileContent.nativeHumanElective;
 			};
 			reader.readAsText(importedFile); 
 		},

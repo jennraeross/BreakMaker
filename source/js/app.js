@@ -58,6 +58,8 @@ export default {
 			followerSpecies: null,
 			followerHumanCalling: null,
 			followerHumanAbility: null,
+			followerElfImmunity: null,
+			followerDarkGift: null,
 			soulCompAbility1: null,
 			soulCompAbility5: null,
 			companionTypes: {

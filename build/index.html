@@ -1,7 +1,7 @@
 <html>
     <head>
-        <link rel="stylesheet" href="css/main.css?ckcachebust=706492668">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css?ckcachebust=706492668" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="css/main.css?ckcachebust=706493939">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css?ckcachebust=706493939" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body id="app">
@@ -741,7 +741,7 @@
                                         </label>
                                         <div v-if="followerSpecies">
                                             <label v-if="followerSpecies.name == 'Human (Native)'">
-                                                Follower Calling
+                                                Calling
                                                 <select v-model="followerHumanCalling">
                                                     <option v-for="calling in companionSelected.electiveAbility">{{calling}}</option>
                                                 </select>
@@ -754,6 +754,31 @@
                                                             <option :value="ability">{{ability.name}}</option>
                                                         </template>
                                                     </template>
+                                                </select>
+                                            </label>
+                                            <label v-if="followerSpecies.name == 'Elf'">
+                                                Immortal Ego Immunity
+                                                <select v-model="followerElfImmunity">
+                                                    <option>Ballooned</option>
+                                                    <option>Blinded/Deafened</option>
+                                                    <option>Chibbed</option>
+                                                    <option>Disoriented</option>
+                                                    <option>Dispirited</option>
+                                                    <option>Fatigued</option>
+                                                    <option>Jellyfied</option>
+                                                    <option>Petrified</option>
+                                                    <option>Putrefied</option>
+                                                    <option>Restrained</option>
+                                                    <option>Starved</option>
+                                                    <option>Suffocated</option>
+                                                    <option>Terrified</option>
+                                                    <option>Toppled</option>
+                                                </select>
+                                            </label>
+                                            <label v-if="followerSpecies.name == 'Tenebrate'">
+                                                Dark Gift
+                                                <select v-model="followerDarkGift">
+                                                    <option v-for="gift in gifts.dark" :value="gift.name">{{gift.name}}</option>
                                                 </select>
                                             </label>
                                         </div>
@@ -1655,6 +1680,18 @@
                                         </li>
                                     </ul>
                                 </div>
+                                <div v-if="followerElfImmunity">
+                                    <p>Immortal Ego</p>
+                                    <ul>
+                                        <li>Immune to the {{followerElfImmunity}} condition.</li>
+                                    </ul>
+                                </div>
+                                <div v-if="followerDarkGift">
+                                    <p>Dark Gift</p>
+                                    <ul>
+                                        <li>{{followerDarkGift}}</li>
+                                    </ul>
+                                </div>
                             </blockquote>
                             <div class="grid">
                                 <table role="grid">
@@ -2097,6 +2134,18 @@
                                                     <li v-for="mechanic in followerHumanAbility.mechanics">{{mechanic}}</li>
                                                 </ul>
                                             </li>
+                                        </ul>
+                                    </div>
+                                    <div v-if="followerElfImmunity">
+                                        <p>Immortal Ego</p>
+                                        <ul>
+                                            <li>Immune to the {{followerElfImmunity}} condition.</li>
+                                        </ul>
+                                    </div>
+                                    <div v-if="followerDarkGift">
+                                        <p>Dark Gift</p>
+                                        <ul>
+                                            <li>{{followerDarkGift}}</li>
                                         </ul>
                                     </div>
                                 </div>

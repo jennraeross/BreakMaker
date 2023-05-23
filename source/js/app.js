@@ -5966,7 +5966,7 @@ export default {
 		getSize() {
 			let calcSize = 1;
 			if (this.speciesSelected) {
-				switch(this.speciesSelected) {
+				switch(this.speciesSelected.name) {
 					case "Chib":
 					case "Goblin":
 						calcSize--;
@@ -6098,6 +6098,15 @@ export default {
 				weaponNumber: this.weaponNumber,
 				armorNumber: this.armorNumber,
 				shieldNumber: this.shieldNumber,
+				hearts: this.getHearts,
+				attackBonus: parseFloat(this.getAttack) + parseFloat(this.getAttackBonus),
+				speedRating: this.getSpeedRating,
+				defenseRating: this.getDefense,
+				might: parseFloat(this.getMight) + parseFloat(this.mightTrait),
+				deftness: parseFloat(this.getDeft) + parseFloat(this.deftTrait),
+				grit: parseFloat(this.getGrit) + parseFloat(this.gritTrait),
+				insight: parseFloat(this.getInsight) + parseFloat(this.insightTrait),
+				aura: parseFloat(this.getAura) + parseFloat(this.auraTrait)
 			});
 		},
 		getCustomWeaponCost() {

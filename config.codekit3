@@ -65,7 +65,7 @@
       "uCM" : 0
     },
     "\/source\/index.html" : {
-      "cB" : 1,
+      "cB" : 0,
       "ft" : 8192,
       "hM" : 0,
       "oA" : 0,
@@ -80,20 +80,20 @@
       "oA" : 0,
       "oAP" : "\/build\/js\/app-min.js",
       "oF" : 0,
-      "sC" : 3,
+      "sC" : 0,
       "tS" : 0
     },
     "\/source\/scss\/main.scss" : {
-      "aP" : 1,
-      "bl" : 1,
-      "co" : 1,
+      "aP" : 0,
+      "bl" : 0,
+      "co" : 0,
       "dP" : 10,
       "ec" : 1,
       "ft" : 4,
       "ma" : 0,
       "oA" : 0,
-      "oAP" : "\/build\/css\/main.css",
-      "oF" : 2,
+      "oAP" : "\/build\/scss\/main.css",
+      "oF" : 0,
       "oS" : 0,
       "pg" : 0,
       "sct" : 0

@@ -1457,15 +1457,13 @@
                                 </details>
                             </template>
                             <details open v-if="speciesSelected.name == 'Human (Native)' && nativeHumanElective">
-                                <summary>{{nativeHumanElective}}</summary>
-                                <template v-for="ability in callingSelected.standardAbilities">
-                                    <p v-if="ability.name == nativeHumanElective">{{ability.description}}</p>
+                                <summary>{{nativeHumanElective.name}}</summary>
+                                    <p>{{nativeHumanElective.description}}</p>
                                     <ul>
-                                        <li v-if="ability.name == nativeHumanElective" v-for="mechanic in ability.mechanics">
+                                        <li v-for="mechanic in nativeHumanElective.mechanics">
                                             {{mechanic}}
                                         </li>
                                     </ul>
-                                </template>
                             </details>
                             <details open v-if="elective2">
                                 <summary>{{elective2.name}}</summary>

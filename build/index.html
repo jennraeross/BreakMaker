@@ -1,7 +1,7 @@
 <html>
     <head>
-        <link rel="stylesheet" href="css/main.css?ckcachebust=706546608">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css?ckcachebust=706546608" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body id="app">
@@ -1457,15 +1457,13 @@
                                 </details>
                             </template>
                             <details open v-if="speciesSelected.name == 'Human (Native)' && nativeHumanElective">
-                                <summary>{{nativeHumanElective}}</summary>
-                                <template v-for="ability in callingSelected.standardAbilities">
-                                    <p v-if="ability.name == nativeHumanElective">{{ability.description}}</p>
+                                <summary>{{nativeHumanElective.name}}</summary>
+                                    <p>{{nativeHumanElective.description}}</p>
                                     <ul>
-                                        <li v-if="ability.name == nativeHumanElective" v-for="mechanic in ability.mechanics">
+                                        <li v-for="mechanic in nativeHumanElective.mechanics">
                                             {{mechanic}}
                                         </li>
                                     </ul>
-                                </template>
                             </details>
                             <details open v-if="elective2">
                                 <summary>{{elective2.name}}</summary>

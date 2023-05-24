@@ -4653,7 +4653,7 @@ export default {
 					},
 					dreadOrator: {
 						name: "Dread Orator",
-						description: "Once per day you can place your hand on a corpse that's less than a day old, and ask it two questions which it will answer truthfully.",
+						description: "You're not sure exactly how you discovered this talent, but you have the ability to question the recently dead. Sometimes their spirits have something to say.",
 						advantages: [
 							"Once per day you can place your hand on a corpse that's less than a day old, and ask it two questions which it will answer truthfully."
 						],

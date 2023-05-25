@@ -89,10 +89,16 @@
                                 </nav>
                             </header>
                             <form>
-                                <label>
-                                    Name
-                                    <input type="text" placeholder="Name" v-model="characterName">
-                                </label>
+                                <div class="grid">
+                                    <label>
+                                        Name
+                                        <input type="text" placeholder="Name" v-model="characterName">
+                                    </label>
+                                    <label>
+                                        Portrait URL (Optional)
+                                        <input type="text" placeholder="https://www.somewebsite.com/image.jpg" v-model="portraitURL">
+                                    </label>
+                                </div>
                                 <div class="grid">
                                     <label>
                                         Calling
@@ -818,6 +824,9 @@
                                     </li>
                                 </ul>
                             </nav>
+                            <div v-if="portraitURL" class="flex justify-center align-center">
+                                <img :src="portraitURL" style="border-radius: 100%; aspect-ratio: 1/1; max-width: 250px; object-fit: cover;" />
+                            </div>
                             <div class="grid">
                                 <hgroup>
                                     <h6>{{speciesSelected.name}}</h6>
@@ -1788,7 +1797,8 @@
                         <div class="primary">
                             <div class="draft grey right-round"><p><strong>IDENTITY</strong></p></div>
                             <div class="draft bio">
-                                <div style="border: 1px solid black; border-radius: 50%; aspect-ratio: 1 / 1; max-width: 2.5in; justify-self: center;"></div>
+                                <div v-if="!portraitURL" style="border: 1px solid black; border-radius: 50%; aspect-ratio: 1 / 1; max-width: 2.5in; justify-self: center;"></div>
+                                <img v-if="portraitURL" style="border: 1px solid black; border-radius: 50%; aspect-ratio: 1/1; max-width: 1.5in; justify-self: center; object-fit: cover;" :src="portraitURL"/>
                                 <div>
                                     <p class="border-top">NAME: <strong>{{characterName}}</strong></p>
                                     <p class="border-top">CALLING: <strong v-if="callingSelected">{{callingSelected.name}}</strong></p>

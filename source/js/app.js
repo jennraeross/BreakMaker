@@ -1,6 +1,7 @@
 export default {
 	data() {
 		return {
+			portraitURL: null,
 			edit: true,
 			show: false,
 			showSidebar: false,
@@ -6115,7 +6116,8 @@ export default {
 				grit: parseFloat(this.getGrit) + parseFloat(this.gritTrait),
 				insight: parseFloat(this.getInsight) + parseFloat(this.insightTrait),
 				aura: parseFloat(this.getAura) + parseFloat(this.auraTrait),
-				languages: this.languages
+				languages: this.languages,
+				portraitURL: this.portraitURL
 			});
 		},
 		getCustomWeaponCost() {
@@ -6339,6 +6341,7 @@ export default {
 				vm.soulCompAbility5 = fileContent.soulCompAbility5 ;
 				vm.nativeHumanElective = fileContent.nativeHumanElective;
 				vm.languages = fileContent.languages;
+				vm.portraitURL = fileContent.portraitURL;
 			};
 			reader.readAsText(importedFile); 
 		},

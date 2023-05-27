@@ -5645,7 +5645,7 @@ export default {
 				}
 			}
 			if (this.quirkSelected) {
-				switch (this.quirkSelected) {
+				switch (this.quirkSelected.name) {
 					case "Girthsome":
 						calcGrit++;
 						break;
@@ -5694,7 +5694,7 @@ export default {
 				}
 			}
 			if (this.quirkSelected) {
-				switch (this.quirkSelected) {
+				switch (this.quirkSelected.name) {
 					case "Nearsighted":
 						calcInsight++;
 				}
@@ -5784,7 +5784,7 @@ export default {
 				}
 			}
 			if (this.quirkSelected) {
-				switch (this.quirkSelected) {
+				switch (this.quirkSelected.name) {
 					case "Girthsome":
 						calcHearts++;
 						break;
@@ -5905,7 +5905,7 @@ export default {
 					calcDefense += 4;
 			}
 			if (this.quirkSelected) {
-				switch (this.quirkSelected) {
+				switch (this.quirkSelected.name) {
 					case "Unhinged":
 						calcDefense--;
 						break;
@@ -5930,7 +5930,7 @@ export default {
 					calcSpeed++;
 			}
 			if (this.quirkSelected) {
-				switch (this.quirkSelected) {
+				switch (this.quirkSelected.name) {
 					case "Girthsome":
 						calcSpeed--;
 						break;

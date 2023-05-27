@@ -5554,15 +5554,17 @@ export default {
 					calcMight++;
 					break;
 			}
-			switch (this.quirkSelected) {
-				case "Weary (Scarred Soul)":
-				case "Weary (Walker of Two Paths)":
-				case "Weary":
-					calcMight--;
-					break;
-				case "Industrial Frame":
-					calcMight++;
-					break;
+			if (this.quirkSelected) {
+				switch (this.quirkSelected.name) {
+					case "Weary (Scarred Soul)":
+					case "Weary (Walker of Two Paths)":
+					case "Weary":
+						calcMight--;
+						break;
+					case "Industrial Frame":
+						calcMight++;
+						break;
+				}
 			}
 			return calcMight;
 		},
@@ -5601,10 +5603,12 @@ export default {
 					calcDeft++;
 					break;
 			}
-			switch (this.quirkSelected) {
-				case "Waifish":
-					calcDeft++;
-					break;
+			if (this.quirkSelected) {
+				switch (this.quirkSelected.name) {
+					case "Waifish":
+						calcDeft++;
+						break;
+				}
 			}
 			return calcDeft;
 		},
@@ -5640,18 +5644,20 @@ export default {
 						calcGrit = 10;
 				}
 			}
-			switch (this.quirkSelected) {
-				case "Girthsome":
-					calcGrit++;
-					break;
-				case "Winged":
-					calcGrit--;
-					break;
-				case "Weary (Walker of Two Paths)":
-				case "Weary (Scarred Soul)":
-				case "Weary":
-					calcGrit--;
-					break;
+			if (this.quirkSelected) {
+				switch (this.quirkSelected) {
+					case "Girthsome":
+						calcGrit++;
+						break;
+					case "Winged":
+						calcGrit--;
+						break;
+					case "Weary (Walker of Two Paths)":
+					case "Weary (Scarred Soul)":
+					case "Weary":
+						calcGrit--;
+						break;
+				}
 			}
 			return calcGrit;
 		},
@@ -5687,9 +5693,11 @@ export default {
 						calcInsight = 10;
 				}
 			}
-			switch (this.quirkSelected) {
-				case "Nearsighted":
-					calcInsight++;
+			if (this.quirkSelected) {
+				switch (this.quirkSelected) {
+					case "Nearsighted":
+						calcInsight++;
+				}
 			}
 			return calcInsight;
 		},
@@ -5771,23 +5779,25 @@ export default {
 				}
 			}
 			if (this.speciesSelected) {
-				if (this.speciesSelected == "Gruun") {
+				if (this.speciesSelected.name == "Gruun") {
 					calcHearts++;
 				}
 			}
-			switch (this.quirkSelected) {
-				case "Girthsome":
-					calcHearts++;
-					break;
-				case "Waifish":
-					calcHearts--;
-					break;
-				case "Winged":
-					calcHearts--;
-					break;
-				case "Industial Frame":
-					calcHearts++;
-					break;
+			if (this.quirkSelected) {
+				switch (this.quirkSelected) {
+					case "Girthsome":
+						calcHearts++;
+						break;
+					case "Waifish":
+						calcHearts--;
+						break;
+					case "Winged":
+						calcHearts--;
+						break;
+					case "Industial Frame":
+						calcHearts++;
+						break;
+				}
 			}
 			return calcHearts;
 		},
@@ -5835,12 +5845,14 @@ export default {
 				default:
 					calcAttackBonus = 0;
 			}
-			switch(this.quirkSelected) {
-				case "Unhinged": 
-					calcAttackBonus += 2;
-				case "Weary (Scarred Soul)":
-				case "Weary": 
-					calcAttackBonus++;
+			if (this.quirkSelected) {
+				switch(this.quirkSelected) {
+					case "Unhinged": 
+						calcAttackBonus += 2;
+					case "Weary (Scarred Soul)":
+					case "Weary": 
+						calcAttackBonus++;
+				}
 			}
 			return calcAttackBonus;
 		},
@@ -5892,12 +5904,14 @@ export default {
 				case 4: 
 					calcDefense += 4;
 			}
-			switch (this.quirkSelected) {
-				case "Unhinged":
-					calcDefense--;
-					break;
-				case "Fairy Cap":
-					calcDefense++;
+			if (this.quirkSelected) {
+				switch (this.quirkSelected) {
+					case "Unhinged":
+						calcDefense--;
+						break;
+					case "Fairy Cap":
+						calcDefense++;
+				}
 			}
 			return calcDefense;
 		},
@@ -5915,16 +5929,18 @@ export default {
 				case this.hasAbility("Desperate Scurry"):
 					calcSpeed++;
 			}
-			switch (this.quirkSelected) {
-				case "Girthsome":
-					calcSpeed--;
-					break;
-				case "Waifish":
-					calcSpeed++;
-					break;
-				case "Industrial Frame":
-					calcSpeed--;
-					break;
+			if (this.quirkSelected) {
+				switch (this.quirkSelected) {
+					case "Girthsome":
+						calcSpeed--;
+						break;
+					case "Waifish":
+						calcSpeed++;
+						break;
+					case "Industrial Frame":
+						calcSpeed--;
+						break;
+				}
 			}
 			if (this.armorSelected){
 				switch (this.armorSelected.name) {
@@ -5978,13 +5994,15 @@ export default {
 						break;					
 				}
 			}
-			switch(this.quirkSelected) {
-				case "Young":
-					if (calcSize > 0) calcSize--;
-					break;
-				case "Mascot Chassis":
-					calcSize = 0;
-					break;
+			if (this.quirkSelected) {
+				switch(this.quirkSelected) {
+					case "Young":
+						if (calcSize > 0) calcSize--;
+						break;
+					case "Mascot Chassis":
+						calcSize = 0;
+						break;
+				}
 			}
 			switch(true) {
 				case (calcSize < 1):

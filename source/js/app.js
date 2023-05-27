@@ -4484,7 +4484,7 @@ export default {
 						name: "Adorable",
 						description: "You are childlike, cute, or otherwise innocent looking. This makes you incredibly disarming and easy to agree with, but also considerably less threatening.",
 						advantages: [
-							"You gain an Edge on Aura rolis when attempting to charm, or convince others of your relative harmlessness."
+							"You gain an Edge on Aura rolls when attempting to charm, or convince others of your relative harmlessness."
 						],
 						disadvantages: [
 							"You incur a Snag on Aura rolls when attempting to intimidate or impress."

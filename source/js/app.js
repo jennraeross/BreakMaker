@@ -5833,6 +5833,16 @@ export default {
 						calcAttack = 0;
 				}
 			}
+			if (this.quirkSelected) {
+				switch(this.quirkSelected.name) {
+					case "Unhinged": 
+						calcAttack += 2;
+						break;
+					case "Weary (Scarred Soul)":
+					case "Weary": 
+						calcAttack++;
+				}
+			}
 			return calcAttack;
 		},
 		getAttackBonus() {
@@ -5844,15 +5854,6 @@ export default {
 					calcAttackBonus = 2;
 				default:
 					calcAttackBonus = 0;
-			}
-			if (this.quirkSelected) {
-				switch(this.quirkSelected) {
-					case "Unhinged": 
-						calcAttackBonus += 2;
-					case "Weary (Scarred Soul)":
-					case "Weary": 
-						calcAttackBonus++;
-				}
 			}
 			return calcAttackBonus;
 		},

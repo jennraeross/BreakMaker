@@ -2233,6 +2233,10 @@ export default {
 								"Victims have a Snag when making rolls to resist other Magical Abilities.",
 								"Victims are afflicted with the Putrefied Ailment.",
 								"When a victim is reduced to 0 Hearts by this Ailment, they collapse and are helplessly exhausted. This will pass with a week's worth of rest, but the purple spots remain for another week.",
+								"----",
+								"Once a chosen target has fallen foul to this Ability, you cannot use it again for another 24 hours.",
+								"----",
+								"GAIN: 1 Dark Allegiance Point"
 							],
 						},
 						murkyMask: {
@@ -2248,7 +2252,7 @@ export default {
 								"You will the Mask away.",
 								"NOTE: After use, you must wait an hour before using the Mask again.",
 								"----",
-								"COST: 1 Dark Allegiance Point.",
+								"GAIN: 1 Dark Allegiance Point.",
 							],
 						},
 						veryUsefulCloud: {

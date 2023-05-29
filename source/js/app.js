@@ -6374,18 +6374,38 @@ export default {
 					if (this.nativeHumanElective == ability) return true;
 				}
 			}
-			if (
-				this.elective1 == ability ||
-				this.elective2 == ability ||
-				this.elective4 == ability ||
-				this.elective6 == ability ||
-				this.elective8 == ability ||
-				this.elective10 == ability
+			var checkability = false;
+			if (this.elective1){
+				if (this.elective1.name == ability) checkability = true;
+			}
+			if (this.elective2){
+				if (this.elective2.name == ability) checkability = true;
+			}
+			if (this.elective4){
+				if (this.elective4.name == ability) checkability = true;
+			}
+			if (this.elective6){
+				if (this.elective6.name == ability) checkability = true;
+			}
+			if (this.elective8){
+				if (this.elective8.name == ability) checkability = true;
+			}
+			if (this.elective10){
+				if (this.elective10.name == ability) checkability = true;
+			}
+			return checkability;
+			/*if (
+				this.elective1.name == ability ||
+				this.elective2.name == ability ||
+				this.elective4.name == ability ||
+				this.elective6.name == ability ||
+				this.elective8.name == ability ||
+				this.elective10.name == ability
 			) {
 				return true;
 			} else {
 				return false;
-			}
+			}*/
 		},
 		printDiv(divId) {
 			let mywindow = window.open("", "PRINT");

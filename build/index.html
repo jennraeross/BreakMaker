@@ -25,7 +25,7 @@
                     <div id="sidebarFlex">
                         <div class="grid">
                             <button v-if="edit">Edit</button>
-                            <div data-placement="bottom" :data-tooltip="!(callingSelected && speciesSelected && homelandSelected && historySelected && quirkSelected) ? 'Finish the form first' : null"><button v-if="edit" class="outline" @click="edit = false" :disabled="!(callingSelected && speciesSelected && homelandSelected && historySelected && quirkSelected)">View</button></div>
+                            <div v-if="edit" data-placement="bottom" :data-tooltip="!(callingSelected && speciesSelected && homelandSelected && historySelected && quirkSelected) ? 'Finish the form first' : null"><button v-if="edit" class="outline" @click="edit = false" :disabled="!(callingSelected && speciesSelected && homelandSelected && historySelected && quirkSelected)">View</button></div>
                             <button v-if="!edit" class="outline" @click="edit = true">Edit</button>
                             <button v-if="!edit">View</button>
                         </div>

@@ -2322,7 +2322,7 @@ export default {
 						manaCrush: {
 							name: "Mana Crush",
 							description:
-								"Sometimes even the patience of the wise can be tested. By clenching your fist you can solidify the mana emanating from another creature and use it to crush lice a vice.",
+								"Sometimes even the patience of the wise can be tested. By clenching your fist you can solidify the mana emanating from another creature and use it to crush like a vice.",
 							mechanics: [
 								"You can target an opponent up to 15 ft., or 1 Battlefield Area away.",
 								"During a Fight, Mana Crush requires the use of your Action to cast.",

@@ -3146,7 +3146,7 @@ export default {
 					},
 					hinterlandNoble: {
 						name: "Hinterland Noble",
-						description: "No-Folk's Land is a contested area, dotted with petty warning settlements. As a child of this fringe nobility, you learned from the ruthless example of despots.",
+						description: "No-Folk's Land is a contested area, dotted with petty warring settlements. As a child of this fringe nobility, you learned from the ruthless example of despots.",
 						purviews: [
 							"Radiating quiet menace",
 							"Rough but efficient leadership",

@@ -63,6 +63,76 @@ export default {
 			followerDarkGift: null,
 			soulCompAbility1: null,
 			soulCompAbility5: null,
+			heartsBlade: {
+				chosenType: null,
+				chosenMaterial: null,
+				chosenProperty: null,
+				chosenCombination: null,
+				types: [
+					"Quick Weapon", 
+					"Master Weapon", 
+					"Mighty Weapon",
+					"Arc Weapon",
+					"Lash Weapon",
+					"Drawn Weapon",
+					"Small Mechanical Missile Weapon",
+					"Large Mechanical Missile Weapon"
+				],
+				materials: [
+					"Sun Gold",
+					"Ash Bronze",
+					"Sky Steel"
+				],
+				properties: {
+					glittering: {
+						name: "Glittering",
+						description: "+1 on Attack rolls."
+					},
+					righteous: {
+						name: "Righteous",
+						description: "The weapon's Extra Damage Threshold is reduced by 2."
+					},
+					sheltering: {
+						name: "Sheltering",
+						description: "The weapon can Parry once per combat in the same manner as a Standard Shield."
+					}
+				}
+			},
+			wrathsBlade: {
+				chosenType: null,
+				chosenMaterial: null,
+				chosenProperty: null,
+				chosenCombination: null,
+				types: [
+					"Quick Weapon", 
+					"Master Weapon", 
+					"Mighty Weapon",
+					"Arc Weapon",
+					"Lash Weapon",
+					"Drawn Weapon",
+					"Small Mechanical Missile Weapon",
+					"Large Mechanical Missile Weapon"
+				],
+				materials: [
+					"Shade Iron",
+					"Dew Silver",
+					"Warp Wood"
+				],
+				properties: {
+					glistening: {
+						name: "Glistening",
+						description: "+1 on Attack rolls."
+					},
+					righteous: {
+						name: "Retributive",
+						description: "The weapon's Extra Damage Threshold is reduced by 2."
+					},
+					denying: {
+						name: "Denying",
+						description: "The weapon can Parry once per combat in the same manner as a Standard Shield."
+					}
+				}
+			},
 			companionTypes: {
 				followers: {
 					scamp: {

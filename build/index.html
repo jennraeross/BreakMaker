@@ -251,6 +251,102 @@
                         </article>
 
                         <div v-if="callingSelected && speciesSelected && quirkSelected && historySelected">
+                            <article id="heartWrathBladeForm" v-if="callingSelected.name == 'Battle Princess' || callingSelected.name == 'Murder Princess'">
+                                <header>
+                                    <nav>
+                                        <ul>
+                                            <li>
+                                                <hgroup>
+                                                    <h4 v-if="callingSelected.name == 'Battle Princess'">Heart's Blade</h4>
+                                                    <h4 v-if="callingSelected.name == 'Murder Princess'">Wrath's Blade</h4>
+                                                    <h5>Your manifested weapon.</h5>
+                                                </hgroup>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                </header>
+                                <form v-if="callingSelected.name == 'Battle Princess'">
+                                    <label>
+                                        <span>Weapon Type</span>
+                                        <select v-model="heartsBlade.chosenType">
+                                            <option value="">None</option>
+                                            <template v-for="weapon in weapons">
+                                                <option :value="weapon" v-if="heartsBlade.types.includes(weapon.name)">{{weapon.name}}</option>
+                                            </template>
+                                        </select>
+                                    </label>
+                                    <label>
+                                        <span>Weapon Material</span>
+                                        <select v-model="heartsBlade.chosenMaterial">
+                                            <option value="">None</option>
+                                            <option v-for="material in heartsBlade.materials">{{material}}</option>
+                                        </select>
+                                    </label>
+                                    <div v-if="getLevel >= 3">
+                                        <label>
+                                            <span>Weapon Property</span>
+                                            <select v-model="heartsBlade.chosenProperty">
+                                                <option value="">None</option>
+                                                <template v-for="property in heartsBlade.properties">
+                                                    <option :value="property">{{property.name}}</option>
+                                                </template>
+                                            </select>
+                                        </label>
+                                    </div>
+                                    <div v-if="getLevel >= 6">
+                                        <label>
+                                            <span>Combination Type</span>
+                                            <select v-model="heartsBlade.chosenCombination">
+                                                <option value="">None</option>
+                                                <template v-for="weapon in weapons">
+                                                    <option :value="weapon" v-if="heartsBlade.types.includes(weapon.name)">{{weapon.name}}</option>
+                                                </template>
+                                            </select>
+                                        </label>
+                                    </div>
+                                </form>
+                                <form v-if="callingSelected.name == 'Murder Princess'">
+                                    <label>
+                                        <span>Weapon Type</span>
+                                        <select v-model="wrathsBlade.chosenType">
+                                            <option value="">None</option>
+                                            <template v-for="weapon in weapons">
+                                                <option :value="weapon" v-if="wrathsBlade.types.includes(weapon.name)">{{weapon.name}}</option>
+                                            </template>
+                                        </select>
+                                    </label>
+                                    <label>
+                                        <span>Weapon Material</span>
+                                        <select v-model="wrathsBlade.chosenMaterial">
+                                            <option value="">None</option>
+                                            <option v-for="material in wrathsBlade.materials">{{material}}</option>
+                                        </select>
+                                    </label>
+                                    <div v-if="getLevel >= 3">
+                                        <label>
+                                            <span>Weapon Property</span>
+                                            <select v-model="wrathsBlade.chosenProperty">
+                                                <option value="">None</option>
+                                                <template v-for="property in wrathsBlade.properties">
+                                                    <option :value="property">{{property.name}}</option>
+                                                </template>
+                                            </select>
+                                        </label>
+                                    </div>
+                                    <div v-if="getLevel >= 6">
+                                        <label>
+                                            <span>Combination Type</span>
+                                            <select v-model="wrathsBlade.chosenCombination">
+                                                <option value="">None</option>
+                                                <template v-for="weapon in weapons">
+                                                    <option :value="weapon" v-if="wrathsBlade.types.includes(weapon.name)">{{weapon.name}}</option>
+                                                </template>
+                                            </select>
+                                        </label>
+                                    </div>
+                                </form>
+                            </article>
+
                             <article id="loadout">
                                 <header>
                                     <nav>
@@ -856,6 +952,93 @@
                             </ul>
                             <hr>
                         </div>
+                        <div id="heartWrathBlade" v-if="(callingSelected.name == 'Battle Princess' && heartsBlade.chosenType) || (callingSelected.name == 'Murder Princess' && wrathsBlade.chosenType)">
+                            <nav>
+                                <ul>
+                                    <li><i class="fa-solid fa-gun fa-xl"></i></li>
+                                    <li>
+                                        <hgroup v-if="callingSelected.name == 'Battle Princess'">
+                                            <h6 v-if="heartsBlade.chosenMaterial && heartsBlade.chosenType"><span v-if="heartsBlade.chosenProperty">{{heartsBlade.chosenProperty.name}}&nbsp;</span>{{heartsBlade.chosenMaterial}}&nbsp;{{heartsBlade.chosenType.name}}<span v-if="heartsBlade.chosenCombination"> + {{heartsBlade.chosenCombination.name}}</span></h6>
+                                            <span>Heart's Blade</span>
+                                        </hgroup>
+                                        <hgroup v-if="callingSelected.name == 'Murder Princess'">
+                                            <h6 v-if="wrathsBlade.chosenMaterial && wrathsBlade.chosenType"><span v-if="wrathsBlade.chosenProperty">{{wrathsBlade.chosenProperty.name}}&nbsp;</span>{{wrathsBlade.chosenMaterial}}&nbsp;{{wrathsBlade.chosenType.name}}<span v-if="wrathsBlade.chosenCombination"> + {{wrathsBlade.chosenCombination.name}}</span></h6>
+                                            <span>Wrath's Blade</span>
+                                        </hgroup>
+                                    </li>
+                                </ul>
+                            </nav>
+                            <blockquote>
+                                <p>
+                                    Damage Threshold:&nbsp;
+                                    <span v-if="callingSelected.name == 'Battle Princess'">
+                                        <span v-if="heartsBlade.chosenProperty">
+                                            <span v-if="heartsBlade.chosenProperty.name == 'Righteous'">
+                                                <span v-if="heartsBlade.chosenCombination">{{heartsBlade.chosenType.threshold < heartsBlade.chosenCombination.threshold ? heartsBlade.chosenType.threshold - 2 : heartsBlade.chosenCombination.threshold - 2}}</span>
+                                                <span v-else>{{heartsBlade.chosenType.threshold - 2}}</span>
+                                            </span>
+                                            <span v-else>
+                                                <span v-if="heartsBlade.chosenCombination">{{heartsBlade.chosenType.threshold < heartsBlade.chosenCombination.threshold ? heartsBlade.chosenType.threshold : heartsBlade.chosenCombination.threshold}}</span>
+                                                <span v-else>{{heartsBlade.chosenType.threshold}}</span>    
+                                            </span>
+                                        </span>
+                                        <span v-else>
+                                            <span v-if="heartsBlade.chosenCombination">{{heartsBlade.chosenType.threshold < heartsBlade.chosenCombination.threshold ? heartsBlade.chosenType.threshold : heartsBlade.chosenCombination.threshold}}</span>
+                                            <span v-else>{{heartsBlade.chosenType.threshold}}</span>
+                                        </span>
+                                    </span>
+                                    <span v-else-if="callingSelected.name == 'Murder Princess'">
+                                        <span v-if="wrathsBlade.chosenProperty">
+                                            <span v-if="wrathsBlade.chosenProperty.name == 'Righteous'">
+                                                <span v-if="wrathsBlade.chosenCombination">{{wrathsBlade.chosenType.threshold < wrathsBlade.chosenCombination.threshold ? wrathsBlade.chosenType.threshold - 2 : wrathsBlade.chosenCombination.threshold - 2}}</span>
+                                                <span v-else>{{wrathsBlade.chosenType.threshold - 2}}</span>
+                                            </span>
+                                            <span v-else>
+                                                <span v-if="wrathsBlade.chosenCombination">{{wrathsBlade.chosenType.threshold < wrathsBlade.chosenCombination.threshold ? wrathsBlade.chosenType.threshold : wrathsBlade.chosenCombination.threshold}}</span>
+                                                <span v-else>{{wrathsBlade.chosenType.threshold}}</span>    
+                                            </span>
+                                        </span>
+                                        <span v-else>
+                                            <span v-if="wrathsBlade.chosenCombination">{{wrathsBlade.chosenType.threshold < wrathsBlade.chosenCombination.threshold ? wrathsBlade.chosenType.threshold : wrathsBlade.chosenCombination.threshold}}</span>
+                                            <span v-else>{{wrathsBlade.chosenType.threshold}}</span>
+                                        </span>
+                                    </span>
+                                </p>
+                            </blockquote>
+                            <!--<p v-if="callingSelected.name == 'Battle Princess'">{{heartsBlade.chosenType.description}}</p>
+                            <p v-else-if="callingSelected.name == 'Murder Princess'">{{wrathsBlade.chosenType.description}}</p>-->
+                            <ul v-if="callingSelected.name == 'Battle Princess'">
+                                <li>{{heartsBlade.chosenType.name}}:</li>
+                                <ul>
+                                    <li>{{heartsBlade.chosenType.description}}</li>
+                                    <li v-for="mechanic in heartsBlade.chosenType.mechanics">{{mechanic}}</li>
+                                </ul>
+                                <li v-if="heartsBlade.chosenCombination">{{heartsBlade.chosenCombination.name}}:</li>
+                                <ul v-if="heartsBlade.chosenCombination">
+                                    <li v-for="mechanic in heartsBlade.chosenCombination.mechanics">{{mechanic}}</li>
+                                </ul>
+                                <li v-if="heartsBlade.chosenProperty">{{heartsBlade.chosenProperty.name}}:</li>
+                                <ul v-if="heartsBlade.chosenProperty">
+                                    <li>{{heartsBlade.chosenProperty.description}}</li>
+                                </ul>
+                            </ul>
+                            <ul v-if="callingSelected.name == 'Murder Princess'">
+                                <li>{{wrathsBlade.chosenType.name}}:</li>
+                                <ul>
+                                    <li>{{wrathsBlade.chosenType.description}}</li>
+                                    <li v-for="mechanic in wrathsBlade.chosenType.mechanics">{{mechanic}}</li>
+                                </ul>
+                                <li v-if="wrathsBlade.chosenCombination">{{wrathsBlade.chosenCombination.name}}:</li>
+                                <ul v-if="wrathsBlade.chosenCombination">
+                                    <li v-for="mechanic in wrathsBlade.chosenCombination.mechanics">{{mechanic}}</li>
+                                </ul>
+                                <li v-if="wrathsBlade.chosenProperty">{{wrathsBlade.chosenProperty.name}}:</li>
+                                <ul v-if="wrathsBlade.chosenProperty">
+                                    <li>{{wrathsBlade.chosenProperty.description}}</li>
+                                </ul>
+                            </ul>
+                        </div>
+                        <hr>
                         <div id="Weapon" v-if="weaponSelected">
                             <nav>
                                 <ul>

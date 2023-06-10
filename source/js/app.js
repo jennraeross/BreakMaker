@@ -6210,7 +6210,9 @@ export default {
 				insight: parseFloat(this.getInsight) + parseFloat(this.insightTrait),
 				aura: parseFloat(this.getAura) + parseFloat(this.auraTrait),
 				languages: this.languages,
-				portraitURL: this.portraitURL
+				portraitURL: this.portraitURL,
+				heartsBlade: this.heartsBlade,
+				wrathsBlade:this.wrathsBlade,
 			});
 		},
 		getCustomWeaponCost() {
@@ -6435,6 +6437,8 @@ export default {
 				vm.nativeHumanElective = fileContent.nativeHumanElective;
 				vm.languages = fileContent.languages;
 				vm.portraitURL = fileContent.portraitURL;
+				vm.heartsBlade = fileContent.heartsBlade;
+				vm.wrathsBlade = fileContent.wrathsBlade;
 			};
 			reader.readAsText(importedFile); 
 		},

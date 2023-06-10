@@ -6529,15 +6529,15 @@ export default {
 		getSoulCompStat(stat) {
 			switch (stat) {
 				case 'Might':
-					return this.getMight - 2;
+					return parseFloat(this.getMight) + parseFloat(this.mightTrait) - 2;
 				case 'Deft':
-					return this.getDeft - 2;
+					return parseFloat(this.getDeft) + parseFloat(this.deftTrait) - 2;
 				case 'Grit':
-					return this.getGrit - 2;
+					return parseFloat(this.getGrit) + parseFloat(this.gritTrait) - 2;
 				case 'Insight':
-					return this.getInsight - 2;
+					return parseFloat(this.getInsight) + parseFloat(this.insightTrait - 2);
 				case 'Aura':
-					return this.getAura - 2;
+					return parseFloat(this.getAura) + parseFloat(this.auraTrait) - 2;
 			}
 		},
 		save() {

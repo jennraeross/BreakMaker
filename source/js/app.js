@@ -6365,7 +6365,7 @@ export default {
 			else {
 				return 'Unaligned';
 			}
-		}
+		},
 	},
 	methods: {
 		backup() {
@@ -6541,6 +6541,72 @@ export default {
 				case 'Aura':
 					return this.getAura - 2;
 			}
+		},
+		save() {
+			localStorage.setItem("saveFile", this.getBackupDataString);
 		}
 	},
+	mounted() {
+		if (localStorage.getItem("saveFile")) {
+			var vm = this;
+			var fileContent = JSON.parse(localStorage.getItem("saveFile"));
+			console.log(localStorage.getItem("saveFile"));
+			vm.gems = fileContent.gems;
+			vm.coins = fileContent.coins;
+			vm.stones = fileContent.stones;
+			vm.itemSelected = fileContent.itemSelected;
+			vm.inventory = fileContent.inventory;
+			vm.mightTrait = fileContent.mightTrait;
+			vm.deftTrait = fileContent.deftTrait;
+			vm.gritTrait = fileContent.gritTrait;
+			vm.insightTrait = fileContent.insightTrait;
+			vm.auraTrait = fileContent.auraTrait;
+			vm.callingSelected = fileContent.callingSelected;
+			vm.weaponSelected = fileContent.weaponSelected;
+			vm.armorSelected = fileContent.armorSelected;
+			vm.shieldSelected = fileContent.shieldSelected;
+			vm.xp = fileContent.xp;
+			vm.characterName = fileContent.characterName;
+			vm.speciesSelected = fileContent.speciesSelected;
+			vm.homelandSelected = fileContent.homelandSelected;
+			vm.historySelected = fileContent.historySelected;
+			vm.quirkSelected = fileContent.quirkSelected;
+			vm.currentHearts = fileContent.currentHearts;
+			vm.brightPoints = fileContent.brightPoints;
+			vm.darkPoints = fileContent.darkPoints;
+			vm.elective1 = fileContent.elective1;
+			vm.elective2 = fileContent.elective2;
+			vm.elective4 = fileContent.elective4;
+			vm.elective6 = fileContent.elective6;
+			vm.elective8 = fileContent.elective8;
+			vm.elective10 = fileContent.elective10;
+			vm.brightGifts = fileContent.brightGifts;
+			vm.darkGifts = fileContent.darkGifts;
+			vm.tenebrateGift = fileContent.tenebrateGift;
+			vm.combinationWeaponSelected = fileContent.combinationWeaponSelected;
+			vm.weaponCustom = fileContent.weaponCustom;
+			vm.armorCustom = fileContent.armorCustom;
+			vm.shieldCustom = fileContent.shieldCustom;
+			vm.customWeaponSelected = fileContent.customWeaponSelected;
+			vm.customArmorSelected = fileContent.customArmorSelected;
+			vm.customShieldSelected = fileContent.customShieldSelected;
+			vm.weaponNumber = fileContent.weaponNumber;
+			vm.armorNumber = fileContent.armorNumber;
+			vm.shieldNumber = fileContent.shieldNumber;
+			vm.companionSelected = fileContent.companionSelected ;
+			vm.followerSpecies = fileContent.followerSpecies ;
+			vm.followerHumanCalling = fileContent.followerHumanCalling ;
+			vm.followerHumanAbility = fileContent.followerHumanAbility ;
+			vm.followerElfImmunity = fileContent.followerElfImmunity ;
+			vm.followerDarkGift = fileContent.followerDarkGift ;
+			vm.soulCompAbility1 = fileContent.soulCompAbility1 ;
+			vm.soulCompAbility5 = fileContent.soulCompAbility5 ;
+			vm.nativeHumanElective = fileContent.nativeHumanElective;
+			vm.languages = fileContent.languages;
+			vm.portraitURL = fileContent.portraitURL;
+			vm.heartsBlade = fileContent.heartsBlade;
+			vm.wrathsBlade = fileContent.wrathsBlade;
+		}
+		setInterval(this.save, 5000);
+	}
 };

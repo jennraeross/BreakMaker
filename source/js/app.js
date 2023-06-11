@@ -6542,6 +6542,10 @@ export default {
 		},
 		save() {
 			localStorage.setItem("saveFile", this.getBackupDataString);
+		},
+		clearSave() {
+			localStorage.removeItem("saveFile");
+			location.reload();
 		}
 	},
 	mounted() {

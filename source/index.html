@@ -20,10 +20,11 @@
                 </ul>-->
                 <ul>
                     <div class="hideResponsive">
-                        <li data-placement="bottom" data-tooltip="Backup"><button class="secondary nav-button" @click="backupOpen = true"><i class="fa-solid fa-download fa-l"></i></button></li>
-                        <li data-placement="bottom" data-tooltip="Print"><button class="nav-button" id="print" @click="printDiv('sheetTemplate')" :disabled="!(callingSelected && speciesSelected && homelandSelected && historySelected && quirkSelected)"><i class="fa-solid fa-file-pdf fa-l"></i></button></li>
+                        <li data-placement="bottom" data-tooltip="Backup"><button class="secondary nav-button" @click="backupOpen = true"><i class="fa-solid fa-download"></i></button></li>
+                        <li data-placement="bottom" :data-tooltip="!(callingSelected && speciesSelected && homelandSelected && historySelected && quirkSelected) ? 'Finish the form first' : null"><button class="nav-button" id="print" @click="printDiv('sheetTemplate')" :disabled="!(callingSelected && speciesSelected && homelandSelected && historySelected && quirkSelected)"><i class="fa-solid fa-file-pdf"></i></button></li>
                     </div>
-                    <li data-placement="bottom" data-tooltip="Save"><button class="nav-button" @click="save"><i class="fa-solid fa-floppy-disk fa-l"></i></button></li>
+                    <li data-placement="bottom" data-tooltip="clear"><button class="nav-button button-warning" @click="clearSave"><i class="fa-solid fa-trash-can"></i></button></li>
+                    <li data-placement="bottom" data-tooltip="Save"><button class="nav-button" @click="save"><i class="fa-solid fa-floppy-disk"></i></button></li>
                 </ul>
             </nav>
             <div :class="{fog: showSidebar}" @click="showSidebar = false"></div>

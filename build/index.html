@@ -21,7 +21,7 @@
                 <ul>
                     <div class="hideResponsive">
                         <li data-placement="bottom" data-tooltip="Backup / Restore"><button class="secondary nav-button" @click="backupOpen = true"><i class="fa-solid fa-download"></i></button></li>
-                        <li data-placement="bottom" :data-tooltip="!(callingSelected && speciesSelected && homelandSelected && historySelected && quirkSelected) ? 'Finish the form first' : null"><button class="nav-button" id="print" @click="printDiv('sheetTemplate')" :disabled="!(callingSelected && speciesSelected && homelandSelected && historySelected && quirkSelected)"><i class="fa-solid fa-file-pdf"></i></button></li>
+                        <li data-placement="bottom" :data-tooltip="!(callingSelected && speciesSelected && homelandSelected && historySelected && quirkSelected) ? 'Finish the form first' : 'Print'"><button class="nav-button" id="print" @click="printDiv('sheetTemplate')" :disabled="!(callingSelected && speciesSelected && homelandSelected && historySelected && quirkSelected)"><i class="fa-solid fa-file-pdf"></i></button></li>
                     </div>
                     <li data-placement="bottom" data-tooltip="Clear"><button class="nav-button button-warning" @click="clearSave"><i class="fa-solid fa-trash-can"></i></button></li>
                     <li data-placement="bottom" data-tooltip="Save"><button class="nav-button" @click="save"><i class="fa-solid fa-floppy-disk"></i></button></li>

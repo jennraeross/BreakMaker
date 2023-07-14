@@ -7,7 +7,7 @@
       "uuidString" : "9BDE4A5D-CE04-4D09-B227-DF2E8F08CFE5"
     }
   ],
-  "creatorBuild" : "34484",
+  "creatorBuild" : "34510",
   "files" : {
     "\/.prettierrc" : {
       "cB" : 0,
@@ -63,6 +63,16 @@
       "pME" : 1,
       "rFN" : 0,
       "uCM" : 0
+    },
+    "\/source\/img\/Breakmaker - Rounded.svg" : {
+      "ft" : 2097152,
+      "miP" : 0,
+      "oA" : 2,
+      "oAP" : "\/build\/img\/Breakmaker - Rounded.svg",
+      "oF" : 0,
+      "opt" : 0,
+      "plM" : 52780316221407,
+      "prP" : 0
     },
     "\/source\/index.html" : {
       "cB" : 0,
@@ -122,7 +132,7 @@
   },
   "projectAttributes" : {
     "creationDate" : 704322056.09493303,
-    "displayValue" : "Break",
+    "displayValue" : "BreakMaker",
     "displayValueWasSetByUser" : 0,
     "iconImageName" : "brackets-forest",
     "iconImageWasSetByUser" : 0,

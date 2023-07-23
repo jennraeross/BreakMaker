@@ -2043,25 +2043,25 @@
                             <div class="draft">
                                 <p><strong>MIGHT</strong></p>
                                 <div style="display: grid; grid-template-columns: 1fr 3fr;align-items: center;">
-                                    <button style="border: 1px solid black; border-radius: .5em; background-color: white; padding: 1em;">{{getMight}}</button>
+                                    <button style="border: 1px solid black; border-radius: .5em; background-color: white; padding: 1em;">{{parseFloat(getMight) + parseFloat(mightTrait)}}</button>
                                     <div class="progress"> 
-                                        <div class="progress__bar" :style="'width: ' + ((getMight - 3) / 18) * 100 + '%;'"></div>
+                                        <div class="progress__bar" :style="'width: ' + ((parseFloat(getMight) + parseFloat(mightTrait) - 3) / 18) * 100 + '%;'"></div>
                                     </div>                            
                                 </div>
                             </div>
                             <div class="draft border-top">
                                 <p><strong>DEFTNESS</strong></p>
                                 <div style="display: grid; grid-template-columns: 1fr 3fr;align-items: center;">
-                                    <button style="border: 1px solid black; border-radius: .5em; background-color: white; padding: 1em;">{{getDeft}}</button>
+                                    <button style="border: 1px solid black; border-radius: .5em; background-color: white; padding: 1em;">{{parseFloat(getDeft) + parseFloat(deftTrait)}}</button>
                                     <div class="progress"> 
-                                        <div class="progress__bar" :style="'width: ' + ((getDeft - 4) / 17) * 100 + '%;'"></div>
+                                        <div class="progress__bar" :style="'width: ' + ((parseFloat(getDeft) + parseFloat(deftTrait) - 4) / 17) * 100 + '%;'"></div>
                                     </div>                            
                                 </div>
                             </div>
                             <div class="draft border-top">
                                 <p><strong>GRIT</strong></p>
                                 <div style="display: grid; grid-template-columns: 1fr 3fr;align-items: center;">
-                                    <button style="border: 1px solid black; border-radius: .5em; background-color: white; padding: 1em;">{{getGrit}}</button>
+                                    <button style="border: 1px solid black; border-radius: .5em; background-color: white; padding: 1em;">{{parseFloat(getGrit) + parseFloat(gritTrait)}}</button>
                                     <div class="progress"> 
                                         <div class="progress__bar" :style="'width: ' + ((getGrit - 5) / 15) * 100 + '%;'"></div>
                                     </div>                            
@@ -2070,18 +2070,18 @@
                             <div class="draft border-top">
                                 <p><strong>INSIGHT</strong></p>
                                 <div style="display: grid; grid-template-columns: 1fr 3fr;align-items: center;">
-                                    <button style="border: 1px solid black; border-radius: .5em; background-color: white; padding: 1em;">{{getInsight}}</button>
+                                    <button style="border: 1px solid black; border-radius: .5em; background-color: white; padding: 1em;">{{parseFloat(getInsight) + parseFloat(insightTrait)}}</button>
                                     <div class="progress"> 
-                                        <div class="progress__bar" :style="'width: ' + ((getInsight - 5) / 15) * 100 + '%;'"></div>
+                                        <div class="progress__bar" :style="'width: ' + ((parseFloat(getInsight) + parseFloat(insightTrait) - 5) / 15) * 100 + '%;'"></div>
                                     </div>                            
                                 </div>
                             </div>
                             <div class="draft border-top">
                                 <p><strong>AURA</strong></p>
                                 <div style="display: grid; grid-template-columns: 1fr 3fr;align-items: center;">
-                                    <button style="border: 1px solid black; border-radius: .5em; background-color: white; padding: 1em;">{{getAura}}</button>
+                                    <button style="border: 1px solid black; border-radius: .5em; background-color: white; padding: 1em;">{{parseFloat(getAura) + parseFloat(auraTrait)}}</button>
                                     <div class="progress"> 
-                                        <div class="progress__bar" :style="'width: ' + ((getAura - 5) / 15) * 100 + '%;'"></div>
+                                        <div class="progress__bar" :style="'width: ' + ((parseFloat(getAura) + parseFloat(auraTrait) - 5) / 15) * 100 + '%;'"></div>
                                     </div>                            
                                 </div>
                             </div>

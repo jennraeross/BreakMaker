@@ -118,6 +118,9 @@
                                         <select v-model="callingSelected">
                                             <option value="">None</option>
                                             <option v-for="calling in callings" :value="calling">{{calling.name}}</option>
+                                            <optgroup label="Variant Callings (Ask your GM first)">
+                                                <option v-for="calling in variantCallings" :value="calling">{{calling.name}}</option>
+                                            </optgroup>
                                         </select>
                                     </label>
                                     <label>

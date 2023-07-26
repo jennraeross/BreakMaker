@@ -2686,6 +2686,1030 @@ export default {
 					},
 				},
 			},
+			variantCallings: {
+				brightHeart: {
+					name: "Bright-Heart Paladin",
+					stats: [
+						[1, 3, 8, 8, 9, 7, 10],
+						[2, 3, 8, 8, 9, 7, 10],
+						[3, 4, 9, 9, 10, 8, 11],
+						[3, 4, 9, 9, 10, 8, 11],
+						[4, 5, 10, 10, 11, 9, 12],
+						[4, 5, 10, 10, 11, 9, 12],
+						[5, 6, 11, 11, 12, 10, 13],
+						[5, 6, 11, 11, 12, 10, 13],
+						[6, 7, 12, 12, 13, 11, 14],
+						[7, 7, 12, 12, 13, 11, 14],
+					],
+					classAbilities: {
+						heartsBlade: {
+							name: "Holy Sword",
+							description:
+								"You can call forth a weapon forged from the wishes in your heart. These magically manifested weapons are of the finest quality and grow in power and possibility as you do.",
+							mechanics: [
+								"Creating your Holy Sword",
+								"Your Heart’s Blade grows in power as you rise in Rank. Add the new properties to your Heart’s Blade when you reach the required Rank.",
+								"Rank 1: Select your weapon’s primary form and what it is made of.",
+								"Choose a Weapon Type: Quick, Master, Mighty, Arc, Lash, Drawn or Mechanical Missile (􏰀 p152).",
+								"Choose a Magical Material: Sun Gold, Ash Bronze, or Sky Steel (􏰀 p289).",
+								"Rank 3: Your Heart’s Blade gains one of the following properties:",
+								"Glittering: +1 on Attack rolls.",
+								"Righteous: The weapon’s Extra Damage Threshold is reduced by 2 (􏰀 p152).",
+								"Sheltering: The weapon can Parry once per combat in the same manner as a Standard Shield (􏰀 169).",
+								"Rank 6: Your Heart’s Blade can now transform into a secondary form, pick from the Weapon Types listed above.",
+								"Your Heart’s Blade gains the Combination Weapon Ability allowing a hybrid weapon form (􏰀 p160).",
+								"----",
+								"Using your Holy Sword",
+								"You can call this weapon into existence through force of will.",
+								"Melee Weapons are formed instantly and can be used on the same Turn they are called.",
+								"Drawn and Mechanical Missile weapons take a Turn to fully form and appear with 4 Units of ammunition included.",
+								"Your your Heart’s Blade (and any ammunition) will vanish instantly on command.",
+								"Only a single form of the Heart’s Blade may be summoned at any one time. Either the primary, secondary, or combination form.",
+								"If the weapon is Sundered or lost during combat, you can will it away and summon a new Blade.",
+							],
+						},
+						compassionCure: {
+							name: "Compassion Cure",
+							description:
+								"Your kind attention is so sincere that it can dispel ill effects: your hug can lift a dispirited companion, your tears can thaw a petrified ally.",
+							mechanics: [
+								"With a touch, you can attempt to remove a psychological, physical, or magical Ailment (􏰀 p268) from someone you care about.",
+								"Attempting this Ability during a Fight requires you to spend your Action.",
+								"Note: This Ability cannot be used for situational Ailments: Toppled, Restrained and Overburdened.",
+								"----",
+								"CHECK: Aura",
+								"SUCCESS: The Ailment is removed",
+								"FAILURE: The Ailment remains, you cannot make any further attempts to cure it",
+							],
+						},
+						soulCompanion: {
+							name: "Bonded Mount",
+							description:
+								"Just as your heart has the power to summon mighty weapons, so it can muster a loyal companion. This devoted sidekick never leaves your side and will even return, in due time, if struck down.",
+							mechanics: [
+								"You begin your adventures with a magical Companion.",
+								"This Companion does not count against your normal allowance of Companions (􏰀 p183).",
+								"Create your Soul Companion following the steps listed at the end of this Calling. (􏰀 p47).",
+							],
+						},
+					},
+					standardAbilities: {
+						shieldOfLove: {
+							name: "Shield of Love",
+							description:
+								"Your compassion can manifest itself as a protective force for your allies. This might take the form of an iridescent aura or a heart-shaped crystal shield.",
+							mechanics: [
+								"Once per Fight you bestow an ally, within your sight, a force field that can absorb 1 Heart of Damage; after which it is disappears.",
+								"You can perform this Ability in addition to any other Actions permitted on your Turn.",
+								"Rank 1: You can Shield 1 person.",
+								"Rank 4: You can Shield 2 people.",
+								"Rank 8: You can Shield 3 people.",
+								"If you can protect more that one person, you can allocate your Shields in one go, or as required.",
+							],
+						},
+						gemlight: {
+							name: "Gemlight",
+							description:
+								"A glowing crystal, of your favorite color, forms on the back of your hand.",
+							mechanics: [
+								"You can make your hand gem glow at will. It provides light equivalent to a Torch (􏰀 p175).",
+								"You can use the gem to transfer a single Injury from a victim to yourself with a gentle touch.",
+							],
+						},
+						glitteringMachine: {
+							name: "Glittering Machine",
+							description:
+								"When not in battle, you are able to channel your powers to summon a helpful tool or device, instead of your mighty Heart’s Blade.",
+							mechanics: [
+								"You can summon a tool made of the same Magical Material chosen for your Heart’s Blade.",
+								"Rank 1: You can summon any simple tool, such as a grappling hook or lock pick.",
+								"Rank 5: You can summon a simple Techno-Relic or Gadget you are familiar with. Unlike the real things, your glittering version does not require fuel or an additional power source to work.",
+								"The summoned tool remains, until:",
+								"You swap it for another tool. OR",
+								"You call for your Heart’s Blade. OR",
+								"You invoke Spirit Wings (􏰀 p45).",
+								"----",
+								"GAIN: 1 Bright Allegiance Point",
+							],
+						},
+						loveLoveChef: {
+							name: "Love-Love Chef",
+							description:
+								"You’re a passionate cook, you pour your heart and soul into the food you make.",
+							mechanics: [
+								"You gain the Crafting Discipline Cooking (􏰀 p283).",
+								"For specific rules on creating items refer to Craft (􏰀 280).",
+								"You use Aura for Crafting rolls.",
+							],
+						},
+						passionsFire: {
+							name: "Passion's Fire",
+							description:
+								"When you so desire, a brilliant flame flickers around your Heart’s Blade, making it all the more deadly.",
+							mechanics: [
+								"Blazing Desire: Your Heart’s Blade is ablaze and now does Flame Damage (􏰀 p259) instead of Normal Damage.",
+								"Yearning Embrace: After a successful Attack, the fire can be discharged to engulf your target to cause an additional Heart of Damage. This exhausts the Ability.",
+								"NOTE: Passion’s Fire can only be used once per Fight.",
+								"----",
+								"GAIN: 1 Bright Allegiance Point",
+							],
+						},
+						cryOfTheHeart: {
+							name: "Cry of the Heart",
+							description:
+								"A strange sort of empathic magic allows you to understand what lies in the hearts of all those you speak to.",
+							mechanics: [
+								"You can target this Ability on anyone you have spoken to for a few moments.",
+								"After this time you are able to discern the primary emotional motivation that is driving their current actions and discourse (love, greed, fear, etc.)",
+								"If applicable, information gleaned from this Ability can used as an Influencing Factor (􏰀 p241) when Negotiating with the individual in the future.",
+								"This Ability is mostly inconspicuous, although you may appear to be staring uncomfortably deep into your target’s eyes.",
+								"----",
+								"GAIN: 1 Bright Allegiance Point",
+							],
+						},
+						battleDance: {
+							name: "Battle Dance",
+							description:
+								"Your animated and tuneful battle commands grant those listening a coordinated, rhythmic, combat flare.",
+							mechanics: [
+								"You can attempt to coordinate your allies during a Fight, granting all participants a Minor Bonus (+2) to a single roll on their Turn.",
+								"This Ability can be used in conjunction with your other permitted Actions, but you must declare the use of this Ability at the beginning of your Turn.",
+								"----",
+								"CHECK: Aura",
+								"SUCCESS: 3 - 2 - 1 - Go! Your Battle Dance begins...",
+								"You can apply a Minor Bonus (+2) to a single roll made on your Turn.",
+								"Once you have started a Dance, allies in the same Battlefield Area can choose to join in. To do so they must make an Aura Check at the start of your team’s Turn.",
+								"ALLY SUCCESS: Your ally jumps into the groove gaining a Minor Bonus (+2) for a roll made on their Turn.",
+								"ALLY FAILURE: Your ally makes a misstep, disrupting the Dance. All Dancers, lose their bonus this Turn. An ally can attempt to re-join the dance on the next Turn.",
+								"Each Turn Dancers must make a successful Aura Check for the Dance to continue.",
+								"FAILURE: You stumble or stutter, and must apply a Minor Penalty (-2) to a roll of your choice made this Turn.",
+								"----",
+								"After staring a Dance, you can not use this Ability again for 24 hours.",
+								"With your GM’s approval, you can use Ability in Linked Contests, like a chase sequence (􏰀 p220).",
+							],
+						},
+						battleBonds: {
+							name: "Battle Bonds",
+							description:
+								"You have a merciful nature that can be felt in even your fiercest attacks. Your clemency does not go unnoticed and, in the midst of battle, you can make friends out of enemies.",
+							mechanics: [
+								"Whenever you reduce a foe to 0 Hearts or less, and choose to spare their lives, you can attempt to soften their resolve.",
+								"----",
+								"CHECK: Aura",
+								"SUCCESS: You form a Social Bond (􏰀 p279) with the beaten opponent. Discuss and agree with your GM an appropriate Bond. For example, ‘a begrudging admiration’.",
+								"A Bonded opponent is less inclined to target you for attack in the future, and will avoid dealing you a finishing blow unless absolutely necessary.",
+							],
+						},
+					},
+					advancedAbilities: {
+						atYourSide: {
+							name: "At Your Side",
+							description:
+								"Your strikes can create opportunities for your comrades-at-arms to exploit.",
+							mechanics: [
+								"If one of your Attacks is successful it also counts as an Attack Assist (􏰀 p256) for the next ally attacking the same opponent.",
+							],
+						},
+						spiritWings: {
+							name: "Spirit Wings",
+							description:
+								"The wishes in your heart allow you to soar... literally!",
+							mechanics: [
+								"You sprout glowing wings, and now you can fly at your normal Speed Rating.",
+								"Your wings remain until:",
+								"You call for you Heart’s Blade. OR",
+								"You invoke the Glittering Machine Ability.",
+								"----",
+								"GAIN: 1 Brightness Allegiance Point",
+							],
+						},
+						shiningResolve: {
+							name: "Shining Resolve",
+							description:
+								"Your spirit is indomitable and will always remain so.",
+							mechanics: ["You gain Supernatural Will (􏰀 p107)."],
+						},
+						openedHearts: {
+							name: "Opened Hearts",
+							description:
+								"Powerful Bright Magic lies within you, it can wash away all falsehoods leaving nothing but the naked truth, dark secrets, and honest wishes.",
+							mechanics: [
+								"You can activate this Ability whenever you are speaking to another individual, or at the start of a Negotiation.",
+								"----",
+								"CONTEST: Your Aura vs. the Grit of anyone in earshot.",
+								"Anyone who loses the Contest is unable to lie, deceive, or mislead you for a 24 hour period. Although they can still refuse to answer your questions.",
+								"Unfortunately, you are also subject to the effects of this Ability for the same 24 hour period.",
+								"----",
+								"GAIN: 1 Bright Allegiance Point",
+							],
+						},
+						radiantBlade: {
+							name: "Radiant Blade",
+							description:
+								"You soul burns so brightly that your Heart’s Blade transcends its material form to become a shard of devastating light.",
+							mechanics: [
+								"You can activate this Ability at will upon summoning your Heart’s Blade.",
+								"Slice of light: Your Heart’s Blade is now a glowing shaft of light that does an extra Heart of Bright Damage (􏰀 p259), in addition to the weapon’s Normal Damage.",
+								"Purifying Flare: After a successful strike with the Heart’s Blade, the light can be discharged to irradiate your target causing an additional Heart of Bright Damage; which dispels the Ability.",
+								"NOTE: Using Purifying Flare prevents you from using this Ability again for another 24 hours.",
+								"----",
+								"GAIN: 1 Bright Allegiance Point",
+							],
+						},
+						legendInYourOwnTime: {
+							name: "Legend in Your Own Time",
+							description:
+								"Whether it’s your heroic deeds or your legendary tenderness, you have become a source of inspiration for public works of art and epic tavern tales. Your reputation proceeds you... sometimes.",
+							mechanics: [
+								"Whenever you enter a new Settlement you can attempt Reputation Management (􏰀 p275).",
+								"----",
+								"CHECK: Aura",
+								"SUCCESS: You’ve already established a positive Reputation in this locale. If possible, the Reputation should be based on heroic efforts made in a previous Session. For example, ‘Savior of Homble Village’ or ‘Slayer of the Ooze Beast’.",
+								"FAILURE: The locals have never heard of you, or your ‘daring’ exploits.",
+							],
+						},
+						neverStandAlone: {
+							name: "Never Stand Alone",
+							description:
+								"Those touched by your kindness often come to help you in your darkest hour.",
+							mechanics: [
+								"If you’re in mortal peril, maybe your alone and outnumbered or stranded without hope, you can use this Ability to summon help.",
+								"Once activated, your GM will choose a character you have a Social Bond (􏰀 p279) with to come to your assistance. This could even be a spared foe you’ve formed a Battle Bond (􏰀 p44) with.",
+								"The chosen character will miraculously appear just in time to offer you required assistance. For example, they might arrive with reinforcements or a convenient escape craft.",
+								"NOTE: This Ability cannot be used again until you have had the time to participate in a Downtime Activity (􏰀p273).",
+							],
+						},
+						heartsAegis: {
+							name: "Heart's Aegis",
+							description:
+								"Your Soul Companion is able to transmute into a magical suit of Armor that wraps around you in battle. This armor retains traces of your Companion’s aesthetics.",
+							mechanics: [
+								"Your can turn your Companion into armor for a specific task or Fight.",
+								"The magic armor has the following specifications: Superheavy Armor, Anti-Hazard Abilities, Mechanical Motion",
+								"No one other than you can wear the armor.",
+								"The armor lasts until:",
+								"The task it was activated for is completed OR",
+								"You have been reduced to 0 Hearts or less.",
+								"NOTE: You cannot use this Ability again for 24 hours.",
+								"----",
+								"GAIN: 1 Bright Allegiance Point",
+							],
+						},
+					},
+				},
+				bruiser: {
+					name: "Bruiser",
+					stats: [
+						[1, 3, 10, 8, 9, 7, 8],
+						[2, 3, 10, 8, 9, 7, 8],
+						[3, 4, 11, 9, 10, 8, 9],
+						[4, 4, 11, 9, 10, 8, 9],
+						[5, 5, 12, 10, 11, 9, 10],
+						[6, 5, 12, 10, 11, 9, 10],
+						[7, 6, 13, 11, 12, 10, 11],
+						[8, 6, 13, 11, 12, 10, 11],
+						[9, 7, 14, 12, 13, 11, 12],
+						[10, 7, 14, 12, 13, 11, 12],
+					],
+					classAbilities: {
+						brawler: {
+							name: "Brawler",
+							description:
+								"Sometimes you just need to puch someone, really hard.",
+							mechanics: [
+								"You strike as if wielding a Standard Weapon when fighting Unarmed.",
+								"If using both hands treat Attacks as if Dual Wielding(p254).",
+							],
+						},
+						brazenDefense: {
+							name: "Brazen Defense",
+							description:
+								"You have such contempt for your opponents that it's all the armor you need.",
+							mechanics: [
+								"You get a +4 to your Naked Defense rating.",
+								"This bonus is applied instead of, not in addition to any bonus related to the Armor you wear.",
+								"When you wear Armor you can choose whether to use the bonus from Brazen Defense or the one provided by your armor.",
+							],
+						},
+						intoTheFray: {
+							name: "Into the Fray",
+							description: "You are able to vary your fighting style to suit the battle, applying caution, flair or precision when and where it is required.",
+							mechanics: [
+								"Each Round during a Fight, you can choose between the following",
+								"Daring: Perform an Attack Stunt(p255) without making a wager.",
+								"Tooth and Nail: Use a mundane (non-magical) Attack to harm a creature that is normally immune to them.",
+								"Whirlwind Defense: Temporarily increase your Defense Rating:",
+								"Rank 1: +1 to Defense Rating.",
+								"Rank 5: +2 to Defense Rating",
+								"All bonuses last until the start of your next Turn."
+							],
+						},
+					},
+					standardAbilities: {
+						combatMomentum: {
+							name: "Combat Momentum",
+							description:
+								"You are a master of cutting a destructive path through swarms of enemies.",
+							mechanics: [
+								"If you land a finishing blow against an opponent in melee, you gain a Chain Attack against another foe in the same area.",
+								"Rank 1: You have on Chain Attack per round, which...",
+								"Has a minor bonus (+2) on the attack roll.",
+								"Does an extra Heart of Damage if you land a successful Strike.",
+								"Rank 5: You gain a second Chain Attack, if the previous one also finishes it's opponent.",
+							],
+						},
+						favoredWeapon: {
+							name: "Favored Weapon",
+							description:
+								"You are intimate with all weapons, and tend to them like a good parent would their children. But, like all parents, you harbor a secret favorite.",
+							mechanics: [
+								"You gain +1 to your Attack Bonus when using your favored weapon.",
+								"Rank 1: Select a Weapon Type to favor: Standard, Concealed, Quick, Master, Mighty, Arc, etc.",
+								"Rank 5: Select a second favored Weapon Type.",
+								"This bonus is applied to Combination weapons that include one of your favored types. If a weapon combines both favored types, the bonus increases to +2.",
+							],
+						},
+						valiant: {
+							name: "Valiant",
+							description: "While all Champions possess great courage, you can laugh in the face of incomprehensible terror.",
+							mechanics: [
+								"You have immunity to the Terrified Ailment(p271).",
+								"You can help allies defend against the Ailment by shouting encouraging words. Those within earshot gain an Edge on their roll to resist, or remove, the Ailment."
+							],
+						},
+						opportunisticButcher: {
+							name: "Opportunistic Butcher",
+							description:
+								"Monster slaying is often such a wasteful business, but you see your next kill as your next meal. As you always say, every beast is a potential feast.",
+							mechanics: [
+								"You can attempt to create Rations from slain creatures.",
+								"----",
+								"REQUIRES: A Grit Check.",
+								"SUCCESS: Dinner is served.",
+								"A small or Medium sized creature will yield 3 days worth of Rations.",
+								"A Large or Massive creature will yield 6 days worth of Rations.",
+								"A Tiny creature might only provide a satisfying snack.",
+								"Colossal creatures might feed an entire village, but who's got time to carve it up!",
+								"Harvest: You can also remove one useful body part from the creature during the preparation process.",
+								"NOTE: This ability can not be used on inedible creatures, such as Undead or Mechanoids.",
+							],
+						},
+						vagrantBlade: {
+							name: "Vagrant Blade",
+							description:
+								"Much wandering in search of your next battle has provided you with a natural sense of direction and an affinity with the townsfold you meet on your travels.",
+							mechanics: [
+								"You can act as a Guide when on a Journey.",
+								"You can attempt to get free Room & Board for up to a week.",
+								"----",
+								"REQUIRES: An Aura Check",
+								"SUCCESS: You stay for free.",
+							],
+						},
+						masterTactician: {
+							name: "Master Tactitian",
+							description:
+								"A working knowledge of combined warfare, and the ability to organise the troops, is all you need to turn the tide of a battle.",
+							mechanics: [
+								"You can grant an ally you have a Social Bond with an additional Action on their Turn during a Fight.",
+								"This Ability can be used in addition to any other Actions you're allowed to perform on your Turn.",
+								"NOTE: This can be used once per Fight.",
+							],
+						},
+						brute: {
+							name: "Brute",
+							description:
+								"The quickest path between two places is often right through whatever is in the way.",
+							mechanics: [
+								"You get an edge on any Attack rolls dedicated Sundering something.",
+								"Any non-magical shield used to Parry your physical Attacks are immediately Sundered, due to the crushing power of your blows.",
+								"NOTE: This Ability cannot be used in conjunction with an Attack Stunt.",
+							],
+						},
+						giantKiller: {
+							name: "Giant Killer",
+							description:
+								"The bigger they are, the harder you hit.",
+							mechanics: [
+								"You do an additional Heart of Damage on a successful Attack against Massive or Colossal Creatures.",
+								"You get an Edge on any rolls needed to move between, scale, or remain on a Colossal Creature's Strike Points.",
+							],
+						},
+					},
+					advancedAbilities: {
+						berserker: {
+							name: "Berserker",
+							description:
+								"When the heat of the battle is upon you the red mist descends and your rage takes control. This is very bad news for your foes... but your allies should be careful too.",
+							mechanics: [
+								"You can enter Berserk Mode while fighting or participating in a Check or Contest that calls for brute force.",
+								"While Berserk the following applies:",
+								"+2 on Attack rolls.",
+								"-1 to Defense Rating.",
+								"+2 Might and Grit.",
+								"You are unable to communicate or participate in any coordinated actions or team efforts.",
+								"After you've dispatched a foe, or completed the objective of your Check or Contest you will:",
+								"Attack the closest individual in the same Battlefield Area as you, whether it's friend or foe...",
+								"And continue to find and Attack targets until none are left.",
+								"You can attempt to exit Berserk Mode at the end of your Turn.",
+								"----",
+								"CHECK: Ending Berserk Mode requires an Aura Check",
+								"SUCCESS: You regain control.",
+								"FAILURE: You must wait until the end of the next Round before you can make another attempt to exit Berserk Mode."
+							],
+						},
+						sentinel: {
+							name: "Sentinel",
+							description: "Being the toughest among your companions means you're happy to soak up hits for them when you can.",
+							mechanics: [
+								"You can redirect any successful physical Attack on an ally, occupying the same Battlefield Area as you, onto yourself.",
+								"The original Attack roll must now beat your Defense Rating to do you harm.",
+								"NOTE: This ability can't be used against area effects like harmful smoke."
+							],
+						},
+						galvanizer: {
+							name: "Galvanizer",
+							description:
+								"Bravery, or recklessness, can be contagious. Your battle scarred body lends credibility to your bellowing voice, 'I say kill the beast!'",
+							mechanics: [
+								"You gain an Ede on all Aura rolls when attempting to Inspire or Negotiate with a crowd.",
+								"Any Companions have an Edge on Loyalty Checks.",
+							],
+						},
+						overbearingAntagonist: {
+							name: "Overbearing Antagonist",
+							description:
+								"your mere presence is overwhelming. A shout, smirk, or simple glare can unsettle even a worthy opponent.",
+							mechanics: [
+								"During a Fight, you can use your Action to attempt to intimidate an opponent up to 2 Battlefield Areas away.",
+								"----",
+								"CONTEST: Your Aura vs. the target's Grit",
+								"SUCCESS: you lock eyes. Your target is rendered temporarily inactive, missing their next Turn.",
+								"NOTE: This ability will only work once on the same target every 24 hours.",
+								"Creatures that are incapable of fear (such as unthinking machines, mindless undead, or colossus) are immune to such intimidation.",
+							],
+						},
+						uncannyStrategist: {
+							name: "Uncanny Strategist",
+							description:
+								"Tacticins live in the moment. Strategists live two steps ahead. Your foes will learn the difference once it's too late!",
+							mechanics: [
+								"You can take a single Action during an enemy's Turn to perform a countermeasure to an adversary's intended action.",
+								"If yout intervention renders the foe's declared action impossible, they are forced to choose a new course of action or lose their turn.",
+								"NOTE: Using this Ability means that you cannot act on your next Turn.",
+							],
+						},
+						bounder: {
+							name: "Bounder",
+							description:
+								"Taking up a more advantageous position is much easier when you jump.",
+							mechanics: ["You gain Supernatural Leaping."],
+						},
+						roaringSpirit: {
+							name: "Roaring Spirit",
+							description:
+								"Even when calm and still, your soul crackles with an energy. A mere look can send this force outwords, sapping the fighting spirit and blood lust from lesser wariors in your presence.",
+							mechanics: [
+								"You can attempt to subdue opponents of lower Rank with a menacing glower.",
+								"----",
+								"CHECK: Aura",
+								"Success: All adversaries within shouting distance step back and won't engage you, or your allies, unless you strike first.",
+								"NOTE: This ability has no effect on adversaries with a Rank equal to or higher than yours.",
+								"NOTE: This Ability may only be used once a game Session."
+							],
+						},
+					},
+				},
+				mountebank: {
+					name: "Mountebank",
+					stats: [
+						[0, 2, 6, 8, 8, 10, 8],
+						[0, 2, 6, 8, 8, 10, 8],
+						[1, 3, 7, 9, 9, 11, 9],
+						[1, 3, 7, 9, 9, 11, 9],
+						[2, 4, 8, 10, 10, 12, 10],
+						[2, 4, 8, 10, 10, 12, 10],
+						[3, 4, 9, 11, 11, 13, 11],
+						[3, 4, 9, 11, 11, 13, 11],
+						[4, 4, 10, 12, 12, 14, 12],
+						[4, 5, 10, 12, 12, 14, 12],
+					],
+					classAbilities: {
+						murkyMask: {
+							name: "Murky Mask",
+							description:
+								"By coating yourself with malleable mana, you can mould your features into an incredibly convincing disguise.",
+							mechanics: [
+								"You can moderately alter your build, coloring, face and height, but cannot exactly mimic another.",
+								"Drastic changes in mass are not possible. You can transform into Species of a similar size to you. For example, a human could imitate an Elf or Tenebrate, but not a tiny Chib or bulky Promethean.",
+								"Your Mask lasts for an hour, unless:",
+								"You are caught lying.",
+								"You lose a Heart, suffer an Injury, or are affected by some other harmful effect.",
+								"You will the Mask away.",
+								"NOTE: After use, you must wait an hour before using the Mask again.",
+								"----",
+								"GAIN: 1 Dark Allegiance Point.",
+							],
+						},
+						lightFooted: {
+							name: "Light Footed",
+							description: "As one might expect, you are especially nimble. You can move through terrain that impedes others and scale surfaces with a deceptive sure- footedness", 
+							mechanics: [
+								"You are unaffected by Isolated(p250) and Precarious(p251) Battlefield Conditions.",
+								"You are able to climb vertical surfaces with the slightest of foot holds without being slowed down or requiring a Check."
+							],
+						},
+						prestidigitonium: {
+							name: "Prestidigitonium",
+							description:
+								"One of the earliest tricks you learned was how to animate objects using the mana left behind by another living creature's touch. With this you can breath wondrous life into simple tools and children's toys.",
+							mechanics: [
+								"With some singing, or gentle coaxing, you can can attempt to make a single object spring to life and perform the function it was originally designed for.",
+								"An object needs to have been used, within the last 3 months to retain the residual mana required for the spell.",
+								"CHECK: Insight.",
+								"SUCCESS: Your chosen object begins to move. A door knob will rotate and the door click open, a toy soldier will march, and a Physician's kit will perform surgery.",
+								"The object will perform long enough to complete a single task, then the mana is expended.",
+								"If a Check of Contest is required, your Insight is used.",
+							],
+						},
+					},
+					standardAbilities: {
+						grandGrimoire: {
+							name: "Grand Grimoire",
+							description:
+								"Knowledge is your passion. Your Grimoire, a strange tome that's always at hand, is filled to the brim with notes of your discoveries and experiences.",
+							mechanics: [
+								"Your Grand Grimoire is a large, personalized book that is always in your hands when needed, but nowhere to be found when you have no use for it.",
+								"Only you can write in the Grimoire, but it is quite capable of filling it's own pages! It can magically sketch pictures of things your stare at for a few minutes and record messages you speak into it's pages.",
+								"If you fail an Insight Check when attempting to recall a piece of information, you may consult your Grimoire for clues. Stuffed full of factual tidbits, the tome will allow the GM to reveal a hint to where the exclusive piece of information can be found.",
+								"If you die, your Grimoire manifests permanently. The tomes of great Sages are extremely valuable!",
+							],
+						},
+						everydayDivination: {
+							name: "Everyday Divination",
+							description:
+								"Divination is such a popular Wizardry skill that Sages have gained a reputation for being rather nosy.",
+							mechanics: [
+								"You can tap a reflective surface once, and politely request to see a particular person or object.",
+								"The surface must be larger than your hand but no taller than yourself. Mirrors, windows, and even puddles can be used.",
+								"REQUIRES: An Insight Check/Contest. Attempting to see a person or creature triggers a contest, your Insight vs. your target's Aura.",
+								"SUCCESS: You can see and hear your chosen target and the immediate area around them.",
+								"The divination lasts for a few minutes.",
+								"If you share a Social Bond with the target, you may talk to each other, although only you will be able to hear their words.",
+								"FAILURE: The view is clouded. A second try at Divination cannot be attempted for another 24 hours.",
+								"NOTE: An individual surface may only be used once every 24 hours.",
+							],
+						},
+						mortifyingBloat: {
+							name: "Mortifying Bloat",
+							description:
+								"You can agitate the ambient mana inside another creature, causing it to swell and expand. Performing the spell requires you to make en exaggerated gesture; exhaling a deep breath into your own thumb. Huufff!",
+							mechanics: [
+								"You can attempt to inflate a single enemy up to 1 Battlefield Area away.",
+								"CONTEST: Your Insight vs. your target's Grit.",
+								"SUCCESS: your target begins to bloat, by the start of their next Turn they will be affected by the Ballooned Ailment.",
+								"Only one creature may be affected by this Ability at any time. If you target another individual the previous target will return to normal size. Otherwise, the affliction wears off after an hour or if you will it away.",
+								"----",
+								"COST: 1 Dark Allegiance Point.",
+							],
+						},
+						arcaneArtificing: {
+							name: "Arcane Artificing",
+							description: "You have whittled away many hours tinkering with magical devices. Whether a passion or a hobby, you have learned enough to repair, maintain and even create such devices in your spare time",
+							mechanics: [
+								"You gain the Crafting Discipline Artificing(p282).",
+								"For specific rules on creating things refer to Craft(p280).",
+								"You can identify Oddities, Artifacts, and Gadgets related to your craft with an Insight Check.",
+								"You use Insight for your Crafting rolls."
+							],
+						},
+						glowingInk: {
+							name: "Glowing Ink",
+							description:
+								"You can wring out a special luminescent ink from your staff drawing on it's magelight ability. Now you can leave a glowing crumb trail or honor the tavern toilet wall with your sigil.",
+							mechanics: [
+								"You can use your Mage Staff as if it were a giant pen or paintbrush as long as the Magelight Ability is active.",
+								"The ink glows as brightly as a torch, but vanishes after a day.",
+								"You can squirt ink on an enemy up to 1 Battlefield Area away with a successful Attack roll.",
+								"The ink does no damage, but prevents enemies from hiding in the shadows.",
+								"Targets that are vulnerable to light may suffer other ill affects. This is at your GMs discretion.",
+								"----",
+								"GAIN: 1 Brightness Point."
+							],
+						},
+						hocusPox: {
+							name: "Hocus Pox",
+							description:
+								"You can use malicious mana to infect your foes with a debilitating disease. Symptoms include purple spots, mana vulnerability, and utter exhaustion.",
+							mechanics: [
+								"You can attempt to infect someone up to 15 ft. or 1 Battlefield Area away with Hocus Pox.",
+								"CONTEST: Your Insight vs. your target's Grit.",
+								"SUCCESS: Your target contracts Hocus Pox and they break out in purple spots.",
+								"Victims have a Snag when making rolls to resist other Magical Abilities.",
+								"Victims are afflicted with the Putrefied Ailment.",
+								"When a victim is reduced to 0 Hearts by this Ailment, they collapse and are helplessly exhausted. This will pass with a week's worth of rest, but the purple spots remain for another week.",
+								"----",
+								"Once a chosen target has fallen foul to this Ability, you cannot use it again for another 24 hours.",
+								"----",
+								"GAIN: 1 Dark Allegiance Point"
+							],
+						},
+						veryUsefulCloud: {
+							name: "Very Useful Cloud",
+							description:
+								"You can coalesce the moisture in the air into a small cloud. This odd little being floats along next to you and has some very useful applications.",
+							mechanics: [
+								"Your Cloud is oddly sturdy, despite it's gaseous nature, and is about eh size of a large cushion.",
+								"Summoning a Cloud requires moisture in the air.",
+								"During a Fight, it requires a Turn's worth of gesticulation.",
+								"The Cloud has two key functions:",
+								"Carrier: The Cloud can hold 6 Inventory Slots",
+								"Messenger: The cloud can find and deliver a message of no more than 40 words, to anyone you are familiar with.",
+								"The Cloud's basic capabilities:",
+								"Aptitudes: The Cloud's Aptitudes are the same as yours.",
+								"Combat Values: Hearts 2, Defense Rating 12, and Speed Rating Average.",
+								"Range: It can exist up to a mile away from your current location.",
+								"Flight: It cannot float more than 20 feet off the ground.",
+								"You can dissipate the cloud at will, which will result in any items it carries dropping to the ground.",
+								"Anyone mean enough to Attack the cloud will cause it to dissipate when it is reduced to 0 hearts.",
+								"You can only summon and control one cloud at a time.",
+								"NOTE: A new cloud cannot be summoned for 24 hours after the last one has been destroyed or dismissed.",
+								"----",
+								"COST: 1 Bright Allegiance Point.",
+							],
+						},
+						eldritchExplosives: {
+							name: "Eldritch Explosives",
+							description:
+								"Nothing clears a room like a mana Kaboom! You make magical explosives.",
+							mechanics: [
+								"Once per Fight, you can conjure a Mana Grenade, a non-lethal weapon designed to subdue.",
+								"Mana Grenades work like regular Grenades except...",
+								"They do Twilight Magic Damage.",
+								"Targets reduced to 0 Hearts, or less, are knocked unconscious (or fall inert if they are Mechanoids or Undead) for an hour.",
+								"Rank 5: Once every 24 hours, you can conjure a Mana Bomb, a more violent and deadly variant of the Mana Grenade.",
+								"Mana Bombs work like standard Bombs, except they do Twilight Magic Damage.",
+								"----",
+								"COST 1 Bright Allegiance Point.",
+							],
+						},
+					},
+					advancedAbilities: {
+						cloakOfObscurity: {
+							name: "Cloak of Obscurity",
+							description: "You can slip behind a mantle of subtle darkness and become a shadow. While you're not invisible, you are definitely more difficult to notice for those not expecting you.",
+							mechanics: [
+								"When covered by the Cloak you use your Insight, rather than Deftness, when making your Stealth rolls.",
+								"When your Team is Exploring using Stealthy Movement(p234), you make an independent Stealth roll.",
+								"When Cloaked, even if your Team is Exploring using Cautious or Hasty Movement you also benefit from effects of Stealthy Movement.",
+								"If you are Cloaked when discovered by a Map or Site Encounter, you make can make a Stealth roll to remain hidden."
+							],
+						},
+						demiystify: {
+							name: "Demystify",
+							description:
+								"Just as you can weave a web of mana, so to can you unravel it. Deep knowledge of mana manipulation allows you to undo others' spells. The performance of this counter magic is usually accompanied by a rude or condescending gesture toward the opposing spell caster.",
+							mechanics: [
+								"You can attempt to end a single persistent magical effect. This might be a curse, arcane barrier, or the enchantments on an Artifact or Imbued item.",
+								"In a Fight, Demystify requires the use of your Action to cast.",
+								"CONTEST: Your Insight vs. the Aptitude required to cast the opposing Magical Ability. If no Aptitude is specified, then use Aura.",
+								"SUCCESS: The spell is unravelled.",
+								"FAILURE: You cannot dispel the effect, and cannot try to dispell the effect again for 24 hours.",
+								"NOTE: This ability only causes Artifacts or Imbued items to lose their enchantments for 24 hours.",
+							],
+						},
+						manaCrush: {
+							name: "Mana Crush",
+							description:
+								"Sometimes even the patience of the wise can be tested. By clenching your fist you can solidify the mana emanating from another creature and use it to crush like a vice.",
+							mechanics: [
+								"You can target an opponent up to 15 ft., or 1 Battlefield Area away.",
+								"During a Fight, Mana Crush requires the use of your Action to cast.",
+								"CONTEST: Your Insight vs. your target's Deftness",
+								"SUCCESS: The target is crushed within a cocoon of mana, taking 3 hearts of damage.",
+								"FAILURE: The target aboids the brunt of the assault and only takes 1 Heart of Damage.",
+								"NOTE: This spell is physically taxing to cast and may only safely be used once per Fight. Attempting the spell in the same Fight, or within a few minutes of the last attempt, means you must roll on the Injury Table after the contest.",
+								"COST: 1 Bright Allegiance Point.",
+							],
+						},
+						practicalFlight: {
+							name: "Practical Flight",
+							description:
+								"Powerful Sages are able to defy gravity to float and flutter about. While you look incredibly elegant, you're not terribly fast.",
+							mechanics: [
+								"You have two modes of flight at your disposal...",
+								"Drift: A slow and graceful form of levitation.",
+								"Speed Rating while flying is Slow.",
+								"Lasts until you decide to stop it.",
+								"Thrust: A short, sharp surge of speed. You may want to sit astride your staff for balance.",
+								"Speed Rating while flying is Fast.",
+								"Thrust lasts for 3 rounds during a fight, or approximately 30 seconds.",
+								"Using Thrust means that you cannot use flight again for 24 hours.",
+								"NOTE: You cannot fly if Overburdened.",
+							],
+						},
+						harmoniousGeomancy: {
+							name: "Harmonious Geomancy",
+							description:
+								"You politely request cooperation from ambient mana. With some clear spoken instructions and a bow, or curtsy, you can re-arrange a cluttered room, or quickly assemble a barricade in front of an approaching enemy.",
+							mechanics: [
+								"You can attempt to persuade the local mana to manipulate objects in your immediate surroundings.",
+								"CHECK: Insight.",
+								"SUCCESS: The local mana swirls and twists to do your bidding.",
+								"You can perform a simple task that would normally require several creatures acting together to accomplish.",
+								"For example, Smashing all the breakable pots in a shed at once, alphabetizing a room full of books, or stacking loose stones into a makeshift set of stairs.",
+								"The area of effect should by no larger than a small house.",
+								"During a fight, you can manipulate a single Battlefield Area to:",
+								"Add the Precarious or Sheltered condition to a Battlefield Area, providing there are enough suitable objects.",
+								"Remove an existing Condition from a Battlefield Area, if you can agree with your GM how this ability could do it. For example, pushing away a choking mist.",
+								"NOTE: Successful or not, any object moved or disrupted by this spell has it's ambient mana burnt away and cannot by affected by this Ability or Prestidigitonium for another 24 hours.",
+								"----",
+								"GAIN: 1 Brightness Point",
+							],
+						},
+						shadowPuppet: {
+							name: "Shadow Puppet",
+							description:
+								"You can seize another's shadow and, by proxy, their physical agency. While you make menacing gestures, resembling those of a puppeteer, your victim dances to your desire.",
+							mechanics: [
+								"You can use this Ability on any creature that casts a shadow and is roughly 10 feet, or 1 Battlefield Area, away.",
+								"----",
+								"CONTEST: Your Insight vs. your target's Aura",
+								"SUCCESS: You can control your target for the next 10 seconds, or their Turn during a Fight. For example, you can make them speak, shout, or even attack themselves (which still requires an Attack roll!)",
+								"You must repeat, and win, the Contest each Turn to retain control of your target.",
+								"NOTE: You can only control one Puppet at a time.",
+								"FAILURE: The target breaks free of your mana strings and you cannot target them with this Ability again for 24 hours.",
+								"----",
+								"GAIN: 1 Dark Allegiance Point."
+							],
+						},
+						momentaryFortress: {
+							name: "Momentary Fortress",
+							description:
+								"You can create a protective pyramid, sphere, or cube of light around you that is able to repel physical and magical attacks.",
+							mechanics: [
+								"During a fight, you can use the Fortress to attempt to block one inbound physical or magical Attack against you each Turn.",
+								"If the Attack targets a Battlefield Area (like a magic blast) everyone in the same Area as you benefits from the Fortress... including foes!",
+								"If cast outside of combat, the Fortress can be used to block harmful environmental effects. For example, Impact Damage from falling rocks, or Burn Damage from caustic gas.",
+								"The Fortress is only visible when struck or resisting a harmful effect.",
+								"The Fortress can be erected during your enemy's Turn, but this means you cannot take an Action on your next Turn.",
+								"CONTEST: Your Insight vs. the Aptitude related to the type of Attack (see below)",
+								"Magic Attacks: The opposing Aptitude used should be the one required to cast the offensive spell. If none is specified, use the caster's Grit for directed attacks, or Aura for harmful radiating attacks (or anything else!)",
+								"Strength Attacks: The opposing Aptitude for Melee Weapons, and other brute force attacks, should be the Attacker's Might.",
+								"Skill Attacks: The opposing Aptitude for Missile Weapons, and other attacks that utilist finesse, should be the Attacker's finesse.",
+								"SUCCESS: The Attack is blocked, or dissipated, by a wall of impenetrable light.",
+								"If successful, the Fortress remains intact and you benefit from it's protection in the next Turn.",
+								"FAILURE: The panel of light shatters like glass, and the Fortress cannot be used again for 24 hours.",
+								"----",
+								"GAIN: 1 Bright Allegiance Point",
+							],
+						},
+						soothingDarkness: {
+							name: "Soothing Darkness",
+							description:
+								"You can bring forth a blanket of darkness to temporarily alleviate pain, though it's sweet caress cannot heal.",
+							mechanics: [
+								"You can attempt to Soothe someone with an Injury, including yourself, within 15 ft. or in the same Battlefield Area as you.",
+								"If your target has multiple Injuries, you must choose one to Soothe.",
+								"CHECK: Insight.",
+								"SUCCESS: The effects of the Soothed Injury subside temporarily while the Ability is in effect. For example, a shadow binds a Broken Arm or a ghost limb materialises to replace a Severed one.",
+								"NOTE: The Soothing effect lasts until you use the Ability again, or willingly cancel the effect.",
+								"FAILURE: The Injury remains and you cannot attempt to Soothe the same Injury again.",
+								"----",
+								"GAIN: 1 Dark Allegiance Point.",
+							],
+						},
+					},
+				},
+				scribe: {
+					name: "Scribe",
+					stats: [
+						[0, 2, 7, 9, 8, 9, 9],
+						[1, 2, 7, 9, 8, 9, 9],
+						[1, 2, 8, 10, 9, 10, 10],
+						[2, 3, 8, 10, 9, 10, 10],
+						[2, 3, 9, 11, 10, 11, 11],
+						[3, 4, 9, 11, 10, 11, 11],
+						[3, 4, 10, 12, 11, 12, 12],
+						[4, 4, 10, 12, 11, 12, 12],
+						[4, 5, 11, 13, 12, 13, 13],
+						[5, 5, 11, 13, 12, 13, 13],
+					],
+					classAbilities: {
+						folklorist: {
+							name: "Folklorist",
+							description: "You've heard the old tales that say even the scariest monsters can be subdued with a pinch of spice or deterred by a drop of moon-plum juice. Is there something to them or are they just stories?",
+							mechanics: [
+								"You may choose a consumable material (such as lantern oil or a treat) to act as a deterrent to an Unearthly Adversary.",
+								"Unearthy Adversaries include Asura, Devas, Demons, Undead, Unshaped, or any creature with 4 or more Allegiance points.",
+								"----",
+								"CONTEST: Your Insight vs. the Adversary's Aura. In addition:",
+								"You must expend 1 Unit of the chosen consumable material.",
+								"If a rare, or appropriate, consumable is selected your GM may offer you a Minor Bonus (+2). For example, Bright Water against a Dark Aligned enemy.",
+								"SUCCESS: You can choose between one of two outcomes:",
+								"Ability loss: The Adversary loses the use of an Ability of your choice.",
+								"Protective circle: The Adversary cannot enter a circle made from the protective consumable. 1 Unit can create a circle for a single PC more Units can be used to create larger circles on this basis.",
+								"The effect lasts for 24 hours",
+								"Failure: You've wasted your consumable and look rather silly!",
+								"----",
+								"NOTE: Use of this Ability is subject to the rule of Diminishing Returns"
+							],
+						},
+						journeyJournal: {
+							name: "Journey Journal",
+							description:
+								"Every Scribe carries around an extensive journal that they are constantly scribbling notes, doodles, and other things into. They are never caught without these records, to the point they feel like extensions of their own bodies, rather than something they are carrying about.\nWhile Journey Journals generally take the form of very large books, they don’t need to be - anything one can record information on that is suitably cumbersome could work.",
+							mechanics: [
+								"Your Journey Journal is a large book or other collection of notes and sketches you always seem to have on hand, but never gets in your way. While in your possession, it takes up a single Item Slot. If anyone else tries to carry it, it takes up 3.",
+								"If you fail an Insight Check when attempting to recall a piece of information, you may consult your Journal for clues. Stuffed full of factual tidbits, the tome will allow the GM to reveal a hint to where the elusive piece of information can be found.",
+								"You scribble and sketch in some personalized form of hard to read writing when jotting things down for your Journal, such as shorthand, code, or riddles. This makes it easier for you to take down everything you notice quickly, but also means it’s more or less impossible for someone else to read unless they know you very well. Those who have a Social Bond with you may use the Journal for research in the same way you do.",
+								"If your journal is ever lost or destroyed, you may recreate it if you take a downtime action in an area where you would be able to procure the supplies to do so."
+							],
+						},
+						dontMindMe: {
+							name: "Don't Mind Me",
+							description:
+								"You have a distaste for direct combat, your mind is often looking for a way to help without going toe to toe.",
+							mechanics: [
+								"During a Fight, your opponents will not target you for Attack in any Turn where you are not intending to perform an offensive action, or doing something that will obviously cause them harm or spoil their plans. For example, healing a friend would go unchecked but setting up a bomb would not.",
+							],
+						},
+					},
+					standardAbilities: {
+						secondToNone: {
+							name: "Second to None",
+							description:
+								"While now leading a life of high adventure, you rely on the little skills that have always served you well in the past.",
+							mechanics: [
+								"You have an Edge whenever you roll for a Check or Contest convered by one of your Purviews.",
+								"NOTE: This replaces the Minor Bonus you normally receive on rolls related to your Purview.",
+							],
+						},
+						craftingProdigy: {
+							name: "Crafting Prodigy",
+							description:
+								"You have a passion and flare for making things, with the right materials and a little time you can create wonders.",
+							mechanics: [
+								"Select a Crafting Discipline to specialise in: Forging, Gadgeteering, Tailoring, Artificing, Alchemy, or Cooking. (For specific rules on creating items, refer to Craft(p280))",
+								"You can use either your Insight or Deftness for your Crafting rolls.",
+								"You can identify items related to your Craft with an Insight Check.",
+								"You can select this Ability more than once, to gain a new Craft.",
+							],
+						},
+						healersHands: {
+							name: "Healer's Hands",
+							description:
+								"You have trained as a physician or medic and are able to administer a raft of field surgery procedures.",
+							mechanics: [
+								"Rank 1",
+								"Heal: After a Fight, you can remove a single Injury from a patient.",
+								"Harvest: You can remove two useful body parts froma dead, or inert, creature without spoiling them.",
+								"Rank 5",
+								"Graft: You can now attack a Prosthetic Replacement to a patient",
+								"----",
+								"REQUIRES: A Deftness Check",
+								"A Physician's Kit and a clean space are also required.",
+								"----",
+								"An individual can only benefit from this Ability once a week.",
+							],
+						},
+						combatCoordinated: {
+							name: "Combat Coordinated",
+							description: "You can organize a team offensive.",
+							mechanics: [
+								"When you perform an Attack Assist, you target an enemy instead of an ally.",
+								"Rank 1: Any Attack rolls made on the chosen enemy during that Turn recieve a Minor Bonus (+2)",
+								"Rank 5: Any Attack rolls on your target now recieve an Edge, instead of the Minor Bonus.",
+							],
+						},
+						silverTongue: {
+							name: "Silver Tongue",
+							description:
+								"A seductive accent or eloquent phrasing makes your argument more convincing.",
+							mechanics: [
+								"You have an Edge on all Negotiation rolls as long as you are given a chance to speak.",
+							],
+						},
+						socialLearner: {
+							name: "Social Learner",
+							description:
+								"Good friends share a lot of things without even realizing it. If you listen you can learn.",
+							mechanics: [
+								"You gain a Purview of your choice from an Character you form a Social Bond with.",
+								"If the Character is a GM Controlled, you should ask your GM what Purviews are available.",
+							],
+						},
+						cuttingWit: {
+							name: "Cutting Wit",
+							description:
+								"Words may not break their bones, but they can still cut deep.",
+							mechanics: [
+								"In a Fight, you can attempt to unsettle an enemy by directing inflammatory words at them.",
+								"----",
+								"CONTEST: Your Aura vs. your target's Grit.",
+								"SUCCESS: Your target must either:",
+								"Immediately attempt to Attack you on thier next turn, OR",
+								"Lose 1 Heart.",
+								"If they have no Hearts left, they must try and Attack you.",
+							],
+						},
+						stalwartNavigator: {
+							name: "Stalwart Navigator",
+							description:
+								"Whether it's thanks to wanderlust, a natural sense of direction, or an encyclopedic knowledge of the world, you always seem to be able to find your way around.",
+							mechanics: [
+								"Guide: You are able to act as a Guide when going on a Journey.",
+								"Cartography: You can attempt to make a Map good enough to be used by others or sold.",
+								"Rank 1: You can create a Local Map of any area you have Journeyed through.",
+								"If you have enough Local Maps, you can combine them into a Kingdom Map.",
+								"Rank 5: You are now able to create Region Maps from the appropriate Kingdom Maps.",
+								"If you have maps of the four main surface Regions, you can combine them into a World Map.",
+								"----",
+								"CHECK: Insight",
+								"SUCCESS: You created a usable map.",
+								"FAILURE: You need 24 hours to reset your compass before trying again.",
+							],
+						},
+					},
+					advancedAbilities: {
+						boonCompanion: {
+							name: "Boon Companion",
+							description:
+								"Sometimes a trusted pet suddenly begins to talk. This is a phenomena that is often appreciated, occassionally lamented, but never questioned.",
+							mechanics: [
+								"An Animal Companion, of your choice, gains the power of reason and speech.",
+								"Your Companion can speak the same languages as you.",
+								"Your Companion will remain loyal to you, even if mistreated or coerced.",
+								"Your Companion's personality and vocal ticks will be true to their animalistic nature. For example, a Rokko-Do would be proud and aloof, but a Slime might be easy going and relaxed.",
+								"If the Boon Companion dies, you can select a new Companion to assign this ability to, although this Companion must be in your service for at least a week before being eligible.",
+							],
+						},
+						troubleshooter: {
+							name: "Troubleshooter",
+							description: "When the proper tools aren't at hand, you can make do with the next best thing.",
+							mechanics: [
+								"You can attempt an Ability Check that requires a specific tool with an improvised alternative. For example, instead of requiring a Physician's Kit to perform Healer's Hands, you might use a ripped cloak as substitute bandage.",
+								"Any Checks performed with an inferior substitute incur a Minor Penalty (-2).",
+								"Your GM decides whether a proposed substitute is acceptable. Is an Immortal dandruff just as good as Arcane Powder? Ask your GM."
+							],
+						},
+						multiTasker: {
+							name: "Multi-Tasker",
+							description: "You make the most of you spare time with good scheduling and enthusiasm",
+							mechanics: [
+								"You can perform two Activities during Downtime, instead of one.",
+								"NOTE: Exception! You cannot Multi-Task if you have chosen Healing an Injury."
+							],
+						},
+						hardcoreHardcover: {
+							name: "Hardcore Hardcover",
+							description: "A few extra spikes here a metal plate or two there, and your bulky Journey Journal is now combat ready! Cower behind it or swing at your foes,",
+							mechanics: [
+								"On your combat Turn, you can use your Journal as either: a Mighty Weapon, or a Large Shield.",
+								"NOTE: Gear Allowance Restrictions don't apply when using your Journal as a piece of Combat Gear."
+							],
+						},
+						masterOfSpectacle: {
+							name: "Master of Spectacle",
+							description: "Your showmanship can draw a crowd.",
+							mechanics: [
+								"You may attempt to gain the full attention of anyone within earshot.",
+								"If uninterrupted, they can make the spectacle last for about 10 minutes.",
+								"----",
+								"CONTEST: Your Aura vs. the observer's Grit.",
+								"GM Characters roll individually.",
+								"Your GM can choose to make a single roll for groups or crowds.",
+							],
+						},
+						betterPartOfValor: {
+							name: "The Better Part of Valor",
+							description:
+								"Running away can't grant you an extra life, but it can preserve the one you've got.",
+							mechanics: [
+								"Your Speed Rating increases by a single level.",
+								"If running for your life, you have Supernatural Leaping.",
+							],
+						},
+						trickyCombatant: {
+							name: "Tricky Combatant",
+							description:
+								"You're better at out-smarting your foe than you are going toe to toe.",
+							mechanics: [
+								"You recieve a Minor Bonus (+2) when attempting a combat trick.",
+							],
+						},
+						fortunesFool: {
+							name: "Fortune's Fool",
+							description:
+								"Why rely on skill when you can cheat fate itself. Just by careful fate doesn't catch you trying to pull a fast one!",
+							mechanics: [
+								"You can request any roll be re-rolled if the outcome would have some sort of effect on you.",
+								"You can only use this Ability once per game Session and you must accept the new outcome... Even if it's worse!",
+							],
+						},
+					},
+				},
+			},
 			species: {
 				native: {
 					name: "Human (Native)",
@@ -5582,7 +6606,7 @@ export default {
 		},
 		getMight() {
 			let calcMight = 10;
-			if (this.callingSelected) {
+			/*if (this.callingSelected) {
 				switch (this.callingSelected.name) {
 					case "Battle Princess":
 						calcMight =
@@ -5619,7 +6643,9 @@ export default {
 						calcMight = this.callings.sneak.stats[this.getLevel - 1][2];
 						break;
 				}
-			}
+			}*/
+			calcMight = this.callingSelected.stats[this.getLevel - 1][2];
+			console.log('calcmight: ' + calcMight);
 			switch (this.getSize) {
 				case "Small":
 					calcMight--;
@@ -5644,7 +6670,7 @@ export default {
 		},
 		getDeft() {
 			let calcDeft = 10;
-			if (this.callingSelected) {
+			/*if (this.callingSelected) {
 				switch (this.callingSelected.name) {
 					case "Battle Princess":
 						calcDeft = this.callings.battlePrincess.stats[this.getLevel - 1][3];
@@ -5671,7 +6697,8 @@ export default {
 						calcDeft = this.callings.sneak.stats[this.getLevel - 1][3];
 						break;
 				}
-			}
+			}*/
+			calcDeft = this.callingSelected.stats[this.getLevel - 1][3];
 			switch (this.getSize) {
 				case "Small":
 					calcDeft++;
@@ -5688,7 +6715,7 @@ export default {
 		},
 		getGrit() {
 			let calcGrit = 0
-			if (this.callingSelected) {
+			/*if (this.callingSelected) {
 				switch (this.callingSelected.name) {
 					case "Battle Princess":
 						calcGrit = this.callings.battlePrincess.stats[this.getLevel - 1][4];
@@ -5717,7 +6744,8 @@ export default {
 					default:
 						calcGrit = 10;
 				}
-			}
+			}*/
+			calcGrit = this.callingSelected.stats[this.getLevel - 1][4]
 			if (this.quirkSelected) {
 				switch (this.quirkSelected.name) {
 					case "Girthsome":
@@ -5737,7 +6765,7 @@ export default {
 		},
 		getInsight() {
 			let calcInsight = 0;
-			if (this.callingSelected) {
+			/*if (this.callingSelected) {
 				switch (this.callingSelected.name) {
 					case "Battle Princess":
 						calcInsight = this.callings.battlePrincess.stats[this.getLevel - 1][5];
@@ -5766,7 +6794,8 @@ export default {
 					default:
 						calcInsight = 10;
 				}
-			}
+			}*/
+			calcInsight = this.callingSelected.stats[this.getLevel - 1][5]
 			if (this.quirkSelected) {
 				switch (this.quirkSelected.name) {
 					case "Nearsighted":
@@ -5776,7 +6805,7 @@ export default {
 			return calcInsight;
 		},
 		getAura() {
-			if (this.callingSelected) {
+			/*if (this.callingSelected) {
 				switch (this.callingSelected.name) {
 					case "Battle Princess":
 						return this.callings.battlePrincess.stats[
@@ -5809,11 +6838,12 @@ export default {
 					default:
 						return 10;
 				}
-			}
+			}*/
+			return this.callingSelected.stats[this.getLevel - 1][6];
 		},
 		getHearts() {
 			let calcHearts = 2;
-			if (this.callingSelected) {
+			/*if (this.callingSelected) {
 				switch (this.callingSelected.name) {
 					case "Battle Princess":
 						calcHearts =
@@ -5851,7 +6881,8 @@ export default {
 							this.callings.sneak.stats[this.getLevel - 1][1];
 						break;
 				}
-			}
+			}*/
+			calcHearts = this.callingSelected.stats[this.getLevel - 1][1];
 			if (this.speciesSelected) {
 				if (this.speciesSelected.name == "Gruun") {
 					calcHearts++;
@@ -5877,7 +6908,7 @@ export default {
 		},
 		getAttack() {
 			let calcAttack = 0;
-			if (this.callingSelected) {
+			/*if (this.callingSelected) {
 				switch (this.callingSelected.name) {
 					case "Battle Princess":
 						calcAttack = this.callings.battlePrincess.stats[this.getLevel - 1][0];
@@ -5906,7 +6937,8 @@ export default {
 					default:
 						calcAttack = 0;
 				}
-			}
+			}*/
+			calcAttack = this.callingSelected.stats[this.getLevel - 1][0];
 			if (this.quirkSelected) {
 				switch(this.quirkSelected.name) {
 					case "Unhinged": 
@@ -6279,7 +7311,7 @@ export default {
 				if (this.speciesSelected.name == 'Promethean') calcBright++;
 			}
 			if (this.callingSelected){
-				if (this.callingSelected.name == 'Battle Princess') {
+				if (this.callingSelected.name == 'Battle Princess' || this.callingSelected.name == 'Bright-Heart Paladin') {
 					if (this.hasAbility('Glittering Machine')) calcBright++
 					if (this.hasAbility("Passion's Fire")) calcBright++;
 					if (this.hasAbility('Cry of the Heart')) calcBright++;
@@ -6288,7 +7320,7 @@ export default {
 					if (this.hasAbility('Radiant Blade')) calcBright++;
 					if (this.hasAbility("Heart's Aegis")) calcBright++;
 				}
-				else if (this.callingSelected.name == 'Sage') {
+				else if (this.callingSelected.name == 'Sage' || this.callingSelected.name == 'Mountebank') {
 					if (this.hasAbility('Glowing Ink')) calcBright++;
 					if (this.hasAbility('Very Useful Cloud')) calcBright++;
 					if (this.hasAbility('Eldritch Explosives')) calcBright++;
@@ -6335,7 +7367,7 @@ export default {
 					if (this.hasAbility('Umbra Draconis')) calcDark++;
 					if (this.hasAbility('Egomet')) calcDark++;
 				}
-				else if (this.callingSelected.name== 'Sage') {
+				else if (this.callingSelected.name== 'Sage' || this.callingSelected.name == 'Mountebank') {
 					if (this.hasAbility('Hocus Pox')) calcDark++;
 					if (this.hasAbility('Murky Mask')) calcDark++;
 					if (this.hasAbility('Cloak of Obscurity')) calcDark++;

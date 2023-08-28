@@ -505,7 +505,7 @@
                                         <input type="text" v-model="stones">
                                     </label>
                                 </div>
-                                <p>Your History gives you two of the following:</p>
+                                <!--<p>Your History gives you two of the following:</p>
                                 <ul>
                                     <template v-for="region in histories">
                                         <template v-for="history in region">
@@ -525,7 +525,7 @@
                                 </div>
                                 <div v-if="quirkSelected.name == 'Weary (Scarred Soul)'">
                                     <p>Your Weary Quirk also gives you a trusty weapon. This weapon can be of any Type, except for Combination or imbued.</p>
-                                </div>
+                                </div>-->
                                 <div style="display: grid; grid-gap: 5px; grid-template-columns: repeat(3, minmax(0, 1fr));">
                                         <select v-model="itemSelected" style="grid-column: auto / span 2 ;">
                                             <optgroup label="Melee Weapons"><option v-for="item in items.melee" :value="item">{{item.name}} - {{item.inventory}} {{item.inventory != 1 ? "Slots" : "Slot"}} - {{writeDenomination(item.cost)}}</option></optgroup>

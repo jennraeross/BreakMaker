@@ -1025,33 +1025,33 @@
                             <p v-else-if="callingSelected.name == 'Murder Princess'">{{wrathsBlade.chosenType.description}}</p>-->
                             <ul v-if="callingSelected.name == 'Battle Princess'">
                                 <li>{{heartsBlade.chosenType.name}}:</li>
-                                <ul>
+                                <!--<ul>
                                     <li>{{heartsBlade.chosenType.description}}</li>
                                     <li v-for="mechanic in heartsBlade.chosenType.mechanics">{{mechanic}}</li>
-                                </ul>
+                                </ul>-->
                                 <li v-if="heartsBlade.chosenCombination">{{heartsBlade.chosenCombination.name}}:</li>
-                                <ul v-if="heartsBlade.chosenCombination">
+                                <!--<ul v-if="heartsBlade.chosenCombination">
                                     <li v-for="mechanic in heartsBlade.chosenCombination.mechanics">{{mechanic}}</li>
-                                </ul>
+                                </ul>-->
                                 <li v-if="heartsBlade.chosenProperty">{{heartsBlade.chosenProperty.name}}:</li>
-                                <ul v-if="heartsBlade.chosenProperty">
+                                <!--<ul v-if="heartsBlade.chosenProperty">
                                     <li>{{heartsBlade.chosenProperty.description}}</li>
-                                </ul>
+                                </ul>-->
                             </ul>
                             <ul v-if="callingSelected.name == 'Murder Princess'">
                                 <li>{{wrathsBlade.chosenType.name}}:</li>
-                                <ul>
+                                <!--<ul>
                                     <li>{{wrathsBlade.chosenType.description}}</li>
                                     <li v-for="mechanic in wrathsBlade.chosenType.mechanics">{{mechanic}}</li>
-                                </ul>
+                                </ul>-->
                                 <li v-if="wrathsBlade.chosenCombination">{{wrathsBlade.chosenCombination.name}}:</li>
-                                <ul v-if="wrathsBlade.chosenCombination">
+                                <!--<ul v-if="wrathsBlade.chosenCombination">
                                     <li v-for="mechanic in wrathsBlade.chosenCombination.mechanics">{{mechanic}}</li>
-                                </ul>
+                                </ul>-->
                                 <li v-if="wrathsBlade.chosenProperty">{{wrathsBlade.chosenProperty.name}}:</li>
-                                <ul v-if="wrathsBlade.chosenProperty">
+                                <!--<ul v-if="wrathsBlade.chosenProperty">
                                     <li>{{wrathsBlade.chosenProperty.description}}</li>
-                                </ul>
+                                </ul>-->
                             </ul>
                         </div>
                         <hr>
@@ -1084,26 +1084,26 @@
                                 <p>Base Weapon Cost: {{writeDenomination(weaponSelected.cost)}}</p>
                                 <p v-if="customWeaponSelected">Modified Weapon Cost: {{writeDenomination(getCustomWeaponCost)}}</p>
                             </blockquote>
-                            <p>{{weaponSelected.description}}</p>
+                            <!--<p>{{weaponSelected.description}}</p>
                             <ul>
                                 <template v-for="mechanic in weaponSelected.mechanics">
                                     <li>{{mechanic}}</li>
                                 </template>
-                            </ul>
-                            <div v-if="weaponSelected && weaponCustom && combinationWeaponSelected">
+                            </ul>-->
+                            <!--<div v-if="weaponSelected && weaponCustom && combinationWeaponSelected">
                                 <p>{{combinationWeaponSelected.description}}</p>
                                 <ul>
                                     <li v-for="mechanic in combinationWeaponSelected.mechanics">{{mechanic}}</li>
                                 </ul>
-                            </div> 
+                            </div>-->
                             <div v-if="weaponCustom && customWeaponSelected">
                                 <hr>
                                 <h6>Weapon Customization</h6>
                                 <strong>{{customWeaponSelected.name}}</strong>
-                                <p>{{customWeaponSelected.description}}</p>
+                                <!--<p>{{customWeaponSelected.description}}</p>
                                 <ul>
                                     <li v-for="mechanic in customWeaponSelected.mechanics">{{mechanic}}</li>
-                                </ul>
+                                </ul>-->
                             </div>
                         </div>
                         <hr>
@@ -1127,15 +1127,15 @@
                                 </p>
                                 <p v-if="customArmorSelected">Modified Armor Cost: {{writeDenomination(getCustomArmorCost)}}</p>
                             </blockquote>
-                            <p>{{armorSelected.description}}</p>
+                            <!--<p>{{armorSelected.description}}</p>-->
                             <div v-if="armorCustom && customArmorSelected">
                                 <hr>
                                 <h6>Armor Customization</h6>
                                 <strong>{{customArmorSelected.name}}</strong>
-                                <p>{{customArmorSelected.description}}</p>
+                                <!--<p>{{customArmorSelected.description}}</p>
                                 <ul>
                                     <li v-for="mechanic in customArmorSelected.mechanics">{{mechanic}}</li>
-                                </ul>
+                                </ul>-->
                             </div>
                         </div>
                         <hr>
@@ -1159,15 +1159,15 @@
                                 </p>
                                 <p v-if="customShieldSelected">Modified Shield Cost: {{writeDenomination(getCustomShieldCost)}}</p>
                             </blockquote>
-                            <p>{{shieldSelected.description}}</p>
+                            <!--<p>{{shieldSelected.description}}</p>-->
                             <div v-if="shieldCustom && customShieldSelected">
                                 <hr>
                                 <h6>Shield Customization</h6>
                                 <strong>{{customShieldSelected.name}}</strong>
-                                <p>{{customShieldSelected.description}}</p>
+                                <!--<p>{{customShieldSelected.description}}</p>
                                 <ul>
                                     <li v-for="mechanic in customShieldSelected.mechanics">{{mechanic}}</li>
-                                </ul>
+                                </ul>-->
                             </div>
                         </div>
                         <hr>
@@ -1186,51 +1186,51 @@
                             <template v-for="history in histories.blazingGarden">
                                 <details open v-if="historySelected.name == history.name">
                                     <summary>{{history.name}}</summary>
-                                    <p>{{history.description}}</p>
+                                    <!--<p>{{history.description}}</p>
                                     <p>Purviews:</p>
                                     <ul>
                                         <li v-for="purview in history.purviews">{{purview}}</li>
-                                    </ul>
+                                    </ul>-->
                                 </details>
                             </template>
                             <template v-for="history in histories.buriedKingdom">
                                 <details open v-if="historySelected.name == history.name">
                                     <summary>{{history.name}}</summary>
-                                    <p>{{history.description}}</p>
+                                    <!--<p>{{history.description}}</p>
                                     <p>Purviews:</p>
                                     <ul>
                                         <li v-for="purview in history.purviews">{{purview}}</li>
-                                    </ul>
+                                    </ul>-->
                                 </details>
                             </template>
                             <template v-for="history in histories.twilightMeridian">
                                 <details open v-if="historySelected.name == history.name">
                                     <summary>{{history.name}}</summary>
-                                    <p>{{history.description}}</p>
+                                    <!--<p>{{history.description}}</p>
                                     <p>Purviews:</p>
                                     <ul>
                                         <li v-for="purview in history.purviews">{{purview}}</li>
-                                    </ul>
+                                    </ul>-->
                                 </details>
                             </template>
                             <template v-for="history in histories.wistfulDark">
                                 <details open v-if="historySelected.name == history.name">
                                     <summary>{{history.name}}</summary>
-                                    <p>{{history.description}}</p>
+                                    <!--<p>{{history.description}}</p>
                                     <p>Purviews:</p>
                                     <ul>
                                         <li v-for="purview in history.purviews">{{purview}}</li>
-                                    </ul>
+                                    </ul>-->
                                 </details>
                             </template>
                             <template v-for="history in histories.otherWorld">
                                 <details open v-if="historySelected.name == history.name">
                                     <summary>{{history.name}}</summary>
-                                    <p>{{history.description}}</p>
+                                    <!--<p>{{history.description}}</p>
                                     <p>Purviews:</p>
                                     <ul>
                                         <li v-for="purview in history.purviews">{{purview}}</li>
-                                    </ul>
+                                    </ul>-->
                                 </details>
                             </template>
                             <div v-if="(wearyHistory && quirkSelected.name == 'Weary (Walker of Two Paths)')">
@@ -1239,51 +1239,51 @@
                                 <template v-for="history in histories.blazingGarden">
                                     <details open v-if="wearyHistory == history.name">
                                         <summary>{{history.name}}</summary>
-                                        <p>{{history.description}}</p>
+                                        <!--<p>{{history.description}}</p>
                                         <p>Purviews:</p>
                                         <ul>
                                             <li v-for="purview in history.purviews">{{purview}}</li>
-                                        </ul>
+                                        </ul>-->
                                     </details>
                                 </template>
                                 <template v-for="history in histories.buriedKingdom">
                                     <details open v-if="wearyHistory == history.name">
                                         <summary>{{history.name}}</summary>
-                                        <p>{{history.description}}</p>
+                                        <!--<p>{{history.description}}</p>
                                         <p>Purviews:</p>
                                         <ul>
                                             <li v-for="purview in history.purviews">{{purview}}</li>
-                                        </ul>
+                                        </ul>-->
                                     </details>
                                 </template>
                                 <template v-for="history in histories.twilightMeridian">
                                     <details open v-if="wearyHistory == history.name">
                                         <summary>{{history.name}}</summary>
-                                        <p>{{history.description}}</p>
+                                        <!--<p>{{history.description}}</p>
                                         <p>Purviews:</p>
                                         <ul>
                                             <li v-for="purview in history.purviews">{{purview}}</li>
-                                        </ul>
+                                        </ul>-->
                                     </details>
                                 </template>
                                 <template v-for="history in histories.wistfulDark">
                                     <details open v-if="wearyHistory == history.name">
                                         <summary>{{history.name}}</summary>
-                                        <p>{{history.description}}</p>
+                                        <!--<p>{{history.description}}</p>
                                         <p>Purviews:</p>
                                         <ul>
                                             <li v-for="purview in history.purviews">{{purview}}</li>
-                                        </ul>
+                                        </ul>-->
                                     </details>
                                 </template>
                                 <template v-for="history in histories.otherWorld">
                                     <details open v-if="wearyHistory == history.name">
                                         <summary>{{history.name}}</summary>
-                                        <p>{{history.description}}</p>
+                                        <!--<p>{{history.description}}</p>
                                         <p>Purviews:</p>
                                         <ul>
                                             <li v-for="purview in history.purviews">{{purview}}</li>
-                                        </ul>
+                                        </ul>-->
                                     </details>
                                 </template>
                             </div>
@@ -1304,7 +1304,7 @@
                             <template v-for="quirk in quirks.spirit">
                                 <details open v-if="quirkSelected.name == quirk.name">
                                     <summary>{{quirk.name}}</summary>
-                                    <p>{{quirk.description}}</p>
+                                    <!--<p>{{quirk.description}}</p>
                                     <p><strong>Advantages</strong></p>
                                     <ul>
                                         <li v-for="advantage in quirk.advantages">{{advantage}}</li>
@@ -1312,13 +1312,13 @@
                                     <p><strong>Disadvantages</strong></p>
                                     <ul>
                                         <li v-for="advantage in quirk.disadvantages">{{advantage}}</li>
-                                    </ul>
+                                    </ul>-->
                                 </details>
                             </template>
                             <template v-for="quirk in quirks.physical">
                                 <details open v-if="quirkSelected.name == quirk.name">
                                     <summary>{{quirk.name}}</summary>
-                                    <p>{{quirk.description}}</p>
+                                    <!--<p>{{quirk.description}}</p>
                                     <p><strong>Advantages</strong></p>
                                     <ul>
                                         <li v-for="advantage in quirk.advantages">{{advantage}}</li>
@@ -1326,13 +1326,13 @@
                                     <p><strong>Disadvantages</strong></p>
                                     <ul>
                                         <li v-for="advantage in quirk.disadvantages">{{advantage}}</li>
-                                    </ul>
+                                    </ul>-->
                                 </details>
                             </template>
                             <template v-for="quirk in quirks.fate">
                                 <details open v-if="quirkSelected.name == quirk.name">
                                     <summary>{{quirk.name}}</summary>
-                                    <p>{{quirk.description}}</p>
+                                    <!--<p>{{quirk.description}}</p>
                                     <p><strong>Advantages</strong></p>
                                     <ul>
                                         <li v-for="advantage in quirk.advantages">{{advantage}}</li>
@@ -1340,13 +1340,13 @@
                                     <p><strong>Disadvantages</strong></p>
                                     <ul>
                                         <li v-for="advantage in quirk.disadvantages">{{advantage}}</li>
-                                    </ul>
+                                    </ul>-->
                                 </details>
                             </template>
                             <template v-for="quirk in quirks.eldritch">
                                 <details open v-if="quirkSelected.name == quirk.name">
                                     <summary>{{quirk.name}}</summary>
-                                    <p>{{quirk.description}}</p>
+                                    <!--<p>{{quirk.description}}</p>
                                     <p><strong>Advantages</strong></p>
                                     <ul>
                                         <li v-for="advantage in quirk.advantages">{{advantage}}</li>
@@ -1354,13 +1354,13 @@
                                     <p><strong>Disadvantages</strong></p>
                                     <ul>
                                         <li v-for="advantage in quirk.disadvantages">{{advantage}}</li>
-                                    </ul>
+                                    </ul>-->
                                 </details>
                             </template>
                             <template v-for="quirk in quirks.robotic">
                                 <details open v-if="quirkSelected.name == quirk.name">
                                     <summary>{{quirk.name}}</summary>
-                                    <p>{{quirk.description}}</p>
+                                    <!--<p>{{quirk.description}}</p>
                                     <p><strong>Advantages</strong></p>
                                     <ul>
                                         <li v-for="advantage in quirk.advantages">{{advantage}}</li>
@@ -1368,7 +1368,7 @@
                                     <p><strong>Disadvantages</strong></p>
                                     <ul>
                                         <li v-for="advantage in quirk.disadvantages">{{advantage}}</li>
-                                    </ul>
+                                    </ul>-->
                                 </details>
                             </template>
                         </div>
@@ -1658,74 +1658,74 @@
                             <template v-for="ability in callingSelected.classAbilities">
                                 <details open>
                                     <summary>{{ability.name}}</summary>
-                                    <p>{{ability.description}}</p>
+                                    <!--<p>{{ability.description}}</p>
                                     <ul>
                                         <li v-for="mechanic in ability.mechanics">{{mechanic}}</li>
-                                    </ul>
+                                    </ul>-->
                                 </details>
                             </template>
                             <details open v-if="speciesSelected.name == 'Human (Native)' && nativeHumanElective">
                                 <summary>{{nativeHumanElective.name}}</summary>
-                                    <p>{{nativeHumanElective.description}}</p>
+                                    <!--<p>{{nativeHumanElective.description}}</p>
                                     <ul>
                                         <li v-for="mechanic in nativeHumanElective.mechanics">
                                             {{mechanic}}
                                         </li>
-                                    </ul>
+                                    </ul>-->
                             </details>
                             <details open v-if="elective2">
                                 <summary>{{elective2.name}}</summary>
                                 
-                                    <p>{{elective2.description}}</p>
+                                    <!--<p>{{elective2.description}}</p>
                                     <ul>
                                         <li v-for="mechanic in elective2.mechanics">
                                             {{mechanic}}
                                         </li>
-                                    </ul>
+                                    </ul>-->
                                 </template>
                             </details>
                             <details open v-if="elective4">
                                 <summary>{{elective4.name}}</summary>
                                 
-                                    <p>{{elective4.description}}</p>
+                                    <!--<p>{{elective4.description}}</p>
                                     <ul>
                                         <li v-for="mechanic in elective4.mechanics">
                                             {{mechanic}}
                                         </li>
-                                    </ul>
+                                    </ul>-->
                                 </template>
                             </details>
                             <details open v-if="elective6">
                                 <summary>{{elective6.name}}</summary>
                                 
-                                    <p>{{elective6.description}}</p>
+                                    <!--<p>{{elective6.description}}</p>
                                     <ul>
                                         <li v-for="mechanic in elective6.mechanics">
                                             {{mechanic}}
                                         </li>
-                                    </ul>
+                                    </ul>-->
                                 </template>
                             </details>
                             <details open v-if="elective8">
                                 <summary>{{elective8.name}}</summary>
                                 
-                                    <p>{{elective8.description}}</p>
+                                    <!--<p>{{elective8.description}}</p>
                                     <ul>
                                         <li v-for="mechanic in elective8.mechanics">
                                             {{mechanic}}
                                         </li>
-                                    </ul>
+                                    </ul>-->
                                 </template>
                             </details>
                             <details open v-if="elective10">
                                 <summary>{{elective10.name}}</summary>
                                 
-                                    <p>{{elective10.description}}</p>
+                                    <!--<p>{{elective10.description}}</p>
                                     <ul>
                                         <li v-for="mechanic in elective10.mechanics">
                                             {{mechanic}}
                                         </li>
-                                    </ul>
+                                    </ul>-->
                                 </template>
                             </details>
                         </div>
@@ -1748,20 +1748,20 @@
                             <template v-for="ability in speciesSelected.innateAbilities">
                                 <details open>
                                     <summary>{{ability.name}}</summary>
-                                    <p>{{ability.description}}</p>
+                                    <!--<p>{{ability.description}}</p>
                                     <ul>
                                         <li v-for="mechanic in ability.mechanics">{{mechanic}}</li>
                                         <li v-if="(ability.name == 'Immortal Ego') && elfImmunity">Your chosen immunity is: {{elfImmunity}}.</li>
-                                    </ul>
+                                    </ul>-->
                                 </details>
                             </template>
                             <template v-for="ability in speciesSelected.maturativeAbilities">
                                 <details open v-if="hasAbility(ability)">
                                     <summary>{{ability.name}}</summary>
-                                    <p>{{ability.description}}</p>
+                                    <!--<p>{{ability.description}}</p>
                                     <ul>
                                         <li v-for="mechanic in ability.mechanics">{{mechanic}}</li>
-                                    </ul>
+                                    </ul>-->
                                 </details>
                             </template>
                         </div>
@@ -1863,16 +1863,16 @@
                                 </ul>
                             </nav>
                             <strong>{{companionSelected.name}}</strong>
-                            <p>{{companionSelected.description}}</p>
+                            <!--<p>{{companionSelected.description}}</p>-->
                             <blockquote v-if="followerSpecies">
                                 <p>Species: {{followerSpecies.name}}</p>
                                 <p>Innate Abilities</p>
                                 <ul>
                                     <li v-for="ability in followerSpecies.innateAbilities">
                                         {{ability.name}}
-                                        <ul>
+                                        <!--<ul>
                                             <li v-for="mechanic in ability.mechanics">{{mechanic}}</li>
-                                        </ul>
+                                        </ul>-->
                                     </li>
                                 </ul>
                                 <div v-if="followerHumanAbility">
@@ -1880,17 +1880,17 @@
                                     <ul>
                                         <li>
                                             {{followerHumanAbility.name}}
-                                            <ul>
+                                            <!--<ul>
                                                 <li v-for="mechanic in followerHumanAbility.mechanics">{{mechanic}}</li>
-                                            </ul>
+                                            </ul>-->
                                         </li>
                                     </ul>
                                 </div>
                                 <div v-if="followerElfImmunity">
                                     <p>Immortal Ego</p>
-                                    <ul>
+                                    <!--<ul>
                                         <li>Immune to the {{followerElfImmunity}} condition.</li>
-                                    </ul>
+                                    </ul>-->
                                 </div>
                                 <div v-if="followerDarkGift">
                                     <p>Dark Gift</p>
@@ -1899,7 +1899,7 @@
                                     </ul>
                                 </div>
                             </blockquote>
-                            <div class="grid">
+                            <!--<div class="grid">
                                 <table role="grid">
                                     <tr>
                                         <th>Might</th>
@@ -1939,8 +1939,8 @@
                                         <div v-if="!companionSelected.speed" style="text-align: center; display: flex;justify-content: center;align-items: center; padding: .5em">Average<br>Speed</div>
                                     </div>
                                 </div>
-                            </div>
-                            <div v-if="companionSelected.abilities">
+                            </div>-->
+                            <!--<div v-if="companionSelected.abilities">
                                 <p>Abilities</p>
                                 <ul>
                                     <li v-for="ability in companionSelected.abilities">{{ability}}</li>
@@ -1957,14 +1957,14 @@
                                         </ul>
                                     </li>
                                 </ul>
-                            </div>
+                            </div>-->
                             <div v-if="companionSelected.inventory">
                                 <p>Inventory</p>
                                 <ul>
                                     <li v-for="inventory in companionSelected.inventory">{{inventory}}</li>
                                 </ul>
                             </div>
-                            <div v-if="companionSelected.services">
+                            <!--<div v-if="companionSelected.services">
                                 <p>Services</p>
                                 <p>{{companionSelected.services}}</p>
                             </div>
@@ -1973,7 +1973,7 @@
                                 <ul>
                                     <li v-for="fighting in companionSelected.fighting">{{fighting}}</li>
                                 </ul>
-                            </div>
+                            </div>-->
                             <div v-if="companionSelected.recruitment">
                                 <p>Recruitment</p>
                                 <p>{{companionSelected.recruitment}}</p>
@@ -2009,7 +2009,7 @@
                                 <div>
                                     <p class="border-top">PURVIEWS:
                                         <br><span class="light">My Background grants me an Edge on...</span>
-                                        <ul class="light">
+                                        <!--<ul class="light">
                                             <template v-for="region in histories">
                                                 <template v-for="history in region">
                                                     <template v-for="purview in history.purviews" v-if="history.name == historySelected.name">
@@ -2017,7 +2017,7 @@
                                                     </template>
                                                 </template>
                                             </template>
-                                        </ul>
+                                        </ul>-->
                                     </p></div>
                                 <div><p class="border-top">DESCRIPTION</p></div>
                             </div>
@@ -2133,7 +2133,7 @@
                         <div class="draft grey right-round"><p><strong>QUIRK</strong></p></div>
                         <div class="draft">
                             <p>{{quirkSelected.name}}</p>
-                            <p>{{quirkSelected.description}}</p>
+                            <!--<p>{{quirkSelected.description}}</p>-->
                         </div>
 
                         <div class="draft grey right-round"><p><strong>ALLEGIANCE</strong></p></div>
@@ -2230,7 +2230,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="page3">
+                    <!--<div class="page3">
                         <h3 class="card-divider">Quirk</h3>
                         <article>
                             <p><strong>{{quirkSelected.name}}</strong></p>
@@ -2254,15 +2254,6 @@
                                 </ul>
                             </article>
                         </template>
-                        <!--<template v-for="ability in speciesSelected.maturativeAbilities">
-                            <article v-if="hasAbility(ability.name)">
-                                <p><strong>{{ability.name}}</strong></p>
-                                <p>{{ability.description}}</p>
-                                <ul>
-                                    <li v-for="mechanic in ability.mechanics">{{mechanic}}</li>
-                                </ul>
-                            </article>
-                        </template>-->
                         <h3 class="card-divider">Calling Abilities</h3>
                         <template v-for="ability in callingSelected.classAbilities">
                             <article>
@@ -2449,7 +2440,7 @@
                                 </div>
                             </article>
                         </div>
-                    </div>
+                    </div>-->
                 </div>
             </div>
 

@@ -17,12 +17,6 @@
       "oAP" : "\/build\/.prettierrc",
       "oF" : 1
     },
-    "\/build" : {
-      "ft" : 65536,
-      "oA" : 1,
-      "oAP" : "\/build\/build",
-      "oF" : 0
-    },
     "\/node_modules" : {
       "ft" : 65536,
       "oA" : 2,
@@ -136,7 +130,7 @@
     "displayValueWasSetByUser" : 0,
     "iconImageName" : "brackets-forest",
     "iconImageWasSetByUser" : 0,
-    "lastBuiltDate" : 704395828.245085
+    "lastBuiltDate" : 714935730.19716799
   },
   "projectSettings" : {
     "abortBuildOnError" : 1,

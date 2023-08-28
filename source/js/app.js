@@ -86,15 +86,15 @@ export default {
 				properties: {
 					glittering: {
 						name: "Glittering",
-						description: "+1 on Attack rolls."
+						description: ""
 					},
 					righteous: {
 						name: "Righteous",
-						description: "The weapon's Extra Damage Threshold is reduced by 2."
+						description: ""
 					},
 					sheltering: {
 						name: "Sheltering",
-						description: "The weapon can Parry once per combat in the same manner as a Standard Shield."
+						description: ""
 					}
 				}
 			},
@@ -121,15 +121,15 @@ export default {
 				properties: {
 					glistening: {
 						name: "Glistening",
-						description: "+1 on Attack rolls."
+						description: ""
 					},
 					righteous: {
 						name: "Retributive",
-						description: "The weapon's Extra Damage Threshold is reduced by 2."
+						description: ""
 					},
 					denying: {
 						name: "Denying",
-						description: "The weapon can Parry once per combat in the same manner as a Standard Shield."
+						description: ""
 					}
 				}
 			},
@@ -137,7 +137,7 @@ export default {
 				followers: {
 					scamp: {
 						name: "Scamp",
-						description: "Youthful sidekicks who rely on pluck and enthusiasm to compensate for a lack of experience. There's no shortage of bored, naive, or desperate youth in Outer World.",
+						description: "",
 						stats: [0, 2, 6, 7, 6, 6, 6],
 						abilities: [
 							"Impish: All Scamps have the Young Quirk",
@@ -154,7 +154,7 @@ export default {
 					},
 					scholar: {
 						name: "Scholar",
-						description: "Scholars are ordinary folk with an unhealthy interest in a useful skill or area of knowledge. They are usually motivated by boredom, greed, or curiosity.",
+						description: "",
 						stats: [0, 2, 6, 6, 6, 7, 6],
 						abilities: [
 							"Specialist Subject: Scholars have a Purview pertaining to a single area of knowledge. For example, the history of ancient Akenia.",
@@ -174,7 +174,7 @@ export default {
 					},
 					guide: {
 						name: "Guide",
-						description: "These folk have travelled further from home than most would consider safe. They are able to guide anyone who wants to venture beyond the city wall.",
+						description: "",
 						stats: [0, 2, 6, 6, 7, 6, 6],
 						abilities: [
 							"Wayfarer: These folk can act as Guides (+ p226) in the Region they are hired in. For example, the Wistful Dark or Blazing Gardens. Once Recruited, Guides can lead in new Regions if they spend one session of Downtime scouting.",
@@ -192,7 +192,7 @@ export default {
 					},
 					custrel: {
 						name: "Custrel",
-						description: "Combat ready assistants and squires. Custrels specialize in acting as seconds or bodyguards in battle, as well as taking care of little things for their ward or master.",
+						description: "",
 						stats: [1, 2, 7, 6, 6, 6, 6],
 						abilities: [
 							"Weapon Proficiency: Custrels can use Light Armor and two other pieces of uncustomized combat gear of their choice. They will not be proficient in gear which would incur a penalty because of their Species Size's Combat Gear Allowance.",
@@ -212,7 +212,7 @@ export default {
 				pets: {
 					growl: {
 						name: "Growl",
-						description: "These furry canines are popular pets among common folk, but also the mount of choice for the tiny warror. Selective breeding has resulted in some distinct breeds but all are uniformly fierce with a keen sense of smell.",
+						description: "",
 						stats: [1, 3, 7, 7, 7, 7, 4],
 						defense: 14,
 						speed: "Fast",
@@ -231,7 +231,7 @@ export default {
 					},
 					buzzer: {
 						name: "Buzzer",
-						description: "Named after the curious humming sound they make, these large, scuttling insects have chitinous armor and a nasty nip. Vicious but loyal, Buzzers are popular with bandits and nomads due to their hardy nature.",
+						description: "",
 						stats: [1, 2, 7, 7, 7, 3, 3],
 						defense: 15,
 						abilities: [
@@ -250,7 +250,7 @@ export default {
 					},
 					pudgeGrub: {
 						name: "Pudge Grub",
-						description: "About the size and weight of a ripe watermelon, these bright, doughy creatures waddle harmlessly all over Outer World. They are easy prey but survive through frequent asexual division. Most commonly used as low maintenance livestock, they also have practical uses for Adventurers.",
+						description: "",
 						stats: [0, 1, 3, 3, 3, 3, 3],
 						defense: 11,
 						speed: "Slow",
@@ -272,7 +272,7 @@ export default {
 					},
 					fuzzcoil: {
 						name: "Fuzzcoil",
-						description: "These hairy, serpentine creatures wrap themselves around their owners, keeping out of sight; up sleeves or inside tunics. Their venom can be milked, diluted, and then sold as an anti-aging remedy. While this odd elixir does tighten the skin, the effect is only temporary.",
+						description: "",
 						stats: [1, 2, 5, 5, 5, 5, 5],
 						defense: 13,
 						speed: "Fast",
@@ -290,7 +290,7 @@ export default {
 					},
 					skree: {
 						name: "Skree",
-						description: "An umbrella term for small flying creatures, covering birds, bats, and moth-like species Quick and intelligent, Skree can be trained to be aerial scouts and messengers.",
+						description: "",
 						stats: [1, 2, 4, 7, 4, 7, 4],
 						defense: 13,
 						speed: "Fast",
@@ -312,7 +312,7 @@ export default {
 					},
 					purr: {
 						name: "Purr",
-						description: "Small, capricious feline creatures that are, at best, casually attached to their owners. While they avoid a fight when possible, their sly interventions can be useful. Most Purrs are covered in colorful fur, though hairless and scaled breeds exist.",
+						description: "",
 						stats: [0, 2, 4, 8, 4, 8, 4],
 						defense: 11,
 						abilities: [
@@ -332,7 +332,7 @@ export default {
 				mounts: {
 					jumbug: {
 						name: "Jumbug",
-						description: "Giant insectoids with powerful hind legs that rocket them forwards. Notoriously dangerous to ride, these beast's unusual propulsion method them helps traverse the most tortuous terrain. Jumbugs are also famed for the soft chirping sounds they make while settling down, soothing for both owner and beast.",
+						description: "",
 						stats: [0, 3, 9, 9, 4, 4, 4],
 						defense: 15,
 						speed: "Fast",
@@ -351,7 +351,7 @@ export default {
 					},
 					mokkoDo: {
 						name: "Mokko-Do",
-						description: "These fluffy, flightless birds are much quicker than they appear. Their speed and reliability has made them one of the most common mounts on Outer World. This popularity has also inspired best of-breed shows, races and other novelty events capable of drawing large crowds. Pedigree specimens, with rich or attractive plumage, will cost twice the market price.",
+						description: "",
 						stats: [0, 3, 8, 8, 5, 5, 5],
 						defense: 11,
 						speed: "Fast",
@@ -370,7 +370,7 @@ export default {
 					},
 					rokkoDo: {
 						name: "Rokko-Do",
-						description: "The larger and more fearsome cousin of the Mokko Do, These creatures are difficult to train and prone to bluster, but ultimately fierce and loyal mounts once tamed. Rumors of the flying Black Rokko-do persist despite no recorded sighting for hundreds of years. Highly valued steeds among noble warriors.",
+						description: "",
 						stats: [2, 4, 9, 9, 9, 5, 5],
 						defense: 11,
 						speed: "Fast",
@@ -391,7 +391,7 @@ export default {
 					},
 					largzard: {
 						name: "Largzard",
-						description: "These irrepressible lizards are admired for their ferocity in battle, less so for their servility. The high price reflects the difficult and dangerous process of training ther The legendary flame breathing Crimson Largzard has never been caught, let alone tamed. Used by immense warriors too bulky for standard Mounts.",
+						description: "",
 						stats: [3, 5, 10, 10, 10, 4, 4],
 						defense: 15,
 						abilities: [
@@ -413,7 +413,7 @@ export default {
 				packBeasts: {
 					shaggyBumpo: {
 						name: "Shaggy Bumpo",
-						description: "These humongous bovids have a fluffy, charming appearance that behes their rugged frame. Their strength, coupled with a compliant nature, make them perfect beasts of burden. The Bumpo is a paternal animal and will 'adopt unattached youth, which they will then vigorously defend.",
+						description: "",
 						stats: [0, 4, 10, 3, 10, 3, 3],
 						defense: 9,
 						abilities: [
@@ -431,7 +431,7 @@ export default {
 					},
 					grubbish: {
 						name: "Grubbish",
-						description: "Enormous, multi-legged and bulbous; Grubbish are awkward but stable beasts. Having originated in the Mana Wastes, these creatures are extremely resilient, and this has made them popular with travellers and traders that operate in inhospitable locations. Most Grubbish have a simple, mask-like face, but some rare specimens look unnervingly human.",
+						description: "",
 						stats: [0, 3, 10, 4, 10, 4, 4],
 						defense: 9,
 						abilities: [
@@ -452,7 +452,7 @@ export default {
 				soulCompanions: {
 					guardianAnimal: {
 						name: "Guardian Animal",
-						description: "Your four-legged familiar appears normal in shape and size but inherits your colors, or any distinct markings or patterns you wear.",
+						description: "",
 						stats: [0,2],
 						defense: 12,
 						speed: "Fast",
@@ -467,21 +467,21 @@ export default {
 						optAbilities: {
 							mount: {
 								name: "Mount",
-								description: "When required, they can grow in size to carry a rider.",
+								description: "",
 								mechanics: [
 									"Companions are Battle Ready when in Mount form."
 								]
 							},
 							burrower: {
 								name: "Burrower",
-								description: "They have claw-like digging tools for rapid excavation.",
+								description: "",
 								mechanics: [
 									"They can excavate a PC-sized tunnel through a Battlefield Area's worth of soil each Turn."
 								]
 							},
 							fighter: {
 								name: "Fighter",
-								description: "They grow fangs, claws or some other natural weapon.",
+								description: "",
 								mechanics: [
 									"They can now Attack as if wielding a Standard Weapon.",
 									"Their Attack Bonus is now half yours, rounded down."
@@ -489,7 +489,7 @@ export default {
 							},
 							glider: {
 								name: "Glider",
-								description: "They sprout small, vestigial wings incapable of full flight.",
+								description: "",
 								mechanics: [
 									"They gain Supernatural Leaping."
 								]
@@ -506,7 +506,7 @@ export default {
 					},
 					braveToy: {
 						name: "Brave Toy",
-						description: "Your small, mechanical doll is dressed like a knight or soldier. It also sports an emblem of great significance to you.",
+						description: "",
 						stats: [0,2],
 						defense: 14,
 						abilities: [
@@ -520,7 +520,7 @@ export default {
 						optAbilities: {
 							shielder: {
 								name: "Shielder",
-								description: "They can defend themselves and others.",
+								description: "",
 								mechanics: [
 									"Once per Fight, they can Parry one Attack made against them, or any allies that in the same Battlefield Area as them, like a Shield.",
 									"As if built by Magical Materials, they do not break when blocking a Magical Attack or Ability."
@@ -528,7 +528,7 @@ export default {
 							},
 							weaponLink: {
 								name: "Weapon Link",
-								description: "They can transform and connect to your Heart's Blade for extra impact.",
+								description: "",
 								mechanics: [
 									"Your Companion and your Heart's Blade can combine once per Session to provide either:",
 									"A Minor Bonus (+2) to all Attack rolls or...",
@@ -537,7 +537,7 @@ export default {
 							},
 							booster: {
 								name: "Booster",
-								description: "They can convert into a jetpack, cling onto your back, and lift you to safety.",
+								description: "",
 								mechanics: [
 									"You gain the power of flight at an Average Speed Rating.",
 									"The boost grants enough lift you to reach one visible destination.",
@@ -546,7 +546,7 @@ export default {
 							},
 							toter: {
 								name: "Toter",
-								description: "This chunky toy has a built in backpack.",
+								description: "",
 								mechanics: [
 									"They have 10 Inventory Slots.",
 									"During a Fight, they can use their Turn to find and instantly present any item they are carrying."
@@ -981,7 +981,7 @@ export default {
 						},
 						intoTheFray: {
 							name: "Into the Fray",
-							description: "You are able to vary your fighting style to suit the battle, applying caution, flair or precision when and where it is required.",
+							description: "",
 							mechanics: [
 								"Each Round during a Fight, you can choose between the following",
 								"Daring: Perform an Attack Stunt(p255) without making a wager.",
@@ -996,7 +996,7 @@ export default {
 					standardAbilities: {
 						valiant: {
 							name: "Valiant",
-							description: "While all Champions possess great courage, you can laugh in the face of incomprehensible terror.",
+							description: "",
 							mechanics: [
 								"You have immunity to the Terrified Ailment(p271).",
 								"You can help allies defend against the Ailment by shouting encouraging words. Those within earshot gain an Edge on their roll to resist, or remove, the Ailment."
@@ -1104,7 +1104,7 @@ export default {
 						},
 						sentinel: {
 							name: "Sentinel",
-							description: "Being the toughest among your companions means you're happy to soak up hits for them when you can.",
+							description: "",
 							mechanics: [
 								"You can redirect any successful physical Attack on an ally, occupying the same Battlefield Area as you, onto yourself.",
 								"The original Attack roll must now beat your Defense Rating to do you harm.",
@@ -1223,7 +1223,7 @@ export default {
 						},
 						folklorist: {
 							name: "Folklorist",
-							description: "You've heard the old tales that say even the scariest monsters can be subdued with a pinch of spice or deterred by a drop of moon-plum juice. Is there something to them or are they just stories?",
+							description: "",
 							mechanics: [
 								"You may choose a consumable material (such as lantern oil or a treat) to act as a deterrent to an Unearthly Adversary.",
 								"Unearthy Adversaries include Asura, Devas, Demons, Undead, Unshaped, or any creature with 4 or more Allegiance points.",
@@ -1259,7 +1259,7 @@ export default {
 						},
 						combatCoordinated: {
 							name: "Combat Coordinated",
-							description: "You can organize a team offensive.",
+							description: "",
 							mechanics: [
 								"When you perform an Attack Assist, you target an enemy instead of an ally.",
 								"Rank 1: Any Attack rolls made on the chosen enemy during that Turn recieve a Minor Bonus (+2)",
@@ -1330,7 +1330,7 @@ export default {
 						},
 						troubleshooter: {
 							name: "Troubleshooter",
-							description: "When the proper tools aren't at hand, you can make do with the next best thing.",
+							description: "",
 							mechanics: [
 								"You can attempt an Ability Check that requires a specific tool with an improvised alternative. For example, instead of requiring a Physician's Kit to perform Healer's Hands, you might use a ripped cloak as substitute bandage.",
 								"Any Checks performed with an inferior substitute incur a Minor Penalty (-2).",
@@ -1339,7 +1339,7 @@ export default {
 						},
 						multiTasker: {
 							name: "Multi-Tasker",
-							description: "You make the most of you spare time with good scheduling and enthusiasm",
+							description: "",
 							mechanics: [
 								"You can perform two Activities during Downtime, instead of one.",
 								"NOTE: Exception! You cannot Multi-Task if you have chosen Healing an Injury."
@@ -1347,7 +1347,7 @@ export default {
 						},
 						packTactics: {
 							name: "Pack Tactics",
-							description: "A few extra spikes here a metal plate or two there, and your bulky Factotum's Pack is now combat ready! Cower behind it or swing at your foes,",
+							description: "",
 							mechanics: [
 								"On your combat Turn, you can use your Pack as either: a Mighty Weapon, or a Large Shield.",
 								"NOTE: Gear Allowance Restrictions don't apply when using your Pack as a piece of Combat Gear."
@@ -1355,7 +1355,7 @@ export default {
 						},
 						masterOfSpectacle: {
 							name: "Master of Spectacle",
-							description: "Your showmanship can draw a crowd.",
+							description: "",
 							mechanics: [
 								"You may attempt to gain the full attention of anyone within earshot.",
 								"If uninterrupted, they can make the spectacle last for about 10 minutes.",
@@ -1534,7 +1534,7 @@ export default {
 						},
 						messengerKaila: {
 							name: "Messenger Kaila",
-							description: "Kaila, Whisper most Pleasant, is a sultry figure in a flowing dress and decorated mask. Her voice is quiet but authoritive. When she speaks, her message is always heard by those for whom it was meant for.",
+							description: "",
 							mechanics: [
 								"Say her name and Kaila, appears ready to deliver a message for you.",
 								"Summoning requires 1 Action.",
@@ -1620,7 +1620,7 @@ export default {
 						},
 						imperatrixDelilah: {
 							name: "Imperatrix Delilah",
-							description: "Delilah, Who Rules Absolutely, is the light. She floods the senses with hope to bring the peace of dominion to all who would receive her.",
+							description: "",
 							mechanics: [
 								"Call out her name and Deliah shines forth, taking control of a mind that means you harm.",
 								"Summoning requires 1 Action.",
@@ -1933,7 +1933,7 @@ export default {
 						},
 						redPetalRevenge: {
 							name: "Red Petal Revenge",
-							description: "Picking a rose in haste can prick your fingers, and so those that wish to d0 harm will suffer the consequences.",
+							description: "",
 							mechanics: [
 								"If you are hit in a Fight, or suffer an Ailment caused by an enemy Ability, you can attempt to get revenge on your aggressor.",
 								"----",
@@ -2109,7 +2109,7 @@ export default {
 						},
 						counterFang: {
 							name: "Counter Fang",
-							description: "When surrounded by lesser warriors you enter Counter Fang stance. From this meditative state you visualise the flow of the fight then, when engaged by predictable foes, you lay waste to them with choreographed efficiency.",
+							description: "",
 							mechanics: [
 								"During a Fight you can choose to enter the Counter Fang stance instead of making an Attack or taking another Action.",
 								"While in the Counter Fang stance, any opponent that fails their Attack roll on you is subject to a retaliatory Attack, Attack Stunt, or Combat Trick.",
@@ -2118,7 +2118,7 @@ export default {
 						},
 						windWearsAwayStone: {
 							name: "Wind Wears Away Stone",
-							description: "You're a true hunter, able to find a path through any built-up defense.",
+							description: "",
 							mechanics: [
 								"You can attempt to find a weak spot on an opponent that is the target of your Hunter's Focus",
 								"----",
@@ -2163,7 +2163,7 @@ export default {
 						},
 						sureKillStrike: {
 							name: "Sure Kill Strike",
-							description: "To you, execution is an art form.",
+							description: "",
 							mechanics: [
 								"To attempt a Sure Kill Strike you must first declare a target at the beginning of your Turn.",
 								"Next, you must make an Attack roll against your chosen target. if successful...",
@@ -2270,7 +2270,7 @@ export default {
 						},
 						arcaneArtificing: {
 							name: "Arcane Artificing",
-							description: "You have whittled away many hours tinkering with magical devices. Whether a passion or a hobby, you have learned enough to repair, maintain and even create such devices in your spare time",
+							description: "",
 							mechanics: [
 								"You gain the Crafting Discipline Artificing(p282).",
 								"For specific rules on creating things refer to Craft(p280).",
@@ -2368,7 +2368,7 @@ export default {
 					advancedAbilities: {
 						cloakOfObscurity: {
 							name: "Cloak of Obscurity",
-							description: "You can slip behind a mantle of subtle darkness and become a shadow. While you're not invisible, you are definitely more difficult to notice for those not expecting you.",
+							description: "",
 							mechanics: [
 								"When covered by the Cloak you use your Insight, rather than Deftness, when making your Stealth rolls.",
 								"When your Team is Exploring using Stealthy Movement(p234), you make an independent Stealth roll.",
@@ -2509,7 +2509,7 @@ export default {
 					classAbilities: {
 						lightFooted: {
 							name: "Light Footed",
-							description: "As one might expect, you are especially nimble. You can move through terrain that impedes others and scale surfaces with a deceptive sure- footedness", 
+							description: "", 
 							mechanics: [
 								"You are unaffected by Isolated(p250) and Precarious(p251) Battlefield Conditions.",
 								"You are able to climb vertical surfaces with the slightest of foot holds without being slowed down or requiring a Check."
@@ -2517,7 +2517,7 @@ export default {
 						},
 						furtive: {
 							name: "Furtive",
-							description: "You are so used to skulking around in the shadows that you conduct yourself with a habitual stealth.",
+							description: "",
 							mechanics: [
 								"You always gain the benefit of Stealthy Movement(p234) while Exploring, even if your Team is using a different Movement Type.",
 								"You have an Edge on Stealth rolls while acting as a Scout while on a Journey(p228) or Exploring."
@@ -2525,7 +2525,7 @@ export default {
 						},
 						stickyFingers: {
 							name: "Sticky Fingers",
-							description: "While you would prefer the term 'Treasure Hunter' to Thief, you're skilled in relieving others of their possessions- even in the midst of battle.",
+							description: "",
 							mechanics: [
 								"You can attempt to take an item from an individual in the same Battlefield Area as you after perform a successful Attack, Attack Stunt, or Combat Trick on them.",
 								"The item you can acquire is limited by the following:",
@@ -2541,7 +2541,7 @@ export default {
 					standardAbilities: {
 						manyMasks: {
 							name: "Many Masks",
-							description: "You able to alter your voice and mannerisms to conceal your true identity. Very handy when you're cornered and there is no obvious escape route.",
+							description: "",
 							mechanics: [
 								"You have an Edge on all rolls involving acting out different personas to fool others, you might even be able to trick people you know if your face is covered.",
 								"You have an Edge when attempting to create Alter-Egos during Reputation Management"
@@ -2549,7 +2549,7 @@ export default {
 						},
 						kawarimi: {
 							name: "Kawarimi",
-							description: "This technique allows you to nullify an attack via a misdirection. Your opponent strikes convinced their blow has reached its target... only to discover they've hit a log wearing your hat!",
+							description: "",
 							mechanics: [
 								"If you've been hit by an Attack, you can attempt to avoid taking any Damage with Kawarimi",
 								"----",
@@ -2566,28 +2566,28 @@ export default {
 						},
 						meticulousDungeoneer: {
 							name: "Meticulous Dungeoneer",
-							description: "You have become rather good at gathering information with a mere glance even when you're in the most dangerous of places.",
+							description: "",
 							mechanics: [
 								"You able to perform the Inspect Location Action (+ p235) without prompting a roll on the Adventure Site's Encounter Table."
 							]
 						},
 						twitchy: {
 							name: "Twitchy",
-							description: "You are wired for self-preservation and have developed an almost supernatural sense of danger.",
+							description: "",
 							mechanics: [
 								"You have an odd reaction that warns you that you are about to do something dangerous without realizing it. Perhaps you sneeze before opening a trapped door, or maybe your palms itch before you sip from a poisoned goblet."
 							]
 						},
 						suddenStrikes: {
 							name: "Sudden Strikes",
-							description: "Thanks to some lessons from a choice tutor, The Ninja of the Seven Holy Isles or your sucker punching sibling, you have become pretty good at catching others off guard with your fists.",
+							description: "",
 							mechanics: [
 								"You are able to make Unarmed Attacks as if wielding a Concealed Weapon(p152)."
 							]
 						},
 						ableAlchemist: {
 							name: "Able Alchemist",
-							description: "Alchemy allows you to create a of number of useful concoctions that greatly benefit practitioners of chicanery or skulduggery.",
+							description: "",
 							mechanics: [
 								"You gain the Crafting Discipline Alchemy(p282).",
 								"For specific rules on creating items refer to Craft (p280).",
@@ -2597,7 +2597,7 @@ export default {
 						},
 						legerdemain: {
 							name: "Legerdemain",
-							description: "Developing quick fingers is something that happens naturally in your line of work, and you're happy to use them to fool or entertain.",
+							description: "",
 							mechanics: [
 								"You have an Edge on all Deftness rolls that involve:",
 								"Removing or attaching an item to someone's person without them noticing",
@@ -2607,14 +2607,14 @@ export default {
 						},
 						flanker: {
 							name: "Flanker",
-							description: "While a one on-one fights are not an attractive proposition to you, ganging up on someone certainly is.",
+							description: "",
 							mechanics: [
 								"During a Fight, you gain a Minor Bonus (+2) on your Attack rolls against opponents who are being attacked by another character in the same Turn."
 							]
 						},
 						combatOpportunist: {
 							name: "Combat Opportunist",
-							description: "You aren't the best shot or the biggest hitter - but sometimes it's all about timing.",
+							description: "",
 							mechanics: [
 								"You have an Edge on all Attack rolls made while if you've chosen to React(p258)."
 							]
@@ -2623,7 +2623,7 @@ export default {
 					advancedAbilities: {
 						stowing: {
 							name: "Stowing",
-							description: "Knowing one day you'll get caught and patted down, you've found an intimate place to conceal a small object (in your hair, mouth or.. other place). This little trick guarantees that you will never be stripped of that secret something.",
+							description: "",
 							mechanics: [
 								"You may hide a single item, no larger than 1 Inventory Slot, somewhere on your person... even if naked!",
 								"The stowed item does not take up one of your Inventory Slots.",
@@ -2633,7 +2633,7 @@ export default {
 						},
 						innerDramatics: {
 							name: "Inner Dramatics",
-							description: "Your overactive imagination is constantly scheming and assessing the odds. If Plan A looks like it ain't gonna happen, then you've already got Plan B all figured out.",
+							description: "",
 							mechanics: [
 								"You may cancel an Action you have made if you are dissatisfied with the results... it turns out you were only playing it out in your mind.",
 								"You can now choose a new Action, but it must be different from the cancelled Action.",
@@ -2642,7 +2642,7 @@ export default {
 						},
 						borrowedBlade: {
 							name: "Borrowed Blade",
-							description: "Like a rat, you are most deadly when cornered. When you find yourself encircled, by the town guard or an angry mob, you have a few manoeuvres to tip the balance back in your favor.",
+							description: "",
 							mechanics: [
 								"You can attempt to redirect a failed Attack roll against you onto another target, if they are in offending weapon's Range.",
 								"CHECK: Deftness",
@@ -2652,7 +2652,7 @@ export default {
 						},
 						charmingGrifter: {
 							name: "Charming Grifter",
-							description: "You have learned that an innocent smile and a touch of false sincerity can hide even your most outlandish fabrications.",
+							description: "",
 							mechanics: [
 								"During Negotiation you add an Edge to the Primary Negotiator's Aura Check If they are using the Honeyed Words/Outright Deceit Tactic(p240).",
 								"If your team is using another Negotiation Tactic you can offer 'total lies' as an Influencing Factor, granting a Minor Bonus (+2)."
@@ -2660,7 +2660,7 @@ export default {
 						},
 						hideInPlainSight: {
 							name: "Hide in Plain Sight",
-							description: "You can lose pursuers even when they right on top of you, it's like you just vanished into thin air.",
+							description: "",
 							mechanics: [
 								"You can attempt to hide while being observed, assuming there is room to move, somewhere to hide and/or something to provide a distraction.",
 								"NOTE: This Ability can not be used if you are being Restrained, or in an empty and well lit room.",
@@ -2671,14 +2671,14 @@ export default {
 						},
 						catsEyes: {
 							name: "Cat's Eyes",
-							description: "Darkness is your ally in all things.",
+							description: "",
 							mechanics: [
 								"You able to see, or at least sense, in total darkness without suffering a penalty."
 							]
 						},
 						desperateScurry: {
 							name: "Desperate Scurry",
-							description: "Your quick feet are jokingly referred to as your 'Ultimate Technique'",
+							description: "",
 							mechanics: [
 								"Your Speed Rating increases by a single level."
 							]
@@ -2993,7 +2993,7 @@ export default {
 						},
 						intoTheFray: {
 							name: "Into the Fray",
-							description: "You are able to vary your fighting style to suit the battle, applying caution, flair or precision when and where it is required.",
+							description: "",
 							mechanics: [
 								"Each Round during a Fight, you can choose between the following",
 								"Daring: Perform an Attack Stunt(p255) without making a wager.",
@@ -3031,7 +3031,7 @@ export default {
 						},
 						valiant: {
 							name: "Valiant",
-							description: "While all Champions possess great courage, you can laugh in the face of incomprehensible terror.",
+							description: "",
 							mechanics: [
 								"You have immunity to the Terrified Ailment(p271).",
 								"You can help allies defend against the Ailment by shouting encouraging words. Those within earshot gain an Edge on their roll to resist, or remove, the Ailment."
@@ -3120,7 +3120,7 @@ export default {
 						},
 						sentinel: {
 							name: "Sentinel",
-							description: "Being the toughest among your companions means you're happy to soak up hits for them when you can.",
+							description: "",
 							mechanics: [
 								"You can redirect any successful physical Attack on an ally, occupying the same Battlefield Area as you, onto yourself.",
 								"The original Attack roll must now beat your Defense Rating to do you harm.",
@@ -3213,7 +3213,7 @@ export default {
 						},
 						lightFooted: {
 							name: "Light Footed",
-							description: "As one might expect, you are especially nimble. You can move through terrain that impedes others and scale surfaces with a deceptive sure- footedness", 
+							description: "", 
 							mechanics: [
 								"You are unaffected by Isolated(p250) and Precarious(p251) Battlefield Conditions.",
 								"You are able to climb vertical surfaces with the slightest of foot holds without being slowed down or requiring a Check."
@@ -3275,7 +3275,7 @@ export default {
 						},
 						arcaneArtificing: {
 							name: "Arcane Artificing",
-							description: "You have whittled away many hours tinkering with magical devices. Whether a passion or a hobby, you have learned enough to repair, maintain and even create such devices in your spare time",
+							description: "",
 							mechanics: [
 								"You gain the Crafting Discipline Artificing(p282).",
 								"For specific rules on creating things refer to Craft(p280).",
@@ -3357,7 +3357,7 @@ export default {
 					advancedAbilities: {
 						cloakOfObscurity: {
 							name: "Cloak of Obscurity",
-							description: "You can slip behind a mantle of subtle darkness and become a shadow. While you're not invisible, you are definitely more difficult to notice for those not expecting you.",
+							description: "",
 							mechanics: [
 								"When covered by the Cloak you use your Insight, rather than Deftness, when making your Stealth rolls.",
 								"When your Team is Exploring using Stealthy Movement(p234), you make an independent Stealth roll.",
@@ -3498,7 +3498,7 @@ export default {
 					classAbilities: {
 						folklorist: {
 							name: "Folklorist",
-							description: "You've heard the old tales that say even the scariest monsters can be subdued with a pinch of spice or deterred by a drop of moon-plum juice. Is there something to them or are they just stories?",
+							description: "",
 							mechanics: [
 								"You may choose a consumable material (such as lantern oil or a treat) to act as a deterrent to an Unearthly Adversary.",
 								"Unearthy Adversaries include Asura, Devas, Demons, Undead, Unshaped, or any creature with 4 or more Allegiance points.",
@@ -3575,7 +3575,7 @@ export default {
 						},
 						combatCoordinated: {
 							name: "Combat Coordinated",
-							description: "You can organize a team offensive.",
+							description: "",
 							mechanics: [
 								"When you perform an Attack Assist, you target an enemy instead of an ally.",
 								"Rank 1: Any Attack rolls made on the chosen enemy during that Turn recieve a Minor Bonus (+2)",
@@ -3646,7 +3646,7 @@ export default {
 						},
 						troubleshooter: {
 							name: "Troubleshooter",
-							description: "When the proper tools aren't at hand, you can make do with the next best thing.",
+							description: "",
 							mechanics: [
 								"You can attempt an Ability Check that requires a specific tool with an improvised alternative. For example, instead of requiring a Physician's Kit to perform Healer's Hands, you might use a ripped cloak as substitute bandage.",
 								"Any Checks performed with an inferior substitute incur a Minor Penalty (-2).",
@@ -3655,7 +3655,7 @@ export default {
 						},
 						multiTasker: {
 							name: "Multi-Tasker",
-							description: "You make the most of you spare time with good scheduling and enthusiasm",
+							description: "",
 							mechanics: [
 								"You can perform two Activities during Downtime, instead of one.",
 								"NOTE: Exception! You cannot Multi-Task if you have chosen Healing an Injury."
@@ -3663,7 +3663,7 @@ export default {
 						},
 						hardcoreHardcover: {
 							name: "Hardcore Hardcover",
-							description: "A few extra spikes here a metal plate or two there, and your bulky Journey Journal is now combat ready! Cower behind it or swing at your foes,",
+							description: "",
 							mechanics: [
 								"On your combat Turn, you can use your Journal as either: a Mighty Weapon, or a Large Shield.",
 								"NOTE: Gear Allowance Restrictions don't apply when using your Journal as a piece of Combat Gear."
@@ -3671,7 +3671,7 @@ export default {
 						},
 						masterOfSpectacle: {
 							name: "Master of Spectacle",
-							description: "Your showmanship can draw a crowd.",
+							description: "",
 							mechanics: [
 								"You may attempt to gain the full attention of anyone within earshot.",
 								"If uninterrupted, they can make the spectacle last for about 10 minutes.",
@@ -4090,7 +4090,7 @@ export default {
 				blazingGarden: {
 					kinlessVagrant: {
 						name: "Kinless Vagrant",
-						description: "You are from the continent of Taaga, but you have no home there. Exiled or orphaned from family and purpose, your existence is a hard and ruthless one.",
+						description: "",
 						purviews: [
 							"Finding what you need to survive",
 							"Moving with quiet certainty",
@@ -4105,7 +4105,7 @@ export default {
 					},
 					monsterSlayer: {
 						name: "Monster Slayer",
-						description: "The gigantic beasts of your homeland leave a wake of destruction behind them. You've sworn to stop them. When you're ready you will return to honor your oath.",
+						description: "",
 						purviews: [
 							"The lore of beasts",
 							"Staying a step ahead of danger",
@@ -4120,7 +4120,7 @@ export default {
 					},
 					streetRat: {
 						name: "Street Rat",
-						description: "You've survived in the gutters of the glittering city, taking your chances and evading the law. Maybe bigger and better opportunities await outside the city's walls.",
+						description: "",
 						purviews: [
 							"Keeping quiet and staying hidden.",
 							"Death-defying acrobatics.",
@@ -4135,7 +4135,7 @@ export default {
 					},
 					thundaClan: {
 						name: "Thunda Clan Barbarian",
-						description: "Named after the deadly desert they call home, the Clan are a diverse group of nomads who'll accept anyone who pulls their weight. They've been your family up until now.",
+						description: "",
 						purviews: [
 							"Getting on with odd individuals",
 							"Enduring the harshest conditions",
@@ -4150,7 +4150,7 @@ export default {
 					},
 					beastHandler: {
 						name: "Beast Handler",
-						description: "You grew up on a ranch or farm, were you trained and domesticated large creatures. To succeed you had to become just as stubborn as the beasts you reared.",
+						description: "",
 						purviews: [
 							"Handling things larger than you.",
 							"Keeping track of a large group",
@@ -4165,7 +4165,7 @@ export default {
 					},
 					villageRunner: {
 						name: "Village Runner",
-						description: "Smaller villages do not afford the magical communication systems of prosperous cities. They depend on runners like you to relay messages.",
+						description: "",
 						purviews: [
 							"Pacing yourself to go the distance",
 							"Noticing the small things that may trip you up.",
@@ -4180,7 +4180,7 @@ export default {
 					},
 					jubilantPerformer: {
 						name: "Jubilant Performer",
-						description: "You used to dance, sing or play an instrument for the wealthy inhabitants of a busy city. You tire of the current culture and yearn to discover the forgotten songs",
+						description: "",
 						purviews: [
 							"Ballads both ancient and new",
 							"Keeping everyone smiling",
@@ -4195,7 +4195,7 @@ export default {
 					},
 					cityScrivener: {
 						name: "City Scrivener",
-						description: "Big cities need official records, and you kept the books for a respected philosopher, general, or treasurer. You've left the post, but haven't forgotten the importance of note-taking",
+						description: "",
 						purviews: [
 							"Absorbing a torrent of information",
 							"Making precise notes and sketches.",
@@ -4210,7 +4210,7 @@ export default {
 					},
 					emissaryOfSol: {
 						name: "Emissary of Sol",
-						description: "You preach the enlightened thinking of the revered masters of the Sol Alliance. You've now been given the duty to spread these teachings across the Outer World",
+						description: "",
 						purviews: [
 							"The lore of the Invincible Bright.",
 							"Grandiose speaking and mannerisms",
@@ -4225,7 +4225,7 @@ export default {
 					},
 					wyrmBlooded: {
 						name: "Wyrm Blooded",
-						description: "You are one Taaga's Lost Dragon Chosen, born on an auspicious date. Your kin met all your needs and the ritual marks on your face remind you of their hopes and expectations",
+						description: "",
 						purviews: [
 							"Bearing the weight of responsibility.",
 							"Noting and understanding hierarchies of all kinds.",
@@ -4240,7 +4240,7 @@ export default {
 					},
 					hinterlandNoble: {
 						name: "Hinterland Noble",
-						description: "No-Folk's Land is a contested area, dotted with petty warring settlements. As a child of this fringe nobility, you learned from the ruthless example of despots.",
+						description: "",
 						purviews: [
 							"Radiating quiet menace",
 							"Rough but efficient leadership",
@@ -4255,7 +4255,7 @@ export default {
 					},
 					startechAdept: {
 						name: "Startech Adept",
-						description: "Nyanko is the legacy of the Rai-Neko and the technologies they bought to Outer World. You are among the chosen expected to study and maintain these aging devices.",
+						description: "",
 						purviews: [
 							"Working with any technology.",
 							"Analysis and troubleshooting.",
@@ -4272,7 +4272,7 @@ export default {
 				buriedKingdom: {
 					tunnelCrawler: {
 						name: "Tunnel Crawler",
-						description: "You have wandered alone in the dark corridors and dank caves of the Buried Kingdoms for some time. The unusual habits you've developed can unsettle regular folk.",
+						description: "",
 						purviews: [
 							"Feeling your way through darkness.",
 							"Surviving with what's available",
@@ -4287,7 +4287,7 @@ export default {
 					},
 					ruinScavenger: {
 						name: "Ruin Scavenger",
-						description: "The sunken cities and abandoned fortresses of the Underland are filled with valuable treasure. Valuable enough that you've risked your life in order to claim it.",
+						description: "",
 						purviews: [
 							"Things left over from aeons past.",
 							"Moving through cramped areas.",
@@ -4302,7 +4302,7 @@ export default {
 					},
 					warDeserter: {
 						name: "War Deserter",
-						description: "You once fought in the war between New Ore and Old Iron, but you've lost faith in the cause. You felt risking your life was more wisely gambled on personal gain.",
+						description: "",
 						purviews: [
 							"Departing without notice",
 							"Picking away to reveal a weakness.",
@@ -4317,7 +4317,7 @@ export default {
 					},
 					mossScraper: {
 						name: "Moss Scraper",
-						description: "While not particularly hospitable, the Sea of Sludge coastline is relatively peaceful. You grew up among the resilient folk that carved out a simple existence there.",
+						description: "",
 						purviews: [
 							"Making even the repugnant palatable.",
 							"Rationing what you need.",
@@ -4332,7 +4332,7 @@ export default {
 					},
 					underlandSoldier: {
 						name: "Underland Soldier",
-						description: "You fought in the esteemed ranks of the Old Iron Guard, or the admired Liberation Army of New Ore, enduring the propaganda and danger that came with it.",
+						description: "",
 						purviews: [
 							"Rank and file conduct.",
 							"Keeping your gear maintained",
@@ -4347,7 +4347,7 @@ export default {
 					},
 					honoredLaborer: {
 						name: "Honored Laborer",
-						description: "You were employed in one of New Ore's communes digging tunnels, repairing railways, or maintaining war machines; whatever was needed.",
+						description: "",
 						purviews: [
 							"Performing back-breaking labor.",
 							"Knowing the right tool for the job",
@@ -4362,7 +4362,7 @@ export default {
 					},
 					forgeHand: {
 						name: "Forge Hand",
-						description: "Of the crafters of Old Iron, none are more honored than those who work with the very metal the nation is named after. You were an apprentice to such a master craftsman",
+						description: "",
 						purviews: [
 							"Digging in and finishing your task.",
 							"Metal working tools and weaponry",
@@ -4377,7 +4377,7 @@ export default {
 					},
 					fieldSapper: {
 						name: "Field Sapper",
-						description: "War in the Buried Kingdoms is often fought between mechanized infantry and fortified tunnels. Your job was to undermine the enemies gun emplacements, or thwart the advance of their death machines.",
+						description: "",
 						purviews: [
 							"The workings of war machines.",
 							"Getting behind enemy lines",
@@ -4392,7 +4392,7 @@ export default {
 					},
 					recordEtcher: {
 						name: "Record Etcher",
-						description: "The history of Old Iron is not kept on the delicate paper of the surface world! You etched important information onto iron sheets to ensure it for future generations.",
+						description: "",
 						purviews: [
 							"Keeping track of every little thing.",
 							"Making good on a grudge",
@@ -4407,7 +4407,7 @@ export default {
 					},
 					comradeAgitator: {
 						name: "Comrade Agitator",
-						description: "When the citizens of New Ore strayed from their daily duties it was your job to loudly remind them of the collective goals. When called for you'd exploit their guilt, fears, or anger.",
+						description: "",
 						purviews: [
 							"Working the crowd.",
 							"Making anything sound bad",
@@ -4422,7 +4422,7 @@ export default {
 					},
 					resoluteOverseer: {
 						name: "Resolute Overseer",
-						description: "The nation of Old Iron is, built on a foundation of hard graft. You were an overseer, an almost religious figure, called on to 'encourage' flagging spirits or believers.",
+						description: "",
 						purviews: [
 							"Finding the nail that needs to be hammered down.",
 							"A stern, intimidating glare",
@@ -4437,7 +4437,7 @@ export default {
 					},
 					apprenticeThinker: {
 						name: "Apprentice Thinker",
-						description: "Your unorthodox thoughts were recognized by one of the Thinkers of New Ore, who took you in as a student. You learned radical new ideas, and ways to make them sound useful,",
+						description: "",
 						purviews: [
 							"Making words sound profound",
 							"Convoluted, but useful, planning.",
@@ -4454,7 +4454,7 @@ export default {
 				twilightMeridian: {
 					disgracedScion: {
 						name: "Disgraced Scion",
-						description: "You were the heir to a premiere merchant family, but your familys fortune was lost or you were disowned. Now you survive on nothing but your bitter memories.",
+						description: "",
 						purviews: [
 							"Cunning trickery and deceit.",
 							"Desperate and dramatic escape.",
@@ -4469,7 +4469,7 @@ export default {
 					},
 					shadowSeaPirate: {
 						name: "Shadow Sea Pirate",
-						description: "Hailing from the strange isle of Night Haven, you robbed the rich merchants navigating the Shadow Sea. A series of misfortunes has left you without a ship or crew.",
+						description: "",
 						purviews: [
 							"Keeping your head above water.",
 							"Navigating the unfamiliar.",
@@ -4484,7 +4484,7 @@ export default {
 					},
 					orphanedShinobi: {
 						name: "Orphaned Shinobi",
-						description: "The Ninja Clan of the Seven Holy Isles are ruthless and secretive. You were betrayed and your clan was eliminated by the Shogun's forces. You are the soul survivor.",
+						description: "",
 						purviews: [
 							"Remaining unnoticed.",
 							"Old and strange secrets.",
@@ -4499,7 +4499,7 @@ export default {
 					},
 					oldtechJunker: {
 						name: "Oldtech Junker",
-						description: "You're love of Oldtech has matured into practical knowledge. The salvage yards of Stahlfeld are your playground; where others see trash you see treasure.",
+						description: "",
 						purviews: [
 							"Picking your way through a mess.",
 							"Side-stepping catastrophe.",
@@ -4514,7 +4514,7 @@ export default {
 					},
 					twilightSilkTailor: {
 						name: "Twilight Silk Tailor",
-						description: "The Galvanus Peninsula is well known for it's enchanted silks, and you used to weave it. You were surprised to find your skills were transferable to a life of adventure.",
+						description: "",
 						purviews: [
 							"Understanding patterns.",
 							"Extremely delicate handiwork.",
@@ -4529,7 +4529,7 @@ export default {
 					},
 					medicinePeddler: {
 						name: "Medicine Peddler",
-						description: "You were a student of medicine on the Holy Isle. You travelled from place to place peddling remedies. Sales were slow and adventuring seemed a more lucrative vocation.",
+						description: "",
 						purviews: [
 							"Practical herbology.",
 							"Treating all kinds of wounds.",
@@ -4544,7 +4544,7 @@ export default {
 					},
 					shiningSeaFisherman: {
 						name: "Shining Sea Fisherman",
-						description: "You were raised in one of the many coastal villages of the Twilight Meridian. Here you were taught to read the oceans and reap its plentiful bounty",
+						description: "",
 						purviews: [
 							"Even headed patience",
 							"Knowing when the tide is turning",
@@ -4559,7 +4559,7 @@ export default {
 					},
 					portianUniversity: {
 						name: "Portian University Graduate",
-						description: "The famed school of the Galvanus Peninsula has a focused and demanding curriculum. Many students resort to cheating due to the competitive ethos.",
+						description: "",
 						purviews: [
 							"Rushing at the last possible minute",
 							"Practical know how",
@@ -4574,7 +4574,7 @@ export default {
 					},
 					merchantScion: {
 						name: "Merchant Scion",
-						description: "You were born to one of the Galvanus Peninsula's aristocratic families, enjoying a life of plenty You have the means to seek opportunity in far off places.",
+						description: "",
 						purviews: [
 							"Getting the deal you want",
 							"Levelling a critical eye",
@@ -4589,7 +4589,7 @@ export default {
 					},
 					holyIsleSamurai: {
 						name: "Holy Isle Samurai",
-						description: "As a member of the ruling class you were expected to be a custodian of society Your kind are elite warriors, diplomats, and philosophers.",
+						description: "",
 						purviews: [
 							"Maintaining proper etiquette.",
 							"Judging merit in another.",
@@ -4604,7 +4604,7 @@ export default {
 					},
 					archiveResearcher: {
 						name: "Archive Researcher",
-						description: "You were trained, and are currently employed by, Stahlfeld's Helical Archive. You are a field agent sent to find and return ancient technology to the Archive's laboratories",
+						description: "",
 						purviews: [
 							"Investigation and analysis",
 							"Spotting the unusual",
@@ -4619,7 +4619,7 @@ export default {
 					},
 					blackGloveCavalier: {
 						name: "Black Glove Cavalier",
-						description: "You are an aspiring member of Night Haven's Black Glove order, an aristocratic organization dedicated to the Profound Darkness. You have had dealings with dark creatures and powers.",
+						description: "",
 						purviews: [
 							"All matters concerning the Profound Darkness.",
 							"Knowing things you shouldn't",
@@ -4830,7 +4830,7 @@ export default {
 				otherWorld: {
 					transient: {
 						name: "Transient",
-						description: "You never really stayed in once place for long. This strange new world doesn't feel much like home, but then again the old one didn't either. Nothin' new, huh?",
+						description: "",
 						purviews: [
 							"Scrounging for what you need",
 							"Enduring harsh conditions",
@@ -4845,7 +4845,7 @@ export default {
 					},
 					neet: {
 						name: "NEET",
-						description: "Not in Education, Employment, or Training. You're young and have your whole life ahead of you, you just aren't sure what your supposed to do with it yet.",
+						description: "",
 						purviews: [
 							"Trivia related to important persona",
 							"Finding the path of least resistance",
@@ -4860,7 +4860,7 @@ export default {
 					},
 					retail: {
 						name: "Retail / Service",
-						description: "You used to wait tables or work a cash register The new place is filled with some pretty odd characters, but it's nothing compared to the strange types you had to serve back home.",
+						description: "",
 						purviews: [
 							"Dealing with the unreasonable.",
 							"Keeping calm when in a rush",
@@ -4875,7 +4875,7 @@ export default {
 					},
 					blueCollar: {
 						name: "Blue Collar",
-						description: "You worked with your hands, doing jobs that were often unappreciated back home. Your strong work ethic and practical nature will put you in good stead here",
+						description: "",
 						purviews: [
 							"Putting your back into it.",
 							"Knowing your limits and pacing yourself.",
@@ -4890,7 +4890,7 @@ export default {
 					},
 					whiteCollar: {
 						name: "White Collar",
-						description: "Up until recently, your days were spent behind a desk. You worked a comfy, if a little dull, 9.5 routine and day dreamed about taking more risks.",
+						description: "",
 						purviews: [
 							"Keeping a deadline.",
 							"Effective multi-tasking.",
@@ -4905,7 +4905,7 @@ export default {
 					},
 					domestic: {
 						name: "Domestic",
-						description: "You cooked and cleaned as a servant. chef or stay-at home spouse. But now, without warning, you've been transported to this strange new world. You think you left the oven on!",
+						description: "",
 						purviews: [
 							"Noticing something out of place",
 							"Making others comfortable.",
@@ -4920,7 +4920,7 @@ export default {
 					},
 					miltaryLawEnforcement: {
 						name: "Military / Law Enforcement",
-						description: "Unlike most Other Worlders, you are armed and trained for combat. Yet nothing could have prepared you for the strange critters you're up against here.",
+						description: "",
 						purviews: [
 							"Quick but rigorous investigation",
 							"Practical athletics.",
@@ -4935,7 +4935,7 @@ export default {
 					},
 					educationFaculty: {
 						name: "Education (Faculty)",
-						description: "Wait a minute, you're the teacher... isn't it supposed to be the kids who end up on a silly mystical adventure!? Still. it beats grading papers",
+						description: "",
 						purviews: [
 							"Explaining complicated ideas",
 							"Critical assessment against criteria",
@@ -4950,7 +4950,7 @@ export default {
 					},
 					educationStudent: {
 						name: "Education (Student)",
-						description: "This is the sort of thing that happens in lazy, fantasy fiction. How are you going to get to class now? Still it's less stressful than preparing for those end of semester papers.",
+						description: "",
 						purviews: [
 							"Rushing at the very last minute.",
 							"Dedication to learning",
@@ -4965,7 +4965,7 @@ export default {
 					},
 					idleRich: {
 						name: "Idle Rich",
-						description: "Thanks to wealthy parents or inheritance, you've lead a luxurious lifestyle and had everything handed to you on a silver plate. So much for that.",
+						description: "",
 						purviews: [
 							"Keeping all eyes on you.",
 							"Maintaining an air of superiority, deserved or not.",
@@ -5030,7 +5030,7 @@ export default {
 				unarmed: {
 					name: "Unarmed Weapon",
 					threshold: false,
-					description: "Desperate situations sometimes call for adventurers to strike out with their bare hands",
+					description: "",
 					mechanics: [
 						"Unarmed strikes suffer a Snag on their Attack roll when directed at armed or armored enemies."
 					],
@@ -5039,7 +5039,7 @@ export default {
 				},
 				standard: {
 					name: "Standard Weapon",
-					description: "Standard Weapons are simple yet practical death dealing implements with no added frills.",
+					description: "",
 					threshold: 20,
 					mechanics: [
 						"Any Calling or Species can use Standard Weapon."
@@ -5050,7 +5050,7 @@ export default {
 				},
 				concealed: {
 					name: "Concealed Weapon",
-					description: "Concealed Weapons are usually small so that they can be hidden about your person with ease.",
+					description: "",
 					threshold: 22,
 					mechanics: [
 						"Unlike other arms, Concealed Weapons are not immediately visible.",
@@ -5064,7 +5064,7 @@ export default {
 				},
 				quick: {
 					name: "Quick Weapon",
-					description: "Quick Weapons are lighter arms that emphasize speed over power. Prized by those who prefer evasive fighting.",
+					description: "",
 					threshold: 22,
 					mechanics: [
 						"Weapon Ability, Darting Style: You gain a + 1 to your Defense Rating when using a Quick Weapon."
@@ -5074,7 +5074,7 @@ export default {
 				},
 				master: {
 					name: "Master Weapon",
-					description: "These finely crafted weapons are often difficult to use and rather expensive, as such they are favored by the warrior elite",
+					description: "",
 					threshold: 18,
 					mechanics: [
 						"Weapon Ability, Perfect Strike: You gain a +1 to your Attack rolls when using a Master Weapon."
@@ -5084,7 +5084,7 @@ export default {
 				},
 				mighty: {
 					name: "Mighty Weapon",
-					description: "These heavy weapons require both hands to use. Enjoyed by warriors who wish to quickly dispatch their enemies",
+					description: "",
 					threshold: 20,
 					mechanics: [
 						"When wielding one-handed you suffer a Minor Penalty (-2) on Attack rolls, Attack Stunts, & Combat Tricks.",
@@ -5095,7 +5095,7 @@ export default {
 				},
 				arc: {
 					name: "Arc Weapon",
-					description: "Long weapons that allow its wielder to make wide, dangerous strokes that hit several enemies at once.",
+					description: "",
 					threshold: 20,
 					mechanics: [
 						"When wielding one-handed you suffer a Minor Penalty (-2) on Attack rolls, Attack Stunts, & Combat Tricks.",
@@ -5107,7 +5107,7 @@ export default {
 				},
 				lash: {
 					name: "Lash Weapon",
-					description: "Weapons that incorporate a chain or cord, capable of reaching foes a considerable distance away.",
+					description: "",
 					threshold: 22,
 					mechanics: [
 						"Weapon Ability, Crack!: You can Attack an enemy up to 1 Battlefield Area away."
@@ -5117,7 +5117,7 @@ export default {
 				},
 				thrown: {
 					name: "Thrown Weapon",
-					description: "These small, hand-held weapons are shaped and balanced specifically for throwing. Sneaks love them.",
+					description: "",
 					threshold: 22,
 					mechanics: [
 						"Weapon Ability, Hidden Fangs: If your target isn't aware of your Thrown Weapon you may attempt to Ambush them, even when you are in plain sight.",
@@ -5131,7 +5131,7 @@ export default {
 				},
 				drawn: {
 					name: "Drawn Weapon",
-					description: "Drawn Weapons include slingshots, bows, and other projectiles that require you to manually maintain tension.",
+					description: "",
 					threshold: 20,
 					mechanics: [
 						"You must use two hands while wielding a Drawn Missile Weapon."
@@ -5143,7 +5143,7 @@ export default {
 				},
 				smallMissile: {
 					name: "Small Mechanical Missile Weapon",
-					description: "These compact marvels of engineering let you take a shot while keeping a hand free for other things.",
+					description: "",
 					threshold: 18,
 					mechanics: [
 						"You can fire these Weapons with one hand, but must load with two."
@@ -5155,7 +5155,7 @@ export default {
 				},
 				largeMissile: {
 					name: "Large Mechanical Missile Weapon",
-					description: "While more accurate than their smaller cousins, these bombastic weapons are more cumbersome to operate.",
+					description: "",
 					threshold: 18,
 					mechanics: [
 						"You must use two hands to load and fire these Weapons.",
@@ -5171,35 +5171,35 @@ export default {
 				naked: {
 					name: "Naked",
 					bonus: 0,
-					description: "If you are un-armored, either nude or wearing regular clothes, you are considered naked in combat.",
+					description: "",
 					bulk: 0,
 					cost: 0
 				},
 				light: {
 					name: "Light Armor",
 					bonus: 2,
-					description: "Armor that prioritizes speed over defensive performance, and covers only the most vital points on your body.",
+					description: "",
 					bulk: 2,
 					cost: 30
 				},
 				medium: {
 					name: "Medium Armor",
 					bonus: 4,
-					description: "Robust armor that provides good protection without heavily compromising your freedom of movement.",
+					description: "",
 					bulk: 3,
 					cost: 60
 				},
 				heavy: {
 					name: "Heavy Armor",
 					bonus: 6,
-					description: "Thick, durable armor that provides strong protection for most of your body, at the expense of combat mobility.",
+					description: "",
 					bulk: 4,
 					cost: 120
 				},
 				superHeavy: {
 					name: "Super Heavy Armor",
 					bonus: 8,
-					description: "A weighty protective shell that encases your entire body, but considerably restricts your maximum speed.",
+					description: "",
 					bulk: 5,
 					cost: 600
 				},
@@ -5208,7 +5208,7 @@ export default {
 				small: {
 					name: "Small Shield",
 					bonus: 0,
-					description: "Favored by fighters who want to use equip hands, Small Shields are worn on your arm rather than held.",
+					description: "",
 					mechanics: [
 						"You can Parry 1 Melee Attack per Fight.",
 						"You may still use both hands when equipped with a Small Shield."
@@ -5219,7 +5219,7 @@ export default {
 				medium: {
 					name: "Standard Shield",
 					bonus: 1,
-					description: "The most common shields are sturdy pieces of wood or metal that are held in place by a grip or strap along its back side.",
+					description: "",
 					mechanics: [
 						"You can Parry 1 Melee or Missile Attack per Fight. This includes spells or any special attacks that require an Attack roll.",
 						"Standard Shields require one hand to use, so they affect your ability to use two-handed weapons."
@@ -5230,7 +5230,7 @@ export default {
 				large: {
 					name: "Large Shield",
 					bonus: 2,
-					description: "Enormous bulwarks that are large enough to obscure their bearer completely. Effective but large and difficult to carry.",
+					description: "",
 					mechanics: [
 						"You can Parry 1 Melee or Missile Attack per Fight. This includes spells or any special attacks that require an Attack roll.",
 						"Large Shields require one hand to use, so they affect your ability to use two-handed weapons",
@@ -5243,7 +5243,7 @@ export default {
 			customWeaponTypes: {
 				combination: {
 					name: "Combination",
-					description: "Combination merges the benefits of two Weapon Types, making them difficult and expensive to forge.",
+					description: "",
 					mechanics: [
 						"Combination Weapons inherit the properties of their two constituent weapons in the following way:",
 						"The Weapon Abilities of both.",
@@ -5263,7 +5263,7 @@ export default {
 				},
 				shoddy: {
 					name: "Shoddy",
-					description: "Hastily and carelessly made, these weapons are easy on the purse but unreliable in battle.",
+					description: "",
 					mechanics: [
 						"These weapons are Sundered when you get an unmodified 1 or 2 on your Attack roll."
 					],
@@ -5271,7 +5271,7 @@ export default {
 				},
 				disguised: {
 					name: "Disguised",
-					description: "The weapon appears like a walking stick, jewelry, or other harmless item until carefully inspected or used.",
+					description: "",
 					mechanics: [
 						"Discerning this weapon's real function requires a mistrustful person to make a successful Insight Check."
 					],
@@ -5279,7 +5279,7 @@ export default {
 				},
 				dangerous: {
 					name: "Dangerous",
-					description: "While all weapons are inherently harmful, these weapons are made to inflict maximum damage at the expense of the wielder's safety.",
+					description: "",
 					mechanics: [
 						"NOTE: Available for Melee Weapons only.",
 						"Dangerous weapons reduce the weapon's Extra Damage value by 2.",
@@ -5289,7 +5289,7 @@ export default {
 				},
 				utility: {
 					name: "Utility",
-					description: "This allows a weapon to also function as a simple tool. For example, a Fishing Rod Spear or a Shovel Sword.",
+					description: "",
 					mechanics: [
 						"You can combine a weapon with a tool that falls under the Adventuring Gear, Common Rural Goods, Common Urban Goods, or Oddities & Luxury Items.",
 						"Utility weapons take up as many Inventory Slots as the largest of its two components.",
@@ -5299,7 +5299,7 @@ export default {
 				},
 				secretCompartment: {
 					name: "Secret Compartment",
-					description: "A small gadget, or hidden cavity, can be incorporated into the pommel, grip or guard of a weapon.",
+					description: "",
 					mechanics: [
 						"A Secret Compartment allows you to stow a small item like one dose of a consumable, a gem, or a folded treasure map.",
 						"If you opt to add a gadget, it must be small enough to be incorporated into the weapon, for example a compass on the pommel of a cutlass."
@@ -5308,7 +5308,7 @@ export default {
 				},
 				rapidFire: {
 					name: "Rapid Fire",
-					description: "Reloading Mechanical Missile weapons in the middle of combat is an onerous task. This technological advancement reduces the need to do it quite so often.",
+					description: "",
 					mechanics: [
 						"NOTE: Only available for Large and Small Mechanical Missile Weapons",
 						"Rapid Fire weapons may be fired 3 times before they need to be reloaded, which still takes a 1 Action."
@@ -5317,7 +5317,7 @@ export default {
 				},
 				specialAmmo: {
 					name: "Special Ammunition",
-					description: "Special Ammunition provides ranged weapons with more tactical options. They enable you to create distractions, signal for help, or simply do more harm.",
+					description: "",
 					mechanics: [
 						"NOTE: lable for Missile Weapons only",
 						"Fireberry Shot: These do Flame Damage instead of Mundane Damage. Your GM may also allow other types of Special Damage may also be available.",
@@ -5332,7 +5332,7 @@ export default {
 			customArmorTypes: {
 				antiHazard: {
 					name: "Anti-Hazard",
-					description: "This armor protects you from harmful gasses, magical radiation, or extreme environments. These suits are also hermetically sealed with systerns that purify the air and regulate temperature.",
+					description: "",
 					mechanics: [
 						"You are immune to the Harmful Battlefield Condition and any other dangerous environmental effects.",
 						"Also functions as Extreme Weather Clothing protecting you from both heat and cold."
@@ -5341,7 +5341,7 @@ export default {
 				},
 				bouyant: {
 					name: "Bouyant",
-					description: "Fitted with inflatable air bags, this armor prevents you from sinking in water.",
+					description: "",
 					mechanics: [
 						"You are exempt from any Checks or Contests your GM might require you to make attempting to stay afloat when wearing the armor.",
 						"Deliberately trying to submerge in the armor is problematic and requires a, Might Check."
@@ -5350,7 +5350,7 @@ export default {
 				},
 				integrated: {
 					name: "Integrated",
-					description: "This armor has a weapon or tool built into one of the arms.",
+					description: "",
 					mechanics: [
 						"A weapon or tool can be fitted to the armor's right or left arm.",
 						"Integrated items are limited to those that you could use with one hand. For example, you cannot install a Large Mechanical Missile Weapon as it requires two hands to operate.",
@@ -5362,7 +5362,7 @@ export default {
 				},
 				spiked: {
 					name: "Spiked",
-					description: "The ostentatious spikes that cover this Armor are more than decoration. The wearer is harder to grab or swallow, endearing it to titan hunters all over the Outer World.",
+					description: "",
 					mechanics: [
 						"Any creature attempting to grab, squeeze, swallow or otherwise smash against you takes 1 Heart of Damage while doing so.",
 						"Your Unarmed attacks now strike as a Standard Weapon."
@@ -5371,7 +5371,7 @@ export default {
 				},
 				cargo: {
 					name: "Cargo",
-					description: "This armor has a built in storage space in a chest or back cavity to protect valuable, or easily damaged, items.",
+					description: "",
 					mechanics: [
 						"The armor provides you with an additional 3 Inventory Slots.",
 						"Any stowed items are protected from water, fire, and other physical trauma.",
@@ -5381,7 +5381,7 @@ export default {
 				},
 				magnificent: {
 					name: "Magnificent",
-					description: "This armor is a work of art, either gilded in gems or sculpted like a fearsome beast.",
+					description: "",
 					mechanics: [
 						"This armor comes with a closed helmet, that when worn, provides you gives you an Aura of 12, or 14 for more expensive versions.",
 						"You can use your armor's Aura in place of your own for Checks and Contests where an impressive physical appearance is a factor."
@@ -5390,7 +5390,7 @@ export default {
 				},
 				shadowed: {
 					name: "Shadowed",
-					description: "This armor is engineered to avoid noisy movement, and colored to help it blend into the shadows. Heavy duty protection need not come at the expense of stealth.",
+					description: "",
 					mechanics: [
 						"This armor provides a Minor Bonus(+2) when you are:",
 						"Making rolls to hide in shadow.",
@@ -5401,7 +5401,7 @@ export default {
 				},
 				mechanical: {
 					name: "Mechanical Motion",
-					description: "A system of levers, pistons, gears, and chains allow this armor to move under it's own power. Warriors pilot these oversized suits rather than wear them.",
+					description: "",
 					mechanics: [
 						"NOTE: , Only available for Heavy and Superheavy Armor.",
 						"Despite size the usual restriction, Small Species can use Heavy and Superheavy Armor without penalty if fitted with Mechanical Motion.",
@@ -5419,7 +5419,7 @@ export default {
 			customShieldTypes: {
 				assault: {
 					name: "Assault",
-					description: "These shields are spiked, have a sharp edge, or are otherwise weaponized.",
+					description: "",
 					mechanics: [
 						"NOTE: Only available for Standard Shields",
 						"During a Fight, at the beginning of your Turn, you can choose to wield this shield as a Standard Weapon. Doing so means:",
@@ -5431,7 +5431,7 @@ export default {
 				},
 				barricade: {
 					name: "Barricade",
-					description: "Immense bulwarks that can be propped up and used as cover, Popular with wielders of ranged weapons with slow reload times.",
+					description: "",
 					mechanics: [
 						"NOTE: Only available for Large Shields",
 						"Thanks to a kickstand, or other stabilizing device, this Shield can stand on its own. You can set it down and take cover behind it.",
@@ -5449,7 +5449,7 @@ export default {
 				spirit: {
 					unhinged: {
 						name: "Unhinged",
-						description: "Inflicting grievous harm on others doesn't seem to bother you, in fact you quite enjoy it. Perhaps it was your unaffectionate mother or traumatic past event that is to blame for this unrelenting bloodlust.",
+						description: "",
 						advantages: [
 							"You gain +2 to your Attack Bonus, you are vigorously violent."
 						],
@@ -5459,7 +5459,7 @@ export default {
 					},
 					jumpy: {
 						name: "Jumpy",
-						description: "You are jittery, skittish or paranoid. This means that while you spot potential dangers sooner than most, your nervous outbursts can telegraph your approach to enemies",
+						description: "",
 						advantages: [
 							"Your Team gains an Edge on all Insight rolls related to checking for danger."
 						],
@@ -5469,7 +5469,7 @@ export default {
 					},
 					pedantic: {
 						name: "Pedantic",
-						description: "You are well read, and you make sure everyone knows it. While your extensive knowledge and attention to detail comes in handy, it can be grating for those around you. Woe betide those that fail to heed your advice, as they will suffer a healthy dose of 'I told you so'",
+						description: "",
 						advantages: [
 							"You gain an Edge on Insight rolls when attempting to research or recall information."
 						],
@@ -5479,7 +5479,7 @@ export default {
 					},
 					clearIntent: {
 						name: "Clear Intent",
-						description: "Despite attempts to hide it, your true intentions are always apparent because of your revealing body language and tone of voice. This is great when getting your point across, but it makes you a terrible liar.",
+						description: "",
 						advantages: [
 							"You can communicate simple, one sentence ideas or commands without the need to speak Helpful when you need to keep silent or are interacting with someone who doesn't speak your language"
 						],
@@ -5489,7 +5489,7 @@ export default {
 					},
 					boring: {
 						name: "Boring",
-						description: "You are unremarkable. You're difficult to notice and easy to forget, and while you may not be recognized for you successes, at least you avoid being defined by your failures",
+						description: "",
 						advantages: [
 							"An insight Check is required when someone is trying to recall if you were present at event or situation. unless you were the only one there!"
 						],
@@ -5499,7 +5499,7 @@ export default {
 					},
 					curious: {
 						name: "Curious",
-						description: "The world is a dangerous yet wondrous place and you want to see it all. Unless restrained or strenuously cautioned, you will inadvertently explore your surroundings, haphazardly poking around",
+						description: "",
 						advantages: [
 							"Whenever entering a new room or small area. you can opt to use this Quirk to immediately discover a single hidden thing, if it exists. For example, a secret door or treasure."
 						],
@@ -5509,7 +5509,7 @@ export default {
 					},
 					alwaysPrepared: {
 						name: "Always Prepared",
-						description: "You carry a plethora of unusual items with you. While everyone you travel with is pleased when you got just the right tool to hand, your vast collection can sometimes spill out at exactly the wrong moment",
+						description: "",
 						advantages: [
 							"Once per game Session, you may 'have' any single item you require. The item must be worth less than 45 Coins and be no larger than a single inventory Slot."
 						],
@@ -5519,7 +5519,7 @@ export default {
 					},
 					stylish: {
 						name: "Stylish",
-						description: "Your innate sense of style and panache means you are always on the cutting edge of fashion. Whether your attire is practical or for a special occasion, you always dress to impress",
+						description: "",
 						advantages: [
 							"You gain an Edge on Aura rolls where your appearance is a factor."
 						],
@@ -5530,7 +5530,7 @@ export default {
 					},
 					miser: {
 						name: "Miser",
-						description: "The draw of material wealth is almost overwhelming for you. Precious metals gems, works of art. and even fine clothes; you love it all. Find it, grab it, hoard it",
+						description: "",
 						advantages: [
 							"You are supernaturally aware of any concentration of valuables. Temptations range from a stockpile of gold to a walk in closet filled with exquisite garments",
 							"The valuables must have a net worth of 5 Gems and be within 300 feet for you to detect their presence.",
@@ -5542,7 +5542,7 @@ export default {
 					},
 					soulLink: {
 						name: "Soul Link",
-						description: "You are able to connect your heart and mind with another. However, when not linked to another, your supernatural empathy crowds your mind with a cacophony of ambient emotions.",
+						description: "",
 						advantages: [
 							"You may choose a single, willing person to Link with.",
 							"You must be close enough to touch someone in order to establish a Link with them.",
@@ -5557,7 +5557,7 @@ export default {
 				physical: {
 					girthsome: {
 						name: "Girthsome",
-						description: "You're a robust specimen; muscular, fat, or bulky in some way. Your ample body can soak up more punishment than most, but it also slows you down.",
+						description: "",
 						advantages: [
 							"You gain +1 to your Hearts Total",
 							"You gain + 1 to your Grit."
@@ -5568,7 +5568,7 @@ export default {
 					},
 					nearsighted: {
 						name: "Nearsighted",
-						description: "Years of staring at old books in dim light has strained your eyes As a result you are extremely well read but now you require a pair of spectacles to see properly.",
+						description: "",
 						advantages: [
 							"You start with a pair of spectacles, these do not take up one of your Inventory Slots.",
 							"You gain +1 to your insight.",
@@ -5580,7 +5580,7 @@ export default {
 					},
 					adorable: {
 						name: "Adorable",
-						description: "You are childlike, cute, or otherwise innocent looking. This makes you incredibly disarming and easy to agree with, but also considerably less threatening.",
+						description: "",
 						advantages: [
 							"You gain an Edge on Aura rolls when attempting to charm, or convince others of your relative harmlessness."
 						],
@@ -5590,7 +5590,7 @@ export default {
 					},
 					darkDemeanor: {
 						name: "Dark Demeanor",
-						description: "You carry yourself in a way that suggests nefarious intent, even if you don't harbor such thoughts. You have shifty looking eyes and probably dress in black.",
+						description: "",
 						advantages: [
 							"At first glance, wicked creatures will presume you are a potential ally."
 						],
@@ -5601,7 +5601,7 @@ export default {
 					},
 					angelicCountenance: {
 						name: "Angelic Countenance",
-						description: "A guileless smile and soothing voice project an aura of heavenly innocence. Your saintly air persists even when you harbor ill intent.",
+						description: "",
 						advantages: [
 							"At first glance, benevolent individuals will assume you are trustworthy and pass you over for blame. They are also willing to accept your more believable lies"
 						],
@@ -5612,7 +5612,7 @@ export default {
 					},
 					bigEater: {
 						name: "Big Eater",
-						description: "A fast metabolism, or a lifetime of plenty. has increased your appetite exponentially. While your grocery bill is high, your love of eating invigorates you.",
+						description: "",
 						advantages: [
 							"During a Fight you can use your Action to inhale a day's worth of Rations to restore 1 lost Heart.",
 						],
@@ -5622,7 +5622,7 @@ export default {
 					},
 					waifish: {
 						name: "Waifish",
-						description: "You are lean, scrawny, or otherwise lacking in substance. While this has made you extremely light on your feet it has, unfortunately, also made you prone to injury.",
+						description: "",
 						advantages: [
 							"Your Speed Rating is increased by a single step.",
 							"You gain +1 to your Deftness."
@@ -5633,7 +5633,7 @@ export default {
 					},
 					magitechGraft: {
 						name: "Magitech Graft",
-						description: "Severe injury usually results in hardship for survivors, but you have been fitted with a Prosthetic Replacement. Once commonplace in the 3rd Aeon, these magitech grafts are now extremely rare... lucky you!",
+						description: "",
 						advantages: [
 							"Change to one of the following Robotic Quirks:",
 							"Utility Servo",
@@ -5646,7 +5646,7 @@ export default {
 					},
 					winged: {
 						name: "Winged",
-						description: "You have large, feathered wings. While you cannot soar, you can glide or get extra lift when you jump. Some think you may be the spawn of a Deva, others the target of a wizard's practical joke.",
+						description: "",
 						advantages: [
 							"You gain Supernatural Leaping",
 							"You can glide safely down to earth from great heights without risk.",
@@ -5661,7 +5661,7 @@ export default {
 					},
 					graspingTresses: {
 						name: "Grasping Tresses",
-						description: "Your hair is extremely long and writhes like a living creature. Your prehensile locks mostly cooperate with you, but occasionally exhibit a will of their own.",
+						description: "",
 						advantages: [
 							"Your hair may act as an additional set of arms that can grab, manipulate, and attack. During a Fight your hair can:",
 							"Hold on to things to create an advantage, For example, holding a lamp in addition to your sword and shield or clinging to a ledge while you fire your bow.",
@@ -5676,7 +5676,7 @@ export default {
 				fate: {
 					survivor: {
 						name: "Survivor",
-						description: "You've suffered many trials and ordeals in the past and lived to tell the tale. You know the punishment your body can take and no longer fear physical injury as much as you should, knowing you'll be able to bounce back in no time.",
+						description: "",
 						advantages: [
 							"You heal 2 Injuries, instead of the usual 1, when you choose to Heal an injury during Downtime."
 						],
@@ -5686,7 +5686,7 @@ export default {
 					},
 					mageBreaker: {
 						name: "Mage Breaker",
-						description: "Every fibre of your soul seems to lash out and reject the magical or supernatural. This is great when shielding you from curses, but less desirable when negating blessings.",
+						description: "",
 						advantages: [
 							"Any magical Ability directed at you is nullified if you make an Aura Check, or win an Aura Contest if you're targeted by a spellcaster."
 						],
@@ -5699,7 +5699,7 @@ export default {
 					},
 					young: {
 						name: "Young",
-						description: "You are significantly younger than the average adventurer, barely in your teens. You've not had your growth spurt yet, but that's not gonna stop you!",
+						description: "",
 						advantages: [
 							"If you are a Medium or Large Species your size is reduced by one step",
 							"If you are a Small Species you gain the Adorable Quirk.",
@@ -5708,7 +5708,7 @@ export default {
 					},
 					pastInjury: {
 						name: "Past Injury",
-						description: "A traumatic incident has left you with a distinctive gash on your chest, a missing eye, or similar indelible scar. This nagging injury reminds you to be cautious.",
+						description: "",
 						advantages: [
 							"You gain +1 to your Defense Rating due to your caution",
 							"NOTE: This benefit is lost if you aren't aware of the Attack."
@@ -5720,7 +5720,7 @@ export default {
 					},
 					wearyScarred: {
 						name: "Weary (Scarred Soul)",
-						description: "You are much older than your peers, or simply worn down thanks to years of struggle or hardship. While no longer in your physical prime, your experience is useful.",
+						description: "",
 						advantages: [
 							"A scarred soul: You gain +1 to your Attack Bonus",
 							"You also possess a trusty weapon. This weapon can be of any Type, except for Combination or imbued",
@@ -5732,7 +5732,7 @@ export default {
 					},
 					wearyWalker: {
 						name: "Weary (Walker of Two Paths)",
-						description: "You are much older than your peers, or simply worn down thanks to years of struggle or hardship. While no longer in your physical prime, your experience is useful.",
+						description: "",
 						advantages: [
 							"Walker of two paths: You choose, or roll, for an additional History from your Homeland."
 						],
@@ -5742,7 +5742,7 @@ export default {
 					},
 					destined: {
 						name: "Destined",
-						description: "You are the plaything of whimsical cosmic forces. Sometimes these forces intervene to help you, other times they seek to hinder.",
+						description: "",
 						advantages: [
 							"You can grant yourself an Edge for any single roll once per game Session."
 						],
@@ -5752,7 +5752,7 @@ export default {
 					},
 					dreadOrator: {
 						name: "Dread Orator",
-						description: "You're not sure exactly how you discovered this talent, but you have the ability to question the recently dead. Sometimes their spirits have something to say.",
+						description: "",
 						advantages: [
 							"Once per day you can place your hand on a corpse that's less than a day old, and ask it two questions which it will answer truthfully."
 						],
@@ -5762,7 +5762,7 @@ export default {
 					},
 					beastTongue: {
 						name: "Beast Tongue",
-						description: "You've been able to speak with animals since you were small. Though the wildlife tends to be a bit simple minded, they can be a useful source of information.",
+						description: "",
 						advantages: [
 							"You can talk with one of the following creature categories; bird, mammal, reptile, insect, or aquatic.",
 							"Animals give simple responses and do not understand complicated concepts or vocabulary."
@@ -5774,7 +5774,7 @@ export default {
 					},
 					guardian: {
 						name: "Guardian",
-						description: "You are an overly protective type and must defend another, it could be someone you've grown up with or a random person you've latched on to. Regardless, your devotion is unequivocal.",
+						description: "",
 						advantages: [
 							"You must choose a member of your Team to be your ward, a character you've become overly protective of.",
 							"You can sense when your ward is in any kind of mortal peril.",
@@ -5788,7 +5788,7 @@ export default {
 					},
 					crowned: {
 						name: "Crowned",
-						description: "As a child you assisted a kindly Fairy, who bestowed upon you a grand title. While this prestige is entirely unrecognized among conventional nobility, and may even invite ridicule, immortals treat you with due respect. Titles include, but are not limited to: Queen of Unfinished Songs, Prince of Grass, Our Lady of Chocolate, and Eari of Lost Buttons.",
+						description: "",
 						advantages: [
 							"Your status is honored by Asura Devas, Unshaped, Elves, and other immortal entities. Usually this means little more than polite hospitality and invitations to private functions, but your GM can extend your influence beyond this."
 						],
@@ -5800,7 +5800,7 @@ export default {
 				eldritch: {
 					dreamer: {
 						name: "Dreamer",
-						description: "Your mind is often in places that do not properly exist. thinking of things that could be instead of what is. To you reality seems more flexible.",
+						description: "",
 						advantages: [
 							"Once per game Session you can propose and agree with your GM an event that gets you out of a tricky predicament. For exampie, an unexpected rock fall that cuts off your pursuers."
 						],
@@ -5810,7 +5810,7 @@ export default {
 					},
 					lyrical: {
 						name: "Lyrical",
-						description: "You speak in rhymes or verse when there is no reason to. Strangely, when your choice of words flows smoothly success seems more likely, yet stumble and ill fortune awaits.",
+						description: "",
 						advantages: [
 							"When you describe your Actions in rhyme, you gain an Edge on any required rolls, but...",
 							"You cannot repeat a rhyme you have already used and must not delay the game longer than 30 seconds when creating a rhyme."
@@ -5822,7 +5822,7 @@ export default {
 					},
 					infested: {
 						name: "Infested",
-						description: "You are crawling with insects, the residue of a slain Asura, or something equally terrible. The infestation has a vested interest in your survival and employs strange methods to ensure it.",
+						description: "",
 						advantages: [
 							"When you choose to Heal an Injury during Downtime, your 'Friends' can repair a single Injury you've sustained, including the regeneration of destroyed limbs or other mutilated body parts."
 						],
@@ -5833,7 +5833,7 @@ export default {
 					},
 					peculiarTaste: {
 						name: "Peculiar Taste",
-						description: "You have acquired, or were born with, an unusual source of nourishment. While you only need to consume a tiny portion of 'food' to survive, you'll starve just the same if you don't eat.",
+						description: "",
 						advantages: [
 							"You must choose an alternative source of nourishment. This could be a specific type of object, such as coins or buttons, or something organic but not normally eaten, like a hair or teeth.",
 							"You any need to eat a single piece. of your peculiar food per day to sustain you."
@@ -5845,7 +5845,7 @@ export default {
 					},
 					kinToFire: {
 						name: "Kin to Fire",
-						description: "The spirits within the flames speak to you in whispers that no one else can hear. You can talk back, though this makes the water spirits grow jealous and spiteful.",
+						description: "",
 						advantages: [
 							"You can converse with burning flame. Fires are not smart, but are observant.",
 							"With a successful Aura Check you can prompt flames to perform simple favors. For example, reluctantly dim or set fire to something within reach; but they won't do anything that risks them being extinguished."
@@ -5857,7 +5857,7 @@ export default {
 					},
 					fairyCap: {
 						name: "Fairy Cap",
-						description: "You have a wonderful little hat, but can't quite remember where you got it. Others think it looks a bit strange, but you like it just the way it is. You never want to take it off... ever!",
+						description: "",
 						advantages: [
 							"Most of the time your Cap sticks strangely to your head. but... occasionally, at your GM's discretion, you might need to make a Deftness Check to keep it in place!",
 							"If the Cap is dislodged fate makes sure you are able to reclaim it; but it may require a little time and effort.",
@@ -5869,7 +5869,7 @@ export default {
 					},
 					sneezles: {
 						name: "Sneezles",
-						description: "You have a non-conventional allergy that never fails to cause a brief, albeit violent sneezing fit. It's like a sort of early warning system.",
+						description: "",
 						advantages: [
 							"You can choose what causes your sneezing fits, it could be a type of creature or substance. Discuss and agree your allergen with your GM.",
 							"If you within a hundred and fifty feet of your chosen allergen, you sneeze loudly a few times and then abruptly stop."
@@ -5880,7 +5880,7 @@ export default {
 					},
 					masked: {
 						name: "Masked",
-						description: "You can change your physical appearance at will. Over the years you've taken many form, if you ever had a 'true' face, you've long forgotten it.",
+						description: "",
 						advantages: [
 							"You can alter your facial features, skin, hair, build, and sex in an instant.",
 							"You must maintain something close to your current height and weight and cannot mimic other species"
@@ -5891,7 +5891,7 @@ export default {
 					},
 					ferrous: {
 						name: "Ferrous",
-						description: "Your skin has an iron-like quality, weapons clang and spark when they strike you. Your heart is just as cold and hard. You are physical and emotional fortress",
+						description: "",
 						advantages: [
 							"Your naked Defense Rating is 14"
 						],
@@ -5903,7 +5903,7 @@ export default {
 					},
 					figmentFollower: {
 						name: "Figment Follower",
-						description: "Sometimes, when you wake up. you are accompanied by your imaginary pet. Strangely this pet seems just as real to others as it does to you.",
+						description: "",
 						advantages: [
 							"You can choose any Pet to be your Figment Follower.",
 							"Your Pet has an ethereal shimmer and speaks one of your languages",
@@ -5922,7 +5922,7 @@ export default {
 				robotic: {
 					industrialFrame: {
 						name: "Industrial Frame",
-						description: "Your robotic skeleton is made of super dense alloy, this increases your durability and strength without increasing your size, However, the extra weight does slow you.",
+						description: "",
 						advantages: [
 							"You gain +1 to your Hearts Total.",
 							"You gain + 1 to your Might."
@@ -5934,7 +5934,7 @@ export default {
 					},
 					utilityServo: {
 						name: "Utility Servo",
-						description: "Your left arm has been modified to accommodate an array of specialist tools. You've also been programmed to use them with aplomb",
+						description: "",
 						advantages: [
 							"Your left arm contains a Specialist Kit of your choice.",
 							"The Utility Servo works the same as a manual Specialist Kit, except: It does not require replenishing, and it does not take up one of your Inventory Slots.",
@@ -5946,7 +5946,7 @@ export default {
 					},
 					sproingSprockets: {
 						name: "Sproing Sprockets",
-						description: "Your thick legs house giant springs that and in large metal boots. Your incredible leaps are accompanied by a loud and distinctive 'sproing!' sound.",
+						description: "",
 						advantages: [
 							"You gain Supernatural Leaping"
 						],
@@ -5956,7 +5956,7 @@ export default {
 					},
 					translatorModule: {
 						name: "Translator Module",
-						description: "Advanced audio receptors and other forgotten linguistic technologies enable you to comprehend any spoken language. However, your mechanical speech patterns make conversations awkward.",
+						description: "",
 						advantages: [
 							"You are able to understand any audible language, including those used by beasts and ones that originate from beyond Outer World."
 						],
@@ -5966,7 +5966,7 @@ export default {
 					},
 					battleScanner: {
 						name: "Battle Scanner",
-						description: "With a quick glance you can assess the potential threat of any opponent you engage with. However, you're wired for combat which makes processing other things suboptimal.",
+						description: "",
 						advantages: [
 							"On a successful Insight Check you can ask your GM for two of the following data points about a target: Attack Bonus, Hearts Total, Defense Rating, Speed Rating, combat Abilities, tactics, or if they have any inherent weaknesses.",
 							"During a Fight, you must use your Action to perform a scan."
@@ -5977,7 +5977,7 @@ export default {
 					},
 					busterArm: {
 						name: "Buster Arm",
-						description: "One of your arms is equipped with a powerful, long range energy weapon. It draws its power from your internal energy reserves, so you need to be careful how much you use it.",
+						description: "",
 						advantages: [
 							"Your right arm has an energy canon, it is fitted in such a way that it does not inhibit your dexterity.",
 							"The canon functions like a Mechanical Missile Weapon, except: it does Bright Damage and it does not require reloading."
@@ -5990,7 +5990,7 @@ export default {
 					},
 					mascotChassis: {
 						name: "Mascot Chassis",
-						description: "Your are small and aesthetically pleasing. You were created to stand out rather than to fulfil any practical objective. You probably represented a popular brand that was prominent in Gleysian society during the 3rd Aeon.",
+						description: "",
 						advantages: [
 							"You are a Small Species",
 							"You gain the Adorable Quirk"
@@ -6001,7 +6001,7 @@ export default {
 					},
 					nanotechMaintenance: {
 						name: "Nanotech Maintenance",
-						description: "Unlike other Mechanoids, your body contains a unit of tiny mechanical cells that repair and maintain you. Unfortunately, these artificial cells won't allow you to benefit from any outside assistance.",
+						description: "",
 						advantages: [
 							"You recover from Injury in the same way as organic characters."
 						],
@@ -6011,7 +6011,7 @@ export default {
 					},
 					bioskin: {
 						name: "Bioskin",
-						description: "An organic shell surrounds and disguises, your mechanical exoskeleton. You superficially appear like a living creature, but your thoughts are undeniably synthetic.",
+						description: "",
 						advantages: [
 							"You must choose which species your Bioskin replicates: Human, Tenebrate, or Elf.",
 							"You pass for an organic creature, unless exposed to close scrutiny.",
@@ -6024,7 +6024,7 @@ export default {
 					},
 					noxVision: {
 						name: "Nox-Vision",
-						description: "You have two types of visual sensor, one that works in daylight and another which is ideal for low light or total darkness. Switching between these sensors can take a little while.",
+						description: "",
 						advantages: [
 							"During a Fight, it requires the use of your Action to switch between regular vision and Nox-Mode.",
 							"Nox-Mode makes you Immune to the Obscured Battlefield Condition if caused by darkness, smoke, or other visual obstruction. However, making out fine details can be difficult."
